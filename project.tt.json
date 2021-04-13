@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "rmms-demo",
+  "appid": "touristappid",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
