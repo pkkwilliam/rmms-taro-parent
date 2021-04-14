@@ -1,8 +1,18 @@
-const PUBLIC_COMPANY_SERVICE = "/public/v1/company"
+const PUBLIC_CATEGORY_SERVICE = "/public/v1/category";
+const PUBLIC_COMPANY_SERVICE = "/public/v1/company";
 
-export function GET_COMPANY_SERVICE(companyId) {
+// Category
+export function GET_COMPANY_CATEGORIES(companyId) {
   return {
-    url: PUBLIC_COMPANY_SERVICE,
+    url: `${PUBLIC_CATEGORY_SERVICE}?companyId=${companyId}`,
     method: "GET",
-  }
+  };
+}
+
+// Company
+export function GET_COMPANY(companyId) {
+  return {
+    url: `${PUBLIC_COMPANY_SERVICE}?companyId=${companyId}`,
+    method: "GET",
+  };
 }
