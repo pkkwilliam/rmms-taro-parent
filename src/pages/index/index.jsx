@@ -1,7 +1,8 @@
-import { Button, View, Text } from "@tarojs/components";
+import { View, Text } from "@tarojs/components";
 import ApplicationComponent from "../../common/applicationComponent";
 import { GET_COMPANY } from "../../service/service";
-
+import { AtButton } from "taro-ui";
+import "taro-ui/dist/style/index.scss";
 import "./index.scss";
 
 export default class Index extends ApplicationComponent {
@@ -55,7 +56,10 @@ export default class Index extends ApplicationComponent {
       <View className="index">
         <Text>Now We can start</Text>
         <Text>{this.state.buttonText}</Text>
-        <Button
+        <AtButton loading type="primary">
+          按钮文案
+        </AtButton>
+        <AtButton
           onClick={() =>
             this.setState({
               buttonText: "YOLOMsdfasdfAN",
@@ -63,7 +67,7 @@ export default class Index extends ApplicationComponent {
           }
         >
           Crazy Button
-        </Button>
+        </AtButton>
       </View>
     );
   }

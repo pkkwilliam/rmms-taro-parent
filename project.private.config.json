@@ -17,6 +17,12 @@
           "pathName": "pages/index/index",
           "query": "companyId=1&storeId=10&roomId=113",
           "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "companyId=1",
+          "scene": null
         }
       ]
     }

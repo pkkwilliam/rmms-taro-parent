@@ -1,5 +1,5 @@
 const config = {
-  projectName: "rmms-demo",
+  projectName: "rmms-taro-parent",
   date: "2021-4-12",
   designWidth: 750,
   deviceRatio: {
@@ -40,7 +40,7 @@ const config = {
   h5: {
     publicPath: "/",
     staticDirectory: "static",
-    // esnextModules: ["taro-ui"],
+    esnextModules: ["taro-ui"],
     postcss: {
       autoprefixer: {
         enable: true,

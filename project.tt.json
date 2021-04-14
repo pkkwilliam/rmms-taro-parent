@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "rmms-demo",
+  "projectname": "rmms-taro-parent",
   "appid": "touristappid",
   "setting": {
     "es6": false,
