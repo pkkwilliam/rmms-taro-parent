@@ -1,26 +1,36 @@
 import { View } from "@tarojs/components";
 import ApplicationComponent from "../../common/applicationComponent";
 import CategoryView from "./category.view";
-import { GET_COMPANY_CATEGORIES } from "../../service/service";
 
 export default class Category extends ApplicationComponent {
-  componentDidMount() {
-    this.getCategory(this.appState.company.id);
+  state = {
+    currentCategoryId: 0,
+  };
+
+  async componentDidMount() {
+    this.appStateService.getCategories(this.appState.company.id).then(() => {
+      const firstCategory = this.appState.category.categories[0];
+      this.appStateService.getItems(
+        this.appState.companyId.id,
+        firstCategory.id
+      );
+    });
   }
 
   render() {
+    const { category, item } = this.appState;
     return (
       <View>
-        <CategoryView categories={this.appState.category.categories} />
+        <CategoryView
+          categories={category.categories}
+          // items={item.items[currentCategoryId]}
+          onClickCategory={this.onClickCategory}
+        />
       </View>
     );
   }
 
-  getCategory(companyId) {
-    if (this.appState.category.dirty) {
-      this.serviceExecutor
-        .execute(GET_COMPANY_CATEGORIES(companyId))
-        .then((categories) => this.appState.category.setCategories(categories));
-    }
-  }
+  onClickCategory = (category) => {
+    this.appStateService.getItems(this.appState.company.id, category.id);
+  };
 }

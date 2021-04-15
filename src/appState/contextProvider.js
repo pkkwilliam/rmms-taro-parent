@@ -12,10 +12,11 @@ export default class RmmsAppState extends Component {
       dirty: true,
       id: 0,
     },
+    item: { items: [] },
   };
 
   AppStateWrapper = ({ children }) => {
-    const { category, company } = this.state;
+    const { category, company, item } = this.state;
     return (
       <RmmsContext.Provider
         value={{
@@ -26,6 +27,10 @@ export default class RmmsAppState extends Component {
           company: {
             ...company,
             setCompany: this.setCompany,
+          },
+          item: {
+            ...item,
+            setItems: this.setItems,
           },
         }}
       >
@@ -48,6 +53,17 @@ export default class RmmsAppState extends Component {
       company: {
         ...company,
         dirty: false,
+      },
+    }));
+  };
+
+  setItems = (categoryId, item) => {
+    let stateItems = this.state.item.items;
+    stateItems[categoryId] = item;
+    this.setState((state) => ({
+      item: {
+        ...state.item,
+        items: stateItems,
       },
     }));
   };

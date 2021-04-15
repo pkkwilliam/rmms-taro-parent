@@ -38,7 +38,11 @@ export default class Index extends ApplicationComponent {
         }); //重新登录
       },
     });
-    this.getCompany(companyId);
+    this.appStateService.getCompany(companyId).then((result) => {
+      wx.setNavigationBarTitle({
+        title: this.appState.company.name,
+      });
+    });
   }
 
   componentWillMount() {}
@@ -70,17 +74,5 @@ export default class Index extends ApplicationComponent {
         </AtButton>
       </View>
     );
-  }
-
-  getCompany(companyId) {
-    if (this.appState.company.dirty) {
-      this.serviceExecutor.execute(GET_COMPANY(companyId)).then((result) => {
-        this.appState.company.setCompany(result);
-        // set title of the page after the company name is retreive
-        wx.setNavigationBarTitle({
-          title: this.appState.company.name,
-        });
-      });
-    }
   }
 }
