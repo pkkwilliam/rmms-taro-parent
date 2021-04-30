@@ -1,38 +1,121 @@
-import { View, Text } from "@tarojs/components";
-import { AtSearchBar } from "taro-ui";
-import { AtList, AtListItem } from "taro-ui";
+import { Image } from "@tarojs/components";
+import { AtTabs, AtTabsPane, AtSearchBar, AtSegmentedControl } from "taro-ui";
+import "./category.scss";
+import H3 from "../../common/text/h3";
+import Info from "../../common/text/info";
+import FlexView from "../../common/flexView";
+import ApplicationTag from "../../common/applicationTag";
 
 export default function CategoryView(props) {
   return (
-    <View>
+    <FlexView>
       <AtSearchBar />
-      <View className="at-row">
-        <View>
-          <CategoryList {...props} />
-        </View>
-        <View className="at-col">
-          <CateegoryItems {...props} />
-        </View>
-      </View>
-    </View>
+      <FlexView style={{ marginLeft: 5, marginRight: 5 }}>
+        <TopSegment {...props} />
+      </FlexView>
+
+      <FlexView style={{ marginTop: 5 }}>
+        <CategoryNav {...props} />
+      </FlexView>
+    </FlexView>
   );
 }
 
-function CategoryList(props) {
-  const { categories, onClickCategory } = props;
-  const CategoriesListItems = categories.map((category) => {
-    const { id, name } = category;
-    return (
-      <AtListItem
-        hasBorder={false}
-        onClick={() => onClickCategory(category)}
-        title={name}
-      />
+export function CategoryNav(props) {
+  const { currentCategoryIndex, categories, onClickCategory } = props;
+  const prepareTabList = (categories) => {
+    categories = categories.sort(
+      (category1, category2) => category1.sequence - category2.sequence
     );
-  });
-  return <AtList hasBorder={false}>{CategoriesListItems}</AtList>;
+    return categories.map((category) => ({ title: category.name }));
+  };
+  return (
+    <AtTabs
+      current={currentCategoryIndex}
+      height="600px"
+      onClick={onClickCategory}
+      scroll
+      tabDirection="vertical"
+      tabList={prepareTabList(categories)}
+    >
+      <TabsPaneContainer {...props} />
+    </AtTabs>
+  );
 }
 
-function CateegoryItems(props) {
-  return <Text>hello</Text>;
+export function TabsPaneContainer(props) {
+  const { currentCategoryIndex, categoriesItems, onClickItem } = props;
+  return categoriesItems.map((categoryItems, index) => {
+    return (
+      <AtTabsPane
+        current={currentCategoryIndex}
+        key={"TabsPaneContainer" + index}
+        tabDirection="vertical"
+        index={index}
+      >
+        <ItemList items={categoryItems} onClickItem={onClickItem} />
+      </AtTabsPane>
+    );
+  });
+}
+
+export function ItemList(props) {
+  const { items, onClickItem } = props;
+  const ItemCards = sortSequence(items).map((item, index) => {
+    const {
+      address,
+      area,
+      cost,
+      description,
+      imageUrls,
+      listingType,
+      livingRoom,
+      name,
+      restroom,
+      room,
+    } = item;
+    return (
+      <FlexView
+        key={ItemList + index}
+        onClick={() => onClickItem(item)}
+        style={{ alignItem: "center", flexDirection: "row", marginBottom: 15 }}
+      >
+        <Image src={imageUrls[0]} style={{ height: 75, width: 75 }} />
+        <FlexView style={{ marginLeft: 15, maxWidth: 200 }}>
+          <FlexView style={{ flexDirection: "row", alignItems: "center" }}>
+            <ListingTypeTag listingType={listingType} />
+            <H3>{name}</H3>
+          </FlexView>
+          <Info>{`${area}平方呎 ${room}房${livingRoom}廳`}</Info>
+          <Info>{address}</Info>
+        </FlexView>
+      </FlexView>
+    );
+  });
+  return <>{ItemCards}</>;
+}
+
+export function ListingTypeTag({ listingType }) {
+  return (
+    <ApplicationTag color={listingType === "RENT" ? "blue" : "green"}>
+      {listingType === "RENT" ? "出租" : "出售"}
+    </ApplicationTag>
+  );
+}
+
+export function sortSequence(objects) {
+  return objects.sort(
+    (object1, object2) => object1.sequence - object2.sequence
+  );
+}
+
+export function TopSegment(props) {
+  const { currentSegmentTypeIndex, onChangeSegmentType } = props;
+  return (
+    <AtSegmentedControl
+      values={["出租", "買賣"]}
+      onClick={onChangeSegmentType}
+      current={currentSegmentTypeIndex}
+    />
+  );
 }

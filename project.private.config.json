@@ -21,7 +21,7 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "companyId=1",
+          "query": "companyId=122",
           "scene": null
         }
       ]

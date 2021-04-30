@@ -1,9 +1,9 @@
 import { View, Text } from "@tarojs/components";
 import ApplicationComponent from "../../common/applicationComponent";
-import { GET_COMPANY } from "../../service/service";
 import { AtButton } from "taro-ui";
 import "taro-ui/dist/style/index.scss";
 import "./index.scss";
+import LandingPage from "../landingPage/landingPage";
 
 export default class Index extends ApplicationComponent {
   state = {
@@ -11,39 +11,41 @@ export default class Index extends ApplicationComponent {
     company: { companyName: undefined },
   };
 
-  onLoad(options) {
-    const { companyId } = options;
-    // get user info
-    wx.getUserInfo({
-      desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res);
-      },
-    });
-    wx.checkSession({
-      success() {
-        //session_key 未过期，并且在本生命周期一直有效
-        console.log("good");
-      },
-      fail() {
-        // session_key 已经失效，需要重新执行登录流程
-        console.log("bad");
-        wx.login({
-          success(result) {
-            console.log("result", result);
-          },
-          fail() {
-            console.log("bb");
-          },
-        }); //重新登录
-      },
-    });
-    this.appStateService.getCompany(companyId).then((result) => {
-      wx.setNavigationBarTitle({
-        title: this.appState.company.name,
-      });
-    });
-  }
+  // onLoad(options) {
+  //   const { companyId } = options;
+  //   // get user info
+  //   wx.getUserInfo({
+  //     desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+  //     success: (res) => {
+  //       console.log(res);
+  //     },
+  //   });
+  //   wx.checkSession({
+  //     success() {
+  //       //session_key 未过期，并且在本生命周期一直有效
+  //       console.log("good");
+  //     },
+  //     fail() {
+  //       // session_key 已经失效，需要重新执行登录流程
+  //       console.log("bad");
+  //       wx.login({
+  //         success(result) {
+  //           console.log("result", result);
+  //         },
+  //         fail() {
+  //           console.log("bb");
+  //         },
+  //       }); //重新登录
+  //     },
+  //   });
+  //   this.appStateService.getCompany(companyId).then((result) => {
+  //     wx.setNavigationBarTitle({
+  //       title: this.appState.company.name,
+  //     });
+  //   });
+
+  //   this.appStateService.getCompanyCustomise(companyId);
+  // }
 
   componentWillMount() {}
 
@@ -58,20 +60,7 @@ export default class Index extends ApplicationComponent {
   render() {
     return (
       <View className="index">
-        <Text>Now We can start</Text>
-        <Text>{this.state.buttonText}</Text>
-        <AtButton loading type="primary">
-          按钮文案
-        </AtButton>
-        <AtButton
-          onClick={() =>
-            this.setState({
-              buttonText: "YOLOMsdfasdfAN",
-            })
-          }
-        >
-          Crazy Button
-        </AtButton>
+        <LandingPage {...this.props} />
       </View>
     );
   }

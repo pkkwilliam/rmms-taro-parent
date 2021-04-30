@@ -12,11 +12,31 @@ export default class RmmsAppState extends Component {
       dirty: true,
       id: 0,
     },
-    item: { items: [] },
+    companyCustomise: {
+      dirty: true,
+      landingPage: {
+        banners: [],
+        bottomList: [],
+        carousel: [],
+        mainMenuButtons: [],
+      },
+      style: { primary: "", secondary: "" },
+    },
+    item: { dirty: true, items: [] },
+    shortTermMemory: {
+      currentCategoryId: 0,
+      currentSegmentTypeIndex: 0,
+    },
   };
 
   AppStateWrapper = ({ children }) => {
-    const { category, company, item } = this.state;
+    const {
+      category,
+      company,
+      companyCustomise,
+      item,
+      shortTermMemory,
+    } = this.state;
     return (
       <RmmsContext.Provider
         value={{
@@ -28,9 +48,17 @@ export default class RmmsAppState extends Component {
             ...company,
             setCompany: this.setCompany,
           },
+          companyCustomise: {
+            ...companyCustomise,
+            setCompanyCustomise: this.setCompanyCustomise,
+          },
           item: {
             ...item,
             setItems: this.setItems,
+          },
+          shortTermMemory: {
+            ...shortTermMemory,
+            setShortTermMemory: this.setShortTermMemory,
           },
         }}
       >
@@ -42,6 +70,7 @@ export default class RmmsAppState extends Component {
   setCategories = (categories) => {
     this.setState((state) => ({
       category: {
+        ...state.category,
         categories,
         dirty: false,
       },
@@ -57,14 +86,36 @@ export default class RmmsAppState extends Component {
     }));
   };
 
-  setItems = (categoryId, item) => {
-    let stateItems = this.state.item.items;
-    stateItems[categoryId] = item;
+  setCompanyCustomise = (companyCustomise) => {
     this.setState((state) => ({
-      item: {
-        ...state.item,
-        items: stateItems,
+      companyCustomise: {
+        ...companyCustomise,
+        dirty: false,
       },
     }));
+  };
+
+  setItems = (items) => {
+    this.setState({
+      item: {
+        dirty: false,
+        items,
+      },
+    });
+  };
+
+  setItems = (items) => {
+    this.setState({
+      item: {
+        dirty: false,
+        items,
+      },
+    });
+  };
+
+  setShortTermMemory = (shortTermMemory) => {
+    this.setState({
+      shortTermMemory,
+    });
   };
 }
