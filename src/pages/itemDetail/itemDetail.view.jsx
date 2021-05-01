@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { ScrollView } from "@tarojs/components";
 import { AtTextarea, AtDivider, AtIcon, AtInput, AtFloatLayout } from "taro-ui";
 import { CardContent } from "../landingPage/landingPage.view";
@@ -85,7 +85,7 @@ export function Content(props) {
 
 export function Description({ description }) {
   return (
-    <>
+    <Fragment>
       <FlexView
         style={{ alignItems: "center", flexDirection: "row", marginTop: 5 }}
       >
@@ -95,7 +95,7 @@ export function Description({ description }) {
       <FlexView style={{ marginTop: 15 }}>
         <H3 style={{ lineHeight: "38px" }}>{description}</H3>
       </FlexView>
-    </>
+    </Fragment>
   );
 }
 
@@ -140,7 +140,7 @@ export function ItemAbstractHeader({ header, icon, iconColor, label }) {
 export function ItemAbstractHeaders(props) {
   const { area, cost, livingRoom, restRoom, room } = props;
   return (
-    <>
+    <Fragment>
       <AtDivider height={60} />
       <FlexView
         style={{ flexDirection: "row", justifyContent: "space-around" }}
@@ -164,7 +164,7 @@ export function ItemAbstractHeaders(props) {
           label="面積"
         />
       </FlexView>
-    </>
+    </Fragment>
   );
 }
 

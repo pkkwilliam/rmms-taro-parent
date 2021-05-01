@@ -115,6 +115,7 @@ export function CategoryListing({
       return false;
     })
     .map((item, index) => {
+      const { name } = item;
       return (
         <FlexView
           key={"CategoryListing" + index}
@@ -125,13 +126,17 @@ export function CategoryListing({
             src={item.imageUrls[0]}
             style={{ borderRadius: 10, height: 200, width: 200 }}
           />
-          <Info>{item?.name ?? ""}</Info>
+          <Info>{name ? name : ""}</Info>
         </FlexView>
       );
     });
+  let name = "";
+  if (displayCategory) {
+    name = displayCategory.name;
+  }
   return (
     <FlexView>
-      <H2>{displayCategory?.name ?? "分類"}</H2>
+      <H2>{name ? name : "分類"}</H2>
       <ScrollView scrollX scrollWithAnimation>
         <FlexView style={{ display: "flex", flexDirection: "row" }}>
           {itemsCard}

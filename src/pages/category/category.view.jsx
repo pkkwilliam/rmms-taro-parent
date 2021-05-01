@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Image } from "@tarojs/components";
 import { AtTabs, AtTabsPane, AtSearchBar, AtSegmentedControl } from "taro-ui";
 import "./category.scss";
@@ -100,7 +101,7 @@ export function ItemList(props) {
       </FlexView>
     );
   });
-  return <>{ItemCards}</>;
+  return <Fragment>{ItemCards}</Fragment>;
 }
 
 export function ListingTypeTag({ listingType }) {
