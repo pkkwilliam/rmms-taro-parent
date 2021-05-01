@@ -6,6 +6,7 @@ export default class ItemDetail extends ApplicationComponent {
   state = {
     ...this.state,
     itemDetail: { imageUrls: [] },
+    showAgency: false,
   };
 
   componentDidMount() {
@@ -15,7 +16,12 @@ export default class ItemDetail extends ApplicationComponent {
   }
 
   render() {
-    return <ItemDetailView {...this.state} />;
+    return (
+      <ItemDetailView
+        toggleShowAgency={this.toggleShowAgency}
+        {...this.state}
+      />
+    );
   }
 
   getLocalItemDetail(companyId, itemId) {
@@ -37,4 +43,10 @@ export default class ItemDetail extends ApplicationComponent {
         })
       );
   }
+
+  toggleShowAgency = () => {
+    this.setState((state) => ({
+      showAgency: !state.showAgency,
+    }));
+  };
 }

@@ -1,27 +1,36 @@
-import ApplicationComponentView from "../../common/applicationComponent.view";
+import { useState } from "react";
+import { ScrollView } from "@tarojs/components";
+import { AtTextarea, AtDivider, AtIcon, AtInput, AtFloatLayout } from "taro-ui";
+import { CardContent } from "../landingPage/landingPage.view";
+import { ListingTypeTag } from "../category/category.view";
 import ImageCarousel from "../../common/imageCarousel";
 import H1 from "../../common/text/h1";
 import H3 from "../../common/text/h3";
 import P from "../../common/text/paragraph";
 import FlexView from "../../common/flexView";
 import ApplicationTag from "../../common/applicationTag";
-import { CardContent } from "../landingPage/landingPage.view";
-import { ListingTypeTag } from "../category/category.view";
 import H2 from "../../common/text/h2";
-import { AtDivider, AtIcon, AtTag } from "taro-ui";
+import ApplicationButton from "../../common/applicationButton";
+import Info from "../../common/text/info";
+import ApplicationComponentView from "../../common/applicationComponent.view";
 
 import "./itemDetail.scss";
-import ApplicationButton from "../../common/applicationButton";
-import { ScrollView } from "@tarojs/components";
-import Info from "../../common/text/info";
 
 export default class ItemDetailView extends ApplicationComponentView {
   render() {
-    const { itemDetail } = this.props;
+    const { itemDetail, showAgency, toggleShowAgency } = this.props;
+    const { id, listingType, name } = itemDetail;
     return (
       <this.Wrapper>
         <ImageCarousel imageUrls={itemDetail.imageUrls} />
-        <Content {...itemDetail} />
+        <Content toggleShowAgency={toggleShowAgency} {...itemDetail} />
+        <ContactAgent
+          id={id}
+          listingType={listingType}
+          name={name}
+          showAgency={showAgency}
+          toggleShowAgency={toggleShowAgency}
+        />
       </this.Wrapper>
     );
   }
@@ -35,9 +44,11 @@ export function Content(props) {
     categories = [],
     cost,
     description,
+    id,
     listingType,
     name,
     style,
+    toggleShowAgency,
   } = props;
   const tags = categories.map((category, index) => (
     <ApplicationTag
@@ -51,11 +62,8 @@ export function Content(props) {
   return (
     <CardContent style={{ height: "100%", justifyContent: "space-between" }}>
       <FlexView>
-        <FlexView
-          style={{ alignItems: "center", flexDirection: "row", marginTop: 20 }}
-        >
-          <ListingTypeTag listingType={listingType} />
-          <H1>{name}</H1>
+        <FlexView style={{ marginTop: 20 }}>
+          <ItemHeader id={id} listingType={listingType} name={name} />
         </FlexView>
         <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
         <Info style={{ marginTop: 5 }}>{address}</Info>
@@ -67,7 +75,9 @@ export function Content(props) {
         </ScrollView>
       </FlexView>
       <FlexView style={{ marginBottom: 25 }}>
-        <ApplicationButton block>預約睇樓</ApplicationButton>
+        <ApplicationButton block onClick={toggleShowAgency}>
+          預約睇樓
+        </ApplicationButton>
       </FlexView>
     </CardContent>
   );
@@ -86,6 +96,30 @@ export function Description({ description }) {
         <H3 style={{ lineHeight: "38px" }}>{description}</H3>
       </FlexView>
     </>
+  );
+}
+
+export function ItemHeader(props) {
+  const { id, listingType, name } = props;
+  return (
+    <FlexView
+      style={{
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
+    >
+      <FlexView
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <ListingTypeTag listingType={listingType} />
+        <H1>{name}</H1>
+      </FlexView>
+      <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
+    </FlexView>
   );
 }
 
@@ -115,21 +149,56 @@ export function ItemAbstractHeaders(props) {
           header={parseInt(cost).toLocaleString()}
           icon="money"
           iconColor="#85BB65"
-          label={"價格"}
+          label="價格"
         />
         <ItemAbstractHeader
           header={`${room}房${livingRoom}廳`}
           icon="numbered-list"
           iconColor="#d7471d"
-          label={"佈局"}
+          label="佈局"
         />
         <ItemAbstractHeader
           header={`${area}平方呎`}
           icon="home"
           iconColor="#007AFF"
-          label={"面積"}
+          label="面積"
         />
       </FlexView>
     </>
+  );
+}
+
+export function ContactAgent({
+  id,
+  listingType,
+  name,
+  showAgency,
+  toggleShowAgency,
+}) {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  return (
+    <AtFloatLayout
+      isOpened={showAgency}
+      title="預約睇樓"
+      onClose={toggleShowAgency}
+    >
+      <ItemHeader id={id} listingType={listingType} name={name} />
+      <AtInput
+        customStyle={{ marginLeft: 0, marginTop: 15 }}
+        onChange={(value) => setPhoneNumber(value)}
+        placeholder="請輸入你的電話號碼"
+        title="電話號碼"
+        value={phoneNumber}
+      />
+      <AtTextarea
+        count={false}
+        customStyle={{ color: "#5F5F5F", marginTop: 15 }}
+        disabled
+        value={`你好，我想預約關於${id}:${name}，我的電話:${phoneNumber}`}
+      />
+      <ApplicationButton style={{ marginBottom: 15, marginTop: 30 }}>
+        通知中介
+      </ApplicationButton>
+    </AtFloatLayout>
   );
 }

@@ -20,7 +20,6 @@ export default class ApplicationTag extends ApplicationComponentView {
     const { children, color, style } = this.props;
     return (
       <AtTag
-        circle
         customStyle={{
           padding: 0,
           width: "max-content",

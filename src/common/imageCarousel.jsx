@@ -1,5 +1,5 @@
-import ApplicationComponentView from "./applicationComponent.view";
 import { Image, Swiper, SwiperItem } from "@tarojs/components";
+import ApplicationComponentView from "./applicationComponent.view";
 
 export default class ImageCarousel extends ApplicationComponentView {
   render() {

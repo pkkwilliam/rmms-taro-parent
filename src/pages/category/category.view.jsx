@@ -80,11 +80,19 @@ export function ItemList(props) {
         onClick={() => onClickItem(item)}
         style={{ alignItem: "center", flexDirection: "row", marginBottom: 15 }}
       >
-        <Image src={imageUrls[0]} style={{ height: 75, width: 75 }} />
+        <Image
+          src={imageUrls[0]}
+          style={{ borderRadius: 5, height: 75, width: 75 }}
+        />
         <FlexView style={{ marginLeft: 15, maxWidth: 200 }}>
-          <FlexView style={{ flexDirection: "row", alignItems: "center" }}>
+          <FlexView
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
             <ListingTypeTag listingType={listingType} />
-            <H3>{name}</H3>
+            <H3 style={{ marginLeft: 8 }}>{name}</H3>
           </FlexView>
           <Info>{`${area}平方呎 ${room}房${livingRoom}廳`}</Info>
           <Info>{address}</Info>

@@ -7,13 +7,6 @@ import Info from "../../common/text/info";
 import H2 from "../../common/text/h2";
 import FlexView from "../../common/flexView";
 
-const LANDING_PAGE_MENU_BUTTON = [
-  { action: "CATEGORY_BUY", label: "買賣", color: "PINK" },
-  { action: "CATEGORY_RENT", label: "出租", color: "" },
-  { action: "CATEGORY_NEW", label: "新盤", color: "" },
-  { action: "CATEGORY_CHEAP", label: "最熱", color: "" },
-];
-
 export default class LandingPageView extends ApplicationComponentView {
   render() {
     const {
