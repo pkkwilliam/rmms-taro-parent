@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _taroUi = require("taro-ui");
 
 var _applicationComponent = require("./applicationComponent");
@@ -44,10 +48,10 @@ var ApplicationComponentView = function (_ApplicationComponent) {
       var children = _ref2.children;
       var modal = _this.props.modal;
 
-      return React.createElement(
+      return _react2.default.createElement(
         _flexView2.default,
         { style: { height: "100vh" } },
-        React.createElement(ErrorModal, modal),
+        _react2.default.createElement(ErrorModal, modal),
         children
       );
     }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -75,7 +79,7 @@ exports.default = ApplicationComponentView;
 function ErrorModal(props) {
   var isOpen = props.isOpen;
 
-  return React.createElement(_taroUi.AtModal, {
+  return _react2.default.createElement(_taroUi.AtModal, {
     isOpen: isOpen,
     title: "\u6807\u9898",
     cancelText: "\u53D6\u6D88",

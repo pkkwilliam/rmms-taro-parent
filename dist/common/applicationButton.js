@@ -8,6 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _taroUi = require("taro-ui");
 
 var _applicationComponent = require("./applicationComponent.view");
@@ -45,7 +49,7 @@ var ApplicationButton = function (_ApplicationComponent) {
           primary = _appStyle.primary,
           secondary = _appStyle.secondary;
 
-      return React.createElement(
+      return _react2.default.createElement(
         _taroUi.AtButton,
         _extends({
           circle: true,
@@ -57,7 +61,7 @@ var ApplicationButton = function (_ApplicationComponent) {
             width: "100%"
           }, style)
         }, this.props),
-        React.createElement(
+        _react2.default.createElement(
           _h2.default,
           { style: { color: "white" } },
           children

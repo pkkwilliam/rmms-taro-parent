@@ -1,3 +1,4 @@
+import React from "react";
 import { AtButton } from "taro-ui";
 import ApplicationComponentView from "./applicationComponent.view";
 import H2 from "./text/h2";

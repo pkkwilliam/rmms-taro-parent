@@ -1,3 +1,4 @@
+import Taro from "@tarojs/taro";
 import { Image, Swiper, SwiperItem } from "@tarojs/components";
 import ApplicationComponentView from "./applicationComponent.view";
 

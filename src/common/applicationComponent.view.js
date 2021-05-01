@@ -1,3 +1,4 @@
+import React from "react";
 import { AtModal } from "taro-ui";
 import ApplicationComponent from "./applicationComponent";
 import { RmmsContext } from "../appState/contextProvider";
