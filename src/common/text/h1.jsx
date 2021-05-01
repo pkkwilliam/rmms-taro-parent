@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import React from "react";
 import P from "./paragraph";
 export default class H1 extends P {
   getColor() {

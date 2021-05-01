@@ -13,6 +13,8 @@ exports.TopSegment = TopSegment;
 
 var _react = require("react");
 
+var _react2 = _interopRequireDefault(_react);
+
 var _components = require("@tarojs/components");
 
 var _taroUi = require("taro-ui");
@@ -38,19 +40,19 @@ var _applicationTag2 = _interopRequireDefault(_applicationTag);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function CategoryView(props) {
-  return React.createElement(
+  return _react2.default.createElement(
     _flexView2.default,
     null,
-    React.createElement(_taroUi.AtSearchBar, null),
-    React.createElement(
+    _react2.default.createElement(_taroUi.AtSearchBar, null),
+    _react2.default.createElement(
       _flexView2.default,
       { style: { marginLeft: 5, marginRight: 5 } },
-      React.createElement(TopSegment, props)
+      _react2.default.createElement(TopSegment, props)
     ),
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       { style: { marginTop: 5 } },
-      React.createElement(CategoryNav, props)
+      _react2.default.createElement(CategoryNav, props)
     )
   );
 }
@@ -68,7 +70,7 @@ function CategoryNav(props) {
       return { title: category.name };
     });
   };
-  return React.createElement(
+  return _react2.default.createElement(
     _taroUi.AtTabs,
     {
       current: currentCategoryIndex,
@@ -78,7 +80,7 @@ function CategoryNav(props) {
       tabDirection: "vertical",
       tabList: prepareTabList(categories)
     },
-    React.createElement(TabsPaneContainer, props)
+    _react2.default.createElement(TabsPaneContainer, props)
   );
 }
 
@@ -88,7 +90,7 @@ function TabsPaneContainer(props) {
       onClickItem = props.onClickItem;
 
   return categoriesItems.map(function (categoryItems, index) {
-    return React.createElement(
+    return _react2.default.createElement(
       _taroUi.AtTabsPane,
       {
         current: currentCategoryIndex,
@@ -96,7 +98,7 @@ function TabsPaneContainer(props) {
         tabDirection: "vertical",
         index: index
       },
-      React.createElement(ItemList, { items: categoryItems, onClickItem: onClickItem })
+      _react2.default.createElement(ItemList, { items: categoryItems, onClickItem: onClickItem })
     );
   });
 }
@@ -117,7 +119,7 @@ function ItemList(props) {
         restroom = item.restroom,
         room = item.room;
 
-    return React.createElement(
+    return _react2.default.createElement(
       _flexView2.default,
       {
         key: ItemList + index,
@@ -126,14 +128,14 @@ function ItemList(props) {
         },
         style: { alignItem: "center", flexDirection: "row", marginBottom: 15 }
       },
-      React.createElement(_components.Image, {
+      _react2.default.createElement(_components.Image, {
         src: imageUrls[0],
         style: { borderRadius: 5, height: 75, width: 75 }
       }),
-      React.createElement(
+      _react2.default.createElement(
         _flexView2.default,
         { style: { marginLeft: 15, maxWidth: 200 } },
-        React.createElement(
+        _react2.default.createElement(
           _flexView2.default,
           {
             style: {
@@ -141,19 +143,19 @@ function ItemList(props) {
               alignItems: "center"
             }
           },
-          React.createElement(ListingTypeTag, { listingType: listingType }),
-          React.createElement(
+          _react2.default.createElement(ListingTypeTag, { listingType: listingType }),
+          _react2.default.createElement(
             _h2.default,
             { style: { marginLeft: 8 } },
             name
           )
         ),
-        React.createElement(
+        _react2.default.createElement(
           _info2.default,
           null,
           area + "\u5E73\u65B9\u544E " + room + "\u623F" + livingRoom + "\u5EF3"
         ),
-        React.createElement(
+        _react2.default.createElement(
           _info2.default,
           null,
           address
@@ -161,7 +163,7 @@ function ItemList(props) {
       )
     );
   });
-  return React.createElement(
+  return _react2.default.createElement(
     _react.Fragment,
     null,
     ItemCards
@@ -171,7 +173,7 @@ function ItemList(props) {
 function ListingTypeTag(_ref) {
   var listingType = _ref.listingType;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _applicationTag2.default,
     { color: listingType === "RENT" ? "blue" : "green" },
     listingType === "RENT" ? "出租" : "出售"
@@ -188,7 +190,7 @@ function TopSegment(props) {
   var currentSegmentTypeIndex = props.currentSegmentTypeIndex,
       onChangeSegmentType = props.onChangeSegmentType;
 
-  return React.createElement(_taroUi.AtSegmentedControl, {
+  return _react2.default.createElement(_taroUi.AtSegmentedControl, {
     values: ["出租", "買賣"],
     onClick: onChangeSegmentType,
     current: currentSegmentTypeIndex

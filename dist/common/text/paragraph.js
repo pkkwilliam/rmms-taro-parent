@@ -8,6 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _components = require("@tarojs/components");
 
 var _applicationComponent = require("../applicationComponent.view");
@@ -41,7 +45,7 @@ var P = function (_ApplicationComponent) {
           style = _props.style;
 
       var color = companyColor ? this.appStyle.secondary : this.getColor();
-      return React.createElement(
+      return _react2.default.createElement(
         _components.View,
         {
           className: this.getClassName(),

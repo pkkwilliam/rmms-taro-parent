@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import React from "react";
 import ApplicationComponent from "../../common/applicationComponent";
 import CategoryView from "./category.view";
 import { ITEM_DETAIL } from "../../routes/applicationRoutes";

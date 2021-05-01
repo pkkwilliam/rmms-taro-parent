@@ -1,3 +1,4 @@
+import React from "react";
 import Taro, { getCurrentInstance } from "@tarojs/taro";
 import { Component } from "react";
 import { RmmsContext } from "../appState/contextProvider";

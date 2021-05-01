@@ -1,3 +1,4 @@
+import React from "react";
 import ApplicationComponent from "../../common/applicationComponent";
 import LandingPageView from "./landingPage.view";
 import { CATEGORY, ITEM_DETAIL } from "../../routes/applicationRoutes";

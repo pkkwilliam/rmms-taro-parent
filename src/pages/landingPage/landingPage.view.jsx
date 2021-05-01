@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import React from "react";
 import { Image, ScrollView, View } from "@tarojs/components";
 import ApplicationComponentView from "../../common/applicationComponent.view";
 import ImageCarousel from "../../common/imageCarousel";

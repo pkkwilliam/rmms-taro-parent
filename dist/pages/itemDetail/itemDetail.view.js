@@ -19,6 +19,8 @@ exports.ContactAgent = ContactAgent;
 
 var _react = require("react");
 
+var _react2 = _interopRequireDefault(_react);
+
 var _components = require("@tarojs/components");
 
 var _taroUi = require("taro-ui");
@@ -97,12 +99,12 @@ var ItemDetailView = function (_ApplicationComponent) {
           listingType = itemDetail.listingType,
           name = itemDetail.name;
 
-      return React.createElement(
+      return _react2.default.createElement(
         this.Wrapper,
         null,
-        React.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
-        React.createElement(Content, _extends({ toggleShowAgency: toggleShowAgency }, itemDetail)),
-        React.createElement(ContactAgent, {
+        _react2.default.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
+        _react2.default.createElement(Content, _extends({ toggleShowAgency: toggleShowAgency }, itemDetail)),
+        _react2.default.createElement(ContactAgent, {
           id: id,
           listingType: listingType,
           name: name,
@@ -132,7 +134,7 @@ function Content(props) {
       toggleShowAgency = props.toggleShowAgency;
 
   var tags = categories.map(function (category, index) {
-    return React.createElement(
+    return _react2.default.createElement(
       _applicationTag2.default,
       {
         color: "yellow",
@@ -142,42 +144,42 @@ function Content(props) {
       category.name
     );
   });
-  return React.createElement(
+  return _react2.default.createElement(
     _landingPage.CardContent,
     { style: { height: "100%", justifyContent: "space-between" } },
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       null,
-      React.createElement(
+      _react2.default.createElement(
         _flexView2.default,
         { style: { marginTop: 20 } },
-        React.createElement(ItemHeader, { id: id, listingType: listingType, name: name })
+        _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name })
       ),
-      React.createElement(
+      _react2.default.createElement(
         _flexView2.default,
         { style: _extends({ flexDirection: "row" }, style) },
         tags
       ),
-      React.createElement(
+      _react2.default.createElement(
         _info2.default,
         { style: { marginTop: 5 } },
         address
       ),
-      React.createElement(ItemAbstractHeaders, props),
-      React.createElement(
+      _react2.default.createElement(ItemAbstractHeaders, props),
+      _react2.default.createElement(
         _components.ScrollView,
         { scrollY: true, style: { height: 200 } },
-        React.createElement(
+        _react2.default.createElement(
           _flexView2.default,
           { style: { marginTop: 20 } },
-          React.createElement(Description, { description: description })
+          _react2.default.createElement(Description, { description: description })
         )
       )
     ),
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       { style: { marginBottom: 25 } },
-      React.createElement(
+      _react2.default.createElement(
         _applicationButton2.default,
         { block: true, onClick: toggleShowAgency },
         "\u9810\u7D04\u7747\u6A13"
@@ -189,25 +191,25 @@ function Content(props) {
 function Description(_ref) {
   var description = _ref.description;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _react.Fragment,
     null,
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       {
         style: { alignItems: "center", flexDirection: "row", marginTop: 5 }
       },
-      React.createElement(_taroUi.AtIcon, { value: "tags" }),
-      React.createElement(
+      _react2.default.createElement(_taroUi.AtIcon, { value: "tags" }),
+      _react2.default.createElement(
         _h6.default,
         { style: { marginLeft: 5 } },
         "\u623F\u5C4B\u4FE1\u606F"
       )
     ),
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       { style: { marginTop: 15 } },
-      React.createElement(
+      _react2.default.createElement(
         _h4.default,
         { style: { lineHeight: "38px" } },
         description
@@ -221,7 +223,7 @@ function ItemHeader(props) {
       listingType = props.listingType,
       name = props.name;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _flexView2.default,
     {
       style: {
@@ -230,7 +232,7 @@ function ItemHeader(props) {
         justifyContent: "space-between"
       }
     },
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       {
         style: {
@@ -238,14 +240,14 @@ function ItemHeader(props) {
           flexDirection: "row"
         }
       },
-      React.createElement(_category.ListingTypeTag, { listingType: listingType }),
-      React.createElement(
+      _react2.default.createElement(_category.ListingTypeTag, { listingType: listingType }),
+      _react2.default.createElement(
         _h2.default,
         null,
         name
       )
     ),
-    React.createElement(
+    _react2.default.createElement(
       _applicationTag2.default,
       { color: "geekblue" },
       "ID: ",
@@ -260,20 +262,20 @@ function ItemAbstractHeader(_ref2) {
       iconColor = _ref2.iconColor,
       label = _ref2.label;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _flexView2.default,
     { style: { alignItems: "center" } },
-    React.createElement(
+    _react2.default.createElement(
       _flexView2.default,
       { style: { alignItems: "center", flexDirection: "row" } },
-      React.createElement(_taroUi.AtIcon, { color: iconColor, value: icon }),
-      React.createElement(
+      _react2.default.createElement(_taroUi.AtIcon, { color: iconColor, value: icon }),
+      _react2.default.createElement(
         _paragraph2.default,
         { style: { marginLeft: 5 } },
         label
       )
     ),
-    React.createElement(
+    _react2.default.createElement(
       _h4.default,
       { companyColor: true, style: { fontWeight: 600, marginTop: 8 } },
       header
@@ -288,28 +290,28 @@ function ItemAbstractHeaders(props) {
       restRoom = props.restRoom,
       room = props.room;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _react.Fragment,
     null,
-    React.createElement(_taroUi.AtDivider, { height: 60 }),
-    React.createElement(
+    _react2.default.createElement(_taroUi.AtDivider, { height: 60 }),
+    _react2.default.createElement(
       _flexView2.default,
       {
         style: { flexDirection: "row", justifyContent: "space-around" }
       },
-      React.createElement(ItemAbstractHeader, {
+      _react2.default.createElement(ItemAbstractHeader, {
         header: parseInt(cost).toLocaleString(),
         icon: "money",
         iconColor: "#85BB65",
         label: "\u50F9\u683C"
       }),
-      React.createElement(ItemAbstractHeader, {
+      _react2.default.createElement(ItemAbstractHeader, {
         header: room + "\u623F" + livingRoom + "\u5EF3",
         icon: "numbered-list",
         iconColor: "#d7471d",
         label: "\u4F48\u5C40"
       }),
-      React.createElement(ItemAbstractHeader, {
+      _react2.default.createElement(ItemAbstractHeader, {
         header: area + "\u5E73\u65B9\u544E",
         icon: "home",
         iconColor: "#007AFF",
@@ -331,15 +333,15 @@ function ContactAgent(_ref3) {
       phoneNumber = _useState2[0],
       setPhoneNumber = _useState2[1];
 
-  return React.createElement(
+  return _react2.default.createElement(
     _taroUi.AtFloatLayout,
     {
       isOpened: showAgency,
       title: "\u9810\u7D04\u7747\u6A13",
       onClose: toggleShowAgency
     },
-    React.createElement(ItemHeader, { id: id, listingType: listingType, name: name }),
-    React.createElement(_taroUi.AtInput, {
+    _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name }),
+    _react2.default.createElement(_taroUi.AtInput, {
       customStyle: { marginLeft: 0, marginTop: 15 },
       onChange: function onChange(value) {
         return setPhoneNumber(value);
@@ -348,13 +350,13 @@ function ContactAgent(_ref3) {
       title: "\u96FB\u8A71\u865F\u78BC",
       value: phoneNumber
     }),
-    React.createElement(_taroUi.AtTextarea, {
+    _react2.default.createElement(_taroUi.AtTextarea, {
       count: false,
       customStyle: { color: "#5F5F5F", marginTop: 15 },
       disabled: true,
       value: "\u4F60\u597D\uFF0C\u6211\u60F3\u9810\u7D04\u95DC\u65BC" + id + ":" + name + "\uFF0C\u6211\u7684\u96FB\u8A71:" + phoneNumber
     }),
-    React.createElement(
+    _react2.default.createElement(
       _applicationButton2.default,
       { style: { marginBottom: 15, marginTop: 30 } },
       "\u901A\u77E5\u4E2D\u4ECB"

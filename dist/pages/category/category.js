@@ -8,9 +8,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _taro = require("@tarojs/taro");
+var _react = require("react");
 
-var _taro2 = _interopRequireDefault(_taro);
+var _react2 = _interopRequireDefault(_react);
 
 var _applicationComponent = require("../../common/applicationComponent");
 
@@ -100,7 +100,7 @@ var Category = function (_ApplicationComponent) {
       var currentSegmentTypeIndex = this.state.currentSegmentTypeIndex;
 
       var sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
-      return React.createElement(_category2.default, _extends({
+      return _react2.default.createElement(_category2.default, _extends({
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
         onChangeSegmentType: this.onChangeSegmentType,

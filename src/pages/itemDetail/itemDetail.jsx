@@ -1,3 +1,4 @@
+import React from "react";
 import ApplicationComponent from "../../common/applicationComponent";
 import ItemDetailView from "./itemDetail.view";
 import { GET_ITEM } from "../../service/service";

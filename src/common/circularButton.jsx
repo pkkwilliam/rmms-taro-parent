@@ -1,3 +1,4 @@
+import React from "react";
 import { AtAvatar } from "taro-ui";
 import ApplicationComponentView from "./applicationComponent.view";
 import FlexView from "./flexView";

@@ -1,3 +1,4 @@
+import React from "react";
 import ApplicationComponentView from "./applicationComponent.view";
 import FlexView from "./flexView";
 

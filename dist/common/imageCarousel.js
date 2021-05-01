@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _taro = require("@tarojs/taro");
+var _react = require("react");
 
-var _taro2 = _interopRequireDefault(_taro);
+var _react2 = _interopRequireDefault(_react);
 
 var _components = require("@tarojs/components");
 
@@ -42,13 +42,13 @@ var ImageCarousel = function (_ApplicationComponent) {
           secondary = _appStyle.secondary;
 
       var SwiperImageItems = imageUrls.map(function (imageUrl) {
-        return React.createElement(
+        return _react2.default.createElement(
           _components.SwiperItem,
           null,
-          React.createElement(_components.Image, { src: imageUrl, style: { width: "100%" } })
+          _react2.default.createElement(_components.Image, { src: imageUrl, style: { width: "100%" } })
         );
       });
-      return React.createElement(
+      return _react2.default.createElement(
         _components.Swiper,
         {
           indicatorColor: secondary,

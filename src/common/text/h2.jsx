@@ -1,3 +1,4 @@
+import React from "react";
 import H1 from "./h1";
 
 export default class H2 extends H1 {

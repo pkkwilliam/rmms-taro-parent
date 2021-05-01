@@ -1,3 +1,4 @@
+import React from "react";
 import { Fragment } from "react";
 import { Image } from "@tarojs/components";
 import { AtTabs, AtTabsPane, AtSearchBar, AtSegmentedControl } from "taro-ui";

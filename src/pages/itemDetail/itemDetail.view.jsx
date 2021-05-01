@@ -1,3 +1,4 @@
+import React from "react";
 import { Fragment, useState } from "react";
 import { ScrollView } from "@tarojs/components";
 import { AtTextarea, AtDivider, AtIcon, AtInput, AtFloatLayout } from "taro-ui";
