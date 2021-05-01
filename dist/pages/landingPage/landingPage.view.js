@@ -16,6 +16,10 @@ exports.DefaultCardContent = DefaultCardContent;
 exports.ItemListing = ItemListing;
 exports.OneRowBanners = OneRowBanners;
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _components = require("@tarojs/components");
 
 var _applicationComponent = require("../../common/applicationComponent.view");
@@ -73,18 +77,18 @@ var LandingPageView = function (_ApplicationComponent) {
           onClickItem = _props.onClickItem,
           onClickMenuButton = _props.onClickMenuButton;
 
-      return React.createElement(
+      return _react2.default.createElement(
         this.Wrapper,
         null,
-        React.createElement(
+        _react2.default.createElement(
           _flexView2.default,
           null,
-          React.createElement(_imageCarousel2.default, {
+          _react2.default.createElement(_imageCarousel2.default, {
             imageUrls: landingPage.carousel.map(function (image) {
               return image.url;
             })
           }),
-          React.createElement(DefaultCardContent, {
+          _react2.default.createElement(DefaultCardContent, {
             banners: landingPage.banners,
             bottomList: landingPage.bottomList,
             mainMenuButtons: landingPage.mainMenuButtons,
@@ -110,14 +114,14 @@ function BottomListing(_ref) {
 
   return bottomList.map(function (listItem) {
     if (listItem.type === "category") {
-      return React.createElement(CategoryListing, {
+      return _react2.default.createElement(CategoryListing, {
         categories: categories,
         categoryId: listItem.id,
         items: items,
         onClickItem: onClickItem
       });
     } else if (listItem.type === "item") {
-      return React.createElement(ItemListing, { itemId: listItem.id });
+      return _react2.default.createElement(ItemListing, { itemId: listItem.id });
     }
   });
 }
@@ -127,7 +131,7 @@ function ButtonRow(props) {
       onClickMenuButton = props.onClickMenuButton;
 
   var buttons = mainMenuButtons.map(function (button, index) {
-    return React.createElement(
+    return _react2.default.createElement(
       _flexView2.default,
       {
         key: "landing_page_button_row" + index,
@@ -138,21 +142,21 @@ function ButtonRow(props) {
           paddingTop: 15
         }
       },
-      React.createElement(_circularButton2.default, {
+      _react2.default.createElement(_circularButton2.default, {
         color: button.color,
         onClick: function onClick() {
           return onClickMenuButton(150);
         },
         url: button.url
       }),
-      React.createElement(
+      _react2.default.createElement(
         _info2.default,
         { style: { marginTop: 6 } },
         button.name
       )
     );
   });
-  return React.createElement(
+  return _react2.default.createElement(
     _components.View,
     { className: "at-row at-row__justify--around" },
     buttons
@@ -163,7 +167,7 @@ function CardContent(props) {
   var children = props.children,
       style = props.style;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _card2.default,
     {
       style: _extends({
@@ -198,7 +202,7 @@ function CategoryListing(_ref2) {
   }).map(function (item, index) {
     var name = item.name;
 
-    return React.createElement(
+    return _react2.default.createElement(
       _flexView2.default,
       {
         key: "CategoryListing" + index,
@@ -207,11 +211,11 @@ function CategoryListing(_ref2) {
         },
         style: { marginRight: 25 }
       },
-      React.createElement(_components.Image, {
+      _react2.default.createElement(_components.Image, {
         src: item.imageUrls[0],
         style: { borderRadius: 10, height: 200, width: 200 }
       }),
-      React.createElement(
+      _react2.default.createElement(
         _info2.default,
         null,
         name ? name : ""
@@ -222,18 +226,18 @@ function CategoryListing(_ref2) {
   if (displayCategory) {
     name = displayCategory.name;
   }
-  return React.createElement(
+  return _react2.default.createElement(
     _flexView2.default,
     null,
-    React.createElement(
+    _react2.default.createElement(
       _h2.default,
       null,
       name ? name : "分類"
     ),
-    React.createElement(
+    _react2.default.createElement(
       _components.ScrollView,
       { scrollX: true, scrollWithAnimation: true },
-      React.createElement(
+      _react2.default.createElement(
         _flexView2.default,
         { style: { display: "flex", flexDirection: "row" } },
         itemsCard
@@ -251,14 +255,14 @@ function DefaultCardContent(_ref3) {
       onClickItem = _ref3.onClickItem,
       onClickMenuButton = _ref3.onClickMenuButton;
 
-  return React.createElement(
+  return _react2.default.createElement(
     CardContent,
     null,
-    React.createElement(ButtonRow, {
+    _react2.default.createElement(ButtonRow, {
       mainMenuButtons: mainMenuButtons,
       onClickMenuButton: onClickMenuButton
     }),
-    React.createElement(BottomListing, {
+    _react2.default.createElement(BottomListing, {
       bottomList: bottomList,
       categories: categories,
       items: items,
@@ -277,7 +281,7 @@ function OneRowBanners(_ref5) {
   var banners = _ref5.banners;
 
   return banners.map(function (banner, index) {
-    return React.createElement(_components.Image, {
+    return _react2.default.createElement(_components.Image, {
       key: OneRowBanners + index,
       src: banner.url,
       style: { borderRadius: 15, maxHeight: 100, width: "100%" }
