@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { ScrollView } from "@tarojs/components";
-import { AtTextarea, AtDivider, AtIcon, AtInput, AtFloatLayout } from "taro-ui";
+import { AtDivider, AtIcon } from "taro-ui";
 import { CardContent } from "../landingPage/landingPage.view";
 import { ListingTypeTag } from "../category/category.view";
 import ImageCarousel from "../../common/imageCarousel";
@@ -13,6 +13,7 @@ import H2 from "../../common/text/h2";
 import ApplicationButton from "../../common/applicationButton";
 import Info from "../../common/text/info";
 import ApplicationComponentView from "../../common/applicationComponent.view";
+import ContactAgent from "../../common/realEstate/realEstateContactAgent";
 
 import "./itemDetail.scss";
 
@@ -99,30 +100,6 @@ export function Description({ description }) {
   );
 }
 
-export function ItemHeader(props) {
-  const { id, listingType, name } = props;
-  return (
-    <FlexView
-      style={{
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      <FlexView
-        style={{
-          alignItems: "center",
-          flexDirection: "row",
-        }}
-      >
-        <ListingTypeTag listingType={listingType} />
-        <H1>{name}</H1>
-      </FlexView>
-      <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
-    </FlexView>
-  );
-}
-
 export function ItemAbstractHeader({ header, icon, iconColor, label }) {
   return (
     <FlexView style={{ alignItems: "center" }}>
@@ -168,37 +145,26 @@ export function ItemAbstractHeaders(props) {
   );
 }
 
-export function ContactAgent({
-  id,
-  listingType,
-  name,
-  showAgency,
-  toggleShowAgency,
-}) {
-  const [phoneNumber, setPhoneNumber] = useState("");
+export function ItemHeader(props) {
+  const { id, listingType, name } = props;
   return (
-    <AtFloatLayout
-      isOpened={showAgency}
-      title="預約睇樓"
-      onClose={toggleShowAgency}
+    <FlexView
+      style={{
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
     >
-      <ItemHeader id={id} listingType={listingType} name={name} />
-      <AtInput
-        customStyle={{ marginLeft: 0, marginTop: 15 }}
-        onChange={(value) => setPhoneNumber(value)}
-        placeholder="請輸入你的電話號碼"
-        title="電話號碼"
-        value={phoneNumber}
-      />
-      <AtTextarea
-        count={false}
-        customStyle={{ color: "#5F5F5F", marginTop: 15 }}
-        disabled
-        value={`你好，我想預約關於${id}:${name}，我的電話:${phoneNumber}`}
-      />
-      <ApplicationButton style={{ marginBottom: 15, marginTop: 30 }}>
-        通知中介
-      </ApplicationButton>
-    </AtFloatLayout>
+      <FlexView
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <ListingTypeTag listingType={listingType} />
+        <H1>{name}</H1>
+      </FlexView>
+      <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
+    </FlexView>
   );
 }

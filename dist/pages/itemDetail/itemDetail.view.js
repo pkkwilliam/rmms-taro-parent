@@ -4,18 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 exports.Content = Content;
 exports.Description = Description;
-exports.ItemHeader = ItemHeader;
 exports.ItemAbstractHeader = ItemAbstractHeader;
 exports.ItemAbstractHeaders = ItemAbstractHeaders;
-exports.ContactAgent = ContactAgent;
+exports.ItemHeader = ItemHeader;
 
 var _react = require("react");
 
@@ -69,6 +66,10 @@ var _applicationComponent = require("../../common/applicationComponent.view");
 
 var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
 
+var _realEstateContactAgent = require("../../common/realEstate/realEstateContactAgent");
+
+var _realEstateContactAgent2 = _interopRequireDefault(_realEstateContactAgent);
+
 require("./itemDetail.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -104,7 +105,7 @@ var ItemDetailView = function (_ApplicationComponent) {
         null,
         _react2.default.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
         _react2.default.createElement(Content, _extends({ toggleShowAgency: toggleShowAgency }, itemDetail)),
-        _react2.default.createElement(ContactAgent, {
+        _react2.default.createElement(_realEstateContactAgent2.default, {
           id: id,
           listingType: listingType,
           name: name,
@@ -218,44 +219,6 @@ function Description(_ref) {
   );
 }
 
-function ItemHeader(props) {
-  var id = props.id,
-      listingType = props.listingType,
-      name = props.name;
-
-  return _react2.default.createElement(
-    _flexView2.default,
-    {
-      style: {
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-between"
-      }
-    },
-    _react2.default.createElement(
-      _flexView2.default,
-      {
-        style: {
-          alignItems: "center",
-          flexDirection: "row"
-        }
-      },
-      _react2.default.createElement(_category.ListingTypeTag, { listingType: listingType }),
-      _react2.default.createElement(
-        _h2.default,
-        null,
-        name
-      )
-    ),
-    _react2.default.createElement(
-      _applicationTag2.default,
-      { color: "geekblue" },
-      "ID: ",
-      id
-    )
-  );
-}
-
 function ItemAbstractHeader(_ref2) {
   var header = _ref2.header,
       icon = _ref2.icon,
@@ -321,45 +284,40 @@ function ItemAbstractHeaders(props) {
   );
 }
 
-function ContactAgent(_ref3) {
-  var id = _ref3.id,
-      listingType = _ref3.listingType,
-      name = _ref3.name,
-      showAgency = _ref3.showAgency,
-      toggleShowAgency = _ref3.toggleShowAgency;
-
-  var _useState = (0, _react.useState)(""),
-      _useState2 = _slicedToArray(_useState, 2),
-      phoneNumber = _useState2[0],
-      setPhoneNumber = _useState2[1];
+function ItemHeader(props) {
+  var id = props.id,
+      listingType = props.listingType,
+      name = props.name;
 
   return _react2.default.createElement(
-    _taroUi.AtFloatLayout,
+    _flexView2.default,
     {
-      isOpened: showAgency,
-      title: "\u9810\u7D04\u7747\u6A13",
-      onClose: toggleShowAgency
+      style: {
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between"
+      }
     },
-    _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name }),
-    _react2.default.createElement(_taroUi.AtInput, {
-      customStyle: { marginLeft: 0, marginTop: 15 },
-      onChange: function onChange(value) {
-        return setPhoneNumber(value);
-      },
-      placeholder: "\u8ACB\u8F38\u5165\u4F60\u7684\u96FB\u8A71\u865F\u78BC",
-      title: "\u96FB\u8A71\u865F\u78BC",
-      value: phoneNumber
-    }),
-    _react2.default.createElement(_taroUi.AtTextarea, {
-      count: false,
-      customStyle: { color: "#5F5F5F", marginTop: 15 },
-      disabled: true,
-      value: "\u4F60\u597D\uFF0C\u6211\u60F3\u9810\u7D04\u95DC\u65BC" + id + ":" + name + "\uFF0C\u6211\u7684\u96FB\u8A71:" + phoneNumber
-    }),
     _react2.default.createElement(
-      _applicationButton2.default,
-      { style: { marginBottom: 15, marginTop: 30 } },
-      "\u901A\u77E5\u4E2D\u4ECB"
+      _flexView2.default,
+      {
+        style: {
+          alignItems: "center",
+          flexDirection: "row"
+        }
+      },
+      _react2.default.createElement(_category.ListingTypeTag, { listingType: listingType }),
+      _react2.default.createElement(
+        _h2.default,
+        null,
+        name
+      )
+    ),
+    _react2.default.createElement(
+      _applicationTag2.default,
+      { color: "geekblue" },
+      "ID: ",
+      id
     )
   );
 }
