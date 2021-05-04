@@ -138,7 +138,7 @@ function ButtonRow(props) {
         style: {
           alignItems: "center",
           justifyContent: "center",
-          paddingBottom: 15,
+          paddingBottom: 10,
           paddingTop: 10,
           marginTop: 10
         }
