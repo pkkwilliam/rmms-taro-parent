@@ -139,7 +139,8 @@ function ButtonRow(props) {
           alignItems: "center",
           justifyContent: "center",
           paddingBottom: 15,
-          paddingTop: 15
+          paddingTop: 10,
+          marginTop: 10
         }
       },
       _react2.default.createElement(_circularButton2.default, {
@@ -151,7 +152,7 @@ function ButtonRow(props) {
       }),
       _react2.default.createElement(
         _info2.default,
-        { style: { marginTop: 6 } },
+        { style: { color: "#5F5F5F", marginTop: 6 } },
         button.name
       )
     );
@@ -164,15 +165,18 @@ function ButtonRow(props) {
 }
 
 function CardContent(props) {
-  var children = props.children,
+  var _props$backgroundColo = props.backgroundColor,
+      backgroundColor = _props$backgroundColo === undefined ? "#FFFFFF" : _props$backgroundColo,
+      children = props.children,
       style = props.style;
 
   return _react2.default.createElement(
     _card2.default,
     {
       style: _extends({
-        backgroundColor: "white",
-        marginTop: -25,
+        backgroundColor: backgroundColor,
+        marginBottom: 20,
+        // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
         paddingLeft: 15,
         paddingRight: 15,
         zIndex: 10
@@ -185,6 +189,10 @@ function CardContent(props) {
 function CategoryListing(_ref2) {
   var categories = _ref2.categories,
       categoryId = _ref2.categoryId,
+      _ref2$imageHeight = _ref2.imageHeight,
+      imageHeight = _ref2$imageHeight === undefined ? 180 : _ref2$imageHeight,
+      _ref2$imageWidth = _ref2.imageWidth,
+      imageWidth = _ref2$imageWidth === undefined ? 250 : _ref2$imageWidth,
       items = _ref2.items,
       onClickItem = _ref2.onClickItem;
 
@@ -212,8 +220,13 @@ function CategoryListing(_ref2) {
         style: { marginRight: 25 }
       },
       _react2.default.createElement(_components.Image, {
+        mode: "aspectFill",
         src: item.imageUrls[0],
-        style: { borderRadius: 10, height: 200, width: 200 }
+        style: {
+          borderRadius: 10,
+          height: imageHeight,
+          width: imageWidth
+        }
       }),
       _react2.default.createElement(
         _info2.default,

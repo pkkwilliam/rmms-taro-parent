@@ -169,7 +169,7 @@ function Content(props) {
       _react2.default.createElement(ItemAbstractHeaders, props),
       _react2.default.createElement(
         _components.ScrollView,
-        { scrollY: true, style: { height: 200 } },
+        { scrollY: true, style: { height: 180 } },
         _react2.default.createElement(
           _flexView2.default,
           { style: { marginTop: 20 } },
@@ -179,7 +179,7 @@ function Content(props) {
     ),
     _react2.default.createElement(
       _flexView2.default,
-      { style: { marginBottom: 25 } },
+      { style: { marginBottom: 10 } },
       _react2.default.createElement(
         _applicationButton2.default,
         { block: true, onClick: toggleShowAgency },

@@ -63,8 +63,9 @@ export function ButtonRow(props) {
       style={{
         alignItems: "center",
         justifyContent: "center",
-        paddingBottom: 15,
-        paddingTop: 15,
+        paddingBottom: 10,
+        paddingTop: 10,
+        marginTop: 10,
       }}
     >
       <CircularButton
@@ -72,19 +73,20 @@ export function ButtonRow(props) {
         onClick={() => onClickMenuButton(150)}
         url={button.url}
       ></CircularButton>
-      <Info style={{ marginTop: 6 }}>{button.name}</Info>
+      <Info style={{ color: "#5F5F5F", marginTop: 6 }}>{button.name}</Info>
     </FlexView>
   ));
   return <View className="at-row at-row__justify--around">{buttons}</View>;
 }
 
 export function CardContent(props) {
-  const { children, style } = props;
+  const { backgroundColor = "#FFFFFF", children, style } = props;
   return (
     <Card
       style={{
-        backgroundColor: "white",
-        marginTop: -25,
+        backgroundColor: backgroundColor,
+        marginBottom: 20,
+        // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
         paddingLeft: 15,
         paddingRight: 15,
         zIndex: 10,
@@ -99,6 +101,8 @@ export function CardContent(props) {
 export function CategoryListing({
   categories,
   categoryId,
+  imageHeight = 180,
+  imageWidth = 250,
   items,
   onClickItem,
 }) {
@@ -124,8 +128,13 @@ export function CategoryListing({
           style={{ marginRight: 25 }}
         >
           <Image
+            mode="aspectFill"
             src={item.imageUrls[0]}
-            style={{ borderRadius: 10, height: 200, width: 200 }}
+            style={{
+              borderRadius: 10,
+              height: imageHeight,
+              width: imageWidth,
+            }}
           />
           <Info>{name ? name : ""}</Info>
         </FlexView>

@@ -69,13 +69,13 @@ export function Content(props) {
         <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
         <Info style={{ marginTop: 5 }}>{address}</Info>
         <ItemAbstractHeaders {...props} />
-        <ScrollView scrollY style={{ height: 200 }}>
+        <ScrollView scrollY style={{ height: 180 }}>
           <FlexView style={{ marginTop: 20 }}>
             <Description description={description} />
           </FlexView>
         </ScrollView>
       </FlexView>
-      <FlexView style={{ marginBottom: 25 }}>
+      <FlexView style={{ marginBottom: 10 }}>
         <ApplicationButton block onClick={toggleShowAgency}>
           預約睇樓
         </ApplicationButton>
