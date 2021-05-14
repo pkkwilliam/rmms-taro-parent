@@ -13,25 +13,16 @@ import H2 from "../../common/text/h2";
 import ApplicationButton from "../../common/applicationButton";
 import Info from "../../common/text/info";
 import ApplicationComponentView from "../../common/applicationComponent.view";
-import ContactAgent from "../../common/realEstate/realEstateContactAgent";
 
 import "./itemDetail.scss";
 
 export default class ItemDetailView extends ApplicationComponentView {
   render() {
-    const { itemDetail, showAgency, toggleShowAgency } = this.props;
-    const { id, listingType, name } = itemDetail;
+    const { itemDetail, onClickSubmit = () => {} } = this.props;
     return (
       <this.Wrapper>
         <ImageCarousel imageUrls={itemDetail.imageUrls} />
-        <Content toggleShowAgency={toggleShowAgency} {...itemDetail} />
-        <ContactAgent
-          id={id}
-          listingType={listingType}
-          name={name}
-          showAgency={showAgency}
-          toggleShowAgency={toggleShowAgency}
-        />
+        <Content onClickSubmit={onClickSubmit} {...itemDetail} />
       </this.Wrapper>
     );
   }
@@ -49,7 +40,7 @@ export function Content(props) {
     listingType,
     name,
     style,
-    toggleShowAgency,
+    onClickSubmit,
   } = props;
   const tags = categories.map((category, index) => (
     <ApplicationTag
@@ -76,7 +67,7 @@ export function Content(props) {
         </ScrollView>
       </FlexView>
       <FlexView style={{ marginBottom: 10 }}>
-        <ApplicationButton block onClick={toggleShowAgency}>
+        <ApplicationButton block onClick={onClickSubmit}>
           預約睇樓
         </ApplicationButton>
       </FlexView>
