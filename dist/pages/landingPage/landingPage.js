@@ -12,6 +12,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _taro = require("@tarojs/taro");
+
+var _taro2 = _interopRequireDefault(_taro);
+
 var _applicationComponent = require("../../common/applicationComponent");
 
 var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
@@ -52,6 +56,15 @@ var LandingPage = function (_ApplicationComponent) {
   }
 
   _createClass(LandingPage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _taro2.default.getSystemInfo().then(function (devivceInfo) {
+        return _this2.appState.deviceInfo.setDeviceInfo(devivceInfo);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _appState = this.appState,

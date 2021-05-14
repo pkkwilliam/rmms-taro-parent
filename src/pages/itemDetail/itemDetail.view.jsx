@@ -52,22 +52,27 @@ export function Content(props) {
     </ApplicationTag>
   ));
   return (
-    <CardContent style={{ height: "100%", justifyContent: "space-between" }}>
-      <FlexView>
-        <FlexView style={{ marginTop: 20 }}>
+    <CardContent
+      style={{ flex: 1, height: "100%", justifyContent: "space-between" }}
+    >
+      <ScrollView scrollY style={{ height: 410 }}>
+        <FlexView style={{ marginTop: 15 }}>
           <ItemHeader id={id} listingType={listingType} name={name} />
         </FlexView>
         <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
         <Info style={{ marginTop: 5 }}>{address}</Info>
         <ItemAbstractHeaders {...props} />
-        <ScrollView scrollY style={{ height: 180 }}>
-          <FlexView style={{ marginTop: 20 }}>
-            <Description description={description} />
-          </FlexView>
-        </ScrollView>
-      </FlexView>
-      <FlexView style={{ marginBottom: 10 }}>
-        <ApplicationButton block onClick={onClickSubmit}>
+
+        <FlexView style={{ marginTop: 15 }}>
+          <Description description={description} />
+        </FlexView>
+      </ScrollView>
+      <FlexView style={{ flex: 1, justifyContent: "flex-end" }}>
+        <ApplicationButton
+          block
+          onClick={onClickSubmit}
+          style={{ marginBottom: 15 }}
+        >
           預約睇樓
         </ApplicationButton>
       </FlexView>
@@ -139,23 +144,14 @@ export function ItemAbstractHeaders(props) {
 export function ItemHeader(props) {
   const { id, listingType, name } = props;
   return (
-    <FlexView
-      style={{
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
+    <FlexView>
       <FlexView
-        style={{
-          alignItems: "center",
-          flexDirection: "row",
-        }}
+        style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
         <ListingTypeTag listingType={listingType} />
-        <H1>{name}</H1>
+        <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
       </FlexView>
-      <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
+      <H1 style={{ marginTop: 5 }}>{name}</H1>
     </FlexView>
   );
 }

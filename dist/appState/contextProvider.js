@@ -54,6 +54,9 @@ var RmmsAppState = function (_Component) {
         },
         style: { primary: "", secondary: "" }
       },
+      deviceInfo: {
+        dirty: true
+      },
       item: { dirty: true, items: [] },
       shortTermMemory: {
         currentCategoryId: 0,
@@ -65,6 +68,7 @@ var RmmsAppState = function (_Component) {
           category = _this$state.category,
           company = _this$state.company,
           companyCustomise = _this$state.companyCustomise,
+          deviceInfo = _this$state.deviceInfo,
           item = _this$state.item,
           shortTermMemory = _this$state.shortTermMemory;
 
@@ -80,6 +84,9 @@ var RmmsAppState = function (_Component) {
             }),
             companyCustomise: _extends({}, companyCustomise, {
               setCompanyCustomise: _this.setCompanyCustomise
+            }),
+            deviceInfo: _extends({}, deviceInfo, {
+              setDeviceInfo: _this.setDeviceInfo
             }),
             item: _extends({}, item, {
               setItems: _this.setItems
@@ -115,6 +122,13 @@ var RmmsAppState = function (_Component) {
             dirty: false
           })
         };
+      });
+    }, _this.setDeviceInfo = function (deviceInfo) {
+      _this.setState({
+        deviceInfo: {
+          deviceInfo: deviceInfo,
+          dirty: false
+        }
       });
     }, _this.setItems = function (items) {
       _this.setState({

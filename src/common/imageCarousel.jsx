@@ -4,7 +4,7 @@ import ApplicationComponentView from "./applicationComponent.view";
 
 export default class ImageCarousel extends ApplicationComponentView {
   render() {
-    const { imageUrls } = this.props;
+    const { imageUrls, style } = this.props;
     const { primary, secondary } = this.appStyle;
     const SwiperImageItems = imageUrls.map((imageUrl) => {
       return (
@@ -19,7 +19,7 @@ export default class ImageCarousel extends ApplicationComponentView {
         indicatorActiveColor={primary}
         circular
         indicatorDots
-        style={{ height: 245 }}
+        style={{ height: 245, ...style }}
       >
         {SwiperImageItems}
       </Swiper>

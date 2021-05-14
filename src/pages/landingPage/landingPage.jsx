@@ -1,4 +1,5 @@
 import React from "react";
+import Taro from "@tarojs/taro";
 import ApplicationComponent from "../../common/applicationComponent";
 import LandingPageView from "./landingPage.view";
 import { CATEGORY, ITEM_DETAIL } from "../../routes/applicationRoutes";
@@ -7,6 +8,12 @@ export default class LandingPage extends ApplicationComponent {
   state = {
     ...this.state,
   };
+
+  componentDidMount() {
+    Taro.getSystemInfo().then((devivceInfo) =>
+      this.appState.deviceInfo.setDeviceInfo(devivceInfo)
+    );
+  }
 
   render() {
     const { category, companyCustomise, item } = this.appState;

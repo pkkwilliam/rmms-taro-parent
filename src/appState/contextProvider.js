@@ -22,6 +22,9 @@ export default class RmmsAppState extends Component {
       },
       style: { primary: "", secondary: "" },
     },
+    deviceInfo: {
+      dirty: true,
+    },
     item: { dirty: true, items: [] },
     shortTermMemory: {
       currentCategoryId: 0,
@@ -34,6 +37,7 @@ export default class RmmsAppState extends Component {
       category,
       company,
       companyCustomise,
+      deviceInfo,
       item,
       shortTermMemory,
     } = this.state;
@@ -51,6 +55,10 @@ export default class RmmsAppState extends Component {
           companyCustomise: {
             ...companyCustomise,
             setCompanyCustomise: this.setCompanyCustomise,
+          },
+          deviceInfo: {
+            ...deviceInfo,
+            setDeviceInfo: this.setDeviceInfo,
           },
           item: {
             ...item,
@@ -93,6 +101,15 @@ export default class RmmsAppState extends Component {
         dirty: false,
       },
     }));
+  };
+
+  setDeviceInfo = (deviceInfo) => {
+    this.setState({
+      deviceInfo: {
+        deviceInfo,
+        dirty: false,
+      },
+    });
   };
 
   setItems = (items) => {

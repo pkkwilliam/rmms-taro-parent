@@ -175,7 +175,6 @@ function CardContent(props) {
     {
       style: _extends({
         backgroundColor: backgroundColor,
-        marginBottom: 20,
         // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
         paddingLeft: 15,
         paddingRight: 15,

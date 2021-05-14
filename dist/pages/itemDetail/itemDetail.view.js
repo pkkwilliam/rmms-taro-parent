@@ -133,13 +133,15 @@ function Content(props) {
   });
   return _react2.default.createElement(
     _landingPage.CardContent,
-    { style: { height: "100%", justifyContent: "space-between" } },
+    {
+      style: { flex: 1, height: "100%", justifyContent: "space-between" }
+    },
     _react2.default.createElement(
-      _flexView2.default,
-      null,
+      _components.ScrollView,
+      { scrollY: true, style: { height: 410 } },
       _react2.default.createElement(
         _flexView2.default,
-        { style: { marginTop: 20 } },
+        { style: { marginTop: 15 } },
         _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name })
       ),
       _react2.default.createElement(
@@ -154,21 +156,21 @@ function Content(props) {
       ),
       _react2.default.createElement(ItemAbstractHeaders, props),
       _react2.default.createElement(
-        _components.ScrollView,
-        { scrollY: true, style: { height: 180 } },
-        _react2.default.createElement(
-          _flexView2.default,
-          { style: { marginTop: 20 } },
-          _react2.default.createElement(Description, { description: description })
-        )
+        _flexView2.default,
+        { style: { marginTop: 15 } },
+        _react2.default.createElement(Description, { description: description })
       )
     ),
     _react2.default.createElement(
       _flexView2.default,
-      { style: { marginBottom: 10 } },
+      { style: { flex: 1, justifyContent: "flex-end" } },
       _react2.default.createElement(
         _applicationButton2.default,
-        { block: true, onClick: onClickSubmit },
+        {
+          block: true,
+          onClick: onClickSubmit,
+          style: { marginBottom: 15 }
+        },
         "\u9810\u7D04\u7747\u6A13"
       )
     )
@@ -277,33 +279,24 @@ function ItemHeader(props) {
 
   return _react2.default.createElement(
     _flexView2.default,
-    {
-      style: {
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-between"
-      }
-    },
+    null,
     _react2.default.createElement(
       _flexView2.default,
       {
-        style: {
-          alignItems: "center",
-          flexDirection: "row"
-        }
+        style: { flexDirection: "row", justifyContent: "space-between" }
       },
       _react2.default.createElement(_category.ListingTypeTag, { listingType: listingType }),
       _react2.default.createElement(
-        _h2.default,
-        null,
-        name
+        _applicationTag2.default,
+        { color: "geekblue" },
+        "ID: ",
+        id
       )
     ),
     _react2.default.createElement(
-      _applicationTag2.default,
-      { color: "geekblue" },
-      "ID: ",
-      id
+      _h2.default,
+      { style: { marginTop: 5 } },
+      name
     )
   );
 }

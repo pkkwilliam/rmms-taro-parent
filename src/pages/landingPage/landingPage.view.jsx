@@ -10,13 +10,8 @@ import FlexView from "../../common/flexView";
 
 export default class LandingPageView extends ApplicationComponentView {
   render() {
-    const {
-      categories,
-      items,
-      landingPage,
-      onClickItem,
-      onClickMenuButton,
-    } = this.props;
+    const { categories, items, landingPage, onClickItem, onClickMenuButton } =
+      this.props;
     return (
       <this.Wrapper>
         <FlexView>
@@ -85,7 +80,6 @@ export function CardContent(props) {
     <Card
       style={{
         backgroundColor: backgroundColor,
-        marginBottom: 20,
         // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
         paddingLeft: 15,
         paddingRight: 15,
