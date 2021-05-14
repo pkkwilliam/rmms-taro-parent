@@ -66,10 +66,6 @@ var _applicationComponent = require("../../common/applicationComponent.view");
 
 var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
 
-var _realEstateContactAgent = require("../../common/realEstate/realEstateContactAgent");
-
-var _realEstateContactAgent2 = _interopRequireDefault(_realEstateContactAgent);
-
 require("./itemDetail.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -94,24 +90,14 @@ var ItemDetailView = function (_ApplicationComponent) {
     value: function render() {
       var _props = this.props,
           itemDetail = _props.itemDetail,
-          showAgency = _props.showAgency,
-          toggleShowAgency = _props.toggleShowAgency;
-      var id = itemDetail.id,
-          listingType = itemDetail.listingType,
-          name = itemDetail.name;
+          _props$onClickSubmit = _props.onClickSubmit,
+          onClickSubmit = _props$onClickSubmit === undefined ? function () {} : _props$onClickSubmit;
 
       return _react2.default.createElement(
         this.Wrapper,
         null,
         _react2.default.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
-        _react2.default.createElement(Content, _extends({ toggleShowAgency: toggleShowAgency }, itemDetail)),
-        _react2.default.createElement(_realEstateContactAgent2.default, {
-          id: id,
-          listingType: listingType,
-          name: name,
-          showAgency: showAgency,
-          toggleShowAgency: toggleShowAgency
-        })
+        _react2.default.createElement(Content, _extends({ onClickSubmit: onClickSubmit }, itemDetail))
       );
     }
   }]);
@@ -132,7 +118,7 @@ function Content(props) {
       listingType = props.listingType,
       name = props.name,
       style = props.style,
-      toggleShowAgency = props.toggleShowAgency;
+      onClickSubmit = props.onClickSubmit;
 
   var tags = categories.map(function (category, index) {
     return _react2.default.createElement(
@@ -182,7 +168,7 @@ function Content(props) {
       { style: { marginBottom: 10 } },
       _react2.default.createElement(
         _applicationButton2.default,
-        { block: true, onClick: toggleShowAgency },
+        { block: true, onClick: onClickSubmit },
         "\u9810\u7D04\u7747\u6A13"
       )
     )

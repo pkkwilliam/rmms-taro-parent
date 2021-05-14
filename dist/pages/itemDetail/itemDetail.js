@@ -45,15 +45,8 @@ var ItemDetail = function (_ApplicationComponent) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ItemDetail.__proto__ || Object.getPrototypeOf(ItemDetail)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.state, {
-      itemDetail: { imageUrls: [] },
-      showAgency: false
-    }), _this.toggleShowAgency = function () {
-      _this.setState(function (state) {
-        return {
-          showAgency: !state.showAgency
-        };
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+      itemDetail: { imageUrls: [] }
+    }), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ItemDetail, [{
@@ -69,9 +62,7 @@ var ItemDetail = function (_ApplicationComponent) {
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement(_itemDetail2.default, _extends({
-        toggleShowAgency: this.toggleShowAgency
-      }, this.state));
+      return _react2.default.createElement(_itemDetail2.default, this.state);
     }
   }, {
     key: "getLocalItemDetail",
