@@ -16,7 +16,7 @@ var ApplicationContext = function () {
   _createClass(ApplicationContext, [{
     key: "host",
     get: function get() {
-      return this.mock ? "http://192.168.31.164:8081" : "http://192.168.31.164:8081";
+      return this.mock ? "http://localhost:2081" : "https://api.rmms.goowhere.com";
     }
   }, {
     key: "mock",
