@@ -1,77 +1,105 @@
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["pages/category/category"],{
+
+/***/ "./node_modules/@tarojs/mini-runner/node_modules/babel-loader/lib/index.js!./src/pages/category/category.jsx":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@tarojs/mini-runner/node_modules/babel-loader/lib!./src/pages/category/category.jsx ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Category; });
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "./node_modules/react/cjs/react.production.min.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _common_applicationComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../common/applicationComponent */ "./src/common/applicationComponent.js");
+/* harmony import */ var _category_view__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./category.view */ "./src/pages/category/category.view.jsx");
+/* harmony import */ var _routes_applicationRoutes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../routes/applicationRoutes */ "./src/routes/applicationRoutes.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/cjs/react-jsx-runtime.production.min.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__);
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
 
-var _applicationComponent = require("../../common/applicationComponent");
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
 
-var _category = require("./category.view");
 
-var _category2 = _interopRequireDefault(_category);
 
-var _applicationRoutes = require("../../routes/applicationRoutes");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var SEGMENT_TYPE = [{
+  label: "出租",
+  value: "RENT"
+}, {
+  label: "買賣",
+  value: "SELL"
+}];
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var Category = /*#__PURE__*/function (_ApplicationComponent) {
+  Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(Category, _ApplicationComponent);
 
-var SEGMENT_TYPE = [{ label: "出租", value: "RENT" }, { label: "買賣", value: "SELL" }];
-
-var Category = function (_ApplicationComponent) {
-  _inherits(Category, _ApplicationComponent);
+  var _super = Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(Category);
 
   function Category() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Category);
 
-    _classCallCheck(this, Category);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Category.__proto__ || Object.getPrototypeOf(Category)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this), "state", {
       currentCategoryIndex: 0,
       currentSegmentTypeIndex: 0
-    }, _this.onChangeSegmentType = function (segmentType) {
+    });
+
+    Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this), "onChangeSegmentType", function (segmentType) {
       _this.setState({
         currentSegmentTypeIndex: segmentType
       });
-    }, _this.onClickCategory = function (categoryIndex) {
+    });
+
+    Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this), "onClickCategory", function (categoryIndex) {
       _this.setState({
         currentCategoryIndex: categoryIndex
       });
-    }, _this.onClickItem = function (item) {
-      _this.goTo(_applicationRoutes.ITEM_DETAIL, [{ key: "itemId", value: item.id }]);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this), "onClickItem", function (item) {
+      _this.goTo(_routes_applicationRoutes__WEBPACK_IMPORTED_MODULE_13__[/* ITEM_DETAIL */ "b"], [{
+        key: "itemId",
+        value: item.id
+      }]);
+    });
+
+    return _this;
   }
 
-  _createClass(Category, [{
+  Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(Category, [{
     key: "componentDidMount",
     value: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var _componentDidMount = Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])( /*#__PURE__*/_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee() {
         var currentCategoryIndex;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+        return _Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -86,7 +114,7 @@ var Category = function (_ApplicationComponent) {
       }));
 
       function componentDidMount() {
-        return _ref2.apply(this, arguments);
+        return _componentDidMount.apply(this, arguments);
       }
 
       return componentDidMount;
@@ -94,13 +122,12 @@ var Category = function (_ApplicationComponent) {
   }, {
     key: "render",
     value: function render() {
-      var _appState = this.appState,
-          category = _appState.category,
-          item = _appState.item;
+      var _this$appState = this.appState,
+          category = _this$appState.category,
+          item = _this$appState.item;
       var currentSegmentTypeIndex = this.state.currentSegmentTypeIndex;
-
       var sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
-      return _react2.default.createElement(_category2.default, _extends({
+      return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__["jsx"])(_category_view__WEBPACK_IMPORTED_MODULE_12__[/* default */ "b"], Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])({
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
         onChangeSegmentType: this.onChangeSegmentType,
@@ -127,7 +154,8 @@ var Category = function (_ApplicationComponent) {
           if (!navItems[sequence]) {
             navItems[sequence] = [];
           }
-          navItems[sequence] = [].concat(_toConsumableArray(navItems[sequence]), [item]);
+
+          navItems[sequence] = [].concat(Object(_Users_pkkwilliam_Desktop_bitcode_reusable_merchant_management_rmms_taro_parent_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(navItems[sequence]), [item]);
         });
       });
       return navItems;
@@ -135,6 +163,34 @@ var Category = function (_ApplicationComponent) {
   }]);
 
   return Category;
-}(_applicationComponent2.default);
+}(_common_applicationComponent__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"]);
 
-exports.default = Category;
+
+
+/***/ }),
+
+/***/ "./src/pages/category/category.jsx":
+/*!*****************************************!*\
+  !*** ./src/pages/category/category.jsx ***!
+  \*****************************************/
+/*! no exports provided */
+/*! all exports used */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tarojs/runtime */ "./node_modules/@tarojs/runtime/dist/runtime.esm.js");
+/* harmony import */ var _node_modules_tarojs_mini_runner_node_modules_babel_loader_lib_index_js_category_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/@tarojs/mini-runner/node_modules/babel-loader/lib!./category.jsx */ "./node_modules/@tarojs/mini-runner/node_modules/babel-loader/lib/index.js!./src/pages/category/category.jsx");
+
+
+var config = {"navigationBarTitleText":"源代碼RMMS系統展示"};
+
+
+var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_node_modules_tarojs_mini_runner_node_modules_babel_loader_lib_index_js_category_jsx__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], 'pages/category/category', {root:{cn:[]}}, config || {}))
+
+
+
+/***/ })
+
+},[["./src/pages/category/category.jsx","runtime","taro","vendors","common"]]]);
+//# sourceMappingURL=category.js.map

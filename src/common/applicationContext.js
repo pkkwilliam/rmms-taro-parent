@@ -1,8 +1,6 @@
 export default class ApplicationContext {
   get host() {
-    return this.mock
-      ? "http://localhost:2081"
-      : "https://api.rmms.goowhere.com";
+    return process.env.SERVICE_URL;
   }
 
   get mock() {
