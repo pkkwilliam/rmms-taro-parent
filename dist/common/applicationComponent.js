@@ -65,8 +65,8 @@ var ApplicationComponent = function (_Component) {
   _createClass(ApplicationComponent, [{
     key: "getCompanyId",
     value: function getCompanyId(option) {
-      console.log("please override this, company id should be a static value instead of request url param");
-      return option.comapnyId;
+      console.log("get company id from config file");
+      return process.env.COMPANY_ID;
     }
   }, {
     key: "getRouterParams",
