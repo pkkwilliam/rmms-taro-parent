@@ -11,7 +11,7 @@ import ApplicationTag from "../../common/applicationTag";
 export default function CategoryView(props) {
   return (
     <FlexView>
-      <AtSearchBar />
+      <SearchBar {...props} />
       <FlexView style={{ marginLeft: 5, marginRight: 5 }}>
         <TopSegment {...props} />
       </FlexView>
@@ -42,6 +42,23 @@ export function CategoryNav(props) {
     >
       <TabsPaneContainer {...props} />
     </AtTabs>
+  );
+}
+
+export function SearchBar({
+  onChangeSearchBarText,
+  onClickSearchBarClear,
+  onClickSearchBarSubmit,
+  searchBar,
+}) {
+  return (
+    <AtSearchBar
+      onActionClick={onClickSearchBarSubmit}
+      onClear={onClickSearchBarClear}
+      onChange={(event) => onChangeSearchBarText(event)}
+      showActionButton={false}
+      value={searchBar.text}
+    />
   );
 }
 

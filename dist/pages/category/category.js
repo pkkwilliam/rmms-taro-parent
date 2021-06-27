@@ -52,10 +52,20 @@ var Category = function (_ApplicationComponent) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Category.__proto__ || Object.getPrototypeOf(Category)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       currentCategoryIndex: 0,
-      currentSegmentTypeIndex: 0
+      currentSegmentTypeIndex: 0,
+      searchBar: {
+        text: undefined,
+        useSearchFilter: false
+      }
     }, _this.onChangeSegmentType = function (segmentType) {
       _this.setState({
         currentSegmentTypeIndex: segmentType
+      });
+    }, _this.onChangeSearchBarText = function (text) {
+      _this.setState({
+        searchBar: {
+          text: text
+        }
       });
     }, _this.onClickCategory = function (categoryIndex) {
       _this.setState({
@@ -63,6 +73,21 @@ var Category = function (_ApplicationComponent) {
       });
     }, _this.onClickItem = function (item) {
       _this.goTo(_applicationRoutes.ITEM_DETAIL, [{ key: "itemId", value: item.id }]);
+    }, _this.onClickSearchBarClear = function () {
+      _this.setState({
+        searchBar: {
+          text: undefined,
+          useSearchFilter: true
+        }
+      });
+    }, _this.onClickSearchBarSubmit = function () {
+      _this.setState(function (state) {
+        return {
+          searchBar: _extends({}, state.searchBar, {
+            useSearchFilter: true
+          })
+        };
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -104,13 +129,25 @@ var Category = function (_ApplicationComponent) {
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
         onChangeSegmentType: this.onChangeSegmentType,
+        onChangeSearchBarText: this.onChangeSearchBarText,
         onClickCategory: this.onClickCategory,
-        onClickItem: this.onClickItem
+        onClickItem: this.onClickItem,
+        onClickSearchBarClear: this.onClickSearchBarClear,
+        onClickSearchBarSubmit: this.onClickSearchBarSubmit
       }, this.state));
     }
   }, {
     key: "sortItems",
     value: function sortItems(items, currentSegmentTypeIndex) {
+      var _state$searchBar = this.state.searchBar,
+          text = _state$searchBar.text,
+          useSearchFilter = _state$searchBar.useSearchFilter;
+
+      if (text && useSearchFilter) {
+        items = items.filter(function (item) {
+          return item.name.includes(text);
+        });
+      }
       var segmentTypeValue = SEGMENT_TYPE[currentSegmentTypeIndex].value;
       return items.filter(function (item) {
         return item.listingType === segmentTypeValue;

@@ -12,6 +12,10 @@ export default class Category extends ApplicationComponent {
   state = {
     currentCategoryIndex: 0,
     currentSegmentTypeIndex: 0,
+    searchBar: {
+      text: undefined,
+      useSearchFilter: false,
+    },
   };
 
   async componentDidMount() {
@@ -27,8 +31,11 @@ export default class Category extends ApplicationComponent {
         categories={category.categories}
         categoriesItems={this.transfromItemsToNav(sortedItems)}
         onChangeSegmentType={this.onChangeSegmentType}
+        onChangeSearchBarText={this.onChangeSearchBarText}
         onClickCategory={this.onClickCategory}
         onClickItem={this.onClickItem}
+        onClickSearchBarClear={this.onClickSearchBarClear}
+        onClickSearchBarSubmit={this.onClickSearchBarSubmit}
         {...this.state}
       />
     );
@@ -37,6 +44,14 @@ export default class Category extends ApplicationComponent {
   onChangeSegmentType = (segmentType) => {
     this.setState({
       currentSegmentTypeIndex: segmentType,
+    });
+  };
+
+  onChangeSearchBarText = (text) => {
+    this.setState({
+      searchBar: {
+        text,
+      },
     });
   };
 
@@ -50,7 +65,29 @@ export default class Category extends ApplicationComponent {
     this.goTo(ITEM_DETAIL, [{ key: "itemId", value: item.id }]);
   };
 
+  onClickSearchBarClear = () => {
+    this.setState({
+      searchBar: {
+        text: undefined,
+        useSearchFilter: true,
+      },
+    });
+  };
+
+  onClickSearchBarSubmit = () => {
+    this.setState((state) => ({
+      searchBar: {
+        ...state.searchBar,
+        useSearchFilter: true,
+      },
+    }));
+  };
+
   sortItems(items, currentSegmentTypeIndex) {
+    const { text, useSearchFilter } = this.state.searchBar;
+    if (text && useSearchFilter) {
+      items = items.filter((item) => item.name.includes(text));
+    }
     const segmentTypeValue = SEGMENT_TYPE[currentSegmentTypeIndex].value;
     return items.filter((item) => item.listingType === segmentTypeValue);
   }

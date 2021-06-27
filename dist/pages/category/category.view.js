@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = CategoryView;
 exports.CategoryNav = CategoryNav;
+exports.SearchBar = SearchBar;
 exports.TabsPaneContainer = TabsPaneContainer;
 exports.ItemList = ItemList;
 exports.ListingTypeTag = ListingTypeTag;
@@ -43,7 +44,7 @@ function CategoryView(props) {
   return _react2.default.createElement(
     _flexView2.default,
     null,
-    _react2.default.createElement(_taroUi.AtSearchBar, null),
+    _react2.default.createElement(SearchBar, props),
     _react2.default.createElement(
       _flexView2.default,
       { style: { marginLeft: 5, marginRight: 5 } },
@@ -82,6 +83,23 @@ function CategoryNav(props) {
     },
     _react2.default.createElement(TabsPaneContainer, props)
   );
+}
+
+function SearchBar(_ref) {
+  var onChangeSearchBarText = _ref.onChangeSearchBarText,
+      onClickSearchBarClear = _ref.onClickSearchBarClear,
+      onClickSearchBarSubmit = _ref.onClickSearchBarSubmit,
+      searchBar = _ref.searchBar;
+
+  return _react2.default.createElement(_taroUi.AtSearchBar, {
+    onActionClick: onClickSearchBarSubmit,
+    onClear: onClickSearchBarClear,
+    onChange: function onChange(event) {
+      return onChangeSearchBarText(event);
+    },
+    showActionButton: false,
+    value: searchBar.text
+  });
 }
 
 function TabsPaneContainer(props) {
@@ -170,8 +188,8 @@ function ItemList(props) {
   );
 }
 
-function ListingTypeTag(_ref) {
-  var listingType = _ref.listingType;
+function ListingTypeTag(_ref2) {
+  var listingType = _ref2.listingType;
 
   return _react2.default.createElement(
     _applicationTag2.default,
