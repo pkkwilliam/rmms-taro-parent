@@ -63,6 +63,12 @@ var ApplicationComponent = function (_Component) {
   }
 
   _createClass(ApplicationComponent, [{
+    key: "getCompanyId",
+    value: function getCompanyId(option) {
+      console.log("please override this, company id should be a static value instead of request url param");
+      return option.comapnyId;
+    }
+  }, {
     key: "getRouterParams",
     value: function getRouterParams() {
       return (0, _taro.getCurrentInstance)().router.params;
@@ -101,7 +107,7 @@ var ApplicationComponent = function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                companyId = options.companyId;
+                companyId = this.getCompanyId(options);
 
                 this.appStateService.getCompany(companyId).then(function (result) {
                   wx.setNavigationBarTitle({

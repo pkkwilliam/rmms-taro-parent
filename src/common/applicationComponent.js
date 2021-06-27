@@ -42,6 +42,13 @@ export default class ApplicationComponent extends Component {
     return this.context;
   }
 
+  getCompanyId(option) {
+    console.log(
+      "please override this, company id should be a static value instead of request url param"
+    );
+    return option.comapnyId;
+  }
+
   get serviceExecutor() {
     if (!this._serviceExecutor) {
       this._serviceExecutor = new ServiceExecutor(this.applicationContext.host);
@@ -73,7 +80,7 @@ export default class ApplicationComponent extends Component {
   }
 
   async onLoad(options) {
-    const { companyId } = options;
+    const companyId = this.getCompanyId(options);
     this.appStateService.getCompany(companyId).then((result) => {
       wx.setNavigationBarTitle({
         title: this.appState.company.name,
