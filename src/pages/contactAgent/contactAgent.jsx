@@ -9,12 +9,13 @@ import { MAKE_RESERVATION } from "../../service/service";
 export default class ContactAgent extends ApplicationComponent {
   state = {
     ...this.state,
+    clientName: "",
     phoneNumber: "",
   };
 
   render() {
     const { id, listingType, name, showAgency, toggleShowAgency } = this.props;
-    const { phoneNumber } = this.state;
+    const { clientName, phoneNumber } = this.state;
     return (
       <AtFloatLayout
         isOpened={showAgency}
@@ -24,6 +25,15 @@ export default class ContactAgent extends ApplicationComponent {
         <View style={{ marginLeft: 10, marginRight: 10 }}>
           <ItemHeader id={id} listingType={listingType} name={name} />
           <AtInput
+            name="input1"
+            customStyle={{ marginLeft: 0, marginTop: 15 }}
+            onChange={(value) => this.setClientName(value)}
+            placeholder="請輸入你的姓名"
+            title="姓名"
+            value={clientName}
+          />
+          <AtInput
+            name="input2"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setPhoneNumber(value)}
             placeholder="請輸入你的電話號碼"
@@ -48,14 +58,14 @@ export default class ContactAgent extends ApplicationComponent {
   }
 
   makeReservation = () => {
-    const { phoneNumber } = this.state;
+    const { clientName, phoneNumber } = this.state;
     this.serviceExecutor
       .execute(
         MAKE_RESERVATION({
           companyId: process.env.COMPANY_ID,
           itemId: this.props.id,
           requestCountryCode: "853",
-          requestName: "Jason",
+          requestName: clientName,
           requestSmsNumber: phoneNumber,
         })
       )
@@ -71,6 +81,12 @@ export default class ContactAgent extends ApplicationComponent {
     this.setState({ phoneNumber: "" });
     this.props.toggleShowAgency();
   }
+
+  setClientName = (clientName) => {
+    this.setState({
+      clientName,
+    });
+  };
 
   setPhoneNumber = (phoneNumber) => {
     this.setState({

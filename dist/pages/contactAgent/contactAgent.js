@@ -51,18 +51,25 @@ var ContactAgent = function (_ApplicationComponent) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ContactAgent.__proto__ || Object.getPrototypeOf(ContactAgent)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.state, {
+      clientName: "",
       phoneNumber: ""
     }), _this.makeReservation = function () {
-      var phoneNumber = _this.state.phoneNumber;
+      var _this$state = _this.state,
+          clientName = _this$state.clientName,
+          phoneNumber = _this$state.phoneNumber;
 
       _this.serviceExecutor.execute((0, _service.MAKE_RESERVATION)({
         companyId: process.env.COMPANY_ID,
         itemId: _this.props.id,
         requestCountryCode: "853",
-        requestName: "Jason",
+        requestName: clientName,
         requestSmsNumber: phoneNumber
       })).then(function () {
         return _this.onMakeReservationSuccess();
+      });
+    }, _this.setClientName = function (clientName) {
+      _this.setState({
+        clientName: clientName
       });
     }, _this.setPhoneNumber = function (phoneNumber) {
       _this.setState({
@@ -82,7 +89,9 @@ var ContactAgent = function (_ApplicationComponent) {
           name = _props.name,
           showAgency = _props.showAgency,
           toggleShowAgency = _props.toggleShowAgency;
-      var phoneNumber = this.state.phoneNumber;
+      var _state = this.state,
+          clientName = _state.clientName,
+          phoneNumber = _state.phoneNumber;
 
       return React.createElement(
         _taroUi.AtFloatLayout,
@@ -96,6 +105,17 @@ var ContactAgent = function (_ApplicationComponent) {
           { style: { marginLeft: 10, marginRight: 10 } },
           React.createElement(_itemDetail.ItemHeader, { id: id, listingType: listingType, name: name }),
           React.createElement(_taroUi.AtInput, {
+            name: "input1",
+            customStyle: { marginLeft: 0, marginTop: 15 },
+            onChange: function onChange(value) {
+              return _this2.setClientName(value);
+            },
+            placeholder: "\u8ACB\u8F38\u5165\u4F60\u7684\u59D3\u540D",
+            title: "\u59D3\u540D",
+            value: clientName
+          }),
+          React.createElement(_taroUi.AtInput, {
+            name: "input2",
             customStyle: { marginLeft: 0, marginTop: 15 },
             onChange: function onChange(value) {
               return _this2.setPhoneNumber(value);
