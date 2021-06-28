@@ -12,21 +12,25 @@ export default class LandingPageView extends ApplicationComponentView {
   render() {
     const { categories, items, landingPage, onClickItem, onClickMenuButton } =
       this.props;
+    const { bottomList, mainMenuButtons } = landingPage;
     return (
       <this.Wrapper>
         <FlexView>
           <ImageCarousel
             imageUrls={landingPage.carousel.map((image) => image.url)}
           />
-          <DefaultCardContent
-            banners={landingPage.banners}
-            bottomList={landingPage.bottomList}
-            mainMenuButtons={landingPage.mainMenuButtons}
-            categories={categories}
-            items={items}
-            onClickItem={onClickItem}
-            onClickMenuButton={onClickMenuButton}
-          />
+          <CardContent>
+            <ButtonRow
+              mainMenuButtons={mainMenuButtons}
+              onClickMenuButton={onClickMenuButton}
+            />
+            <BottomListing
+              bottomList={bottomList}
+              categories={categories}
+              items={items}
+              onClickItem={onClickItem}
+            />
+          </CardContent>
         </FlexView>
       </this.Wrapper>
     );
@@ -147,32 +151,6 @@ export function CategoryListing({
         </FlexView>
       </ScrollView>
     </FlexView>
-  );
-}
-
-export function DefaultCardContent({
-  banners,
-  bottomList,
-  categories,
-  items,
-  mainMenuButtons,
-  onClickItem,
-  onClickMenuButton,
-}) {
-  return (
-    <CardContent>
-      <ButtonRow
-        mainMenuButtons={mainMenuButtons}
-        onClickMenuButton={onClickMenuButton}
-      />
-      {/* <OneRowBanners banners={banners} /> */}
-      <BottomListing
-        bottomList={bottomList}
-        categories={categories}
-        items={items}
-        onClickItem={onClickItem}
-      />
-    </CardContent>
   );
 }
 

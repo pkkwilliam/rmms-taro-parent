@@ -93,4 +93,15 @@ export default class ApplicationComponent extends Component {
     this.appStateService.getCategories(companyId);
     this.appStateService.getItems(companyId);
   }
+
+  onShareAppMessage(res) {
+    if (res.from === "button") {
+      // 来自页面内转发按钮
+      console.log(res.target);
+    }
+    return {
+      title: "",
+      path: "/page/index/index",
+    };
+  }
 }

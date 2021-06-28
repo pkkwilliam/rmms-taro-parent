@@ -13,6 +13,7 @@ exports.Description = Description;
 exports.ItemAbstractHeader = ItemAbstractHeader;
 exports.ItemAbstractHeaders = ItemAbstractHeaders;
 exports.ItemHeader = ItemHeader;
+exports.MakeReservation = MakeReservation;
 
 var _react = require("react");
 
@@ -66,6 +67,10 @@ var _applicationComponent = require("../../common/applicationComponent.view");
 
 var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
 
+var _contactAgent = require("../contactAgent/contactAgent");
+
+var _contactAgent2 = _interopRequireDefault(_contactAgent);
+
 require("./itemDetail.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -90,14 +95,29 @@ var ItemDetailView = function (_ApplicationComponent) {
     value: function render() {
       var _props = this.props,
           itemDetail = _props.itemDetail,
-          _props$onClickSubmit = _props.onClickSubmit,
-          onClickSubmit = _props$onClickSubmit === undefined ? function () {} : _props$onClickSubmit;
+          showAgency = _props.showAgency,
+          toggleShowAgency = _props.toggleShowAgency;
+      var id = itemDetail.id,
+          listingType = itemDetail.listingType,
+          name = itemDetail.name;
 
       return _react2.default.createElement(
         this.Wrapper,
         null,
         _react2.default.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
-        _react2.default.createElement(Content, _extends({ onClickSubmit: onClickSubmit }, itemDetail))
+        _react2.default.createElement(
+          _landingPage.CardContent,
+          { style: { height: "100%" } },
+          _react2.default.createElement(Content, _extends({ onClickSubmit: toggleShowAgency }, itemDetail)),
+          _react2.default.createElement(_contactAgent2.default, {
+            id: id,
+            listingType: listingType,
+            name: name,
+            showAgency: showAgency,
+            toggleShowAgency: toggleShowAgency
+          }),
+          _react2.default.createElement(MakeReservation, { onClickSubmit: toggleShowAgency })
+        )
       );
     }
   }]);
@@ -117,8 +137,7 @@ function Content(props) {
       id = props.id,
       listingType = props.listingType,
       name = props.name,
-      style = props.style,
-      onClickSubmit = props.onClickSubmit;
+      style = props.style;
 
   var tags = categories.map(function (category, index) {
     return _react2.default.createElement(
@@ -132,47 +151,28 @@ function Content(props) {
     );
   });
   return _react2.default.createElement(
-    _landingPage.CardContent,
-    {
-      style: { flex: 1, height: "100%", justifyContent: "space-between" }
-    },
+    _react.Fragment,
+    null,
     _react2.default.createElement(
-      _components.ScrollView,
-      { scrollY: true, style: { height: 410 } },
-      _react2.default.createElement(
-        _flexView2.default,
-        { style: { marginTop: 15 } },
-        _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name })
-      ),
-      _react2.default.createElement(
-        _flexView2.default,
-        { style: _extends({ flexDirection: "row" }, style) },
-        tags
-      ),
-      _react2.default.createElement(
-        _info2.default,
-        { style: { marginTop: 5 } },
-        address
-      ),
-      _react2.default.createElement(ItemAbstractHeaders, props),
-      _react2.default.createElement(
-        _flexView2.default,
-        { style: { marginTop: 15 } },
-        _react2.default.createElement(Description, { description: description })
-      )
+      _flexView2.default,
+      { style: { marginTop: 15 } },
+      _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name })
     ),
     _react2.default.createElement(
       _flexView2.default,
-      { style: { flex: 1, justifyContent: "flex-end" } },
-      _react2.default.createElement(
-        _applicationButton2.default,
-        {
-          block: true,
-          onClick: onClickSubmit,
-          style: { marginBottom: 15 }
-        },
-        "\u9810\u7D04\u7747\u6A13"
-      )
+      { style: _extends({ flexDirection: "row" }, style) },
+      tags
+    ),
+    _react2.default.createElement(
+      _info2.default,
+      { style: { marginTop: 5 } },
+      address
+    ),
+    _react2.default.createElement(ItemAbstractHeaders, props),
+    _react2.default.createElement(
+      _flexView2.default,
+      { style: { marginTop: 15 } },
+      _react2.default.createElement(Description, { description: description })
     )
   );
 }
@@ -197,10 +197,10 @@ function Description(_ref) {
     ),
     _react2.default.createElement(
       _flexView2.default,
-      { style: { marginTop: 15 } },
+      { style: { marginTop: 5 } },
       _react2.default.createElement(
         _h4.default,
-        { style: { lineHeight: "38px" } },
+        { style: { lineHeight: "28px" } },
         description
       )
     )
@@ -263,7 +263,7 @@ function ItemAbstractHeaders(props) {
         label: "\u4F48\u5C40"
       }),
       _react2.default.createElement(ItemAbstractHeader, {
-        header: area + "\u5E73\u65B9\u544E",
+        header: parseInt(area).toLocaleString() + "\u5E73\u65B9\u544E",
         icon: "home",
         iconColor: "#007AFF",
         label: "\u9762\u7A4D"
@@ -279,7 +279,18 @@ function ItemHeader(props) {
 
   return _react2.default.createElement(
     _flexView2.default,
-    null,
+    {
+      style: {
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between"
+      }
+    },
+    _react2.default.createElement(
+      _h2.default,
+      { style: { marginTop: 5 } },
+      name
+    ),
     _react2.default.createElement(
       _flexView2.default,
       {
@@ -292,11 +303,24 @@ function ItemHeader(props) {
         "ID: ",
         id
       )
-    ),
+    )
+  );
+}
+
+function MakeReservation(_ref3) {
+  var onClickSubmit = _ref3.onClickSubmit;
+
+  return _react2.default.createElement(
+    _flexView2.default,
+    { style: { flex: 1, justifyContent: "flex-end" } },
     _react2.default.createElement(
-      _h2.default,
-      { style: { marginTop: 5 } },
-      name
+      _applicationButton2.default,
+      {
+        block: true,
+        onClick: onClickSubmit,
+        style: { marginBottom: 15 }
+      },
+      "\u9810\u7D04\u7747\u6A13"
     )
   );
 }

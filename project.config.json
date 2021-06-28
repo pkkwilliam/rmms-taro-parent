@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "rmms-taro-parent",
   "description": "Demostraion of BitCode RMMS",
-  "appid": "wxaf26db6837e7297f",
+  "appid": "wx4903be31b4350d01",
   "setting": {
     "urlCheck": false,
     "es6": false,

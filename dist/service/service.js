@@ -8,10 +8,12 @@ exports.GET_COMPANY = GET_COMPANY;
 exports.GET_COMPANY_CUSTOMISE = GET_COMPANY_CUSTOMISE;
 exports.GET_ITEM = GET_ITEM;
 exports.GET_ITEMS = GET_ITEMS;
+exports.MAKE_RESERVATION = MAKE_RESERVATION;
 var PUBLIC_CATEGORY_SERVICE = "/public/v1/category";
 var PUBLIC_COMPANY_CUSTOMISE_SERVICE = "/public/v1/company_customise";
 var PUBLIC_COMPANY_SERVICE = "/public/v1/company";
 var PUBLIC_ITEM_SERVICE = "/public/v1/item";
+var PUBLIC_REAL_ESTATE_RESERVATION = "/public/v1/real_estate_reservation";
 
 // Category
 function GET_COMPANY_CATEGORIES(companyId) {
@@ -49,5 +51,14 @@ function GET_ITEMS(companyId) {
   return {
     url: PUBLIC_ITEM_SERVICE + "/items?companyId=" + companyId,
     method: "GET"
+  };
+}
+
+// Reservation
+function MAKE_RESERVATION(reservationRequest) {
+  return {
+    body: reservationRequest,
+    url: "" + PUBLIC_REAL_ESTATE_RESERVATION,
+    method: "POST"
   };
 }

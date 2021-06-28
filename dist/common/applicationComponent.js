@@ -138,6 +138,18 @@ var ApplicationComponent = function (_Component) {
       return onLoad;
     }()
   }, {
+    key: "onShareAppMessage",
+    value: function onShareAppMessage(res) {
+      if (res.from === "button") {
+        // 来自页面内转发按钮
+        console.log(res.target);
+      }
+      return {
+        title: "",
+        path: "/page/index/index"
+      };
+    }
+  }, {
     key: "applicationContext",
     get: function get() {
       if (!this._applicationContext) {

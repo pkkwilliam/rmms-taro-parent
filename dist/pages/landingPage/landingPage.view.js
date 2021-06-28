@@ -12,7 +12,6 @@ exports.BottomListing = BottomListing;
 exports.ButtonRow = ButtonRow;
 exports.CardContent = CardContent;
 exports.CategoryListing = CategoryListing;
-exports.DefaultCardContent = DefaultCardContent;
 exports.ItemListing = ItemListing;
 exports.OneRowBanners = OneRowBanners;
 
@@ -76,6 +75,8 @@ var LandingPageView = function (_ApplicationComponent) {
           landingPage = _props.landingPage,
           onClickItem = _props.onClickItem,
           onClickMenuButton = _props.onClickMenuButton;
+      var bottomList = landingPage.bottomList,
+          mainMenuButtons = landingPage.mainMenuButtons;
 
       return _react2.default.createElement(
         this.Wrapper,
@@ -88,15 +89,20 @@ var LandingPageView = function (_ApplicationComponent) {
               return image.url;
             })
           }),
-          _react2.default.createElement(DefaultCardContent, {
-            banners: landingPage.banners,
-            bottomList: landingPage.bottomList,
-            mainMenuButtons: landingPage.mainMenuButtons,
-            categories: categories,
-            items: items,
-            onClickItem: onClickItem,
-            onClickMenuButton: onClickMenuButton
-          })
+          _react2.default.createElement(
+            CardContent,
+            null,
+            _react2.default.createElement(ButtonRow, {
+              mainMenuButtons: mainMenuButtons,
+              onClickMenuButton: onClickMenuButton
+            }),
+            _react2.default.createElement(BottomListing, {
+              bottomList: bottomList,
+              categories: categories,
+              items: items,
+              onClickItem: onClickItem
+            })
+          )
         )
       );
     }
@@ -258,39 +264,14 @@ function CategoryListing(_ref2) {
   );
 }
 
-function DefaultCardContent(_ref3) {
-  var banners = _ref3.banners,
-      bottomList = _ref3.bottomList,
-      categories = _ref3.categories,
-      items = _ref3.items,
-      mainMenuButtons = _ref3.mainMenuButtons,
-      onClickItem = _ref3.onClickItem,
-      onClickMenuButton = _ref3.onClickMenuButton;
-
-  return _react2.default.createElement(
-    CardContent,
-    null,
-    _react2.default.createElement(ButtonRow, {
-      mainMenuButtons: mainMenuButtons,
-      onClickMenuButton: onClickMenuButton
-    }),
-    _react2.default.createElement(BottomListing, {
-      bottomList: bottomList,
-      categories: categories,
-      items: items,
-      onClickItem: onClickItem
-    })
-  );
-}
-
-function ItemListing(_ref4) {
-  var itemId = _ref4.itemId;
+function ItemListing(_ref3) {
+  var itemId = _ref3.itemId;
 
   return null;
 }
 
-function OneRowBanners(_ref5) {
-  var banners = _ref5.banners;
+function OneRowBanners(_ref4) {
+  var banners = _ref4.banners;
 
   return banners.map(function (banner, index) {
     return _react2.default.createElement(_components.Image, {

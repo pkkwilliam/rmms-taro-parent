@@ -13,16 +13,28 @@ import H2 from "../../common/text/h2";
 import ApplicationButton from "../../common/applicationButton";
 import Info from "../../common/text/info";
 import ApplicationComponentView from "../../common/applicationComponent.view";
+import ContactAgent from "../contactAgent/contactAgent";
 
 import "./itemDetail.scss";
 
 export default class ItemDetailView extends ApplicationComponentView {
   render() {
-    const { itemDetail, onClickSubmit = () => {} } = this.props;
+    const { itemDetail, showAgency, toggleShowAgency } = this.props;
+    const { id, listingType, name } = itemDetail;
     return (
       <this.Wrapper>
         <ImageCarousel imageUrls={itemDetail.imageUrls} />
-        <Content onClickSubmit={onClickSubmit} {...itemDetail} />
+        <CardContent style={{ height: "100%" }}>
+          <Content onClickSubmit={toggleShowAgency} {...itemDetail} />
+          <ContactAgent
+            id={id}
+            listingType={listingType}
+            name={name}
+            showAgency={showAgency}
+            toggleShowAgency={toggleShowAgency}
+          />
+          <MakeReservation onClickSubmit={toggleShowAgency} />
+        </CardContent>
       </this.Wrapper>
     );
   }
@@ -40,7 +52,6 @@ export function Content(props) {
     listingType,
     name,
     style,
-    onClickSubmit,
   } = props;
   const tags = categories.map((category, index) => (
     <ApplicationTag
@@ -52,31 +63,18 @@ export function Content(props) {
     </ApplicationTag>
   ));
   return (
-    <CardContent
-      style={{ flex: 1, height: "100%", justifyContent: "space-between" }}
-    >
-      <ScrollView scrollY style={{ height: 410 }}>
-        <FlexView style={{ marginTop: 15 }}>
-          <ItemHeader id={id} listingType={listingType} name={name} />
-        </FlexView>
-        <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
-        <Info style={{ marginTop: 5 }}>{address}</Info>
-        <ItemAbstractHeaders {...props} />
-
-        <FlexView style={{ marginTop: 15 }}>
-          <Description description={description} />
-        </FlexView>
-      </ScrollView>
-      <FlexView style={{ flex: 1, justifyContent: "flex-end" }}>
-        <ApplicationButton
-          block
-          onClick={onClickSubmit}
-          style={{ marginBottom: 15 }}
-        >
-          預約睇樓
-        </ApplicationButton>
+    <Fragment>
+      <FlexView style={{ marginTop: 15 }}>
+        <ItemHeader id={id} listingType={listingType} name={name} />
       </FlexView>
-    </CardContent>
+      <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
+      <Info style={{ marginTop: 5 }}>{address}</Info>
+      <ItemAbstractHeaders {...props} />
+
+      <FlexView style={{ marginTop: 15 }}>
+        <Description description={description} />
+      </FlexView>
+    </Fragment>
   );
 }
 
@@ -89,8 +87,8 @@ export function Description({ description }) {
         <AtIcon value="tags" />
         <H2 style={{ marginLeft: 5 }}>房屋信息</H2>
       </FlexView>
-      <FlexView style={{ marginTop: 15 }}>
-        <H3 style={{ lineHeight: "38px" }}>{description}</H3>
+      <FlexView style={{ marginTop: 5 }}>
+        <H3 style={{ lineHeight: "28px" }}>{description}</H3>
       </FlexView>
     </Fragment>
   );
@@ -131,7 +129,7 @@ export function ItemAbstractHeaders(props) {
           label="佈局"
         />
         <ItemAbstractHeader
-          header={`${area}平方呎`}
+          header={`${parseInt(area).toLocaleString()}平方呎`}
           icon="home"
           iconColor="#007AFF"
           label="面積"
@@ -144,14 +142,34 @@ export function ItemAbstractHeaders(props) {
 export function ItemHeader(props) {
   const { id, listingType, name } = props;
   return (
-    <FlexView>
+    <FlexView
+      style={{
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
+    >
+      <H1 style={{ marginTop: 5 }}>{name}</H1>
       <FlexView
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
         <ListingTypeTag listingType={listingType} />
         <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
       </FlexView>
-      <H1 style={{ marginTop: 5 }}>{name}</H1>
+    </FlexView>
+  );
+}
+
+export function MakeReservation({ onClickSubmit }) {
+  return (
+    <FlexView style={{ flex: 1, justifyContent: "flex-end" }}>
+      <ApplicationButton
+        block
+        onClick={onClickSubmit}
+        style={{ marginBottom: 15 }}
+      >
+        預約睇樓
+      </ApplicationButton>
     </FlexView>
   );
 }

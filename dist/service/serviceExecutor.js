@@ -10,6 +10,10 @@ var _taro = require("@tarojs/taro");
 
 var _taro2 = _interopRequireDefault(_taro);
 
+var _bedrockExceptionCode = require("../common/bedrockExceptionCode.json");
+
+var _bedrockExceptionCode2 = _interopRequireDefault(_bedrockExceptionCode);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26,26 +30,38 @@ var ServiceExecutor = function () {
     value: function execute(service) {
       var _this = this;
 
-      var url = service.url,
+      var body = service.body,
+          url = service.url,
           method = service.method;
 
       return _taro2.default.request({
+        data: JSON.stringify(body),
         url: this.host + url,
         method: method
       }).then(function (rawResponse) {
-        return _this.processServerResponse(rawResponse);
+        return new Promise(function (resolve, reject) {
+          return _this.processServerResponse(rawResponse, resolve, reject);
+        });
       }).catch(function (exception) {
-        console.log(exception);
+        _taro2.default.showToast({
+          title: "伺服器出錯",
+          icon: "none"
+        });
       });
     }
   }, {
     key: "processServerResponse",
-    value: function processServerResponse(rawResponse) {
+    value: function processServerResponse(rawResponse, resolve, reject) {
       var statusCode = rawResponse.statusCode;
 
       if (statusCode >= 200 && statusCode < 300) {
-        return this.process2xxResponse(rawResponse);
-      } else if (statusCode >= 400 && statusCode < 500) {} else if (statusCode >= 500) {} else {}
+        return resolve(this.process2xxResponse(rawResponse));
+      } else if (statusCode >= 400 && statusCode < 500) {
+        _taro2.default.showToast({
+          title: _bedrockExceptionCode2.default[rawResponse.data.errorCode],
+          icon: "none"
+        });
+      } else if (statusCode >= 500) {} else {}
     }
   }, {
     key: "process2xxResponse",

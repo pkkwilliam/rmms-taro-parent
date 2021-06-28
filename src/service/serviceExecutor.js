@@ -1,4 +1,5 @@
 import Taro from "@tarojs/taro";
+import BedrockExceptionCode from "../common/bedrockExceptionCode.json";
 
 export default class ServiceExecutor {
   constructor(host) {
@@ -6,24 +7,34 @@ export default class ServiceExecutor {
   }
 
   execute(service) {
-    const { url, method } = service;
+    const { body, url, method } = service;
     return Taro.request({
+      data: JSON.stringify(body),
       url: this.host + url,
       method,
     })
       .then((rawResponse) => {
-        return this.processServerResponse(rawResponse);
+        return new Promise((resolve, reject) =>
+          this.processServerResponse(rawResponse, resolve, reject)
+        );
       })
       .catch((exception) => {
-        console.log(exception);
+        Taro.showToast({
+          title: "伺服器出錯",
+          icon: "none",
+        });
       });
   }
 
-  processServerResponse(rawResponse) {
+  processServerResponse(rawResponse, resolve, reject) {
     const { statusCode } = rawResponse;
     if (statusCode >= 200 && statusCode < 300) {
-      return this.process2xxResponse(rawResponse);
+      return resolve(this.process2xxResponse(rawResponse));
     } else if (statusCode >= 400 && statusCode < 500) {
+      Taro.showToast({
+        title: BedrockExceptionCode[rawResponse.data.errorCode],
+        icon: "none",
+      });
     } else if (statusCode >= 500) {
     } else {
     }
