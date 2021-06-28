@@ -8,6 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _taro = require("@tarojs/taro");
 
 var _taro2 = _interopRequireDefault(_taro);
@@ -93,18 +97,18 @@ var ContactAgent = function (_ApplicationComponent) {
           clientName = _state.clientName,
           phoneNumber = _state.phoneNumber;
 
-      return React.createElement(
+      return _react2.default.createElement(
         _taroUi.AtFloatLayout,
         {
           isOpened: showAgency,
           title: "\u9810\u7D04\u7747\u6A13",
           onClose: toggleShowAgency
         },
-        React.createElement(
+        _react2.default.createElement(
           _components.View,
           { style: { marginLeft: 10, marginRight: 10 } },
-          React.createElement(_itemDetail.ItemHeader, { id: id, listingType: listingType, name: name }),
-          React.createElement(_taroUi.AtInput, {
+          _react2.default.createElement(_itemDetail.ItemHeader, { id: id, listingType: listingType, name: name }),
+          _react2.default.createElement(_taroUi.AtInput, {
             name: "input1",
             customStyle: { marginLeft: 0, marginTop: 15 },
             onChange: function onChange(value) {
@@ -114,7 +118,7 @@ var ContactAgent = function (_ApplicationComponent) {
             title: "\u59D3\u540D",
             value: clientName
           }),
-          React.createElement(_taroUi.AtInput, {
+          _react2.default.createElement(_taroUi.AtInput, {
             name: "input2",
             customStyle: { marginLeft: 0, marginTop: 15 },
             onChange: function onChange(value) {
@@ -124,13 +128,13 @@ var ContactAgent = function (_ApplicationComponent) {
             title: "\u96FB\u8A71\u865F\u78BC",
             value: phoneNumber
           }),
-          React.createElement(_taroUi.AtTextarea, {
+          _react2.default.createElement(_taroUi.AtTextarea, {
             count: false,
             customStyle: { color: "#5F5F5F", marginTop: 15 },
             disabled: true,
             value: "\u4F60\u597D\uFF0C\u6211\u60F3\u9810\u7D04\u95DC\u65BC" + id + ":" + name + "\uFF0C\u6211\u7684\u96FB\u8A71:" + phoneNumber
           }),
-          React.createElement(
+          _react2.default.createElement(
             _applicationButton2.default,
             {
               onClick: this.makeReservation,
