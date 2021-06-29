@@ -7,6 +7,7 @@ import H3 from "../../common/text/h3";
 import Info from "../../common/text/info";
 import FlexView from "../../common/flexView";
 import ApplicationTag from "../../common/applicationTag";
+import { generateVariableLabel } from "../../common/applicationComponent.view";
 
 export default function CategoryView(props) {
   return (
@@ -79,7 +80,7 @@ export function TabsPaneContainer(props) {
 }
 
 export function ItemList(props) {
-  const { items, onClickItem } = props;
+  const { items, label, onClickItem } = props;
   const ItemCards = sortSequence(items).map((item, index) => {
     const {
       address,
@@ -93,6 +94,7 @@ export function ItemList(props) {
       restroom,
       room,
     } = item;
+    console.log(room, livingRoom);
     return (
       <FlexView
         key={ItemList + index}
@@ -113,7 +115,10 @@ export function ItemList(props) {
             <ListingTypeTag {...props} />
             <H3 style={{ marginLeft: 8 }}>{name}</H3>
           </FlexView>
-          <Info>{`${area}平方呎 ${room}房${livingRoom}廳`}</Info>
+          <Info>{`${area}${label.areaSuffix} ${generateVariableLabel(
+            label.layoutValue,
+            [room, livingRoom]
+          )}`}</Info>
           <Info>{address}</Info>
         </FlexView>
       </FlexView>

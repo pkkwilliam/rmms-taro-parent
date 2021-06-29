@@ -130,6 +130,7 @@ var Category = function (_ApplicationComponent) {
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
         commonLabel: companyCustomise.label.common,
+        label: companyCustomise.label.category,
         onChangeSegmentType: this.onChangeSegmentType,
         onChangeSearchBarText: this.onChangeSearchBarText,
         onClickCategory: this.onClickCategory,

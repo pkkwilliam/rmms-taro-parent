@@ -41,6 +41,8 @@ var _applicationTag = require("../../common/applicationTag");
 
 var _applicationTag2 = _interopRequireDefault(_applicationTag);
 
+var _applicationComponent = require("../../common/applicationComponent.view");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function CategoryView(props) {
@@ -125,6 +127,7 @@ function TabsPaneContainer(props) {
 
 function ItemList(props) {
   var items = props.items,
+      label = props.label,
       onClickItem = props.onClickItem;
 
   var ItemCards = sortSequence(items).map(function (item, index) {
@@ -139,6 +142,7 @@ function ItemList(props) {
         restroom = item.restroom,
         room = item.room;
 
+    console.log(room, livingRoom);
     return _react2.default.createElement(
       _flexView2.default,
       {
@@ -173,7 +177,7 @@ function ItemList(props) {
         _react2.default.createElement(
           _info2.default,
           null,
-          area + "\u5E73\u65B9\u544E " + room + "\u623F" + livingRoom + "\u5EF3"
+          "" + area + label.areaSuffix + " " + (0, _applicationComponent.generateVariableLabel)(label.layoutValue, [room, livingRoom])
         ),
         _react2.default.createElement(
           _info2.default,
