@@ -63,7 +63,7 @@ export function SearchBar({
 }
 
 export function TabsPaneContainer(props) {
-  const { currentCategoryIndex, categoriesItems, onClickItem } = props;
+  const { currentCategoryIndex, categoriesItems } = props;
   return categoriesItems.map((categoryItems, index) => {
     return (
       <AtTabsPane
@@ -72,7 +72,7 @@ export function TabsPaneContainer(props) {
         tabDirection="vertical"
         index={index}
       >
-        <ItemList items={categoryItems} onClickItem={onClickItem} />
+        <ItemList items={categoryItems} {...props} />
       </AtTabsPane>
     );
   });
@@ -110,7 +110,7 @@ export function ItemList(props) {
               alignItems: "center",
             }}
           >
-            <ListingTypeTag listingType={listingType} />
+            <ListingTypeTag {...props} />
             <H3 style={{ marginLeft: 8 }}>{name}</H3>
           </FlexView>
           <Info>{`${area}平方呎 ${room}房${livingRoom}廳`}</Info>
@@ -122,10 +122,13 @@ export function ItemList(props) {
   return <Fragment>{ItemCards}</Fragment>;
 }
 
-export function ListingTypeTag({ listingType }) {
+export function ListingTypeTag({
+  commonLabel = { buy: "入", rent: "出" },
+  listingType,
+}) {
   return (
     <ApplicationTag color={listingType === "RENT" ? "blue" : "green"}>
-      {listingType === "RENT" ? "出租" : "出售"}
+      {listingType === "RENT" ? commonLabel.rent : commonLabel.buy}
     </ApplicationTag>
   );
 }
@@ -137,10 +140,10 @@ export function sortSequence(objects) {
 }
 
 export function TopSegment(props) {
-  const { currentSegmentTypeIndex, onChangeSegmentType } = props;
+  const { commonLabel, currentSegmentTypeIndex, onChangeSegmentType } = props;
   return (
     <AtSegmentedControl
-      values={["出租", "買賣"]}
+      values={[commonLabel.rent, commonLabel.buy]}
       onClick={onChangeSegmentType}
       current={currentSegmentTypeIndex}
     />

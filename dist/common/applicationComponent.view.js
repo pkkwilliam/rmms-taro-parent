@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+exports.generateVariableLabel = generateVariableLabel;
+
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -95,4 +97,11 @@ function ErrorModal(props) {
     },
     content: "\u6B22\u8FCE\u52A0\u5165\u4EAC\u4E1C\u51F9\u51F8\u5B9E\u9A8C\u5BA4\\n\\r\u6B22\u8FCE\u52A0\u5165\u4EAC\u4E1C\u51F9\u51F8\u5B9E\u9A8C\u5BA4"
   });
+}
+
+function generateVariableLabel(label, values) {
+  for (var index = 0; index < values.length; index++) {
+    label = label.replace("$" + (index + 1), values[index]);
+  }
+  return label;
 }

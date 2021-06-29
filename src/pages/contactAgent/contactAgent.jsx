@@ -6,6 +6,7 @@ import ApplicationButton from "../../common/applicationButton";
 import ApplicationComponent from "../../common/applicationComponent";
 import { ItemHeader } from "../itemDetail/itemDetail.view";
 import { MAKE_RESERVATION } from "../../service/service";
+import { generateVariableLabel } from "../../common/applicationComponent.view";
 
 export default class ContactAgent extends ApplicationComponent {
   state = {
@@ -15,43 +16,53 @@ export default class ContactAgent extends ApplicationComponent {
   };
 
   render() {
+    const { common, contactAgent } = this.appState.companyCustomise.label;
     const { id, listingType, name, showAgency, toggleShowAgency } = this.props;
     const { clientName, phoneNumber } = this.state;
     return (
       <AtFloatLayout
         isOpened={showAgency}
-        title="預約睇樓"
+        title={contactAgent.header}
         onClose={toggleShowAgency}
       >
         <View style={{ marginLeft: 10, marginRight: 10 }}>
-          <ItemHeader id={id} listingType={listingType} name={name} />
+          <ItemHeader
+            id={id}
+            commonLabel={common}
+            listingType={listingType}
+            name={name}
+          />
           <AtInput
             name="input1"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setClientName(value)}
-            placeholder="請輸入你的姓名"
-            title="姓名"
+            placeholder={contactAgent.nameInputPlaceHolder}
+            title={contactAgent.nameInputTitle}
             value={clientName}
           />
           <AtInput
             name="input2"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setPhoneNumber(value)}
-            placeholder="請輸入你的電話號碼"
-            title="電話號碼"
+            placeholder={contactAgent.phoneInputPlaceHolder}
+            title={contactAgent.phoneInputTitle}
             value={phoneNumber}
           />
           <AtTextarea
             count={false}
             customStyle={{ color: "#5F5F5F", marginTop: 15 }}
             disabled
-            value={`你好，我想預約關於${id}:${name}，我的電話:${phoneNumber}`}
+            value={generateVariableLabel(contactAgent.textAreaValue, [
+              id,
+              name,
+              phoneNumber,
+            ])}
           />
           <ApplicationButton
             onClick={this.makeReservation}
             style={{ marginBottom: 15, marginTop: 30 }}
           >
-            通知中介
+            {contactAgent.submitButton}
           </ApplicationButton>
         </View>
       </AtFloatLayout>
@@ -74,8 +85,9 @@ export default class ContactAgent extends ApplicationComponent {
   };
 
   onMakeReservationSuccess() {
+    const label = this.appState.companyCustomise.label.contactAgent;
     Taro.showToast({
-      title: "通知已發送",
+      title: label.messageSent,
       icon: "success",
       duration: 2000,
     });

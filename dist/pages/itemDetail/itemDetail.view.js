@@ -19,8 +19,6 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _components = require("@tarojs/components");
-
 var _taroUi = require("taro-ui");
 
 var _landingPage = require("../landingPage/landingPage.view");
@@ -95,6 +93,7 @@ var ItemDetailView = function (_ApplicationComponent) {
     value: function render() {
       var _props = this.props,
           itemDetail = _props.itemDetail,
+          label = _props.label,
           showAgency = _props.showAgency,
           toggleShowAgency = _props.toggleShowAgency;
       var id = itemDetail.id,
@@ -108,7 +107,9 @@ var ItemDetailView = function (_ApplicationComponent) {
         _react2.default.createElement(
           _landingPage.CardContent,
           { style: { height: "100%" } },
-          _react2.default.createElement(Content, _extends({ onClickSubmit: toggleShowAgency }, itemDetail)),
+          _react2.default.createElement(Content, _extends({
+            onClickSubmit: toggleShowAgency
+          }, itemDetail, this.props)),
           _react2.default.createElement(_contactAgent2.default, {
             id: id,
             listingType: listingType,
@@ -116,7 +117,7 @@ var ItemDetailView = function (_ApplicationComponent) {
             showAgency: showAgency,
             toggleShowAgency: toggleShowAgency
           }),
-          _react2.default.createElement(MakeReservation, { onClickSubmit: toggleShowAgency })
+          _react2.default.createElement(MakeReservation, { label: label, onClickSubmit: toggleShowAgency })
         )
       );
     }
@@ -129,12 +130,14 @@ exports.default = ItemDetailView;
 function Content(props) {
   var address = props.address,
       area = props.area,
-      createTime = props.createTime,
+      commonLabel = props.commonLabel,
       _props$categories = props.categories,
       categories = _props$categories === undefined ? [] : _props$categories,
       cost = props.cost,
+      createTime = props.createTime,
       description = props.description,
       id = props.id,
+      label = props.label,
       listingType = props.listingType,
       name = props.name,
       style = props.style;
@@ -156,7 +159,12 @@ function Content(props) {
     _react2.default.createElement(
       _flexView2.default,
       { style: { marginTop: 15 } },
-      _react2.default.createElement(ItemHeader, { id: id, listingType: listingType, name: name })
+      _react2.default.createElement(ItemHeader, {
+        id: id,
+        commonLabel: commonLabel,
+        listingType: listingType,
+        name: name
+      })
     ),
     _react2.default.createElement(
       _flexView2.default,
@@ -172,13 +180,14 @@ function Content(props) {
     _react2.default.createElement(
       _flexView2.default,
       { style: { marginTop: 15 } },
-      _react2.default.createElement(Description, { description: description })
+      _react2.default.createElement(Description, { description: description, label: label })
     )
   );
 }
 
 function Description(_ref) {
-  var description = _ref.description;
+  var description = _ref.description,
+      label = _ref.label;
 
   return _react2.default.createElement(
     _react.Fragment,
@@ -192,7 +201,7 @@ function Description(_ref) {
       _react2.default.createElement(
         _h6.default,
         { style: { marginLeft: 5 } },
-        "\u623F\u5C4B\u4FE1\u606F"
+        label.detailHeader
       )
     ),
     _react2.default.createElement(
@@ -237,9 +246,17 @@ function ItemAbstractHeader(_ref2) {
 function ItemAbstractHeaders(props) {
   var area = props.area,
       cost = props.cost,
+      label = props.label,
       livingRoom = props.livingRoom,
       restRoom = props.restRoom,
       room = props.room;
+  var _label$areaHeader = label.areaHeader,
+      areaHeader = _label$areaHeader === undefined ? "" : _label$areaHeader,
+      areaSuffix = label.areaSuffix,
+      _label$layoutHeader = label.layoutHeader,
+      layoutHeader = _label$layoutHeader === undefined ? "" : _label$layoutHeader,
+      _label$priceHeader = label.priceHeader,
+      priceHeader = _label$priceHeader === undefined ? "" : _label$priceHeader;
 
   return _react2.default.createElement(
     _react.Fragment,
@@ -254,26 +271,27 @@ function ItemAbstractHeaders(props) {
         header: parseInt(cost).toLocaleString(),
         icon: "money",
         iconColor: "#85BB65",
-        label: "\u50F9\u683C"
+        label: priceHeader
       }),
       _react2.default.createElement(ItemAbstractHeader, {
-        header: room + "\u623F" + livingRoom + "\u5EF3",
+        header: (0, _applicationComponent.generateVariableLabel)(label.layoutValue, [livingRoom, room]),
         icon: "numbered-list",
         iconColor: "#d7471d",
-        label: "\u4F48\u5C40"
+        label: layoutHeader
       }),
       _react2.default.createElement(ItemAbstractHeader, {
-        header: parseInt(area).toLocaleString() + "\u5E73\u65B9\u544E",
+        header: "" + parseInt(area).toLocaleString() + areaSuffix,
         icon: "home",
         iconColor: "#007AFF",
-        label: "\u9762\u7A4D"
+        label: areaHeader
       })
     )
   );
 }
 
 function ItemHeader(props) {
-  var id = props.id,
+  var commonLabel = props.commonLabel,
+      id = props.id,
       listingType = props.listingType,
       name = props.name;
 
@@ -296,7 +314,7 @@ function ItemHeader(props) {
       {
         style: { flexDirection: "row", justifyContent: "space-between" }
       },
-      _react2.default.createElement(_category.ListingTypeTag, { listingType: listingType }),
+      _react2.default.createElement(_category.ListingTypeTag, { commonLabel: commonLabel, listingType: listingType }),
       _react2.default.createElement(
         _applicationTag2.default,
         { color: "geekblue" },
@@ -308,7 +326,8 @@ function ItemHeader(props) {
 }
 
 function MakeReservation(_ref3) {
-  var onClickSubmit = _ref3.onClickSubmit;
+  var label = _ref3.label,
+      onClickSubmit = _ref3.onClickSubmit;
 
   return _react2.default.createElement(
     _flexView2.default,
@@ -320,7 +339,7 @@ function MakeReservation(_ref3) {
         onClick: onClickSubmit,
         style: { marginBottom: 15 }
       },
-      "\u9810\u7D04\u7747\u6A13"
+      label.submitButton
     )
   );
 }

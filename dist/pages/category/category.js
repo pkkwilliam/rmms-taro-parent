@@ -121,6 +121,7 @@ var Category = function (_ApplicationComponent) {
     value: function render() {
       var _appState = this.appState,
           category = _appState.category,
+          companyCustomise = _appState.companyCustomise,
           item = _appState.item;
       var currentSegmentTypeIndex = this.state.currentSegmentTypeIndex;
 
@@ -128,6 +129,7 @@ var Category = function (_ApplicationComponent) {
       return _react2.default.createElement(_category2.default, _extends({
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
+        commonLabel: companyCustomise.label.common,
         onChangeSegmentType: this.onChangeSegmentType,
         onChangeSearchBarText: this.onChangeSearchBarText,
         onClickCategory: this.onClickCategory,

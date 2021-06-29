@@ -69,7 +69,13 @@ var ItemDetail = function (_ApplicationComponent) {
   }, {
     key: "render",
     value: function render() {
+      var _appState$companyCust = this.appState.companyCustomise.label,
+          common = _appState$companyCust.common,
+          itemDetail = _appState$companyCust.itemDetail;
+
       return _react2.default.createElement(_itemDetail2.default, _extends({}, this.state, {
+        commonLabel: common,
+        label: itemDetail,
         toggleShowAgency: this.toggleShowAgency
       }));
     }

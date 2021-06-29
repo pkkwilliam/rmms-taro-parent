@@ -32,6 +32,8 @@ var _itemDetail = require("../itemDetail/itemDetail.view");
 
 var _service = require("../../service/service");
 
+var _applicationComponent3 = require("../../common/applicationComponent.view");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87,6 +89,9 @@ var ContactAgent = function (_ApplicationComponent) {
     value: function render() {
       var _this2 = this;
 
+      var _appState$companyCust = this.appState.companyCustomise.label,
+          common = _appState$companyCust.common,
+          contactAgent = _appState$companyCust.contactAgent;
       var _props = this.props,
           id = _props.id,
           listingType = _props.listingType,
@@ -101,21 +106,26 @@ var ContactAgent = function (_ApplicationComponent) {
         _taroUi.AtFloatLayout,
         {
           isOpened: showAgency,
-          title: "\u9810\u7D04\u7747\u6A13",
+          title: contactAgent.header,
           onClose: toggleShowAgency
         },
         _react2.default.createElement(
           _components.View,
           { style: { marginLeft: 10, marginRight: 10 } },
-          _react2.default.createElement(_itemDetail.ItemHeader, { id: id, listingType: listingType, name: name }),
+          _react2.default.createElement(_itemDetail.ItemHeader, {
+            id: id,
+            commonLabel: common,
+            listingType: listingType,
+            name: name
+          }),
           _react2.default.createElement(_taroUi.AtInput, {
             name: "input1",
             customStyle: { marginLeft: 0, marginTop: 15 },
             onChange: function onChange(value) {
               return _this2.setClientName(value);
             },
-            placeholder: "\u8ACB\u8F38\u5165\u4F60\u7684\u59D3\u540D",
-            title: "\u59D3\u540D",
+            placeholder: contactAgent.nameInputPlaceHolder,
+            title: contactAgent.nameInputTitle,
             value: clientName
           }),
           _react2.default.createElement(_taroUi.AtInput, {
@@ -124,15 +134,15 @@ var ContactAgent = function (_ApplicationComponent) {
             onChange: function onChange(value) {
               return _this2.setPhoneNumber(value);
             },
-            placeholder: "\u8ACB\u8F38\u5165\u4F60\u7684\u96FB\u8A71\u865F\u78BC",
-            title: "\u96FB\u8A71\u865F\u78BC",
+            placeholder: contactAgent.phoneInputPlaceHolder,
+            title: contactAgent.phoneInputTitle,
             value: phoneNumber
           }),
           _react2.default.createElement(_taroUi.AtTextarea, {
             count: false,
             customStyle: { color: "#5F5F5F", marginTop: 15 },
             disabled: true,
-            value: "\u4F60\u597D\uFF0C\u6211\u60F3\u9810\u7D04\u95DC\u65BC" + id + ":" + name + "\uFF0C\u6211\u7684\u96FB\u8A71:" + phoneNumber
+            value: (0, _applicationComponent3.generateVariableLabel)(contactAgent.textAreaValue, [id, name, phoneNumber])
           }),
           _react2.default.createElement(
             _applicationButton2.default,
@@ -140,7 +150,7 @@ var ContactAgent = function (_ApplicationComponent) {
               onClick: this.makeReservation,
               style: { marginBottom: 15, marginTop: 30 }
             },
-            "\u901A\u77E5\u4E2D\u4ECB"
+            contactAgent.submitButton
           )
         )
       );
@@ -148,8 +158,9 @@ var ContactAgent = function (_ApplicationComponent) {
   }, {
     key: "onMakeReservationSuccess",
     value: function onMakeReservationSuccess() {
+      var label = this.appState.companyCustomise.label.contactAgent;
       _taro2.default.showToast({
-        title: "通知已發送",
+        title: label.messageSent,
         icon: "success",
         duration: 2000
       });

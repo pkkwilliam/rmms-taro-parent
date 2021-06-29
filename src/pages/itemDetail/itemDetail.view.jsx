@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { ScrollView } from "@tarojs/components";
 import { AtDivider, AtIcon } from "taro-ui";
 import { CardContent } from "../landingPage/landingPage.view";
 import { ListingTypeTag } from "../category/category.view";
@@ -12,20 +11,26 @@ import ApplicationTag from "../../common/applicationTag";
 import H2 from "../../common/text/h2";
 import ApplicationButton from "../../common/applicationButton";
 import Info from "../../common/text/info";
-import ApplicationComponentView from "../../common/applicationComponent.view";
+import ApplicationComponentView, {
+  generateVariableLabel,
+} from "../../common/applicationComponent.view";
 import ContactAgent from "../contactAgent/contactAgent";
 
 import "./itemDetail.scss";
 
 export default class ItemDetailView extends ApplicationComponentView {
   render() {
-    const { itemDetail, showAgency, toggleShowAgency } = this.props;
+    const { itemDetail, label, showAgency, toggleShowAgency } = this.props;
     const { id, listingType, name } = itemDetail;
     return (
       <this.Wrapper>
         <ImageCarousel imageUrls={itemDetail.imageUrls} />
         <CardContent style={{ height: "100%" }}>
-          <Content onClickSubmit={toggleShowAgency} {...itemDetail} />
+          <Content
+            onClickSubmit={toggleShowAgency}
+            {...itemDetail}
+            {...this.props}
+          />
           <ContactAgent
             id={id}
             listingType={listingType}
@@ -33,7 +38,7 @@ export default class ItemDetailView extends ApplicationComponentView {
             showAgency={showAgency}
             toggleShowAgency={toggleShowAgency}
           />
-          <MakeReservation onClickSubmit={toggleShowAgency} />
+          <MakeReservation label={label} onClickSubmit={toggleShowAgency} />
         </CardContent>
       </this.Wrapper>
     );
@@ -44,11 +49,13 @@ export function Content(props) {
   const {
     address,
     area,
-    createTime,
+    commonLabel,
     categories = [],
     cost,
+    createTime,
     description,
     id,
+    label,
     listingType,
     name,
     style,
@@ -65,27 +72,32 @@ export function Content(props) {
   return (
     <Fragment>
       <FlexView style={{ marginTop: 15 }}>
-        <ItemHeader id={id} listingType={listingType} name={name} />
+        <ItemHeader
+          id={id}
+          commonLabel={commonLabel}
+          listingType={listingType}
+          name={name}
+        />
       </FlexView>
       <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
       <Info style={{ marginTop: 5 }}>{address}</Info>
       <ItemAbstractHeaders {...props} />
 
       <FlexView style={{ marginTop: 15 }}>
-        <Description description={description} />
+        <Description description={description} label={label} />
       </FlexView>
     </Fragment>
   );
 }
 
-export function Description({ description }) {
+export function Description({ description, label }) {
   return (
     <Fragment>
       <FlexView
         style={{ alignItems: "center", flexDirection: "row", marginTop: 5 }}
       >
         <AtIcon value="tags" />
-        <H2 style={{ marginLeft: 5 }}>房屋信息</H2>
+        <H2 style={{ marginLeft: 5 }}>{label.detailHeader}</H2>
       </FlexView>
       <FlexView style={{ marginTop: 5 }}>
         <H3 style={{ lineHeight: "28px" }}>{description}</H3>
@@ -109,7 +121,13 @@ export function ItemAbstractHeader({ header, icon, iconColor, label }) {
 }
 
 export function ItemAbstractHeaders(props) {
-  const { area, cost, livingRoom, restRoom, room } = props;
+  const { area, cost, label, livingRoom, restRoom, room } = props;
+  const {
+    areaHeader = "",
+    areaSuffix,
+    layoutHeader = "",
+    priceHeader = "",
+  } = label;
   return (
     <Fragment>
       <AtDivider height={60} />
@@ -120,19 +138,19 @@ export function ItemAbstractHeaders(props) {
           header={parseInt(cost).toLocaleString()}
           icon="money"
           iconColor="#85BB65"
-          label="價格"
+          label={priceHeader}
         />
         <ItemAbstractHeader
-          header={`${room}房${livingRoom}廳`}
+          header={generateVariableLabel(label.layoutValue, [livingRoom, room])}
           icon="numbered-list"
           iconColor="#d7471d"
-          label="佈局"
+          label={layoutHeader}
         />
         <ItemAbstractHeader
-          header={`${parseInt(area).toLocaleString()}平方呎`}
+          header={`${parseInt(area).toLocaleString()}${areaSuffix}`}
           icon="home"
           iconColor="#007AFF"
-          label="面積"
+          label={areaHeader}
         />
       </FlexView>
     </Fragment>
@@ -140,7 +158,7 @@ export function ItemAbstractHeaders(props) {
 }
 
 export function ItemHeader(props) {
-  const { id, listingType, name } = props;
+  const { commonLabel, id, listingType, name } = props;
   return (
     <FlexView
       style={{
@@ -153,14 +171,14 @@ export function ItemHeader(props) {
       <FlexView
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
-        <ListingTypeTag listingType={listingType} />
+        <ListingTypeTag commonLabel={commonLabel} listingType={listingType} />
         <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
       </FlexView>
     </FlexView>
   );
 }
 
-export function MakeReservation({ onClickSubmit }) {
+export function MakeReservation({ label, onClickSubmit }) {
   return (
     <FlexView style={{ flex: 1, justifyContent: "flex-end" }}>
       <ApplicationButton
@@ -168,7 +186,7 @@ export function MakeReservation({ onClickSubmit }) {
         onClick={onClickSubmit}
         style={{ marginBottom: 15 }}
       >
-        預約睇樓
+        {label.submitButton}
       </ApplicationButton>
     </FlexView>
   );

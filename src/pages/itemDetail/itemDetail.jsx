@@ -17,9 +17,12 @@ export default class ItemDetail extends ApplicationComponent {
   }
 
   render() {
+    const { common, itemDetail } = this.appState.companyCustomise.label;
     return (
       <ItemDetailView
         {...this.state}
+        commonLabel={common}
+        label={itemDetail}
         toggleShowAgency={this.toggleShowAgency}
       />
     );

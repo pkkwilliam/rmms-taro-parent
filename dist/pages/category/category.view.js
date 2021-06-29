@@ -3,6 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 exports.default = CategoryView;
 exports.CategoryNav = CategoryNav;
 exports.SearchBar = SearchBar;
@@ -104,8 +107,7 @@ function SearchBar(_ref) {
 
 function TabsPaneContainer(props) {
   var currentCategoryIndex = props.currentCategoryIndex,
-      categoriesItems = props.categoriesItems,
-      onClickItem = props.onClickItem;
+      categoriesItems = props.categoriesItems;
 
   return categoriesItems.map(function (categoryItems, index) {
     return _react2.default.createElement(
@@ -116,7 +118,7 @@ function TabsPaneContainer(props) {
         tabDirection: "vertical",
         index: index
       },
-      _react2.default.createElement(ItemList, { items: categoryItems, onClickItem: onClickItem })
+      _react2.default.createElement(ItemList, _extends({ items: categoryItems }, props))
     );
   });
 }
@@ -161,7 +163,7 @@ function ItemList(props) {
               alignItems: "center"
             }
           },
-          _react2.default.createElement(ListingTypeTag, { listingType: listingType }),
+          _react2.default.createElement(ListingTypeTag, props),
           _react2.default.createElement(
             _h2.default,
             { style: { marginLeft: 8 } },
@@ -189,12 +191,14 @@ function ItemList(props) {
 }
 
 function ListingTypeTag(_ref2) {
-  var listingType = _ref2.listingType;
+  var _ref2$commonLabel = _ref2.commonLabel,
+      commonLabel = _ref2$commonLabel === undefined ? { buy: "入", rent: "出" } : _ref2$commonLabel,
+      listingType = _ref2.listingType;
 
   return _react2.default.createElement(
     _applicationTag2.default,
     { color: listingType === "RENT" ? "blue" : "green" },
-    listingType === "RENT" ? "出租" : "出售"
+    listingType === "RENT" ? commonLabel.rent : commonLabel.buy
   );
 }
 
@@ -205,11 +209,12 @@ function sortSequence(objects) {
 }
 
 function TopSegment(props) {
-  var currentSegmentTypeIndex = props.currentSegmentTypeIndex,
+  var commonLabel = props.commonLabel,
+      currentSegmentTypeIndex = props.currentSegmentTypeIndex,
       onChangeSegmentType = props.onChangeSegmentType;
 
   return _react2.default.createElement(_taroUi.AtSegmentedControl, {
-    values: ["出租", "買賣"],
+    values: [commonLabel.rent, commonLabel.buy],
     onClick: onChangeSegmentType,
     current: currentSegmentTypeIndex
   });

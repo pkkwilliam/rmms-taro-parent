@@ -23,13 +23,14 @@ export default class Category extends ApplicationComponent {
   }
 
   render() {
-    const { category, item } = this.appState;
+    const { category, companyCustomise, item } = this.appState;
     const { currentSegmentTypeIndex } = this.state;
     const sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
     return (
       <CategoryView
         categories={category.categories}
         categoriesItems={this.transfromItemsToNav(sortedItems)}
+        commonLabel={companyCustomise.label.common}
         onChangeSegmentType={this.onChangeSegmentType}
         onChangeSearchBarText={this.onChangeSearchBarText}
         onClickCategory={this.onClickCategory}

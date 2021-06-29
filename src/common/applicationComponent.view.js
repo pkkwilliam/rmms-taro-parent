@@ -41,3 +41,10 @@ function ErrorModal(props) {
     />
   );
 }
+
+export function generateVariableLabel(label, values) {
+  for (let index = 0; index < values.length; index++) {
+    label = label.replace(`$${index + 1}`, values[index]);
+  }
+  return label;
+}
