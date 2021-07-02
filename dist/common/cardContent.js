@@ -8,6 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = CardContent;
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _card = require("./card");
 
 var _card2 = _interopRequireDefault(_card);
@@ -20,7 +24,7 @@ function CardContent(props) {
       children = props.children,
       style = props.style;
 
-  return React.createElement(
+  return _react2.default.createElement(
     _card2.default,
     {
       style: _extends({
