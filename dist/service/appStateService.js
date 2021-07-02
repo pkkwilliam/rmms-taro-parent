@@ -82,9 +82,30 @@ var AppStateService = function () {
       });
     }
   }, {
+    key: "getFavorites",
+    value: function getFavorites() {
+      var _this4 = this;
+
+      var _appState$favorite = this.appState.favorite,
+          dirty = _appState$favorite.dirty,
+          favorites = _appState$favorite.favorites,
+          setFavorites = _appState$favorite.setFavorites;
+
+      return new Promise(function (resolve, reject) {
+        if (dirty) {
+          _this4.serviceExecutor.execute((0, _service.GET_USER_FAVORITE_ALL)()).then(function (favoritesResponse) {
+            setFavorites(favoritesResponse);
+            return resolve(favorites);
+          });
+        } else {
+          return resolve(favorites);
+        }
+      });
+    }
+  }, {
     key: "getItems",
     value: function getItems(companyId) {
-      var _this4 = this;
+      var _this5 = this;
 
       var _appState$item = this.appState.item,
           dirty = _appState$item.dirty,
@@ -93,13 +114,33 @@ var AppStateService = function () {
 
       return new Promise(function (resolve, reject) {
         if (dirty) {
-          _this4.serviceExecutor.execute((0, _service.GET_ITEMS)(companyId)).then(function (items) {
+          _this5.serviceExecutor.execute((0, _service.GET_ITEMS)(companyId)).then(function (items) {
             setItems(items);
             return resolve(items);
           });
         } else {
           return resolve(items);
         }
+      });
+    }
+  }, {
+    key: "login",
+    value: function login(companyId, code) {
+      var _this6 = this;
+
+      var _appState$userProfile = this.appState.userProfile,
+          dirty = _appState$userProfile.dirty,
+          userProfile = _appState$userProfile.userProfile,
+          setUserProfile = _appState$userProfile.setUserProfile;
+
+      return new Promise(function (resolve, reject) {
+        if (dirty) {
+          _this6.serviceExecutor.execute((0, _service.LOGIN_ACCORDING_TO_COMPANY)(companyId, code)).then(function (userProfileResponse) {
+            return setUserProfile(userProfileResponse);
+          });
+          return resolve(userProfile);
+        }
+        return resolve(userProfile);
       });
     }
   }]);

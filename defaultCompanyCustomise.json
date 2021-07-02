@@ -1,0 +1,117 @@
+{
+  "label": {
+    "category": {
+      "areaSuffix": "平方呎",
+      "layoutValue": "$1房$2廳"
+    },
+    "common": {
+      "buy": "買賣",
+      "rent": "出租"
+    },
+    "contactAgent": {
+      "header": "預約睇樓",
+      "messageSent": "通知已發送",
+      "nameInputPlaceHolder": "請輸入你的姓名",
+      "nameInputTitle": "姓名",
+      "phoneInputPlaceHolder": "請輸入你的電話號碼",
+      "phoneInputTitle": "電話號碼",
+      "submitButton": "通知中介",
+      "textAreaValue": "你好，我想預約關於$1:$2，我的電話:$3"
+    },
+    "itemDetail": {
+      "areaHeader": "面積",
+      "areaSuffix": "平方呎",
+      "detailHeader": "房屋信息",
+      "layoutHeader": "佈局",
+      "layoutValue": "$1房$2廳",
+      "price": "價格",
+      "submitButton": "預約睇樓"
+    },
+    "ladningPage": {}
+  },
+  "landingPage": {
+    "carousel": [
+      {
+        "id": 7,
+        "name": "台山區",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/FpEJdAmExZnI3l2G4eJ_uewRGsKy.jpeg"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "台山區",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fu2lH99pSUjgdfl7NC3hJ9xP-qyt.jpeg"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "黑沙環",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Ft4iMoeqnUECy75WUwEeCqK0mRy5.jpeg"
+        ]
+      }
+    ],
+    "banners": [],
+    "bottomList": [
+      {
+        "id": 6,
+        "name": "青洲區",
+        "type": "category"
+      },
+      {
+        "id": 3,
+        "type": "category"
+      }
+    ],
+    "mainMenuButtons": [
+      {
+        "id": 8,
+        "name": "買賣",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "出租",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fh-huaj4ecccroAWqjWU_fYb688X.png"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "最新",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fo4sQ9b3AIV9NTjMl4VQ95ADfBsu.png"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "熱門",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/FuS4qY8F3Pn2PJaDQjr2OGgfnuw9.png"
+        ]
+      }
+    ]
+  },
+  "style": {
+    "appBackgroundColor": "#F6F6F6",
+    "imageCarousel": {
+      "indicatorDots:": true
+    },
+    "primary": "#446DF6",
+    "primaryGradient": "linear-gradient(90deg, rgba(252,150,3,1) 0%, rgba(252,91,1,1) 100%)",
+    "secondary": "#7F9BFA",
+    "shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    "shadowLight": "0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0)"
+  }
+}

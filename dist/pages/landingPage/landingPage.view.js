@@ -4,13 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 exports.BottomListing = BottomListing;
 exports.ButtonRow = ButtonRow;
-exports.CardContent = CardContent;
 exports.CategoryListing = CategoryListing;
 exports.ItemListing = ItemListing;
 exports.OneRowBanners = OneRowBanners;
@@ -29,9 +26,9 @@ var _imageCarousel = require("../../common/imageCarousel");
 
 var _imageCarousel2 = _interopRequireDefault(_imageCarousel);
 
-var _card = require("../../common/card");
+var _cardContent = require("../../common/cardContent");
 
-var _card2 = _interopRequireDefault(_card);
+var _cardContent2 = _interopRequireDefault(_cardContent);
 
 var _circularButton = require("../../common/circularButton");
 
@@ -90,7 +87,7 @@ var LandingPageView = function (_ApplicationComponent) {
             })
           }),
           _react2.default.createElement(
-            CardContent,
+            _cardContent2.default,
             null,
             _react2.default.createElement(ButtonRow, {
               mainMenuButtons: mainMenuButtons,
@@ -167,27 +164,6 @@ function ButtonRow(props) {
     _components.View,
     { className: "at-row at-row__justify--around" },
     buttons
-  );
-}
-
-function CardContent(props) {
-  var _props$backgroundColo = props.backgroundColor,
-      backgroundColor = _props$backgroundColo === undefined ? "#FFFFFF" : _props$backgroundColo,
-      children = props.children,
-      style = props.style;
-
-  return _react2.default.createElement(
-    _card2.default,
-    {
-      style: _extends({
-        backgroundColor: backgroundColor,
-        // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
-        paddingLeft: 15,
-        paddingRight: 15,
-        zIndex: 10
-      }, style)
-    },
-    children
   );
 }
 

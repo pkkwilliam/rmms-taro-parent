@@ -5,7 +5,8 @@ import { RmmsContext } from "../appState/contextProvider";
 import ServiceExecutor from "../service/serviceExecutor";
 import ApplicationContext from "./applicationContext";
 import AppStateService from "../service/appStateService";
-
+import { getUserToken, setUserToken } from "./wxStorage";
+import { wxLogin } from "./wxApiUtil";
 export default class ApplicationComponent extends Component {
   state = {
     modal: {
@@ -49,7 +50,11 @@ export default class ApplicationComponent extends Component {
 
   get serviceExecutor() {
     if (!this._serviceExecutor) {
-      this._serviceExecutor = new ServiceExecutor(this.applicationContext.host);
+      this._serviceExecutor = new ServiceExecutor(
+        this.applicationContext.host,
+        getUserToken,
+        setUserToken
+      );
     }
     return this._serviceExecutor;
   }
@@ -92,6 +97,9 @@ export default class ApplicationComponent extends Component {
     });
     this.appStateService.getCategories(companyId);
     this.appStateService.getItems(companyId);
+    // user login
+    const { code } = await wxLogin();
+    this.appStateService.login(companyId, code);
   }
 
   onShareAppMessage(res) {

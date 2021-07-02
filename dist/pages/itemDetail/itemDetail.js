@@ -8,9 +8,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+exports.isFavoriteItem = isFavoriteItem;
+
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _taro = require("@tarojs/taro");
+
+var _taro2 = _interopRequireDefault(_taro);
 
 var _applicationComponent = require("../../common/applicationComponent");
 
@@ -47,7 +53,26 @@ var ItemDetail = function (_ApplicationComponent) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ItemDetail.__proto__ || Object.getPrototypeOf(ItemDetail)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.state, {
       itemDetail: { imageUrls: [] },
       showAgency: false
-    }), _this.toggleShowAgency = function () {
+    }), _this.onClickFavorite = function () {
+      var itemDetail = _this.state.itemDetail;
+
+      var successMessage = "";
+      if (isFavoriteItem(itemDetail, _this.appState.favorite.favorites)) {
+        _this.serviceExecutor.execute((0, _service.DELETE_USER_FAVORITE)(itemDetail)).then(function (updateFavorites) {
+          return _this.appState.favorite.setFavorites(updateFavorites);
+        });
+      } else {
+        _this.serviceExecutor.execute((0, _service.ADD_USER_FAVORITE)(itemDetail)).then(function (updateFavorites) {
+          return _this.appState.favorite.setFavorites(updateFavorites);
+        });
+        successMessage = "收藏成功";
+      }
+      _taro2.default.showToast({
+        title: successMessage,
+        icon: "success",
+        duration: 2000
+      });
+    }, _this.toggleShowAgency = function () {
       _this.setState(function (state) {
         return {
           showAgency: !state.showAgency
@@ -65,6 +90,7 @@ var ItemDetail = function (_ApplicationComponent) {
           itemId = _getRouterParams.itemId;
 
       this.getLocalItemDetail(companyId, itemId);
+      this.appStateService.getFavorites();
     }
   }, {
     key: "render",
@@ -75,7 +101,9 @@ var ItemDetail = function (_ApplicationComponent) {
 
       return _react2.default.createElement(_itemDetail2.default, _extends({}, this.state, {
         commonLabel: common,
+        isFavoriteItem: isFavoriteItem(this.state.itemDetail, this.appState.favorite.favorites),
         label: itemDetail,
+        onClickFavorite: this.onClickFavorite,
         toggleShowAgency: this.toggleShowAgency
       }));
     }
@@ -87,7 +115,11 @@ var ItemDetail = function (_ApplicationComponent) {
       this.appStateService.getItems().then(function (items) {
         return items.map(function (item) {
           if (item.id == itemId) {
-            _this2.setState({ itemDetail: item });
+            _this2.setState();
+            _this2.setState({
+              isFavoriteItem: isFavoriteItem(item, _this2.appStateService.getFavorites()),
+              itemDetail: item
+            });
           }
         });
       });
@@ -109,3 +141,11 @@ var ItemDetail = function (_ApplicationComponent) {
 }(_applicationComponent2.default);
 
 exports.default = ItemDetail;
+function isFavoriteItem(itemDetail, favorites) {
+  for (var i = 0; i < favorites.length; i++) {
+    if (favorites[i].id === itemDetail.id) {
+      return true;
+    }
+  }
+  return false;
+}

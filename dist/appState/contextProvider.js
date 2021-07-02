@@ -57,10 +57,18 @@ var RmmsAppState = function (_Component) {
       deviceInfo: {
         dirty: true
       },
+      favorite: {
+        dirty: true,
+        favorites: []
+      },
       item: { dirty: true, items: [] },
       shortTermMemory: {
         currentCategoryId: 0,
         currentSegmentTypeIndex: 0
+      },
+      userProfile: {
+        dirty: true,
+        userProfile: {}
       }
     }, _this.AppStateWrapper = function (_ref2) {
       var children = _ref2.children;
@@ -69,8 +77,10 @@ var RmmsAppState = function (_Component) {
           company = _this$state.company,
           companyCustomise = _this$state.companyCustomise,
           deviceInfo = _this$state.deviceInfo,
+          favorite = _this$state.favorite,
           item = _this$state.item,
-          shortTermMemory = _this$state.shortTermMemory;
+          shortTermMemory = _this$state.shortTermMemory,
+          userProfile = _this$state.userProfile;
 
       return _react2.default.createElement(
         RmmsContext.Provider,
@@ -88,11 +98,17 @@ var RmmsAppState = function (_Component) {
             deviceInfo: _extends({}, deviceInfo, {
               setDeviceInfo: _this.setDeviceInfo
             }),
+            favorite: _extends({}, favorite, {
+              setFavorites: _this.setFavorites
+            }),
             item: _extends({}, item, {
               setItems: _this.setItems
             }),
             shortTermMemory: _extends({}, shortTermMemory, {
               setShortTermMemory: _this.setShortTermMemory
+            }),
+            userProfile: _extends({}, userProfile, {
+              setUserProfile: _this.setUserProfile
             })
           }
         },
@@ -130,6 +146,13 @@ var RmmsAppState = function (_Component) {
           dirty: false
         }
       });
+    }, _this.setFavorites = function (favorites) {
+      _this.setState({
+        favorite: {
+          dirty: false,
+          favorites: favorites
+        }
+      });
     }, _this.setItems = function (items) {
       _this.setState({
         item: {
@@ -147,6 +170,13 @@ var RmmsAppState = function (_Component) {
     }, _this.setShortTermMemory = function (shortTermMemory) {
       _this.setState({
         shortTermMemory: shortTermMemory
+      });
+    }, _this.setUserProfile = function (userProfile) {
+      _this.setState({
+        userProfile: {
+          dirty: false,
+          userProfile: userProfile
+        }
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }

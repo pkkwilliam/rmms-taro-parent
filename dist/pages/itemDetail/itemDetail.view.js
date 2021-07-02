@@ -21,7 +21,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _taroUi = require("taro-ui");
 
-var _landingPage = require("../landingPage/landingPage.view");
+var _cardContent = require("../../common/cardContent");
+
+var _cardContent2 = _interopRequireDefault(_cardContent);
 
 var _category = require("../category/category.view");
 
@@ -105,7 +107,7 @@ var ItemDetailView = function (_ApplicationComponent) {
         null,
         _react2.default.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
         _react2.default.createElement(
-          _landingPage.CardContent,
+          _cardContent2.default,
           { style: { height: "100%" } },
           _react2.default.createElement(Content, _extends({
             onClickSubmit: toggleShowAgency
@@ -137,9 +139,11 @@ function Content(props) {
       createTime = props.createTime,
       description = props.description,
       id = props.id,
+      isFavoriteItem = props.isFavoriteItem,
       label = props.label,
       listingType = props.listingType,
       name = props.name,
+      onClickFavorite = props.onClickFavorite,
       style = props.style;
 
   var tags = categories.map(function (category, index) {
@@ -152,6 +156,11 @@ function Content(props) {
       },
       category.name
     );
+  });
+  var favoriteItemTag = _react2.default.createElement(_taroUi.AtIcon, {
+    onClick: onClickFavorite,
+    color: "#FDCC0D",
+    value: isFavoriteItem ? "star-2" : "star"
   });
   return _react2.default.createElement(
     _react.Fragment,
@@ -168,8 +177,27 @@ function Content(props) {
     ),
     _react2.default.createElement(
       _flexView2.default,
-      { style: _extends({ flexDirection: "row" }, style) },
-      tags
+      {
+        style: {
+          alignItems: "center",
+          flexDirection: "row",
+          justifyContent: "space-between"
+        }
+      },
+      _react2.default.createElement(
+        _flexView2.default,
+        {
+          style: _extends({
+            flexDirection: "row"
+          }, style)
+        },
+        tags
+      ),
+      _react2.default.createElement(
+        _flexView2.default,
+        null,
+        favoriteItemTag
+      )
     ),
     _react2.default.createElement(
       _info2.default,

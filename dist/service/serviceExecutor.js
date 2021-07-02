@@ -18,11 +18,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var TOKEN_HEADER = "Authorization";
+
 var ServiceExecutor = function () {
-  function ServiceExecutor(host) {
+  function ServiceExecutor(host, getUserToken, setUserToken) {
     _classCallCheck(this, ServiceExecutor);
 
     this.host = host;
+    this.getUserToken = getUserToken;
+    this.setUserToken = setUserToken;
   }
 
   _createClass(ServiceExecutor, [{
@@ -36,11 +40,12 @@ var ServiceExecutor = function () {
 
       return _taro2.default.request({
         data: JSON.stringify(body),
+        header: this.generateRequestHeader(this.getUserToken),
         url: this.host + url,
         method: method
       }).then(function (rawResponse) {
         return new Promise(function (resolve, reject) {
-          return _this.processServerResponse(rawResponse, resolve, reject);
+          return _this.processServerResponse(rawResponse, resolve, reject, _this.getUserToken, _this.setUserToken);
         });
       }).catch(function (exception) {
         _taro2.default.showToast({
@@ -50,10 +55,28 @@ var ServiceExecutor = function () {
       });
     }
   }, {
+    key: "generateRequestHeader",
+    value: function generateRequestHeader(getUserToken) {
+      return {
+        Authorization: "Bearer " + getUserToken()
+      };
+    }
+  }, {
+    key: "getHeaderToken",
+    value: function getHeaderToken(rawResponse, getUserToken, setUserToken) {
+      var header = rawResponse.header;
+
+      var token = header[TOKEN_HEADER];
+      if (token) {
+        setUserToken(token);
+      }
+    }
+  }, {
     key: "processServerResponse",
-    value: function processServerResponse(rawResponse, resolve, reject) {
+    value: function processServerResponse(rawResponse, resolve, reject, getUserToken, setUserToken) {
       var statusCode = rawResponse.statusCode;
 
+      this.getHeaderToken(rawResponse, getUserToken, setUserToken);
       if (statusCode >= 200 && statusCode < 300) {
         return resolve(this.process2xxResponse(rawResponse));
       } else if (statusCode >= 400 && statusCode < 500) {

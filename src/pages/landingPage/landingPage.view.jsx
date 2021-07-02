@@ -2,7 +2,7 @@ import React from "react";
 import { Image, ScrollView, View } from "@tarojs/components";
 import ApplicationComponentView from "../../common/applicationComponent.view";
 import ImageCarousel from "../../common/imageCarousel";
-import Card from "../../common/card";
+import CardContent from "../../common/cardContent";
 import CircularButton from "../../common/circularButton";
 import Info from "../../common/text/info";
 import H2 from "../../common/text/h2";
@@ -76,24 +76,6 @@ export function ButtonRow(props) {
     </FlexView>
   ));
   return <View className="at-row at-row__justify--around">{buttons}</View>;
-}
-
-export function CardContent(props) {
-  const { backgroundColor = "#FFFFFF", children, style } = props;
-  return (
-    <Card
-      style={{
-        backgroundColor: backgroundColor,
-        // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
-        paddingLeft: 15,
-        paddingRight: 15,
-        zIndex: 10,
-        ...style,
-      }}
-    >
-      {children}
-    </Card>
-  );
 }
 
 export function CategoryListing({

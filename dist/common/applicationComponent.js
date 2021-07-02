@@ -28,6 +28,10 @@ var _appStateService = require("../service/appStateService");
 
 var _appStateService2 = _interopRequireDefault(_appStateService);
 
+var _wxStorage = require("./wxStorage");
+
+var _wxApiUtil = require("./wxApiUtil");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -102,7 +106,8 @@ var ApplicationComponent = function (_Component) {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(options) {
         var _this2 = this;
 
-        var companyId;
+        var companyId, _ref3, code;
+
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -122,8 +127,17 @@ var ApplicationComponent = function (_Component) {
                 });
                 this.appStateService.getCategories(companyId);
                 this.appStateService.getItems(companyId);
+                // user login
+                _context.next = 7;
+                return (0, _wxApiUtil.wxLogin)();
 
-              case 5:
+              case 7:
+                _ref3 = _context.sent;
+                code = _ref3.code;
+
+                this.appStateService.login(companyId, code);
+
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -174,7 +188,7 @@ var ApplicationComponent = function (_Component) {
     key: "serviceExecutor",
     get: function get() {
       if (!this._serviceExecutor) {
-        this._serviceExecutor = new _serviceExecutor2.default(this.applicationContext.host);
+        this._serviceExecutor = new _serviceExecutor2.default(this.applicationContext.host, _wxStorage.getUserToken, _wxStorage.setUserToken);
       }
       return this._serviceExecutor;
     }

@@ -1,0 +1,117 @@
+{
+  "label": {
+    "category": {
+      "areaSuffix": "匹",
+      "layoutValue": "$1長$2寬"
+    },
+    "common": {
+      "buy": "布料",
+      "rent": "布匹"
+    },
+    "contactAgent": {
+      "header": "發送信息",
+      "messageSent": "通知已發送",
+      "nameInputPlaceHolder": "請輸入你的姓名",
+      "nameInputTitle": "姓名",
+      "phoneInputPlaceHolder": "請輸入你的電話號碼",
+      "phoneInputTitle": "電話號碼",
+      "submitButton": "通知材料銷售",
+      "textAreaValue": "你好，我想了解更多關於$1:$2，我的電話:$3"
+    },
+    "itemDetail": {
+      "areaHeader": "呎吋",
+      "areaSuffix": "匹",
+      "detailHeader": "物料信息",
+      "layoutHeader": "長寬",
+      "layoutValue": "$1長$2寬",
+      "price": "價格",
+      "submitButton": "發送信息"
+    },
+    "ladningPage": {}
+  },
+  "landingPage": {
+    "carousel": [
+      {
+        "id": 7,
+        "name": "台山區",
+        "type": "category",
+        "url": [
+          "http://static1.squarespace.com/static/5877e86f9de4bb8bce72105c/t/58d8b092e4fcb5ad94cd2a66/1490595993468/?format=1500w"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "台山區",
+        "type": "category",
+        "url": [
+          "http://static1.squarespace.com/static/5877e86f9de4bb8bce72105c/t/58d8b092e4fcb5ad94cd2a66/1490595993468/?format=1500w"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "黑沙環",
+        "type": "category",
+        "url": [
+          "http://static1.squarespace.com/static/5877e86f9de4bb8bce72105c/t/58d8b092e4fcb5ad94cd2a66/1490595993468/?format=1500w"
+        ]
+      }
+    ],
+    "banners": [],
+    "bottomList": [
+      {
+        "id": 6,
+        "name": "青洲區",
+        "type": "category"
+      },
+      {
+        "id": 3,
+        "type": "category"
+      }
+    ],
+    "mainMenuButtons": [
+      {
+        "id": 8,
+        "name": "布料",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "種類",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fh-huaj4ecccroAWqjWU_fYb688X.png"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "最新",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/Fo4sQ9b3AIV9NTjMl4VQ95ADfBsu.png"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "熱門",
+        "type": "category",
+        "url": [
+          "https://user-assets.sxlcdn.com/images/811393/FuS4qY8F3Pn2PJaDQjr2OGgfnuw9.png"
+        ]
+      }
+    ]
+  },
+  "style": {
+    "appBackgroundColor": "#F6F6F6",
+    "imageCarousel": {
+      "indicatorDots:": true
+    },
+    "primary": "#446DF6",
+    "primaryGradient": "linear-gradient(90deg, rgba(252,150,3,1) 0%, rgba(252,91,1,1) 100%)",
+    "secondary": "#7F9BFA",
+    "shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    "shadowLight": "0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0)"
+  }
+}

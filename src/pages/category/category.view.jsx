@@ -94,7 +94,6 @@ export function ItemList(props) {
       restroom,
       room,
     } = item;
-    console.log(room, livingRoom);
     return (
       <FlexView
         key={ItemList + index}

@@ -25,10 +25,18 @@ export default class RmmsAppState extends Component {
     deviceInfo: {
       dirty: true,
     },
+    favorite: {
+      dirty: true,
+      favorites: [],
+    },
     item: { dirty: true, items: [] },
     shortTermMemory: {
       currentCategoryId: 0,
       currentSegmentTypeIndex: 0,
+    },
+    userProfile: {
+      dirty: true,
+      userProfile: {},
     },
   };
 
@@ -38,8 +46,10 @@ export default class RmmsAppState extends Component {
       company,
       companyCustomise,
       deviceInfo,
+      favorite,
       item,
       shortTermMemory,
+      userProfile,
     } = this.state;
     return (
       <RmmsContext.Provider
@@ -60,6 +70,10 @@ export default class RmmsAppState extends Component {
             ...deviceInfo,
             setDeviceInfo: this.setDeviceInfo,
           },
+          favorite: {
+            ...favorite,
+            setFavorites: this.setFavorites,
+          },
           item: {
             ...item,
             setItems: this.setItems,
@@ -67,6 +81,10 @@ export default class RmmsAppState extends Component {
           shortTermMemory: {
             ...shortTermMemory,
             setShortTermMemory: this.setShortTermMemory,
+          },
+          userProfile: {
+            ...userProfile,
+            setUserProfile: this.setUserProfile,
           },
         }}
       >
@@ -112,6 +130,15 @@ export default class RmmsAppState extends Component {
     });
   };
 
+  setFavorites = (favorites) => {
+    this.setState({
+      favorite: {
+        dirty: false,
+        favorites,
+      },
+    });
+  };
+
   setItems = (items) => {
     this.setState({
       item: {
@@ -133,6 +160,15 @@ export default class RmmsAppState extends Component {
   setShortTermMemory = (shortTermMemory) => {
     this.setState({
       shortTermMemory,
+    });
+  };
+
+  setUserProfile = (userProfile) => {
+    this.setState({
+      userProfile: {
+        dirty: false,
+        userProfile,
+      },
     });
   };
 }

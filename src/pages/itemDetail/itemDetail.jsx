@@ -1,7 +1,12 @@
 import React from "react";
+import Taro from "@tarojs/taro";
 import ApplicationComponent from "../../common/applicationComponent";
 import ItemDetailView from "./itemDetail.view";
-import { GET_ITEM } from "../../service/service";
+import {
+  ADD_USER_FAVORITE,
+  DELETE_USER_FAVORITE,
+  GET_ITEM,
+} from "../../service/service";
 
 export default class ItemDetail extends ApplicationComponent {
   state = {
@@ -14,6 +19,7 @@ export default class ItemDetail extends ApplicationComponent {
     const companyId = this.appState.company.id;
     const { itemId } = this.getRouterParams();
     this.getLocalItemDetail(companyId, itemId);
+    this.appStateService.getFavorites();
   }
 
   render() {
@@ -22,7 +28,12 @@ export default class ItemDetail extends ApplicationComponent {
       <ItemDetailView
         {...this.state}
         commonLabel={common}
+        isFavoriteItem={isFavoriteItem(
+          this.state.itemDetail,
+          this.appState.favorite.favorites
+        )}
         label={itemDetail}
+        onClickFavorite={this.onClickFavorite}
         toggleShowAgency={this.toggleShowAgency}
       />
     );
@@ -32,7 +43,14 @@ export default class ItemDetail extends ApplicationComponent {
     this.appStateService.getItems().then((items) =>
       items.map((item) => {
         if (item.id == itemId) {
-          this.setState({ itemDetail: item });
+          this.setState();
+          this.setState({
+            isFavoriteItem: isFavoriteItem(
+              item,
+              this.appStateService.getFavorites()
+            ),
+            itemDetail: item,
+          });
         }
       })
     );
@@ -48,9 +66,42 @@ export default class ItemDetail extends ApplicationComponent {
       );
   }
 
+  onClickFavorite = () => {
+    let { itemDetail } = this.state;
+    let successMessage = "";
+    if (isFavoriteItem(itemDetail, this.appState.favorite.favorites)) {
+      this.serviceExecutor
+        .execute(DELETE_USER_FAVORITE(itemDetail))
+        .then((updateFavorites) =>
+          this.appState.favorite.setFavorites(updateFavorites)
+        );
+    } else {
+      this.serviceExecutor
+        .execute(ADD_USER_FAVORITE(itemDetail))
+        .then((updateFavorites) =>
+          this.appState.favorite.setFavorites(updateFavorites)
+        );
+      successMessage = "收藏成功";
+    }
+    Taro.showToast({
+      title: successMessage,
+      icon: "success",
+      duration: 2000,
+    });
+  };
+
   toggleShowAgency = () => {
     this.setState((state) => ({
       showAgency: !state.showAgency,
     }));
   };
+}
+
+export function isFavoriteItem(itemDetail, favorites) {
+  for (let i = 0; i < favorites.length; i++) {
+    if (favorites[i].id === itemDetail.id) {
+      return true;
+    }
+  }
+  return false;
 }

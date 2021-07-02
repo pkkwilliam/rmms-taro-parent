@@ -23,6 +23,12 @@
           "pathName": "pages/index/index",
           "query": "companyId=122",
           "scene": null
+        },
+        {
+          "name": "pages/userProfile/userProfile",
+          "pathName": "pages/userProfile/userProfile",
+          "query": "companyId=1&storeId=10&roomId=113",
+          "scene": null
         }
       ]
     }

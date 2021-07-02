@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { AtDivider, AtIcon } from "taro-ui";
-import { CardContent } from "../landingPage/landingPage.view";
+import CardContent from "../../common/cardContent";
 import { ListingTypeTag } from "../category/category.view";
 import ImageCarousel from "../../common/imageCarousel";
 import H1 from "../../common/text/h1";
@@ -55,9 +55,11 @@ export function Content(props) {
     createTime,
     description,
     id,
+    isFavoriteItem,
     label,
     listingType,
     name,
+    onClickFavorite,
     style,
   } = props;
   const tags = categories.map((category, index) => (
@@ -69,6 +71,13 @@ export function Content(props) {
       {category.name}
     </ApplicationTag>
   ));
+  const favoriteItemTag = (
+    <AtIcon
+      onClick={onClickFavorite}
+      color="#FDCC0D"
+      value={isFavoriteItem ? "star-2" : "star"}
+    />
+  );
   return (
     <Fragment>
       <FlexView style={{ marginTop: 15 }}>
@@ -79,7 +88,23 @@ export function Content(props) {
           name={name}
         />
       </FlexView>
-      <FlexView style={{ flexDirection: "row", ...style }}>{tags}</FlexView>
+      <FlexView
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <FlexView
+          style={{
+            flexDirection: "row",
+            ...style,
+          }}
+        >
+          {tags}
+        </FlexView>
+        <FlexView>{favoriteItemTag}</FlexView>
+      </FlexView>
       <Info style={{ marginTop: 5 }}>{address}</Info>
       <ItemAbstractHeaders {...props} />
 

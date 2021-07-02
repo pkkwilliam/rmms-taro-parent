@@ -142,7 +142,6 @@ function ItemList(props) {
         restroom = item.restroom,
         room = item.room;
 
-    console.log(room, livingRoom);
     return _react2.default.createElement(
       _flexView2.default,
       {

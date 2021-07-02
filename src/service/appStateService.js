@@ -3,6 +3,8 @@ import {
   GET_COMPANY_CATEGORIES,
   GET_COMPANY_CUSTOMISE,
   GET_ITEMS,
+  GET_USER_FAVORITE_ALL,
+  LOGIN_ACCORDING_TO_COMPANY,
 } from "./service";
 
 export default class AppStateService {
@@ -63,6 +65,22 @@ export default class AppStateService {
     });
   }
 
+  getFavorites() {
+    const { dirty, favorites, setFavorites } = this.appState.favorite;
+    return new Promise((resolve, reject) => {
+      if (dirty) {
+        this.serviceExecutor
+          .execute(GET_USER_FAVORITE_ALL())
+          .then((favoritesResponse) => {
+            setFavorites(favoritesResponse);
+            return resolve(favorites);
+          });
+      } else {
+        return resolve(favorites);
+      }
+    });
+  }
+
   getItems(companyId) {
     const { dirty, items, setItems } = this.appState.item;
     return new Promise((resolve, reject) => {
@@ -74,6 +92,19 @@ export default class AppStateService {
       } else {
         return resolve(items);
       }
+    });
+  }
+
+  login(companyId, code) {
+    const { dirty, userProfile, setUserProfile } = this.appState.userProfile;
+    return new Promise((resolve, reject) => {
+      if (dirty) {
+        this.serviceExecutor
+          .execute(LOGIN_ACCORDING_TO_COMPANY(companyId, code))
+          .then((userProfileResponse) => setUserProfile(userProfileResponse));
+        return resolve(userProfile);
+      }
+      return resolve(userProfile);
     });
   }
 }

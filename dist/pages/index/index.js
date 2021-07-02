@@ -14,15 +14,19 @@ var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
 
 var _taroUi = require("taro-ui");
 
-require("taro-ui/dist/style/index.scss");
-
-require("./index.scss");
-
 var _landingPage = require("../landingPage/landingPage");
 
 var _landingPage2 = _interopRequireDefault(_landingPage);
 
+var _wxApiUtil = require("../../common/wxApiUtil");
+
+require("taro-ui/dist/style/index.scss");
+
+require("./index.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -34,66 +38,32 @@ var Index = function (_ApplicationComponent) {
   _inherits(Index, _ApplicationComponent);
 
   function Index() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, Index);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      buttonText: "",
-      company: { companyName: undefined }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
   }
 
   _createClass(Index, [{
     key: "componentWillMount",
+    value: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
 
+      function componentWillMount() {
+        return _ref.apply(this, arguments);
+      }
 
-    // onLoad(options) {
-    //   const { companyId } = options;
-    //   // get user info
-    //   wx.getUserInfo({
-    //     desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-    //     success: (res) => {
-    //       console.log(res);
-    //     },
-    //   });
-    //   wx.checkSession({
-    //     success() {
-    //       //session_key 未过期，并且在本生命周期一直有效
-    //       console.log("good");
-    //     },
-    //     fail() {
-    //       // session_key 已经失效，需要重新执行登录流程
-    //       console.log("bad");
-    //       wx.login({
-    //         success(result) {
-    //           console.log("result", result);
-    //         },
-    //         fail() {
-    //           console.log("bb");
-    //         },
-    //       }); //重新登录
-    //     },
-    //   });
-    //   this.appStateService.getCompany(companyId).then((result) => {
-    //     wx.setNavigationBarTitle({
-    //       title: this.appState.company.name,
-    //     });
-    //   });
-
-    //   this.appStateService.getCompanyCustomise(companyId);
-    // }
-
-    value: function componentWillMount() {}
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {}
+      return componentWillMount;
+    }()
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {}
@@ -104,11 +74,24 @@ var Index = function (_ApplicationComponent) {
     key: "componentDidHide",
     value: function componentDidHide() {}
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
         _components.View,
         { className: "index" },
+        React.createElement(
+          _taroUi.AtButton,
+          {
+            onClick: function onClick() {
+              (0, _wxApiUtil.wxGetUserProfile)();
+              (0, _wxApiUtil.wxGetUserInfo)();
+            }
+          },
+          "Get User Profile"
+        ),
         React.createElement(_landingPage2.default, this.props)
       );
     }
