@@ -82,16 +82,6 @@ var Index = function (_ApplicationComponent) {
       return React.createElement(
         _components.View,
         { className: "index" },
-        React.createElement(
-          _taroUi.AtButton,
-          {
-            onClick: function onClick() {
-              (0, _wxApiUtil.wxGetUserProfile)();
-              (0, _wxApiUtil.wxGetUserInfo)();
-            }
-          },
-          "Get User Profile"
-        ),
         React.createElement(_landingPage2.default, this.props)
       );
     }

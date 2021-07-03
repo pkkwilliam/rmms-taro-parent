@@ -20,7 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function CardContent(props) {
   var _props$backgroundColo = props.backgroundColor,
-      backgroundColor = _props$backgroundColo === undefined ? "#FFFFFF" : _props$backgroundColo,
+      backgroundColor = _props$backgroundColo === undefined ? "#FDFFFE" : _props$backgroundColo,
       children = props.children,
       style = props.style;
 
@@ -30,8 +30,6 @@ function CardContent(props) {
       style: _extends({
         backgroundColor: backgroundColor,
         // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
-        paddingLeft: 15,
-        paddingRight: 15,
         zIndex: 10
       }, style)
     },

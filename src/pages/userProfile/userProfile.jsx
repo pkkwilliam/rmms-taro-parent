@@ -3,6 +3,7 @@ import ApplicationComponent from "../../common/applicationComponent";
 import UserProfileView from "./userProfile.view";
 import { wxGetUserProfile } from "../../common/wxApiUtil";
 import { UPDATE_USER_PROFILE_INFO } from "../../service/service";
+import { FAVORITE } from "../../routes/applicationRoutes";
 
 export default class LandingPage extends ApplicationComponent {
   state = {
@@ -21,6 +22,7 @@ export default class LandingPage extends ApplicationComponent {
     return (
       <UserProfileView
         onClickRefreshUserProfileInfo={this.onClickRefreshUserProfileInfo}
+        onClickMenuItemFavorite={this.onClickMenuItemFavorite}
         favorites={this.appState.favorite.favorites}
         userProfile={displayUserProfile}
         {...this.state}
@@ -52,6 +54,10 @@ export default class LandingPage extends ApplicationComponent {
             this.setState({ userProfile: updatedUserProfile });
         });
     });
+  };
+
+  onClickMenuItemFavorite = () => {
+    this.goTo(FAVORITE);
   };
 }
 

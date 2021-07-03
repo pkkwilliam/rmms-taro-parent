@@ -107,8 +107,8 @@ var ItemDetailView = function (_ApplicationComponent) {
         null,
         _react2.default.createElement(_imageCarousel2.default, { imageUrls: itemDetail.imageUrls }),
         _react2.default.createElement(
-          _cardContent2.default,
-          { style: { height: "100%" } },
+          _flexView2.default,
+          { style: { height: "100%", paddingLeft: 15, paddingRight: 15 } },
           _react2.default.createElement(Content, _extends({
             onClickSubmit: toggleShowAgency
           }, itemDetail, this.props)),

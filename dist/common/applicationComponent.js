@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+exports.getApplicationRoute = getApplicationRoute;
+
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -73,6 +75,11 @@ var ApplicationComponent = function (_Component) {
       return process.env.COMPANY_ID;
     }
   }, {
+    key: "getApplicationRoutePath",
+    value: function getApplicationRoutePath(route) {
+      return route.path;
+    }
+  }, {
     key: "getRouterParams",
     value: function getRouterParams() {
       return (0, _taro.getCurrentInstance)().router.params;
@@ -92,13 +99,13 @@ var ApplicationComponent = function (_Component) {
         return result;
       };
       _taro2.default.navigateTo({
-        url: route + generateRouteParams()
+        url: this.getApplicationRoutePath(route) + generateRouteParams()
       });
     }
   }, {
     key: "goToTabBar",
     value: function goToTabBar(route) {
-      wx.switchTab({ url: route });
+      _taro2.default.switchTab({ url: this.getApplicationRoutePath(route) });
     }
   }, {
     key: "onLoad",
@@ -115,14 +122,23 @@ var ApplicationComponent = function (_Component) {
                 companyId = this.getCompanyId(options);
 
                 this.appStateService.getCompany(companyId).then(function (result) {
-                  wx.setNavigationBarTitle({
-                    title: _this2.appState.company.name
-                  });
+                  (0, _wxApiUtil.wxSetNavigationBarTitle)(_this2.appState.company.name);
                 });
                 this.appStateService.getCompanyCustomise(companyId).then(function (content) {
-                  wx.setNavigationBarColor({
-                    backgroundColor: content.style.primary,
+                  content;
+                  (0, _wxApiUtil.wxSetNavigationBarColor)({
+                    backgroundColor: content.style.primary.value,
                     frontColor: "#ffffff"
+                  });
+                  var _content$style = content.style,
+                      tabbarBackgroundColor = _content$style.tabbarBackgroundColor,
+                      tabbarSelectedColor = _content$style.tabbarSelectedColor,
+                      tabbarUnselectedColor = _content$style.tabbarUnselectedColor;
+
+                  (0, _wxApiUtil.wxSetTabBarStyle)({
+                    backgroundColor: tabbarBackgroundColor.value,
+                    color: tabbarUnselectedColor.value,
+                    selectedColor: tabbarSelectedColor.value
                   });
                 });
                 this.appStateService.getCategories(companyId);
@@ -199,3 +215,6 @@ var ApplicationComponent = function (_Component) {
 
 ApplicationComponent.contextType = _contextProvider.RmmsContext;
 exports.default = ApplicationComponent;
+function getApplicationRoute(routeName) {
+  return;
+}

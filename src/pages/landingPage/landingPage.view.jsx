@@ -1,36 +1,39 @@
 import React from "react";
 import { Image, ScrollView, View } from "@tarojs/components";
-import ApplicationComponentView from "../../common/applicationComponent.view";
+import ApplicationComponentView, {
+  getObjectValue,
+} from "../../common/applicationComponent.view";
 import ImageCarousel from "../../common/imageCarousel";
-import CardContent from "../../common/cardContent";
 import CircularButton from "../../common/circularButton";
 import Info from "../../common/text/info";
 import H2 from "../../common/text/h2";
 import FlexView from "../../common/flexView";
+import MainButtonRow from "../../common/mainButtonRow/mainButtonRow";
 
 export default class LandingPageView extends ApplicationComponentView {
   render() {
-    const { categories, items, landingPage, onClickItem, onClickMenuButton } =
+    const { categories, customStyle, items, landingPage, onClickItem } =
       this.props;
-    const { bottomList, mainMenuButtons } = landingPage;
+    const { bottomList } = landingPage;
     return (
-      <this.Wrapper>
+      <this.Wrapper
+        style={{
+          backgroundColor: getObjectValue(customStyle, "", "backgroundColor"),
+        }}
+      >
         <FlexView>
           <ImageCarousel
             imageUrls={landingPage.carousel.map((image) => image.url)}
           />
-          <CardContent>
-            <ButtonRow
-              mainMenuButtons={mainMenuButtons}
-              onClickMenuButton={onClickMenuButton}
-            />
+          <FlexView style={{ paddingLeft: 15, paddingRight: 15 }}>
+            <MainButtonRow />
             <BottomListing
               bottomList={bottomList}
               categories={categories}
               items={items}
               onClickItem={onClickItem}
             />
-          </CardContent>
+          </FlexView>
         </FlexView>
       </this.Wrapper>
     );
@@ -54,6 +57,12 @@ export function BottomListing({ bottomList, categories, items, onClickItem }) {
   });
 }
 
+/**
+ * @deprecated
+ *
+ * @param {*} props
+ * @returns
+ */
 export function ButtonRow(props) {
   const { mainMenuButtons, onClickMenuButton } = props;
   const buttons = mainMenuButtons.map((button, index) => (
@@ -125,7 +134,7 @@ export function CategoryListing({
     name = displayCategory.name;
   }
   return (
-    <FlexView>
+    <FlexView style={{ marginTop: 15 }}>
       <H2>{name ? name : "分類"}</H2>
       <ScrollView scrollX scrollWithAnimation>
         <FlexView style={{ display: "flex", flexDirection: "row" }}>

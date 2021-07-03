@@ -4,8 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+exports.getObjectValue = getObjectValue;
 exports.generateVariableLabel = generateVariableLabel;
 
 var _react = require("react");
@@ -46,15 +49,14 @@ var ApplicationComponentView = function (_ApplicationComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ApplicationComponentView.__proto__ || Object.getPrototypeOf(ApplicationComponentView)).call.apply(_ref, [this].concat(args))), _this), _this.Wrapper = function (_ref2) {
-      var children = _ref2.children;
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ApplicationComponentView.__proto__ || Object.getPrototypeOf(ApplicationComponentView)).call.apply(_ref, [this].concat(args))), _this), _this.Wrapper = function (props) {
       var modal = _this.props.modal;
 
       return _react2.default.createElement(
         _flexView2.default,
-        { style: { height: "100vh" } },
+        { style: _extends({ height: "100vh" }, props.style) },
         _react2.default.createElement(ErrorModal, modal),
-        children
+        props.children
       );
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -76,7 +78,22 @@ var ApplicationComponentView = function (_ApplicationComponent) {
 
 ApplicationComponentView.contextType = _contextProvider.RmmsContext;
 exports.default = ApplicationComponentView;
+function getObjectValue(style, defaultValue) {
+  for (var _len2 = arguments.length, keys = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+    keys[_key2 - 2] = arguments[_key2];
+  }
 
+  var recursionHelper = function recursionHelper(style, index, keys) {
+    if (!style[keys[index]]) {
+      return defaultValue;
+    }
+    if (index === keys.length - 1) {
+      return style[keys[index]];
+    }
+    return recursionHelper(style[keys[index]], index + 1, keys);
+  };
+  return recursionHelper(style, 0, keys);
+}
 
 function ErrorModal(props) {
   var isOpen = props.isOpen;

@@ -21,14 +21,14 @@ export default class Index extends ApplicationComponent {
   render() {
     return (
       <View className="index">
-        <AtButton
+        {/* <AtButton
           onClick={() => {
             wxGetUserProfile();
             wxGetUserInfo();
           }}
         >
           Get User Profile
-        </AtButton>
+        </AtButton> */}
         <LandingPage {...this.props} />
       </View>
     );

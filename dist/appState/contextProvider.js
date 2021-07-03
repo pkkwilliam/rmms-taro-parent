@@ -49,9 +49,9 @@ var RmmsAppState = function (_Component) {
         landingPage: {
           banners: [],
           bottomList: [],
-          carousel: [],
-          mainMenuButtons: []
+          carousel: []
         },
+        mainMenuButtonRow: { buy: {}, rent: {} },
         style: { primary: "", secondary: "" }
       },
       deviceInfo: {

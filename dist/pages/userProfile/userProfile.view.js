@@ -38,8 +38,6 @@ var _cardContent = require("../../common/cardContent");
 
 var _cardContent2 = _interopRequireDefault(_cardContent);
 
-var _applicationRoutes = require("../../routes/applicationRoutes");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65,15 +63,15 @@ var UserProfileView = function (_ApplicationComponent) {
         null,
         _react2.default.createElement(
           _flexView2.default,
-          { style: { marginTop: 15 } },
+          { style: { margin: 15 } },
           _react2.default.createElement(UserSection, _extends({
             onClickRefreshUserProfileInfo: this.props.onClickRefreshUserProfileInfo
           }, this.props.userProfile))
         ),
         _react2.default.createElement(
           _flexView2.default,
-          { style: { marginTop: 15 } },
-          _react2.default.createElement(UserMenuList, _extends({ goTo: this.goTo }, this.props))
+          { style: { margin: 15 } },
+          _react2.default.createElement(UserMenuList, this.props)
         )
       );
     }
@@ -137,15 +135,13 @@ function UserSection(_ref) {
 
 function UserMenuList(_ref2) {
   var favorites = _ref2.favorites,
-      goTo = _ref2.goTo;
+      onClickMenuItemFavorite = _ref2.onClickMenuItemFavorite;
 
   return _react2.default.createElement(
     _taroUi.AtList,
     null,
     _react2.default.createElement(_taroUi.AtListItem, {
-      onClick: function onClick() {
-        return goTo(_applicationRoutes.FAVORITE);
-      },
+      onClick: onClickMenuItemFavorite,
       title: "\u6536\u85CF",
       extraText: favorites.length + "\u500B\u6A13\u76E4",
       arrow: "right"

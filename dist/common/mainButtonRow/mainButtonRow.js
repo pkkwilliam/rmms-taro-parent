@@ -12,21 +12,17 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _taro = require("@tarojs/taro");
-
-var _taro2 = _interopRequireDefault(_taro);
-
-var _applicationComponent = require("../../common/applicationComponent");
+var _applicationComponent = require("../applicationComponent");
 
 var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
 
-var _landingPage = require("./landingPage.view");
-
-var _landingPage2 = _interopRequireDefault(_landingPage);
+var _categorySegment = require("../../pages/category/categorySegment");
 
 var _applicationRoutes = require("../../routes/applicationRoutes");
 
-var _categorySegment = require("../category/categorySegment");
+var _mainButtonRow = require("./mainButtonRow.view");
+
+var _mainButtonRow2 = _interopRequireDefault(_mainButtonRow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36,70 +32,51 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var LandingPage = function (_ApplicationComponent) {
-  _inherits(LandingPage, _ApplicationComponent);
+var MainButtonRow = function (_ApplicationComponent) {
+  _inherits(MainButtonRow, _ApplicationComponent);
 
-  function LandingPage() {
+  function MainButtonRow() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, LandingPage);
+    _classCallCheck(this, MainButtonRow);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LandingPage.__proto__ || Object.getPrototypeOf(LandingPage)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.state), _this.onClickMenuButton = function (categoryId) {
-      _this.goToTabBar(_applicationRoutes.CATEGORY, [{ key: "categoryId", value: categoryId }]);
-    }, _this.onClickItem = function (item) {
-      _this.goTo(_applicationRoutes.ITEM_DETAIL, [{ key: "itemId", value: item.id }]);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MainButtonRow.__proto__ || Object.getPrototypeOf(MainButtonRow)).call.apply(_ref, [this].concat(args))), _this), _this.onClickBuySegment = function () {
+      _this.appState.shortTermMemory.setShortTermMemory({
+        currentSegmentTypeIndex: _categorySegment.SELL_SEGMENT.index
+      });
+      _this.goToTabBar(_applicationRoutes.CATEGORY);
+    }, _this.onClickRentSegment = function () {
+      _this.appState.shortTermMemory.setShortTermMemory({
+        // this is so wrong, not sure why we cant import value
+        currentSegmentTypeIndex: _categorySegment.RENT_SEGMENT.index
+      });
+      _this.goToTabBar(_applicationRoutes.CATEGORY);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(LandingPage, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      _taro2.default.getSystemInfo().then(function (devivceInfo) {
-        return _this2.appState.deviceInfo.setDeviceInfo(devivceInfo);
-      });
-    }
-  }, {
+  _createClass(MainButtonRow, [{
     key: "render",
     value: function render() {
-      var _appState = this.appState,
-          category = _appState.category,
-          companyCustomise = _appState.companyCustomise,
-          item = _appState.item;
-      var landingPage = companyCustomise.landingPage,
-          style = companyCustomise.style;
+      var _appState$companyCust = this.appState.companyCustomise,
+          mainMenuButtonRow = _appState$companyCust.mainMenuButtonRow,
+          style = _appState$companyCust.style;
 
-      return _react2.default.createElement(_landingPage2.default, _extends({
-        categories: category.categories,
+      return _react2.default.createElement(_mainButtonRow2.default, _extends({
         customStyle: style,
-        items: item.items,
-        landingPage: landingPage,
-        onClickItem: this.onClickItem,
-        onClickMenuButton: this.onClickMenuButton
+        onClickBuySegment: this.onClickBuySegment,
+        onClickRentSegment: this.onClickRentSegment,
+        mainMenuButtonRow: mainMenuButtonRow
       }, this.state));
     }
-
-    /**
-     * @deprecated
-     * @param {*} categoryId
-     */
-
-
-    /**
-     * @deprecated
-     * @param {*} item
-     */
-
   }]);
 
-  return LandingPage;
+  return MainButtonRow;
 }(_applicationComponent2.default);
 
-exports.default = LandingPage;
+exports.default = MainButtonRow;

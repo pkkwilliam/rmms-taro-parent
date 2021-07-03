@@ -26,10 +26,6 @@ var _imageCarousel = require("../../common/imageCarousel");
 
 var _imageCarousel2 = _interopRequireDefault(_imageCarousel);
 
-var _cardContent = require("../../common/cardContent");
-
-var _cardContent2 = _interopRequireDefault(_cardContent);
-
 var _circularButton = require("../../common/circularButton");
 
 var _circularButton2 = _interopRequireDefault(_circularButton);
@@ -45,6 +41,10 @@ var _h2 = _interopRequireDefault(_h);
 var _flexView = require("../../common/flexView");
 
 var _flexView2 = _interopRequireDefault(_flexView);
+
+var _mainButtonRow = require("../../common/mainButtonRow/mainButtonRow");
+
+var _mainButtonRow2 = _interopRequireDefault(_mainButtonRow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68,16 +68,19 @@ var LandingPageView = function (_ApplicationComponent) {
     value: function render() {
       var _props = this.props,
           categories = _props.categories,
+          customStyle = _props.customStyle,
           items = _props.items,
           landingPage = _props.landingPage,
-          onClickItem = _props.onClickItem,
-          onClickMenuButton = _props.onClickMenuButton;
-      var bottomList = landingPage.bottomList,
-          mainMenuButtons = landingPage.mainMenuButtons;
+          onClickItem = _props.onClickItem;
+      var bottomList = landingPage.bottomList;
 
       return _react2.default.createElement(
         this.Wrapper,
-        null,
+        {
+          style: {
+            backgroundColor: (0, _applicationComponent.getObjectValue)(customStyle, "", "backgroundColor")
+          }
+        },
         _react2.default.createElement(
           _flexView2.default,
           null,
@@ -87,12 +90,9 @@ var LandingPageView = function (_ApplicationComponent) {
             })
           }),
           _react2.default.createElement(
-            _cardContent2.default,
-            null,
-            _react2.default.createElement(ButtonRow, {
-              mainMenuButtons: mainMenuButtons,
-              onClickMenuButton: onClickMenuButton
-            }),
+            _flexView2.default,
+            { style: { paddingLeft: 15, paddingRight: 15 } },
+            _react2.default.createElement(_mainButtonRow2.default, null),
             _react2.default.createElement(BottomListing, {
               bottomList: bottomList,
               categories: categories,
@@ -129,6 +129,12 @@ function BottomListing(_ref) {
   });
 }
 
+/**
+ * @deprecated
+ *
+ * @param {*} props
+ * @returns
+ */
 function ButtonRow(props) {
   var mainMenuButtons = props.mainMenuButtons,
       onClickMenuButton = props.onClickMenuButton;
@@ -222,7 +228,7 @@ function CategoryListing(_ref2) {
   }
   return _react2.default.createElement(
     _flexView2.default,
-    null,
+    { style: { marginTop: 15 } },
     _react2.default.createElement(
       _h2.default,
       null,

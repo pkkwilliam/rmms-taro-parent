@@ -75,6 +75,10 @@ var wxLogin = exports.wxLogin = function () {
 
 exports.wxCheckSession = wxCheckSession;
 exports.wxGetSetting = wxGetSetting;
+exports.wxSetNavigationBarColor = wxSetNavigationBarColor;
+exports.wxSetNavigationBarTitle = wxSetNavigationBarTitle;
+exports.wxSwitchTabbar = wxSwitchTabbar;
+exports.wxSetTabBarStyle = wxSetTabBarStyle;
 
 var _taro = require("@tarojs/taro");
 
@@ -114,4 +118,31 @@ function wxGetSetting() {
       // }
     }
   });
+}
+
+function wxSetNavigationBarColor(_ref4) {
+  var backgroundColor = _ref4.backgroundColor;
+
+  _taro2.default.setNavigationBarColor({
+    backgroundColor: backgroundColor,
+    frontColor: "#ffffff"
+  });
+}
+
+function wxSetNavigationBarTitle(title) {
+  _taro2.default.setNavigationBarTitle({
+    title: title
+  });
+}
+
+function wxSwitchTabbar(url) {
+  _taro2.default.switchTab({ url: url });
+}
+
+/**
+ *
+ * @param { color: '#FF0000', selectedColor: '#00FF00', backgroundColor: '#0000FF', borderStyle: 'white' } style
+ */
+function wxSetTabBarStyle(style) {
+  _taro2.default.setTabBarStyle(style);
 }

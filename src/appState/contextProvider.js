@@ -18,8 +18,8 @@ export default class RmmsAppState extends Component {
         banners: [],
         bottomList: [],
         carousel: [],
-        mainMenuButtons: [],
       },
+      mainMenuButtonRow: { buy: {}, rent: {} },
       style: { primary: "", secondary: "" },
     },
     deviceInfo: {

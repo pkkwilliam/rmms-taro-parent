@@ -6,7 +6,12 @@ import ServiceExecutor from "../service/serviceExecutor";
 import ApplicationContext from "./applicationContext";
 import AppStateService from "../service/appStateService";
 import { getUserToken, setUserToken } from "./wxStorage";
-import { wxLogin } from "./wxApiUtil";
+import {
+  wxLogin,
+  wxSetNavigationBarColor,
+  wxSetNavigationBarTitle,
+  wxSetTabBarStyle,
+} from "./wxApiUtil";
 export default class ApplicationComponent extends Component {
   state = {
     modal: {
@@ -59,6 +64,10 @@ export default class ApplicationComponent extends Component {
     return this._serviceExecutor;
   }
 
+  getApplicationRoutePath(route) {
+    return route.path;
+  }
+
   getRouterParams() {
     return getCurrentInstance().router.params;
   }
@@ -74,25 +83,34 @@ export default class ApplicationComponent extends Component {
       return result;
     };
     Taro.navigateTo({
-      url: route + generateRouteParams(),
+      url: this.getApplicationRoutePath(route) + generateRouteParams(),
     });
   }
 
   goToTabBar(route) {
-    wx.switchTab({ url: route });
+    Taro.switchTab({ url: this.getApplicationRoutePath(route) });
   }
 
   async onLoad(options) {
     const companyId = this.getCompanyId(options);
     this.appStateService.getCompany(companyId).then((result) => {
-      wx.setNavigationBarTitle({
-        title: this.appState.company.name,
-      });
+      wxSetNavigationBarTitle(this.appState.company.name);
     });
     this.appStateService.getCompanyCustomise(companyId).then((content) => {
-      wx.setNavigationBarColor({
-        backgroundColor: content.style.primary,
+      content;
+      wxSetNavigationBarColor({
+        backgroundColor: content.style.primary.value,
         frontColor: "#ffffff",
+      });
+      const {
+        tabbarBackgroundColor,
+        tabbarSelectedColor,
+        tabbarUnselectedColor,
+      } = content.style;
+      wxSetTabBarStyle({
+        backgroundColor: tabbarBackgroundColor.value,
+        color: tabbarUnselectedColor.value,
+        selectedColor: tabbarSelectedColor.value,
       });
     });
     this.appStateService.getCategories(companyId);
@@ -112,4 +130,8 @@ export default class ApplicationComponent extends Component {
       path: "/page/index/index",
     };
   }
+}
+
+export function getApplicationRoute(routeName) {
+  return;
 }

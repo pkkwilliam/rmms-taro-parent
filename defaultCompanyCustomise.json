@@ -4,6 +4,9 @@
       "areaSuffix": "平方呎",
       "layoutValue": "$1房$2廳"
     },
+    "cardContent": {
+      "backgroundColor": { "key": "背景顏色", "value": "#FFFFFF" }
+    },
     "common": {
       "buy": "買賣",
       "rent": "出租"
@@ -67,51 +70,71 @@
         "id": 3,
         "type": "category"
       }
-    ],
-    "mainMenuButtons": [
-      {
-        "id": 8,
-        "name": "買賣",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "出租",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/Fh-huaj4ecccroAWqjWU_fYb688X.png"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "最新",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/Fo4sQ9b3AIV9NTjMl4VQ95ADfBsu.png"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "熱門",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/FuS4qY8F3Pn2PJaDQjr2OGgfnuw9.png"
-        ]
-      }
     ]
   },
-  "style": {
-    "appBackgroundColor": "#F6F6F6",
-    "imageCarousel": {
-      "indicatorDots:": true
+  "mainMenuButtonRow": {
+    "buy": {
+      "label": "買賣",
+      "type": "BUTTON",
+      "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
     },
-    "primary": "#446DF6",
-    "primaryGradient": "linear-gradient(90deg, rgba(252,150,3,1) 0%, rgba(252,91,1,1) 100%)",
-    "secondary": "#7F9BFA",
-    "shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-    "shadowLight": "0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0)"
+    "rent": {
+      "label": "出租",
+      "type": "BUTTON",
+      "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
+    }
+  },
+  "style": {
+    "name": "自定風格",
+    "backgroundColor": {
+      "name": "全局背景顏色",
+      "type": "COLOR",
+      "value": "#fafafa"
+    },
+    "imageCarousel": {
+      "indicatorDots:": true,
+      "name": "旋轉圖片",
+      "type": "BOOLEAN"
+    },
+    "primary": {
+      "value": "#446DF6",
+      "name": "主色調",
+      "type": "COLOR"
+    },
+    "primaryGradient": {
+      "value": "linear-gradient(90deg, rgba(252,150,3,1) 0%, rgba(252,91,1,1) 100%)",
+      "name": "主梯度色調",
+      "type": "COLOR"
+    },
+    "secondary": {
+      "value": "#7F9BFA",
+      "name": "副色調",
+      "type": "COLOR"
+    },
+    "shadow": {
+      "value": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+      "name": "影",
+      "type": "COLOR"
+    },
+    "shadowLight": {
+      "value": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+      "name": "淺影",
+      "type": "COLOR"
+    },
+    "tabbarBackgroundColor": {
+      "name": "全局TabBar背景顏色",
+      "type": "COLOR",
+      "value": "#f9f8f6"
+    },
+    "tabbarSelectedColor": {
+      "name": "TabBar選中顏色",
+      "type": "COLOR",
+      "value": "#3d3c3a"
+    },
+    "tabbarUnselectedColor": {
+      "name": "TabBar未選中顏色",
+      "type": "COLOR",
+      "value": "#b7b7b7"
+    }
   }
 }

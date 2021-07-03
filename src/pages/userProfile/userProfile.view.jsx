@@ -5,13 +5,12 @@ import Info from "../../common/text/info";
 import H3 from "../../common/text/h2";
 import FlexView from "../../common/flexView";
 import CardContent from "../../common/cardContent";
-import { FAVORITE } from "../../routes/applicationRoutes";
 
 export default class UserProfileView extends ApplicationComponentView {
   render() {
     return (
       <this.Wrapper>
-        <FlexView style={{ marginTop: 15 }}>
+        <FlexView style={{ margin: 15 }}>
           <UserSection
             onClickRefreshUserProfileInfo={
               this.props.onClickRefreshUserProfileInfo
@@ -19,8 +18,8 @@ export default class UserProfileView extends ApplicationComponentView {
             {...this.props.userProfile}
           />
         </FlexView>
-        <FlexView style={{ marginTop: 15 }}>
-          <UserMenuList goTo={this.goTo} {...this.props} />
+        <FlexView style={{ margin: 15 }}>
+          <UserMenuList {...this.props} />
         </FlexView>
       </this.Wrapper>
     );
@@ -62,11 +61,11 @@ export function UserSection({
   );
 }
 
-export function UserMenuList({ favorites, goTo }) {
+export function UserMenuList({ favorites, onClickMenuItemFavorite }) {
   return (
     <AtList>
       <AtListItem
-        onClick={() => goTo(FAVORITE)}
+        onClick={onClickMenuItemFavorite}
         title="收藏"
         extraText={`${favorites.length}個樓盤`}
         arrow="right"

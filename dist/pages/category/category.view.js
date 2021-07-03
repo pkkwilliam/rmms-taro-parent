@@ -166,7 +166,7 @@ function ItemList(props) {
               alignItems: "center"
             }
           },
-          _react2.default.createElement(ListingTypeTag, props),
+          _react2.default.createElement(ListingTypeTag, _extends({ listingType: listingType }, props)),
           _react2.default.createElement(
             _h2.default,
             { style: { marginLeft: 8 } },

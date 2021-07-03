@@ -22,19 +22,17 @@ var _category2 = _interopRequireDefault(_category);
 
 var _applicationRoutes = require("../../routes/applicationRoutes");
 
+var _categorySegment = require("./categorySegment");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SEGMENT_TYPE = [{ label: "出租", value: "RENT" }, { label: "買賣", value: "SELL" }];
 
 var Category = function (_ApplicationComponent) {
   _inherits(Category, _ApplicationComponent);
@@ -51,15 +49,13 @@ var Category = function (_ApplicationComponent) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Category.__proto__ || Object.getPrototypeOf(Category)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      currentCategoryIndex: 0,
-      currentSegmentTypeIndex: 0,
       searchBar: {
         text: undefined,
         useSearchFilter: false
       }
-    }, _this.onChangeSegmentType = function (segmentType) {
-      _this.setState({
-        currentSegmentTypeIndex: segmentType
+    }, _this.onChangeSegmentType = function (segmentTypeIndex) {
+      _this.appState.shortTermMemory.setShortTermMemory({
+        currentSegmentTypeIndex: segmentTypeIndex
       });
     }, _this.onChangeSearchBarText = function (text) {
       _this.setState({
@@ -92,43 +88,19 @@ var Category = function (_ApplicationComponent) {
   }
 
   _createClass(Category, [{
-    key: "componentDidMount",
-    value: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var currentCategoryIndex;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                currentCategoryIndex = this.appState.shortTermMemory.currentCategoryIndex;
-
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function componentDidMount() {
-        return _ref2.apply(this, arguments);
-      }
-
-      return componentDidMount;
-    }()
-  }, {
     key: "render",
     value: function render() {
+      var currentSegmentTypeIndex = this.appState.shortTermMemory.currentSegmentTypeIndex;
       var _appState = this.appState,
           category = _appState.category,
           companyCustomise = _appState.companyCustomise,
           item = _appState.item;
-      var currentSegmentTypeIndex = this.state.currentSegmentTypeIndex;
 
       var sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
       return _react2.default.createElement(_category2.default, _extends({
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
+        currentSegmentTypeIndex: currentSegmentTypeIndex,
         commonLabel: companyCustomise.label.common,
         label: companyCustomise.label.category,
         onChangeSegmentType: this.onChangeSegmentType,
@@ -151,7 +123,7 @@ var Category = function (_ApplicationComponent) {
           return item.name.includes(text);
         });
       }
-      var segmentTypeValue = SEGMENT_TYPE[currentSegmentTypeIndex].value;
+      var segmentTypeValue = _categorySegment.SEGMENT_TYPES[currentSegmentTypeIndex].value;
       return items.filter(function (item) {
         return item.listingType === segmentTypeValue;
       });

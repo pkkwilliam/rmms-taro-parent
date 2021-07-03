@@ -25,7 +25,7 @@ export default class ItemDetailView extends ApplicationComponentView {
     return (
       <this.Wrapper>
         <ImageCarousel imageUrls={itemDetail.imageUrls} />
-        <CardContent style={{ height: "100%" }}>
+        <FlexView style={{ height: "100%", paddingLeft: 15, paddingRight: 15 }}>
           <Content
             onClickSubmit={toggleShowAgency}
             {...itemDetail}
@@ -39,7 +39,7 @@ export default class ItemDetailView extends ApplicationComponentView {
             toggleShowAgency={toggleShowAgency}
           />
           <MakeReservation label={label} onClickSubmit={toggleShowAgency} />
-        </CardContent>
+        </FlexView>
       </this.Wrapper>
     );
   }

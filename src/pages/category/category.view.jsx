@@ -16,7 +16,6 @@ export default function CategoryView(props) {
       <FlexView style={{ marginLeft: 5, marginRight: 5 }}>
         <TopSegment {...props} />
       </FlexView>
-
       <FlexView style={{ marginTop: 5 }}>
         <CategoryNav {...props} />
       </FlexView>
@@ -111,7 +110,7 @@ export function ItemList(props) {
               alignItems: "center",
             }}
           >
-            <ListingTypeTag {...props} />
+            <ListingTypeTag listingType={listingType} {...props} />
             <H3 style={{ marginLeft: 8 }}>{name}</H3>
           </FlexView>
           <Info>{`${area}${label.areaSuffix} ${generateVariableLabel(

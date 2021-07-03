@@ -2,34 +2,25 @@ import React from "react";
 import ApplicationComponent from "../../common/applicationComponent";
 import CategoryView from "./category.view";
 import { ITEM_DETAIL } from "../../routes/applicationRoutes";
-
-const SEGMENT_TYPE = [
-  { label: "出租", value: "RENT" },
-  { label: "買賣", value: "SELL" },
-];
+import { SEGMENT_TYPES } from "./categorySegment";
 
 export default class Category extends ApplicationComponent {
   state = {
-    currentCategoryIndex: 0,
-    currentSegmentTypeIndex: 0,
     searchBar: {
       text: undefined,
       useSearchFilter: false,
     },
   };
 
-  async componentDidMount() {
-    const { currentCategoryIndex } = this.appState.shortTermMemory;
-  }
-
   render() {
+    const { currentSegmentTypeIndex } = this.appState.shortTermMemory;
     const { category, companyCustomise, item } = this.appState;
-    const { currentSegmentTypeIndex } = this.state;
     const sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
     return (
       <CategoryView
         categories={category.categories}
         categoriesItems={this.transfromItemsToNav(sortedItems)}
+        currentSegmentTypeIndex={currentSegmentTypeIndex}
         commonLabel={companyCustomise.label.common}
         label={companyCustomise.label.category}
         onChangeSegmentType={this.onChangeSegmentType}
@@ -43,9 +34,9 @@ export default class Category extends ApplicationComponent {
     );
   }
 
-  onChangeSegmentType = (segmentType) => {
-    this.setState({
-      currentSegmentTypeIndex: segmentType,
+  onChangeSegmentType = (segmentTypeIndex) => {
+    this.appState.shortTermMemory.setShortTermMemory({
+      currentSegmentTypeIndex: segmentTypeIndex,
     });
   };
 
@@ -90,7 +81,7 @@ export default class Category extends ApplicationComponent {
     if (text && useSearchFilter) {
       items = items.filter((item) => item.name.includes(text));
     }
-    const segmentTypeValue = SEGMENT_TYPE[currentSegmentTypeIndex].value;
+    const segmentTypeValue = SEGMENT_TYPES[currentSegmentTypeIndex].value;
     return items.filter((item) => item.listingType === segmentTypeValue);
   }
 

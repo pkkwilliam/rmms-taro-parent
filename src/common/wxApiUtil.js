@@ -48,3 +48,28 @@ export async function wxGetUserProfile(onSuccess) {
 export async function wxLogin() {
   return Taro.login();
 }
+
+export function wxSetNavigationBarColor({ backgroundColor }) {
+  Taro.setNavigationBarColor({
+    backgroundColor,
+    frontColor: "#ffffff",
+  });
+}
+
+export function wxSetNavigationBarTitle(title) {
+  Taro.setNavigationBarTitle({
+    title,
+  });
+}
+
+export function wxSwitchTabbar(url) {
+  Taro.switchTab({ url });
+}
+
+/**
+ *
+ * @param { color: '#FF0000', selectedColor: '#00FF00', backgroundColor: '#0000FF', borderStyle: 'white' } style
+ */
+export function wxSetTabBarStyle(style) {
+  Taro.setTabBarStyle(style);
+}

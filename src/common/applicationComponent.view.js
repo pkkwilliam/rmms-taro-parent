@@ -7,12 +7,12 @@ import FlexView from "./flexView";
 export default class ApplicationComponentView extends ApplicationComponent {
   static contextType = RmmsContext;
 
-  Wrapper = ({ children }) => {
+  Wrapper = (props) => {
     const { modal } = this.props;
     return (
-      <FlexView style={{ height: "100vh" }}>
+      <FlexView style={{ height: "100vh", ...props.style }}>
         <ErrorModal {...modal} />
-        {children}
+        {props.children}
       </FlexView>
     );
   };
@@ -24,6 +24,19 @@ export default class ApplicationComponentView extends ApplicationComponent {
   get appStyle() {
     return this.appState.companyCustomise.style;
   }
+}
+
+export function getObjectValue(style, defaultValue, ...keys) {
+  const recursionHelper = function (style, index, keys) {
+    if (!style[keys[index]]) {
+      return defaultValue;
+    }
+    if (index === keys.length - 1) {
+      return style[keys[index]];
+    }
+    return recursionHelper(style[keys[index]], index + 1, keys);
+  };
+  return recursionHelper(style, 0, keys);
 }
 
 function ErrorModal(props) {

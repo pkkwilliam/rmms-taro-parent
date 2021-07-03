@@ -26,6 +26,8 @@ var _wxApiUtil = require("../../common/wxApiUtil");
 
 var _service = require("../../service/service");
 
+var _applicationRoutes = require("../../routes/applicationRoutes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64,6 +66,8 @@ var LandingPage = function (_ApplicationComponent) {
           _this.appState.userProfile.setUserProfile(updatedUserProfile), _this.setState({ userProfile: updatedUserProfile });
         });
       });
+    }, _this.onClickMenuItemFavorite = function () {
+      _this.goTo(_applicationRoutes.FAVORITE);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -81,6 +85,7 @@ var LandingPage = function (_ApplicationComponent) {
       }
       return _react2.default.createElement(_userProfile2.default, _extends({
         onClickRefreshUserProfileInfo: this.onClickRefreshUserProfileInfo,
+        onClickMenuItemFavorite: this.onClickMenuItemFavorite,
         favorites: this.appState.favorite.favorites,
         userProfile: displayUserProfile
       }, this.state));
