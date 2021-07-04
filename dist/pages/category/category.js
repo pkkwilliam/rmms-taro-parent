@@ -105,15 +105,12 @@ var Category = /*#__PURE__*/function (_ApplicationComponent) {
       var currentSegmentTypeIndex = this.appState.shortTermMemory.currentSegmentTypeIndex;
       var _this$appState = this.appState,
           category = _this$appState.category,
-          companyCustomise = _this$appState.companyCustomise,
           item = _this$appState.item;
       var sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_category.default, (0, _objectSpread2.default)({
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
         currentSegmentTypeIndex: currentSegmentTypeIndex,
-        commonLabel: companyCustomise.label.common,
-        categoryLabel: companyCustomise.label.category,
         onChangeSegmentType: this.onChangeSegmentType,
         onChangeSearchBarText: this.onChangeSearchBarText,
         onClickCategory: this.onClickCategory,

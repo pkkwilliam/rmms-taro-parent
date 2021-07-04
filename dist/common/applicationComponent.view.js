@@ -68,9 +68,55 @@ var ApplicationComponentView = /*#__PURE__*/function (_ApplicationComponent) {
       return this.context;
     }
   }, {
+    key: "appLabel",
+    get: function get() {
+      return this.appState.companyCustomise.label.commonLabel;
+    }
+  }, {
     key: "appStyle",
     get: function get() {
       return this.appState.companyCustomise.style;
+    }
+  }, {
+    key: "componentLabel",
+    get: function get() {
+      var _this$appState$compan;
+
+      return (_this$appState$compan = this.appState.companyCustomise) === null || _this$appState$compan === void 0 ? void 0 : _this$appState$compan.label[this.getComponentLabelName()];
+    }
+  }, {
+    key: "componentStyle",
+    get: function get() {
+      var _this$appState$compan2;
+
+      return (_this$appState$compan2 = this.appState.companyCustomise) === null || _this$appState$compan2 === void 0 ? void 0 : _this$appState$compan2[this.getComponentStyleName()];
+    }
+  }, {
+    key: "getComponentLabelName",
+    value: function getComponentLabelName() {
+      throw "please override this";
+    }
+  }, {
+    key: "getComponentStyleName",
+    value: function getComponentStyleName() {
+      throw "please override this";
+    }
+  }, {
+    key: "componentTest",
+    get: function get() {
+      var _this$appState$compan3;
+
+      console.log(ApplicationComponentView.compoentLabelName);
+      return (_this$appState$compan3 = this.appState.companyCustomise) === null || _this$appState$compan3 === void 0 ? void 0 : _this$appState$compan3.label[ApplicationComponentView.compoentLabelName];
+    }
+  }, {
+    key: "getComponentStyle",
+    value: function getComponentStyle(component) {
+      if (this.appState.companyCustomise[component]) {
+        return this.appState.companyCustomise[component];
+      }
+
+      return {};
     }
   }]);
   return ApplicationComponentView;

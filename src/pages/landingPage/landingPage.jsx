@@ -17,14 +17,11 @@ export default class LandingPage extends ApplicationComponent {
   }
 
   render() {
-    const { category, companyCustomise, item } = this.appState;
-    const { landingPage, style } = companyCustomise;
+    const { category, item } = this.appState;
     return (
       <LandingPageView
         categories={category.categories}
-        customStyle={style}
         items={item.items}
-        landingPage={landingPage}
         onClickItem={this.onClickItem}
         onClickMenuButton={this.onClickMenuButton}
         {...this.state}

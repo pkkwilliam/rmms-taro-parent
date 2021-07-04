@@ -55,12 +55,12 @@ var RmmsAppState = /*#__PURE__*/function (_Component) {
       },
       companyCustomise: {
         dirty: true,
-        landingPage: {
-          banners: [],
-          bottomList: [],
-          carousel: []
+        landingPageStyle: {
+          bannerStyle: [],
+          bottomListStyle: [],
+          carouselStyle: []
         },
-        mainMenuButtonRow: {
+        mainMenuButtonRowStyle: {
           buy: {},
           rent: {}
         },

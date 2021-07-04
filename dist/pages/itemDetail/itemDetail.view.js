@@ -7,6 +7,7 @@ var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Container = Container;
 exports.Content = Content;
 exports.Description = Description;
 exports.ItemAbstractHeader = ItemAbstractHeader;
@@ -68,39 +69,24 @@ var ItemDetailView = /*#__PURE__*/function (_ApplicationComponent) {
   }
 
   (0, _createClass2.default)(ItemDetailView, [{
+    key: "getComponentLabelName",
+    value: function getComponentLabelName() {
+      return "itemDetailLabel";
+    }
+  }, {
+    key: "getComponentStyleName",
+    value: function getComponentStyleName() {
+      return "itemDetailStyle";
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          itemDetail = _this$props.itemDetail,
-          itemDetailLabel = _this$props.itemDetailLabel,
-          showAgency = _this$props.showAgency,
-          toggleShowAgency = _this$props.toggleShowAgency;
-      console.log(itemDetailLabel);
-      var id = itemDetail.id,
-          listingType = itemDetail.listingType,
-          name = itemDetail.name;
-      return /*#__PURE__*/(0, _jsxRuntime.jsxs)(this.Wrapper, {
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_imageCarousel.default, {
-          imageUrls: itemDetail.imageUrls
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
-          style: {
-            height: "100%",
-            paddingLeft: 15,
-            paddingRight: 15
-          },
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Content, (0, _objectSpread2.default)((0, _objectSpread2.default)({
-            onClickSubmit: toggleShowAgency
-          }, itemDetail), this.props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_contactAgent.default, {
-            id: id,
-            listingType: listingType,
-            name: name,
-            showAgency: showAgency,
-            toggleShowAgency: toggleShowAgency
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(MakeReservation, {
-            itemDetailLabel: itemDetailLabel,
-            onClickSubmit: toggleShowAgency
-          })]
-        })]
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.Wrapper, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Container, (0, _objectSpread2.default)({
+          appLabel: this.appLabel,
+          itemDetail: this.props.itemDetail,
+          itemDetailLabel: this.componentLabel
+        }, this.props))
       });
     }
   }]);
@@ -109,10 +95,27 @@ var ItemDetailView = /*#__PURE__*/function (_ApplicationComponent) {
 
 exports.default = ItemDetailView;
 
+function Container(props) {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_imageCarousel.default, {
+      imageUrls: props.itemDetail.imageUrls
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+      style: {
+        height: "100%",
+        paddingLeft: 15,
+        paddingRight: 15
+      },
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Content, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_contactAgent.default, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(MakeReservation, (0, _objectSpread2.default)({
+        onClickSubmit: props.toggleShowAgency
+      }, props))]
+    })]
+  });
+}
+
 function Content(props) {
   var address = props.address,
       area = props.area,
-      commonLabel = props.commonLabel,
+      appLabel = props.appLabel,
       _props$categories = props.categories,
       categories = _props$categories === void 0 ? [] : _props$categories,
       cost = props.cost,
@@ -146,7 +149,7 @@ function Content(props) {
       },
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemHeader, {
         id: id,
-        commonLabel: commonLabel,
+        appLabel: appLabel,
         listingType: listingType,
         name: name
       })
@@ -250,7 +253,7 @@ function ItemAbstractHeader(_ref2) {
 }
 
 function ItemAbstractHeaders(props) {
-  var _itemDetailLabel$layo;
+  var _itemDetailLabel$pric, _itemDetailLabel$layo, _itemDetailLabel$layo2, _itemDetailLabel$layo3, _itemDetailLabel$area, _itemDetailLabel$area2;
 
   var area = props.area,
       cost = props.cost,
@@ -258,10 +261,7 @@ function ItemAbstractHeaders(props) {
       livingRoom = props.livingRoom,
       restRoom = props.restRoom,
       room = props.room;
-  var areaHeader = itemDetailLabel.areaHeader,
-      areaSuffix = itemDetailLabel.areaSuffix,
-      layoutHeader = itemDetailLabel.layoutHeader,
-      priceHeader = itemDetailLabel.priceHeader;
+  console.log(itemDetailLabel);
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtDivider, {
       height: 60
@@ -274,24 +274,24 @@ function ItemAbstractHeaders(props) {
         header: parseInt(cost).toLocaleString(),
         icon: "money",
         iconColor: "#85BB65",
-        label: priceHeader === null || priceHeader === void 0 ? void 0 : priceHeader.value
+        label: itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$pric = itemDetailLabel.priceHeader) === null || _itemDetailLabel$pric === void 0 ? void 0 : _itemDetailLabel$pric.value
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemAbstractHeader, {
-        header: (0, _applicationComponent.generateDynamicLabel)(itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$layo = itemDetailLabel.layoutValue) === null || _itemDetailLabel$layo === void 0 ? void 0 : _itemDetailLabel$layo.value, [livingRoom, room]),
+        header: (0, _applicationComponent.generateDynamicLabel)((_itemDetailLabel$layo = itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$layo2 = itemDetailLabel.layoutValue) === null || _itemDetailLabel$layo2 === void 0 ? void 0 : _itemDetailLabel$layo2.value) !== null && _itemDetailLabel$layo !== void 0 ? _itemDetailLabel$layo : "", [livingRoom, room]),
         icon: "numbered-list",
         iconColor: "#d7471d",
-        label: layoutHeader === null || layoutHeader === void 0 ? void 0 : layoutHeader.value
+        label: itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$layo3 = itemDetailLabel.layoutHeader) === null || _itemDetailLabel$layo3 === void 0 ? void 0 : _itemDetailLabel$layo3.value
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemAbstractHeader, {
-        header: "".concat(parseInt(area).toLocaleString()).concat(areaSuffix === null || areaSuffix === void 0 ? void 0 : areaSuffix.value),
+        header: "".concat(parseInt(area).toLocaleString()).concat(itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$area = itemDetailLabel.areaSuffix) === null || _itemDetailLabel$area === void 0 ? void 0 : _itemDetailLabel$area.value),
         icon: "home",
         iconColor: "#007AFF",
-        label: areaHeader === null || areaHeader === void 0 ? void 0 : areaHeader.value
+        label: itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$area2 = itemDetailLabel.areaHeader) === null || _itemDetailLabel$area2 === void 0 ? void 0 : _itemDetailLabel$area2.value
       })]
     })]
   });
 }
 
 function ItemHeader(props) {
-  var commonLabel = props.commonLabel,
+  var appLabel = props.appLabel,
       id = props.id,
       listingType = props.listingType,
       name = props.name;
@@ -312,7 +312,7 @@ function ItemHeader(props) {
         justifyContent: "space-between"
       },
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_category.ListingTypeTag, {
-        commonLabel: commonLabel,
+        appLabel: appLabel,
         listingType: listingType
       }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_applicationTag.default, {
         color: "geekblue",

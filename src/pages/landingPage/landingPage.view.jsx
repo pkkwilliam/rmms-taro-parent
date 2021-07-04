@@ -9,24 +9,29 @@ import FlexView from "../../common/flexView";
 import MainButtonRow from "../../common/mainButtonRow/mainButtonRow";
 
 export default class LandingPageView extends ApplicationComponentView {
+  getComponentLabelName() {
+    return "landingPageLabel";
+  }
+
+  getComponentStyleName() {
+    return "landingPageStyle";
+  }
+
   render() {
-    const { categories, customStyle, items, landingPage, onClickItem } =
-      this.props;
-    const { bottomList } = landingPage;
+    const { categories, items, onClickItem } = this.props;
+    const { bottomListStyle, carouselStyle } = this.componentStyle;
     return (
       <this.Wrapper
         style={{
-          backgroundColor: customStyle?.backgroundColor?.value,
+          backgroundColor: this.appStyle?.backgroundColor?.value,
         }}
       >
         <FlexView>
-          <ImageCarousel
-            imageUrls={landingPage.carousel.map((image) => image.url)}
-          />
+          <ImageCarousel imageUrls={carouselStyle.map((image) => image.url)} />
           <FlexView style={{ paddingLeft: 15, paddingRight: 15 }}>
             <MainButtonRow />
             <BottomListing
-              bottomList={bottomList}
+              bottomListStyle={bottomListStyle}
               categories={categories}
               items={items}
               onClickItem={onClickItem}
@@ -38,8 +43,13 @@ export default class LandingPageView extends ApplicationComponentView {
   }
 }
 
-export function BottomListing({ bottomList, categories, items, onClickItem }) {
-  return bottomList.map((listItem) => {
+export function BottomListing({
+  bottomListStyle,
+  categories,
+  items,
+  onClickItem,
+}) {
+  return bottomListStyle.map((listItem) => {
     if (listItem.type === "category") {
       return (
         <CategoryListing

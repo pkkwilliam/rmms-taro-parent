@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
+
 var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -31,13 +33,11 @@ var _components = require("@tarojs/components");
 
 var _applicationButton = _interopRequireDefault(require("../../common/applicationButton"));
 
-var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent"));
-
 var _itemDetail = require("../itemDetail/itemDetail.view");
 
 var _service = require("../../service/service");
 
-var _applicationComponent2 = require("../../common/applicationComponent.view");
+var _applicationComponent = _interopRequireWildcard(require("../../common/applicationComponent.view"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -89,20 +89,28 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
   }
 
   (0, _createClass2.default)(ContactAgent, [{
+    key: "getComponentLabelName",
+    value: function getComponentLabelName() {
+      return "contactAgentLabel";
+    }
+  }, {
+    key: "getComponentStyleName",
+    value: function getComponentStyleName() {
+      return "contactAgentStyle";
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _contactAgent$header,
+      var _contactAgentLabel$he,
           _this2 = this,
-          _contactAgent$nameInp,
-          _contactAgent$nameInp2,
-          _contactAgent$phoneIn,
-          _contactAgent$phoneIn2,
-          _contactAgent$textAre,
-          _contactAgent$submitB;
+          _contactAgentLabel$na,
+          _contactAgentLabel$na2,
+          _contactAgentLabel$ph,
+          _contactAgentLabel$ph2,
+          _contactAgentLabel$te,
+          _contactAgentLabel$su;
 
-      var _this$appState$compan = this.appState.companyCustomise.label,
-          common = _this$appState$compan.common,
-          contactAgent = _this$appState$compan.contactAgent;
+      var contactAgentLabel = this.componentLabel;
       var _this$props = this.props,
           id = _this$props.id,
           listingType = _this$props.listingType,
@@ -114,7 +122,7 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
           phoneNumber = _this$state2.phoneNumber;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtFloatLayout, {
         isOpened: showAgency,
-        title: contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$header = contactAgent.header) === null || _contactAgent$header === void 0 ? void 0 : _contactAgent$header.value,
+        title: contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$he = contactAgentLabel.header) === null || _contactAgentLabel$he === void 0 ? void 0 : _contactAgentLabel$he.value,
         onClose: toggleShowAgency,
         children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_components.View, {
           style: {
@@ -123,7 +131,6 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
           },
           children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_itemDetail.ItemHeader, {
             id: id,
-            commonLabel: common,
             listingType: listingType,
             name: name
           }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtInput, {
@@ -135,8 +142,8 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
             onChange: function onChange(value) {
               return _this2.setClientName(value);
             },
-            placeholder: contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$nameInp = contactAgent.nameInputPlaceHolder) === null || _contactAgent$nameInp === void 0 ? void 0 : _contactAgent$nameInp.value,
-            title: contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$nameInp2 = contactAgent.nameInputTitle) === null || _contactAgent$nameInp2 === void 0 ? void 0 : _contactAgent$nameInp2.value,
+            placeholder: contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$na = contactAgentLabel.nameInputPlaceHolder) === null || _contactAgentLabel$na === void 0 ? void 0 : _contactAgentLabel$na.value,
+            title: contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$na2 = contactAgentLabel.nameInputTitle) === null || _contactAgentLabel$na2 === void 0 ? void 0 : _contactAgentLabel$na2.value,
             value: clientName
           }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtInput, {
             name: "input2",
@@ -147,8 +154,8 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
             onChange: function onChange(value) {
               return _this2.setPhoneNumber(value);
             },
-            placeholder: contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$phoneIn = contactAgent.phoneInputPlaceHolder) === null || _contactAgent$phoneIn === void 0 ? void 0 : _contactAgent$phoneIn.value,
-            title: contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$phoneIn2 = contactAgent.phoneInputTitle) === null || _contactAgent$phoneIn2 === void 0 ? void 0 : _contactAgent$phoneIn2.value,
+            placeholder: contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$ph = contactAgentLabel.phoneInputPlaceHolder) === null || _contactAgentLabel$ph === void 0 ? void 0 : _contactAgentLabel$ph.value,
+            title: contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$ph2 = contactAgentLabel.phoneInputTitle) === null || _contactAgentLabel$ph2 === void 0 ? void 0 : _contactAgentLabel$ph2.value,
             value: phoneNumber
           }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtTextarea, {
             count: false,
@@ -157,14 +164,14 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
               marginTop: 15
             },
             disabled: true,
-            value: (0, _applicationComponent2.generateDynamicLabel)(contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$textAre = contactAgent.textAreaValue) === null || _contactAgent$textAre === void 0 ? void 0 : _contactAgent$textAre.value, [id, name, phoneNumber])
+            value: (0, _applicationComponent.generateDynamicLabel)(contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$te = contactAgentLabel.textAreaValue) === null || _contactAgentLabel$te === void 0 ? void 0 : _contactAgentLabel$te.value, [id, name, phoneNumber])
           }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_applicationButton.default, {
             onClick: this.makeReservation,
             style: {
               marginBottom: 15,
               marginTop: 30
             },
-            children: contactAgent === null || contactAgent === void 0 ? void 0 : (_contactAgent$submitB = contactAgent.submitButton) === null || _contactAgent$submitB === void 0 ? void 0 : _contactAgent$submitB.value
+            children: contactAgentLabel === null || contactAgentLabel === void 0 ? void 0 : (_contactAgentLabel$su = contactAgentLabel.submitButton) === null || _contactAgentLabel$su === void 0 ? void 0 : _contactAgentLabel$su.value
           })]
         })
       });
@@ -172,7 +179,7 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
   }, {
     key: "onMakeReservationSuccess",
     value: function onMakeReservationSuccess() {
-      var messageSent = this.appState.companyCustomise.label.contactAgent.messageSent;
+      var messageSent = this.componentLabel.messageSent;
 
       _taro.default.showToast({
         title: messageSent === null || messageSent === void 0 ? void 0 : messageSent.value,

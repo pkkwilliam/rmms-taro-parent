@@ -8,17 +8,23 @@ import Info from "../text/info";
 
 export default class MainButtonRowView extends ApplicationComponentView {
   render() {
-    return <SimplifyButtonRow {...this.props} />;
+    return (
+      <SimplifyButtonRow
+        mainMenuButtonRowStyle={this.getComponentStyle(
+          "mainMenuButtonRowStyle"
+        )}
+        {...this.props}
+      />
+    );
   }
 }
 
 export function SimplifyButtonRow({
-  customStyle,
-  mainMenuButtonRow,
+  mainMenuButtonRowStyle,
   onClickBuySegment,
   onClickRentSegment,
 }) {
-  const { buy, rent } = mainMenuButtonRow;
+  const { buy, rent } = mainMenuButtonRowStyle;
   return (
     <View className="at-row at-row__justify--around">
       <CardContent

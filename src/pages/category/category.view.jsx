@@ -7,9 +7,32 @@ import H3 from "../../common/text/h3";
 import Info from "../../common/text/info";
 import FlexView from "../../common/flexView";
 import ApplicationTag from "../../common/applicationTag";
-import { generateDynamicLabel } from "../../common/applicationComponent.view";
+import ApplicationComponentView, {
+  generateDynamicLabel,
+} from "../../common/applicationComponent.view";
 
-export default function CategoryView(props) {
+export default class CategoryView extends ApplicationComponentView {
+  getComponentLabelName() {
+    return "categoryLabel";
+  }
+
+  getComponentStyleName() {
+    return "categoryStyle";
+  }
+
+  render() {
+    console.log(this.appLabel);
+    return (
+      <Container
+        appLabel={this.appLabel}
+        categoryLabel={this.componentLabel}
+        {...this.props}
+      />
+    );
+  }
+}
+
+export function Container(props) {
   return (
     <FlexView>
       <SearchBar {...props} />
@@ -127,15 +150,10 @@ export function ItemList(props) {
   return <Fragment>{ItemCards}</Fragment>;
 }
 
-export function ListingTypeTag({
-  commonLabel = { buy: "入", rent: "出" },
-  listingType,
-}) {
+export function ListingTypeTag({ appLabel, listingType }) {
   return (
     <ApplicationTag color={listingType === "RENT" ? "blue" : "green"}>
-      {listingType === "RENT"
-        ? commonLabel?.rent.value
-        : commonLabel?.buy?.value}
+      {listingType === "RENT" ? appLabel?.rent.value : appLabel?.buy?.value}
     </ApplicationTag>
   );
 }
@@ -147,11 +165,10 @@ export function sortSequence(objects) {
 }
 
 export function TopSegment(props) {
-  const { commonLabel, currentSegmentTypeIndex, onChangeSegmentType } = props;
-  console.log(commonLabel, currentSegmentTypeIndex, onChangeSegmentType);
+  const { appLabel, currentSegmentTypeIndex, onChangeSegmentType } = props;
   return (
     <AtSegmentedControl
-      values={[commonLabel?.rent?.value, commonLabel?.buy?.value]}
+      values={[appLabel?.rent?.value, appLabel?.buy?.value]}
       onClick={onChangeSegmentType}
       current={currentSegmentTypeIndex}
     />

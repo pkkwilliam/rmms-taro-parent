@@ -7,7 +7,7 @@ var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = CategoryView;
+exports.Container = Container;
 exports.CategoryNav = CategoryNav;
 exports.SearchBar = SearchBar;
 exports.TabsPaneContainer = TabsPaneContainer;
@@ -15,8 +15,17 @@ exports.ItemList = ItemList;
 exports.ListingTypeTag = ListingTypeTag;
 exports.sortSequence = sortSequence;
 exports.TopSegment = TopSegment;
+exports.default = void 0;
 
 var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
+
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -34,11 +43,46 @@ var _flexView = _interopRequireDefault(require("../../common/flexView"));
 
 var _applicationTag = _interopRequireDefault(require("../../common/applicationTag"));
 
-var _applicationComponent = require("../../common/applicationComponent.view");
+var _applicationComponent = _interopRequireWildcard(require("../../common/applicationComponent.view"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-function CategoryView(props) {
+var CategoryView = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(CategoryView, _ApplicationComponent);
+
+  var _super = (0, _createSuper2.default)(CategoryView);
+
+  function CategoryView() {
+    (0, _classCallCheck2.default)(this, CategoryView);
+    return _super.apply(this, arguments);
+  }
+
+  (0, _createClass2.default)(CategoryView, [{
+    key: "getComponentLabelName",
+    value: function getComponentLabelName() {
+      return "categoryLabel";
+    }
+  }, {
+    key: "getComponentStyleName",
+    value: function getComponentStyleName() {
+      return "categoryStyle";
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.appLabel);
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(Container, (0, _objectSpread2.default)({
+        appLabel: this.appLabel,
+        categoryLabel: this.componentLabel
+      }, this.props));
+    }
+  }]);
+  return CategoryView;
+}(_applicationComponent.default);
+
+exports.default = CategoryView;
+
+function Container(props) {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(SearchBar, (0, _objectSpread2.default)({}, props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
       style: {
@@ -178,17 +222,13 @@ function ItemList(props) {
 }
 
 function ListingTypeTag(_ref2) {
-  var _commonLabel$buy;
+  var _appLabel$buy;
 
-  var _ref2$commonLabel = _ref2.commonLabel,
-      commonLabel = _ref2$commonLabel === void 0 ? {
-    buy: "入",
-    rent: "出"
-  } : _ref2$commonLabel,
+  var appLabel = _ref2.appLabel,
       listingType = _ref2.listingType;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_applicationTag.default, {
     color: listingType === "RENT" ? "blue" : "green",
-    children: listingType === "RENT" ? commonLabel === null || commonLabel === void 0 ? void 0 : commonLabel.rent.value : commonLabel === null || commonLabel === void 0 ? void 0 : (_commonLabel$buy = commonLabel.buy) === null || _commonLabel$buy === void 0 ? void 0 : _commonLabel$buy.value
+    children: listingType === "RENT" ? appLabel === null || appLabel === void 0 ? void 0 : appLabel.rent.value : appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$buy = appLabel.buy) === null || _appLabel$buy === void 0 ? void 0 : _appLabel$buy.value
   });
 }
 
@@ -199,14 +239,13 @@ function sortSequence(objects) {
 }
 
 function TopSegment(props) {
-  var _commonLabel$rent, _commonLabel$buy2;
+  var _appLabel$rent, _appLabel$buy2;
 
-  var commonLabel = props.commonLabel,
+  var appLabel = props.appLabel,
       currentSegmentTypeIndex = props.currentSegmentTypeIndex,
       onChangeSegmentType = props.onChangeSegmentType;
-  console.log(commonLabel, currentSegmentTypeIndex, onChangeSegmentType);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtSegmentedControl, {
-    values: [commonLabel === null || commonLabel === void 0 ? void 0 : (_commonLabel$rent = commonLabel.rent) === null || _commonLabel$rent === void 0 ? void 0 : _commonLabel$rent.value, commonLabel === null || commonLabel === void 0 ? void 0 : (_commonLabel$buy2 = commonLabel.buy) === null || _commonLabel$buy2 === void 0 ? void 0 : _commonLabel$buy2.value],
+    values: [appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$rent = appLabel.rent) === null || _appLabel$rent === void 0 ? void 0 : _appLabel$rent.value, appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$buy2 = appLabel.buy) === null || _appLabel$buy2 === void 0 ? void 0 : _appLabel$buy2.value],
     onClick: onChangeSegmentType,
     current: currentSegmentTypeIndex
   });

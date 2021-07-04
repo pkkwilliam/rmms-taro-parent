@@ -21,8 +21,42 @@ export default class ApplicationComponentView extends ApplicationComponent {
     return this.context;
   }
 
+  get appLabel() {
+    return this.appState.companyCustomise.label.commonLabel;
+  }
+
   get appStyle() {
     return this.appState.companyCustomise.style;
+  }
+
+  get componentLabel() {
+    return this.appState.companyCustomise?.label[this.getComponentLabelName()];
+  }
+
+  get componentStyle() {
+    return this.appState.companyCustomise?.[this.getComponentStyleName()];
+  }
+
+  getComponentLabelName() {
+    throw "please override this";
+  }
+
+  getComponentStyleName() {
+    throw "please override this";
+  }
+
+  get componentTest() {
+    console.log(ApplicationComponentView.compoentLabelName);
+    return this.appState.companyCustomise?.label[
+      ApplicationComponentView.compoentLabelName
+    ];
+  }
+
+  getComponentStyle(component) {
+    if (this.appState.companyCustomise[component]) {
+      return this.appState.companyCustomise[component];
+    }
+    return {};
   }
 }
 

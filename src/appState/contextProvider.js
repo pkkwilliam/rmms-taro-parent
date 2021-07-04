@@ -14,12 +14,12 @@ export default class RmmsAppState extends Component {
     },
     companyCustomise: {
       dirty: true,
-      landingPage: {
-        banners: [],
-        bottomList: [],
-        carousel: [],
+      landingPageStyle: {
+        bannerStyle: [],
+        bottomListStyle: [],
+        carouselStyle: [],
       },
-      mainMenuButtonRow: { buy: {}, rent: {} },
+      mainMenuButtonRowStyle: { buy: {}, rent: {} },
       style: { primary: "", secondary: "" },
     },
     deviceInfo: {

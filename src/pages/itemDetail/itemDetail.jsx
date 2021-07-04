@@ -23,16 +23,13 @@ export default class ItemDetail extends ApplicationComponent {
   }
 
   render() {
-    const { common, itemDetail } = this.appState.companyCustomise.label;
     return (
       <ItemDetailView
         {...this.state}
-        commonLabel={common}
         isFavoriteItem={isFavoriteItem(
           this.state.itemDetail,
           this.appState.favorite.favorites
         )}
-        itemDetailLabel={itemDetail}
         onClickFavorite={this.onClickFavorite}
         toggleShowAgency={this.toggleShowAgency}
       />

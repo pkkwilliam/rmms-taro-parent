@@ -51,24 +51,34 @@ var LandingPageView = /*#__PURE__*/function (_ApplicationComponent) {
   }
 
   (0, _createClass2.default)(LandingPageView, [{
+    key: "getComponentLabelName",
+    value: function getComponentLabelName() {
+      return "landingPageLabel";
+    }
+  }, {
+    key: "getComponentStyleName",
+    value: function getComponentStyleName() {
+      return "landingPageStyle";
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _customStyle$backgrou;
+      var _this$appStyle, _this$appStyle$backgr;
 
       var _this$props = this.props,
           categories = _this$props.categories,
-          customStyle = _this$props.customStyle,
           items = _this$props.items,
-          landingPage = _this$props.landingPage,
           onClickItem = _this$props.onClickItem;
-      var bottomList = landingPage.bottomList;
+      var _this$componentStyle = this.componentStyle,
+          bottomListStyle = _this$componentStyle.bottomListStyle,
+          carouselStyle = _this$componentStyle.carouselStyle;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.Wrapper, {
         style: {
-          backgroundColor: customStyle === null || customStyle === void 0 ? void 0 : (_customStyle$backgrou = customStyle.backgroundColor) === null || _customStyle$backgrou === void 0 ? void 0 : _customStyle$backgrou.value
+          backgroundColor: (_this$appStyle = this.appStyle) === null || _this$appStyle === void 0 ? void 0 : (_this$appStyle$backgr = _this$appStyle.backgroundColor) === null || _this$appStyle$backgr === void 0 ? void 0 : _this$appStyle$backgr.value
         },
         children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
           children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_imageCarousel.default, {
-            imageUrls: landingPage.carousel.map(function (image) {
+            imageUrls: carouselStyle.map(function (image) {
               return image.url;
             })
           }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
@@ -77,7 +87,7 @@ var LandingPageView = /*#__PURE__*/function (_ApplicationComponent) {
               paddingRight: 15
             },
             children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_mainButtonRow.default, {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(BottomListing, {
-              bottomList: bottomList,
+              bottomListStyle: bottomListStyle,
               categories: categories,
               items: items,
               onClickItem: onClickItem
@@ -93,11 +103,11 @@ var LandingPageView = /*#__PURE__*/function (_ApplicationComponent) {
 exports.default = LandingPageView;
 
 function BottomListing(_ref) {
-  var bottomList = _ref.bottomList,
+  var bottomListStyle = _ref.bottomListStyle,
       categories = _ref.categories,
       items = _ref.items,
       onClickItem = _ref.onClickItem;
-  return bottomList.map(function (listItem) {
+  return bottomListStyle.map(function (listItem) {
     if (listItem.type === "category") {
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(CategoryListing, {
         categories: categories,

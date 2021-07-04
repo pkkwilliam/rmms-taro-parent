@@ -18,42 +18,46 @@ import ContactAgent from "../contactAgent/contactAgent";
 import "./itemDetail.scss";
 
 export default class ItemDetailView extends ApplicationComponentView {
+  getComponentLabelName() {
+    return "itemDetailLabel";
+  }
+
+  getComponentStyleName() {
+    return "itemDetailStyle";
+  }
+
   render() {
-    const { itemDetail, itemDetailLabel, showAgency, toggleShowAgency } =
-      this.props;
-    console.log(itemDetailLabel);
-    const { id, listingType, name } = itemDetail;
     return (
       <this.Wrapper>
-        <ImageCarousel imageUrls={itemDetail.imageUrls} />
-        <FlexView style={{ height: "100%", paddingLeft: 15, paddingRight: 15 }}>
-          <Content
-            onClickSubmit={toggleShowAgency}
-            {...itemDetail}
-            {...this.props}
-          />
-          <ContactAgent
-            id={id}
-            listingType={listingType}
-            name={name}
-            showAgency={showAgency}
-            toggleShowAgency={toggleShowAgency}
-          />
-          <MakeReservation
-            itemDetailLabel={itemDetailLabel}
-            onClickSubmit={toggleShowAgency}
-          />
-        </FlexView>
+        <Container
+          appLabel={this.appLabel}
+          itemDetail={this.props.itemDetail}
+          itemDetailLabel={this.componentLabel}
+          {...this.props}
+        />
       </this.Wrapper>
     );
   }
+}
+
+export function Container(props) {
+  return (
+    <Fragment>
+      <ImageCarousel imageUrls={props.itemDetail.imageUrls} />
+      <FlexView style={{ height: "100%", paddingLeft: 15, paddingRight: 15 }}>
+        <Content {...props.itemDetail} {...props} />
+        <ContactAgent {...props.itemDetail} {...props} />
+        <MakeReservation onClickSubmit={props.toggleShowAgency} {...props} />
+      </FlexView>
+    </Fragment>
+  );
 }
 
 export function Content(props) {
   const {
     address,
     area,
-    commonLabel,
+    appLabel,
     categories = [],
     cost,
     createTime,
@@ -87,7 +91,7 @@ export function Content(props) {
       <FlexView style={{ marginTop: 15 }}>
         <ItemHeader
           id={id}
-          commonLabel={commonLabel}
+          appLabel={appLabel}
           listingType={listingType}
           name={name}
         />
@@ -156,7 +160,7 @@ export function ItemAbstractHeader({ header, icon, iconColor, label }) {
 
 export function ItemAbstractHeaders(props) {
   const { area, cost, itemDetailLabel, livingRoom, restRoom, room } = props;
-  const { areaHeader, areaSuffix, layoutHeader, priceHeader } = itemDetailLabel;
+  console.log(itemDetailLabel);
   return (
     <Fragment>
       <AtDivider height={60} />
@@ -167,22 +171,24 @@ export function ItemAbstractHeaders(props) {
           header={parseInt(cost).toLocaleString()}
           icon="money"
           iconColor="#85BB65"
-          label={priceHeader?.value}
+          label={itemDetailLabel?.priceHeader?.value}
         />
         <ItemAbstractHeader
-          header={generateDynamicLabel(itemDetailLabel?.layoutValue?.value, [
-            livingRoom,
-            room,
-          ])}
+          header={generateDynamicLabel(
+            itemDetailLabel?.layoutValue?.value ?? "",
+            [livingRoom, room]
+          )}
           icon="numbered-list"
           iconColor="#d7471d"
-          label={layoutHeader?.value}
+          label={itemDetailLabel?.layoutHeader?.value}
         />
         <ItemAbstractHeader
-          header={`${parseInt(area).toLocaleString()}${areaSuffix?.value}`}
+          header={`${parseInt(area).toLocaleString()}${
+            itemDetailLabel?.areaSuffix?.value
+          }`}
           icon="home"
           iconColor="#007AFF"
-          label={areaHeader?.value}
+          label={itemDetailLabel?.areaHeader?.value}
         />
       </FlexView>
     </Fragment>
@@ -190,7 +196,7 @@ export function ItemAbstractHeaders(props) {
 }
 
 export function ItemHeader(props) {
-  const { commonLabel, id, listingType, name } = props;
+  const { appLabel, id, listingType, name } = props;
   return (
     <FlexView
       style={{
@@ -203,7 +209,7 @@ export function ItemHeader(props) {
       <FlexView
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
-        <ListingTypeTag commonLabel={commonLabel} listingType={listingType} />
+        <ListingTypeTag appLabel={appLabel} listingType={listingType} />
         <ApplicationTag color="geekblue">ID: {id}</ApplicationTag>
       </FlexView>
     </FlexView>

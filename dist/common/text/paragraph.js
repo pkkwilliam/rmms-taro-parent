@@ -38,12 +38,14 @@ var P = /*#__PURE__*/function (_ApplicationComponent) {
   (0, _createClass2.default)(P, [{
     key: "render",
     value: function render() {
+      var _this$appStyle, _this$appStyle$second;
+
       var _this$props = this.props,
           children = _this$props.children,
           _this$props$companyCo = _this$props.companyColor,
           companyColor = _this$props$companyCo === void 0 ? false : _this$props$companyCo,
           style = _this$props.style;
-      var color = companyColor ? this.appStyle.secondary : this.getColor();
+      var color = companyColor ? (_this$appStyle = this.appStyle) === null || _this$appStyle === void 0 ? void 0 : (_this$appStyle$second = _this$appStyle.secondary) === null || _this$appStyle$second === void 0 ? void 0 : _this$appStyle$second.value : this.getColor();
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.View, {
         className: this.getClassName(),
         style: (0, _objectSpread2.default)({

@@ -5,7 +5,9 @@ import ApplicationComponentView from "../applicationComponent.view";
 export default class P extends ApplicationComponentView {
   render() {
     const { children, companyColor = false, style } = this.props;
-    const color = companyColor ? this.appStyle.secondary : this.getColor();
+    const color = companyColor
+      ? this.appStyle?.secondary?.value
+      : this.getColor();
     return (
       <View
         className={this.getClassName()}

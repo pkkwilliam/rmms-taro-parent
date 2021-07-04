@@ -9,13 +9,10 @@ import MainButtonRowView from "./mainButtonRow.view";
 
 export default class MainButtonRow extends ApplicationComponent {
   render() {
-    const { mainMenuButtonRow, style } = this.appState.companyCustomise;
     return (
       <MainButtonRowView
-        customStyle={style}
         onClickBuySegment={this.onClickBuySegment}
         onClickRentSegment={this.onClickRentSegment}
-        mainMenuButtonRow={mainMenuButtonRow}
         {...this.state}
       />
     );

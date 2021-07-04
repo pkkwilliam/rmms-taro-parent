@@ -80,15 +80,10 @@ var LandingPage = /*#__PURE__*/function (_ApplicationComponent) {
     value: function render() {
       var _this$appState = this.appState,
           category = _this$appState.category,
-          companyCustomise = _this$appState.companyCustomise,
           item = _this$appState.item;
-      var landingPage = companyCustomise.landingPage,
-          style = companyCustomise.style;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_landingPage.default, (0, _objectSpread2.default)({
         categories: category.categories,
-        customStyle: style,
         items: item.items,
-        landingPage: landingPage,
         onClickItem: this.onClickItem,
         onClickMenuButton: this.onClickMenuButton
       }, this.state));

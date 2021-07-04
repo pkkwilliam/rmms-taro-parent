@@ -3,12 +3,21 @@ import Taro from "@tarojs/taro";
 import { AtTextarea, AtInput, AtFloatLayout } from "taro-ui";
 import { View } from "@tarojs/components";
 import ApplicationButton from "../../common/applicationButton";
-import ApplicationComponent from "../../common/applicationComponent";
 import { ItemHeader } from "../itemDetail/itemDetail.view";
 import { MAKE_RESERVATION } from "../../service/service";
-import { generateDynamicLabel } from "../../common/applicationComponent.view";
+import ApplicationComponentView, {
+  generateDynamicLabel,
+} from "../../common/applicationComponent.view";
 
-export default class ContactAgent extends ApplicationComponent {
+export default class ContactAgent extends ApplicationComponentView {
+  getComponentLabelName() {
+    return "contactAgentLabel";
+  }
+
+  getComponentStyleName() {
+    return "contactAgentStyle";
+  }
+
   state = {
     ...this.state,
     clientName: "",
@@ -16,53 +25,47 @@ export default class ContactAgent extends ApplicationComponent {
   };
 
   render() {
-    const { common, contactAgent } = this.appState.companyCustomise.label;
+    const contactAgentLabel = this.componentLabel;
     const { id, listingType, name, showAgency, toggleShowAgency } = this.props;
     const { clientName, phoneNumber } = this.state;
     return (
       <AtFloatLayout
         isOpened={showAgency}
-        title={contactAgent?.header?.value}
+        title={contactAgentLabel?.header?.value}
         onClose={toggleShowAgency}
       >
         <View style={{ marginLeft: 10, marginRight: 10 }}>
-          <ItemHeader
-            id={id}
-            commonLabel={common}
-            listingType={listingType}
-            name={name}
-          />
+          <ItemHeader id={id} listingType={listingType} name={name} />
           <AtInput
             name="input1"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setClientName(value)}
-            placeholder={contactAgent?.nameInputPlaceHolder?.value}
-            title={contactAgent?.nameInputTitle?.value}
+            placeholder={contactAgentLabel?.nameInputPlaceHolder?.value}
+            title={contactAgentLabel?.nameInputTitle?.value}
             value={clientName}
           />
           <AtInput
             name="input2"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setPhoneNumber(value)}
-            placeholder={contactAgent?.phoneInputPlaceHolder?.value}
-            title={contactAgent?.phoneInputTitle?.value}
+            placeholder={contactAgentLabel?.phoneInputPlaceHolder?.value}
+            title={contactAgentLabel?.phoneInputTitle?.value}
             value={phoneNumber}
           />
           <AtTextarea
             count={false}
             customStyle={{ color: "#5F5F5F", marginTop: 15 }}
             disabled
-            value={generateDynamicLabel(contactAgent?.textAreaValue?.value, [
-              id,
-              name,
-              phoneNumber,
-            ])}
+            value={generateDynamicLabel(
+              contactAgentLabel?.textAreaValue?.value,
+              [id, name, phoneNumber]
+            )}
           />
           <ApplicationButton
             onClick={this.makeReservation}
             style={{ marginBottom: 15, marginTop: 30 }}
           >
-            {contactAgent?.submitButton?.value}
+            {contactAgentLabel?.submitButton?.value}
           </ApplicationButton>
         </View>
       </AtFloatLayout>
@@ -85,7 +88,7 @@ export default class ContactAgent extends ApplicationComponent {
   };
 
   onMakeReservationSuccess() {
-    const { messageSent } = this.appState.companyCustomise.label.contactAgent;
+    const { messageSent } = this.componentLabel;
     Taro.showToast({
       title: messageSent?.value,
       icon: "success",

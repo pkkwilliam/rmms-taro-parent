@@ -69,14 +69,9 @@ var MainButtonRow = /*#__PURE__*/function (_ApplicationComponent) {
   (0, _createClass2.default)(MainButtonRow, [{
     key: "render",
     value: function render() {
-      var _this$appState$compan = this.appState.companyCustomise,
-          mainMenuButtonRow = _this$appState$compan.mainMenuButtonRow,
-          style = _this$appState$compan.style;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_mainButtonRow.default, (0, _objectSpread2.default)({
-        customStyle: style,
         onClickBuySegment: this.onClickBuySegment,
-        onClickRentSegment: this.onClickRentSegment,
-        mainMenuButtonRow: mainMenuButtonRow
+        onClickRentSegment: this.onClickRentSegment
       }, this.state));
     }
   }]);

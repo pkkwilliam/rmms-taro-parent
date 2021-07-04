@@ -48,7 +48,9 @@ var MainButtonRowView = /*#__PURE__*/function (_ApplicationComponent) {
   (0, _createClass2.default)(MainButtonRowView, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0, _jsxRuntime.jsx)(SimplifyButtonRow, (0, _objectSpread2.default)({}, this.props));
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(SimplifyButtonRow, (0, _objectSpread2.default)({
+        mainMenuButtonRowStyle: this.getComponentStyle("mainMenuButtonRowStyle")
+      }, this.props));
     }
   }]);
   return MainButtonRowView;
@@ -57,12 +59,11 @@ var MainButtonRowView = /*#__PURE__*/function (_ApplicationComponent) {
 exports.default = MainButtonRowView;
 
 function SimplifyButtonRow(_ref) {
-  var customStyle = _ref.customStyle,
-      mainMenuButtonRow = _ref.mainMenuButtonRow,
+  var mainMenuButtonRowStyle = _ref.mainMenuButtonRowStyle,
       onClickBuySegment = _ref.onClickBuySegment,
       onClickRentSegment = _ref.onClickRentSegment;
-  var buy = mainMenuButtonRow.buy,
-      rent = mainMenuButtonRow.rent;
+  var buy = mainMenuButtonRowStyle.buy,
+      rent = mainMenuButtonRowStyle.rent;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.View, {
     className: "at-row at-row__justify--around",
     children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_cardContent.default, {
