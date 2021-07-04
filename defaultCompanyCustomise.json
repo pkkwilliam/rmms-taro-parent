@@ -152,12 +152,12 @@
   "mainMenuButtonRow": {
     "buy": {
       "label": "買賣",
-      "type": "BUTTON",
+      "type": "IMAGE_BUTTON",
       "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
     },
     "rent": {
       "label": "出租",
-      "type": "BUTTON",
+      "type": "IMAGE_BUTTON",
       "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
     }
   },

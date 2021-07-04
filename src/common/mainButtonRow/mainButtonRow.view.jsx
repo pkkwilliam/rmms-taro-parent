@@ -1,9 +1,7 @@
 import React from "react";
 import { Image, View } from "@tarojs/components";
 import { AtIcon } from "taro-ui";
-import ApplicationComponentView, {
-  getObjectValue,
-} from "../applicationComponent.view";
+import ApplicationComponentView from "../applicationComponent.view";
 import CardContent from "../cardContent";
 import FlexView from "../flexView";
 import Info from "../text/info";
@@ -36,13 +34,13 @@ export function SimplifyButtonRow({
         }}
       >
         <SimplifyButtonRowButton
-          imageUrl={getObjectValue(buy, "", "imageUrl")}
-          label={getObjectValue(buy, "", "label")}
+          imageUrl={buy?.imageUrl}
+          label={buy?.label}
           onClick={onClickBuySegment}
         />
         <SimplifyButtonRowButton
-          imageUrl={getObjectValue(rent, "", "imageUrl")}
-          label={getObjectValue(rent, "", "label")}
+          imageUrl={rent?.imageUrl}
+          label={rent?.label}
           onClick={onClickRentSegment}
         />
       </CardContent>

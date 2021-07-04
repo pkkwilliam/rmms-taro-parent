@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -26,7 +24,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _components = require("@tarojs/components");
 
-var _applicationComponent = _interopRequireWildcard(require("../../common/applicationComponent.view"));
+var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent.view"));
 
 var _imageCarousel = _interopRequireDefault(require("../../common/imageCarousel"));
 
@@ -55,6 +53,8 @@ var LandingPageView = /*#__PURE__*/function (_ApplicationComponent) {
   (0, _createClass2.default)(LandingPageView, [{
     key: "render",
     value: function render() {
+      var _customStyle$backgrou;
+
       var _this$props = this.props,
           categories = _this$props.categories,
           customStyle = _this$props.customStyle,
@@ -64,7 +64,7 @@ var LandingPageView = /*#__PURE__*/function (_ApplicationComponent) {
       var bottomList = landingPage.bottomList;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.Wrapper, {
         style: {
-          backgroundColor: (0, _applicationComponent.getObjectValue)(customStyle, "", "backgroundColor")
+          backgroundColor: customStyle === null || customStyle === void 0 ? void 0 : (_customStyle$backgrou = customStyle.backgroundColor) === null || _customStyle$backgrou === void 0 ? void 0 : _customStyle$backgrou.value
         },
         children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
           children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_imageCarousel.default, {

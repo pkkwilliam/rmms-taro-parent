@@ -1,8 +1,6 @@
 import React from "react";
 import { Image, ScrollView, View } from "@tarojs/components";
-import ApplicationComponentView, {
-  getObjectValue,
-} from "../../common/applicationComponent.view";
+import ApplicationComponentView from "../../common/applicationComponent.view";
 import ImageCarousel from "../../common/imageCarousel";
 import CircularButton from "../../common/circularButton";
 import Info from "../../common/text/info";
@@ -18,7 +16,7 @@ export default class LandingPageView extends ApplicationComponentView {
     return (
       <this.Wrapper
         style={{
-          backgroundColor: getObjectValue(customStyle, "", "backgroundColor"),
+          backgroundColor: customStyle?.backgroundColor?.value,
         }}
       >
         <FlexView>

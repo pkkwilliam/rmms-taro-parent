@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -27,7 +25,7 @@ var _components = require("@tarojs/components");
 
 var _taroUi = require("taro-ui");
 
-var _applicationComponent = _interopRequireWildcard(require("../applicationComponent.view"));
+var _applicationComponent = _interopRequireDefault(require("../applicationComponent.view"));
 
 var _cardContent = _interopRequireDefault(require("../cardContent"));
 
@@ -79,12 +77,12 @@ function SimplifyButtonRow(_ref) {
         width: "inherit"
       },
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(SimplifyButtonRowButton, {
-        imageUrl: (0, _applicationComponent.getObjectValue)(buy, "", "imageUrl"),
-        label: (0, _applicationComponent.getObjectValue)(buy, "", "label"),
+        imageUrl: buy === null || buy === void 0 ? void 0 : buy.imageUrl,
+        label: buy === null || buy === void 0 ? void 0 : buy.label,
         onClick: onClickBuySegment
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(SimplifyButtonRowButton, {
-        imageUrl: (0, _applicationComponent.getObjectValue)(rent, "", "imageUrl"),
-        label: (0, _applicationComponent.getObjectValue)(rent, "", "label"),
+        imageUrl: rent === null || rent === void 0 ? void 0 : rent.imageUrl,
+        label: rent === null || rent === void 0 ? void 0 : rent.label,
         onClick: onClickRentSegment
       })]
     })
