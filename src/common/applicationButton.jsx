@@ -12,8 +12,8 @@ export default class ApplicationButton extends ApplicationComponentView {
         circle
         customStyle={{
           alignItems: "center",
-          backgroundColor: primary,
-          borderColor: secondary,
+          backgroundColor: primary?.value,
+          borderColor: secondary?.value,
           justifyContent: "center",
           width: "100%",
           ...style,

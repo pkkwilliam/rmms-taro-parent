@@ -50,8 +50,8 @@ var ApplicationButton = /*#__PURE__*/function (_ApplicationComponent) {
         circle: true,
         customStyle: (0, _objectSpread2.default)({
           alignItems: "center",
-          backgroundColor: primary,
-          borderColor: secondary,
+          backgroundColor: primary === null || primary === void 0 ? void 0 : primary.value,
+          borderColor: secondary === null || secondary === void 0 ? void 0 : secondary.value,
           justifyContent: "center",
           width: "100%"
         }, style)

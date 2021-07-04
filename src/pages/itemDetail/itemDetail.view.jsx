@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { AtDivider, AtIcon } from "taro-ui";
-import CardContent from "../../common/cardContent";
 import { ListingTypeTag } from "../category/category.view";
 import ImageCarousel from "../../common/imageCarousel";
 import H1 from "../../common/text/h1";
@@ -12,7 +11,7 @@ import H2 from "../../common/text/h2";
 import ApplicationButton from "../../common/applicationButton";
 import Info from "../../common/text/info";
 import ApplicationComponentView, {
-  generateVariableLabel,
+  generateDynamicLabel,
 } from "../../common/applicationComponent.view";
 import ContactAgent from "../contactAgent/contactAgent";
 
@@ -20,7 +19,9 @@ import "./itemDetail.scss";
 
 export default class ItemDetailView extends ApplicationComponentView {
   render() {
-    const { itemDetail, label, showAgency, toggleShowAgency } = this.props;
+    const { itemDetail, itemDetailLabel, showAgency, toggleShowAgency } =
+      this.props;
+    console.log(itemDetailLabel);
     const { id, listingType, name } = itemDetail;
     return (
       <this.Wrapper>
@@ -38,7 +39,10 @@ export default class ItemDetailView extends ApplicationComponentView {
             showAgency={showAgency}
             toggleShowAgency={toggleShowAgency}
           />
-          <MakeReservation label={label} onClickSubmit={toggleShowAgency} />
+          <MakeReservation
+            itemDetailLabel={itemDetailLabel}
+            onClickSubmit={toggleShowAgency}
+          />
         </FlexView>
       </this.Wrapper>
     );
@@ -56,7 +60,7 @@ export function Content(props) {
     description,
     id,
     isFavoriteItem,
-    label,
+    itemDetailLabel,
     listingType,
     name,
     onClickFavorite,
@@ -109,20 +113,25 @@ export function Content(props) {
       <ItemAbstractHeaders {...props} />
 
       <FlexView style={{ marginTop: 15 }}>
-        <Description description={description} label={label} />
+        <Description
+          description={description}
+          itemDetailLabel={itemDetailLabel}
+        />
       </FlexView>
     </Fragment>
   );
 }
 
-export function Description({ description, label }) {
+export function Description({ description, itemDetailLabel }) {
   return (
     <Fragment>
       <FlexView
         style={{ alignItems: "center", flexDirection: "row", marginTop: 5 }}
       >
         <AtIcon value="tags" />
-        <H2 style={{ marginLeft: 5 }}>{label.detailHeader}</H2>
+        <H2 style={{ marginLeft: 5 }}>
+          {itemDetailLabel?.detailHeader?.value}
+        </H2>
       </FlexView>
       <FlexView style={{ marginTop: 5 }}>
         <H3 style={{ lineHeight: "28px" }}>{description}</H3>
@@ -146,13 +155,8 @@ export function ItemAbstractHeader({ header, icon, iconColor, label }) {
 }
 
 export function ItemAbstractHeaders(props) {
-  const { area, cost, label, livingRoom, restRoom, room } = props;
-  const {
-    areaHeader = "",
-    areaSuffix,
-    layoutHeader = "",
-    priceHeader = "",
-  } = label;
+  const { area, cost, itemDetailLabel, livingRoom, restRoom, room } = props;
+  const { areaHeader, areaSuffix, layoutHeader, priceHeader } = itemDetailLabel;
   return (
     <Fragment>
       <AtDivider height={60} />
@@ -163,19 +167,22 @@ export function ItemAbstractHeaders(props) {
           header={parseInt(cost).toLocaleString()}
           icon="money"
           iconColor="#85BB65"
-          label={priceHeader}
+          label={priceHeader?.value}
         />
         <ItemAbstractHeader
-          header={generateVariableLabel(label.layoutValue, [livingRoom, room])}
+          header={generateDynamicLabel(itemDetailLabel?.layoutValue?.value, [
+            livingRoom,
+            room,
+          ])}
           icon="numbered-list"
           iconColor="#d7471d"
-          label={layoutHeader}
+          label={layoutHeader?.value}
         />
         <ItemAbstractHeader
-          header={`${parseInt(area).toLocaleString()}${areaSuffix}`}
+          header={`${parseInt(area).toLocaleString()}${areaSuffix?.value}`}
           icon="home"
           iconColor="#007AFF"
-          label={areaHeader}
+          label={areaHeader?.value}
         />
       </FlexView>
     </Fragment>
@@ -203,7 +210,7 @@ export function ItemHeader(props) {
   );
 }
 
-export function MakeReservation({ label, onClickSubmit }) {
+export function MakeReservation({ itemDetailLabel, onClickSubmit }) {
   return (
     <FlexView style={{ flex: 1, justifyContent: "flex-end" }}>
       <ApplicationButton
@@ -211,7 +218,7 @@ export function MakeReservation({ label, onClickSubmit }) {
         onClick={onClickSubmit}
         style={{ marginBottom: 15 }}
       >
-        {label.submitButton}
+        {itemDetailLabel?.submitButton?.value}
       </ApplicationButton>
     </FlexView>
   );

@@ -32,7 +32,7 @@ export default class ItemDetail extends ApplicationComponent {
           this.state.itemDetail,
           this.appState.favorite.favorites
         )}
-        label={itemDetail}
+        itemDetailLabel={itemDetail}
         onClickFavorite={this.onClickFavorite}
         toggleShowAgency={this.toggleShowAgency}
       />

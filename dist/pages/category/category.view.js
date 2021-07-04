@@ -115,9 +115,11 @@ function TabsPaneContainer(props) {
 
 function ItemList(props) {
   var items = props.items,
-      label = props.label,
+      categoryLabel = props.categoryLabel,
       onClickItem = props.onClickItem;
   var ItemCards = sortSequence(items).map(function (item, index) {
+    var _categoryLabel$areaSu, _categoryLabel$layout, _categoryLabel$layout2;
+
     var address = item.address,
         area = item.area,
         cost = item.cost,
@@ -163,7 +165,7 @@ function ItemList(props) {
             children: name
           })]
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_info.default, {
-          children: "".concat(area).concat(label.areaSuffix, " ").concat((0, _applicationComponent.generateVariableLabel)(label.layoutValue, [room, livingRoom]))
+          children: "".concat(area).concat(categoryLabel === null || categoryLabel === void 0 ? void 0 : (_categoryLabel$areaSu = categoryLabel.areaSuffix) === null || _categoryLabel$areaSu === void 0 ? void 0 : _categoryLabel$areaSu.value, " ").concat((0, _applicationComponent.generateDynamicLabel)((_categoryLabel$layout = categoryLabel === null || categoryLabel === void 0 ? void 0 : (_categoryLabel$layout2 = categoryLabel.layoutValue) === null || _categoryLabel$layout2 === void 0 ? void 0 : _categoryLabel$layout2.value) !== null && _categoryLabel$layout !== void 0 ? _categoryLabel$layout : "", [room, livingRoom]))
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_info.default, {
           children: address
         })]
@@ -176,6 +178,8 @@ function ItemList(props) {
 }
 
 function ListingTypeTag(_ref2) {
+  var _commonLabel$buy;
+
   var _ref2$commonLabel = _ref2.commonLabel,
       commonLabel = _ref2$commonLabel === void 0 ? {
     buy: "入",
@@ -184,7 +188,7 @@ function ListingTypeTag(_ref2) {
       listingType = _ref2.listingType;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_applicationTag.default, {
     color: listingType === "RENT" ? "blue" : "green",
-    children: listingType === "RENT" ? commonLabel.rent : commonLabel.buy
+    children: listingType === "RENT" ? commonLabel === null || commonLabel === void 0 ? void 0 : commonLabel.rent.value : commonLabel === null || commonLabel === void 0 ? void 0 : (_commonLabel$buy = commonLabel.buy) === null || _commonLabel$buy === void 0 ? void 0 : _commonLabel$buy.value
   });
 }
 
@@ -195,11 +199,14 @@ function sortSequence(objects) {
 }
 
 function TopSegment(props) {
+  var _commonLabel$rent, _commonLabel$buy2;
+
   var commonLabel = props.commonLabel,
       currentSegmentTypeIndex = props.currentSegmentTypeIndex,
       onChangeSegmentType = props.onChangeSegmentType;
+  console.log(commonLabel, currentSegmentTypeIndex, onChangeSegmentType);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtSegmentedControl, {
-    values: [commonLabel.rent, commonLabel.buy],
+    values: [commonLabel === null || commonLabel === void 0 ? void 0 : (_commonLabel$rent = commonLabel.rent) === null || _commonLabel$rent === void 0 ? void 0 : _commonLabel$rent.value, commonLabel === null || commonLabel === void 0 ? void 0 : (_commonLabel$buy2 = commonLabel.buy) === null || _commonLabel$buy2 === void 0 ? void 0 : _commonLabel$buy2.value],
     onClick: onChangeSegmentType,
     current: currentSegmentTypeIndex
   });

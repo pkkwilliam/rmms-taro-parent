@@ -22,7 +22,7 @@ export default class Category extends ApplicationComponent {
         categoriesItems={this.transfromItemsToNav(sortedItems)}
         currentSegmentTypeIndex={currentSegmentTypeIndex}
         commonLabel={companyCustomise.label.common}
-        label={companyCustomise.label.category}
+        categoryLabel={companyCustomise.label.category}
         onChangeSegmentType={this.onChangeSegmentType}
         onChangeSearchBarText={this.onChangeSearchBarText}
         onClickCategory={this.onClickCategory}

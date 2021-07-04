@@ -7,7 +7,7 @@ import H3 from "../../common/text/h3";
 import Info from "../../common/text/info";
 import FlexView from "../../common/flexView";
 import ApplicationTag from "../../common/applicationTag";
-import { generateVariableLabel } from "../../common/applicationComponent.view";
+import { generateDynamicLabel } from "../../common/applicationComponent.view";
 
 export default function CategoryView(props) {
   return (
@@ -79,7 +79,7 @@ export function TabsPaneContainer(props) {
 }
 
 export function ItemList(props) {
-  const { items, label, onClickItem } = props;
+  const { items, categoryLabel, onClickItem } = props;
   const ItemCards = sortSequence(items).map((item, index) => {
     const {
       address,
@@ -113,10 +113,12 @@ export function ItemList(props) {
             <ListingTypeTag listingType={listingType} {...props} />
             <H3 style={{ marginLeft: 8 }}>{name}</H3>
           </FlexView>
-          <Info>{`${area}${label.areaSuffix} ${generateVariableLabel(
-            label.layoutValue,
-            [room, livingRoom]
-          )}`}</Info>
+          <Info>{`${area}${
+            categoryLabel?.areaSuffix?.value
+          } ${generateDynamicLabel(categoryLabel?.layoutValue?.value ?? "", [
+            room,
+            livingRoom,
+          ])}`}</Info>
           <Info>{address}</Info>
         </FlexView>
       </FlexView>
@@ -131,7 +133,9 @@ export function ListingTypeTag({
 }) {
   return (
     <ApplicationTag color={listingType === "RENT" ? "blue" : "green"}>
-      {listingType === "RENT" ? commonLabel.rent : commonLabel.buy}
+      {listingType === "RENT"
+        ? commonLabel?.rent.value
+        : commonLabel?.buy?.value}
     </ApplicationTag>
   );
 }
@@ -144,9 +148,10 @@ export function sortSequence(objects) {
 
 export function TopSegment(props) {
   const { commonLabel, currentSegmentTypeIndex, onChangeSegmentType } = props;
+  console.log(commonLabel, currentSegmentTypeIndex, onChangeSegmentType);
   return (
     <AtSegmentedControl
-      values={[commonLabel.rent, commonLabel.buy]}
+      values={[commonLabel?.rent?.value, commonLabel?.buy?.value]}
       onClick={onChangeSegmentType}
       current={currentSegmentTypeIndex}
     />

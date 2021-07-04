@@ -29,8 +29,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _taroUi = require("taro-ui");
 
-var _cardContent = _interopRequireDefault(require("../../common/cardContent"));
-
 var _category = require("../category/category.view");
 
 var _imageCarousel = _interopRequireDefault(require("../../common/imageCarousel"));
@@ -74,9 +72,10 @@ var ItemDetailView = /*#__PURE__*/function (_ApplicationComponent) {
     value: function render() {
       var _this$props = this.props,
           itemDetail = _this$props.itemDetail,
-          label = _this$props.label,
+          itemDetailLabel = _this$props.itemDetailLabel,
           showAgency = _this$props.showAgency,
           toggleShowAgency = _this$props.toggleShowAgency;
+      console.log(itemDetailLabel);
       var id = itemDetail.id,
           listingType = itemDetail.listingType,
           name = itemDetail.name;
@@ -98,7 +97,7 @@ var ItemDetailView = /*#__PURE__*/function (_ApplicationComponent) {
             showAgency: showAgency,
             toggleShowAgency: toggleShowAgency
           }), /*#__PURE__*/(0, _jsxRuntime.jsx)(MakeReservation, {
-            label: label,
+            itemDetailLabel: itemDetailLabel,
             onClickSubmit: toggleShowAgency
           })]
         })]
@@ -121,7 +120,7 @@ function Content(props) {
       description = props.description,
       id = props.id,
       isFavoriteItem = props.isFavoriteItem,
-      label = props.label,
+      itemDetailLabel = props.itemDetailLabel,
       listingType = props.listingType,
       name = props.name,
       onClickFavorite = props.onClickFavorite,
@@ -176,15 +175,17 @@ function Content(props) {
       },
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Description, {
         description: description,
-        label: label
+        itemDetailLabel: itemDetailLabel
       })
     })]
   });
 }
 
 function Description(_ref) {
+  var _itemDetailLabel$deta;
+
   var description = _ref.description,
-      label = _ref.label;
+      itemDetailLabel = _ref.itemDetailLabel;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
       style: {
@@ -198,7 +199,7 @@ function Description(_ref) {
         style: {
           marginLeft: 5
         },
-        children: label.detailHeader
+        children: itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$deta = itemDetailLabel.detailHeader) === null || _itemDetailLabel$deta === void 0 ? void 0 : _itemDetailLabel$deta.value
       })]
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
       style: {
@@ -249,19 +250,18 @@ function ItemAbstractHeader(_ref2) {
 }
 
 function ItemAbstractHeaders(props) {
+  var _itemDetailLabel$layo;
+
   var area = props.area,
       cost = props.cost,
-      label = props.label,
+      itemDetailLabel = props.itemDetailLabel,
       livingRoom = props.livingRoom,
       restRoom = props.restRoom,
       room = props.room;
-  var _label$areaHeader = label.areaHeader,
-      areaHeader = _label$areaHeader === void 0 ? "" : _label$areaHeader,
-      areaSuffix = label.areaSuffix,
-      _label$layoutHeader = label.layoutHeader,
-      layoutHeader = _label$layoutHeader === void 0 ? "" : _label$layoutHeader,
-      _label$priceHeader = label.priceHeader,
-      priceHeader = _label$priceHeader === void 0 ? "" : _label$priceHeader;
+  var areaHeader = itemDetailLabel.areaHeader,
+      areaSuffix = itemDetailLabel.areaSuffix,
+      layoutHeader = itemDetailLabel.layoutHeader,
+      priceHeader = itemDetailLabel.priceHeader;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtDivider, {
       height: 60
@@ -274,17 +274,17 @@ function ItemAbstractHeaders(props) {
         header: parseInt(cost).toLocaleString(),
         icon: "money",
         iconColor: "#85BB65",
-        label: priceHeader
+        label: priceHeader === null || priceHeader === void 0 ? void 0 : priceHeader.value
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemAbstractHeader, {
-        header: (0, _applicationComponent.generateVariableLabel)(label.layoutValue, [livingRoom, room]),
+        header: (0, _applicationComponent.generateDynamicLabel)(itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$layo = itemDetailLabel.layoutValue) === null || _itemDetailLabel$layo === void 0 ? void 0 : _itemDetailLabel$layo.value, [livingRoom, room]),
         icon: "numbered-list",
         iconColor: "#d7471d",
-        label: layoutHeader
+        label: layoutHeader === null || layoutHeader === void 0 ? void 0 : layoutHeader.value
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemAbstractHeader, {
-        header: "".concat(parseInt(area).toLocaleString()).concat(areaSuffix),
+        header: "".concat(parseInt(area).toLocaleString()).concat(areaSuffix === null || areaSuffix === void 0 ? void 0 : areaSuffix.value),
         icon: "home",
         iconColor: "#007AFF",
-        label: areaHeader
+        label: areaHeader === null || areaHeader === void 0 ? void 0 : areaHeader.value
       })]
     })]
   });
@@ -323,7 +323,9 @@ function ItemHeader(props) {
 }
 
 function MakeReservation(_ref3) {
-  var label = _ref3.label,
+  var _itemDetailLabel$subm;
+
+  var itemDetailLabel = _ref3.itemDetailLabel,
       onClickSubmit = _ref3.onClickSubmit;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
     style: {
@@ -336,7 +338,7 @@ function MakeReservation(_ref3) {
       style: {
         marginBottom: 15
       },
-      children: label.submitButton
+      children: itemDetailLabel === null || itemDetailLabel === void 0 ? void 0 : (_itemDetailLabel$subm = itemDetailLabel.submitButton) === null || _itemDetailLabel$subm === void 0 ? void 0 : _itemDetailLabel$subm.value
     })
   });
 }

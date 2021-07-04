@@ -6,7 +6,7 @@ import ApplicationButton from "../../common/applicationButton";
 import ApplicationComponent from "../../common/applicationComponent";
 import { ItemHeader } from "../itemDetail/itemDetail.view";
 import { MAKE_RESERVATION } from "../../service/service";
-import { generateVariableLabel } from "../../common/applicationComponent.view";
+import { generateDynamicLabel } from "../../common/applicationComponent.view";
 
 export default class ContactAgent extends ApplicationComponent {
   state = {
@@ -22,7 +22,7 @@ export default class ContactAgent extends ApplicationComponent {
     return (
       <AtFloatLayout
         isOpened={showAgency}
-        title={contactAgent.header}
+        title={contactAgent?.header?.value}
         onClose={toggleShowAgency}
       >
         <View style={{ marginLeft: 10, marginRight: 10 }}>
@@ -36,23 +36,23 @@ export default class ContactAgent extends ApplicationComponent {
             name="input1"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setClientName(value)}
-            placeholder={contactAgent.nameInputPlaceHolder}
-            title={contactAgent.nameInputTitle}
+            placeholder={contactAgent?.nameInputPlaceHolder?.value}
+            title={contactAgent?.nameInputTitle?.value}
             value={clientName}
           />
           <AtInput
             name="input2"
             customStyle={{ marginLeft: 0, marginTop: 15 }}
             onChange={(value) => this.setPhoneNumber(value)}
-            placeholder={contactAgent.phoneInputPlaceHolder}
-            title={contactAgent.phoneInputTitle}
+            placeholder={contactAgent?.phoneInputPlaceHolder?.value}
+            title={contactAgent?.phoneInputTitle?.value}
             value={phoneNumber}
           />
           <AtTextarea
             count={false}
             customStyle={{ color: "#5F5F5F", marginTop: 15 }}
             disabled
-            value={generateVariableLabel(contactAgent.textAreaValue, [
+            value={generateDynamicLabel(contactAgent?.textAreaValue?.value, [
               id,
               name,
               phoneNumber,
@@ -62,7 +62,7 @@ export default class ContactAgent extends ApplicationComponent {
             onClick={this.makeReservation}
             style={{ marginBottom: 15, marginTop: 30 }}
           >
-            {contactAgent.submitButton}
+            {contactAgent?.submitButton?.value}
           </ApplicationButton>
         </View>
       </AtFloatLayout>
@@ -85,9 +85,9 @@ export default class ContactAgent extends ApplicationComponent {
   };
 
   onMakeReservationSuccess() {
-    const label = this.appState.companyCustomise.label.contactAgent;
+    const { messageSent } = this.appState.companyCustomise.label.contactAgent;
     Taro.showToast({
-      title: label.messageSent,
+      title: messageSent?.value,
       icon: "success",
       duration: 2000,
     });

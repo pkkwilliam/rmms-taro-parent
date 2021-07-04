@@ -1,34 +1,111 @@
 {
   "label": {
+    "name": "文本標籤",
     "category": {
-      "areaSuffix": "平方呎",
-      "layoutValue": "$1房$2廳"
-    },
-    "cardContent": {
-      "backgroundColor": { "key": "背景顏色", "value": "#FFFFFF" }
+      "name": "類別",
+      "areaSuffix": {
+        "name": "呎吋後綴",
+        "type": "STATIC_LABEL",
+        "value": "平方呎"
+      },
+      "layoutValue": {
+        "name": "佈局值",
+        "type": "DYNAMIC_LABEL",
+        "value": "$1房$2廳"
+      }
     },
     "common": {
-      "buy": "買賣",
-      "rent": "出租"
+      "name": "公共",
+      "buy": {
+        "name": "買賣",
+        "type": "STATIC_LABEL",
+        "value": "買賣"
+      },
+      "rent": {
+        "name": "出租",
+        "type": "STATIC_LABEL",
+        "value": "出租"
+      }
     },
     "contactAgent": {
-      "header": "預約睇樓",
-      "messageSent": "通知已發送",
-      "nameInputPlaceHolder": "請輸入你的姓名",
-      "nameInputTitle": "姓名",
-      "phoneInputPlaceHolder": "請輸入你的電話號碼",
-      "phoneInputTitle": "電話號碼",
-      "submitButton": "通知中介",
-      "textAreaValue": "你好，我想預約關於$1:$2，我的電話:$3"
+      "name": "聯繫代理",
+      "header": {
+        "name": "標題",
+        "type": "STATIC_LABEL",
+        "value": "預約睇樓"
+      },
+      "messageSent": {
+        "name": "標題",
+        "type": "STATIC_LABEL",
+        "value": "通知已發送"
+      },
+      "nameInputPlaceHolder": {
+        "name": "名稱輸入佔位符",
+        "type": "STATIC_LABEL",
+        "value": "請輸入你的姓名"
+      },
+      "nameInputTitle": {
+        "name": "名稱輸入標題",
+        "type": "STATIC_LABEL",
+        "value": "姓名"
+      },
+      "phoneInputPlaceHolder": {
+        "name": "電話輸入佔位符",
+        "type": "STATIC_LABEL",
+        "value": "請輸入你的電話號碼"
+      },
+      "phoneInputTitle": {
+        "name": "電話輸入標題",
+        "type": "STATIC_LABEL",
+        "value": "電話號碼"
+      },
+      "submitButton": {
+        "name": "提交按鈕",
+        "type": "STATIC_LABEL",
+        "value": "通知中介"
+      },
+      "textAreaValue": {
+        "name": "文本區域值",
+        "type": "DYNAMIC_LABEL",
+        "value": "你好，我想預約關於$1:$2，我的電話:$3"
+      }
     },
     "itemDetail": {
-      "areaHeader": "面積",
-      "areaSuffix": "平方呎",
-      "detailHeader": "房屋信息",
-      "layoutHeader": "佈局",
-      "layoutValue": "$1房$2廳",
-      "price": "價格",
-      "submitButton": "預約睇樓"
+      "areaHeader": {
+        "name": "區域標題",
+        "type": "STATIC_LABEL",
+        "value": "面積"
+      },
+      "areaSuffix": {
+        "name": "呎吋後綴",
+        "type": "STATIC_LABEL",
+        "value": "平方呎"
+      },
+      "detailHeader": {
+        "name": "細節標題",
+        "type": "STATIC_LABEL",
+        "value": "房屋信息"
+      },
+      "layoutHeader": {
+        "name": "佈局標題",
+        "type": "STATIC_LABEL",
+        "value": "佈局"
+      },
+      "layoutValue": {
+        "name": "佈局值",
+        "type": "DYNAMIC_LABEL",
+        "value": "$1房$2廳"
+      },
+      "price": {
+        "name": "價格",
+        "type": "STATIC_LABEL",
+        "value": "價格"
+      },
+      "submitButton": {
+        "name": "提交按鈕",
+        "type": "STATIC_LABEL",
+        "value": "預約睇樓"
+      }
     },
     "ladningPage": {}
   },
@@ -90,6 +167,13 @@
       "name": "全局背景顏色",
       "type": "COLOR",
       "value": "#fafafa"
+    },
+    "cardContent": {
+      "backgroundColor": {
+        "name": "卡片背景顏色",
+        "type": "COLOR",
+        "value": "#ffffff"
+      }
     },
     "imageCarousel": {
       "indicatorDots:": true,

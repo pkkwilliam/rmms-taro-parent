@@ -107,7 +107,7 @@ var ItemDetail = /*#__PURE__*/function (_ApplicationComponent) {
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_itemDetail.default, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, this.state), {}, {
         commonLabel: common,
         isFavoriteItem: isFavoriteItem(this.state.itemDetail, this.appState.favorite.favorites),
-        label: itemDetail,
+        itemDetailLabel: itemDetail,
         onClickFavorite: this.onClickFavorite,
         toggleShowAgency: this.toggleShowAgency
       }));

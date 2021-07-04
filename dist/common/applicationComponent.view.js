@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getObjectValue = getObjectValue;
-exports.generateVariableLabel = generateVariableLabel;
+exports.generateDynamicLabel = generateDynamicLabel;
 exports.default = void 0;
 
 var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
@@ -75,6 +75,14 @@ var ApplicationComponentView = /*#__PURE__*/function (_ApplicationComponent) {
   }]);
   return ApplicationComponentView;
 }(_applicationComponent.default);
+/**
+ * @deprecated now we on es6 babel 7, we do not need this anymore
+ * @param {*} style
+ * @param {*} defaultValue
+ * @param  {...any} keys
+ * @returns
+ */
+
 
 exports.default = ApplicationComponentView;
 (0, _defineProperty2.default)(ApplicationComponentView, "contextType", _contextProvider.RmmsContext);
@@ -119,7 +127,7 @@ function ErrorModal(props) {
   });
 }
 
-function generateVariableLabel(label, values) {
+function generateDynamicLabel(label, values) {
   for (var index = 0; index < values.length; index++) {
     label = label.replace("$".concat(index + 1), values[index]);
   }

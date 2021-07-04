@@ -107,11 +107,11 @@ export default class ApplicationComponent extends Component {
         tabbarSelectedColor,
         tabbarUnselectedColor,
       } = content.style;
-      wxSetTabBarStyle({
-        backgroundColor: tabbarBackgroundColor.value,
-        color: tabbarUnselectedColor.value,
-        selectedColor: tabbarSelectedColor.value,
-      });
+      // wxSetTabBarStyle({
+      //   backgroundColor: tabbarBackgroundColor.value,
+      //   color: tabbarUnselectedColor.value,
+      //   selectedColor: tabbarSelectedColor.value,
+      // });
     });
     this.appStateService.getCategories(companyId);
     this.appStateService.getItems(companyId);

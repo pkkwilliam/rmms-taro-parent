@@ -26,6 +26,13 @@ export default class ApplicationComponentView extends ApplicationComponent {
   }
 }
 
+/**
+ * @deprecated now we on es6 babel 7, we do not need this anymore
+ * @param {*} style
+ * @param {*} defaultValue
+ * @param  {...any} keys
+ * @returns
+ */
 export function getObjectValue(style, defaultValue, ...keys) {
   const recursionHelper = function (style, index, keys) {
     if (!style[keys[index]]) {
@@ -55,7 +62,7 @@ function ErrorModal(props) {
   );
 }
 
-export function generateVariableLabel(label, values) {
+export function generateDynamicLabel(label, values) {
   for (let index = 0; index < values.length; index++) {
     label = label.replace(`$${index + 1}`, values[index]);
   }

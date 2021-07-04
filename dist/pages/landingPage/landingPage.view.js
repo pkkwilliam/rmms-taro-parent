@@ -166,9 +166,7 @@ function CategoryListing(_ref2) {
     return category.id === categoryId;
   });
   var itemsCard = items.filter(function (item) {
-    for (var index = 0; index < ((_item$categories = item.categories) === null || _item$categories === void 0 ? void 0 : _item$categories.length); index++) {
-      var _item$categories;
-
+    for (var index = 0; index < item.categories.length; index++) {
       var currentCategoryId = item.categories[index].id;
 
       if (currentCategoryId === categoryId) {
