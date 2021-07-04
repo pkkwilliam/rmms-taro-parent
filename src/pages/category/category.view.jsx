@@ -21,7 +21,6 @@ export default class CategoryView extends ApplicationComponentView {
   }
 
   render() {
-    console.log(this.appLabel);
     return (
       <Container
         appLabel={this.appLabel}
@@ -168,7 +167,7 @@ export function TopSegment(props) {
   const { appLabel, currentSegmentTypeIndex, onChangeSegmentType } = props;
   return (
     <AtSegmentedControl
-      values={[appLabel?.rent?.value, appLabel?.buy?.value]}
+      values={[appLabel?.buy?.value, appLabel?.rent?.value]}
       onClick={onChangeSegmentType}
       current={currentSegmentTypeIndex}
     />

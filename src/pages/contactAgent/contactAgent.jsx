@@ -25,6 +25,7 @@ export default class ContactAgent extends ApplicationComponentView {
   };
 
   render() {
+    const appLabel = this.appLabel;
     const contactAgentLabel = this.componentLabel;
     const { id, listingType, name, showAgency, toggleShowAgency } = this.props;
     const { clientName, phoneNumber } = this.state;
@@ -35,7 +36,12 @@ export default class ContactAgent extends ApplicationComponentView {
         onClose={toggleShowAgency}
       >
         <View style={{ marginLeft: 10, marginRight: 10 }}>
-          <ItemHeader id={id} listingType={listingType} name={name} />
+          <ItemHeader
+            appLabel={appLabel}
+            id={id}
+            listingType={listingType}
+            name={name}
+          />
           <AtInput
             name="input1"
             customStyle={{ marginLeft: 0, marginTop: 15 }}

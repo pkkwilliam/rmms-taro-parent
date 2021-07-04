@@ -47,7 +47,9 @@ export function Container(props) {
       <FlexView style={{ height: "100%", paddingLeft: 15, paddingRight: 15 }}>
         <Content {...props.itemDetail} {...props} />
         <ContactAgent {...props.itemDetail} {...props} />
-        <MakeReservation onClickSubmit={props.toggleShowAgency} {...props} />
+        <FlexView style={{ marginTop: 15 }}>
+          <MakeReservation onClickSubmit={props.toggleShowAgency} {...props} />
+        </FlexView>
       </FlexView>
     </Fragment>
   );
@@ -160,7 +162,6 @@ export function ItemAbstractHeader({ header, icon, iconColor, label }) {
 
 export function ItemAbstractHeaders(props) {
   const { area, cost, itemDetailLabel, livingRoom, restRoom, room } = props;
-  console.log(itemDetailLabel);
   return (
     <Fragment>
       <AtDivider height={60} />

@@ -169,11 +169,12 @@ var ApplicationComponent = /*#__PURE__*/function (_Component) {
                   var _content$style = content.style,
                       tabbarBackgroundColor = _content$style.tabbarBackgroundColor,
                       tabbarSelectedColor = _content$style.tabbarSelectedColor,
-                      tabbarUnselectedColor = _content$style.tabbarUnselectedColor; // wxSetTabBarStyle({
-                  //   backgroundColor: tabbarBackgroundColor.value,
-                  //   color: tabbarUnselectedColor.value,
-                  //   selectedColor: tabbarSelectedColor.value,
-                  // });
+                      tabbarUnselectedColor = _content$style.tabbarUnselectedColor;
+                  (0, _wxApiUtil.wxSetTabBarStyle)({
+                    backgroundColor: tabbarBackgroundColor === null || tabbarBackgroundColor === void 0 ? void 0 : tabbarBackgroundColor.value,
+                    color: tabbarUnselectedColor === null || tabbarUnselectedColor === void 0 ? void 0 : tabbarUnselectedColor.value,
+                    selectedColor: tabbarSelectedColor === null || tabbarSelectedColor === void 0 ? void 0 : tabbarSelectedColor.value
+                  });
                 });
                 this.appStateService.getCategories(companyId);
                 this.appStateService.getItems(companyId); // user login

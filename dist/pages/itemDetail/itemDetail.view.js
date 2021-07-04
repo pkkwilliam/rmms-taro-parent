@@ -105,9 +105,14 @@ function Container(props) {
         paddingLeft: 15,
         paddingRight: 15
       },
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Content, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_contactAgent.default, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(MakeReservation, (0, _objectSpread2.default)({
-        onClickSubmit: props.toggleShowAgency
-      }, props))]
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Content, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_contactAgent.default, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+        style: {
+          marginTop: 15
+        },
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(MakeReservation, (0, _objectSpread2.default)({
+          onClickSubmit: props.toggleShowAgency
+        }, props))
+      })]
     })]
   });
 }
@@ -261,7 +266,6 @@ function ItemAbstractHeaders(props) {
       livingRoom = props.livingRoom,
       restRoom = props.restRoom,
       room = props.room;
-  console.log(itemDetailLabel);
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtDivider, {
       height: 60

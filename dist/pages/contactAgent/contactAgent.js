@@ -110,6 +110,7 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
           _contactAgentLabel$te,
           _contactAgentLabel$su;
 
+      var appLabel = this.appLabel;
       var contactAgentLabel = this.componentLabel;
       var _this$props = this.props,
           id = _this$props.id,
@@ -130,6 +131,7 @@ var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
             marginRight: 10
           },
           children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_itemDetail.ItemHeader, {
+            appLabel: appLabel,
             id: id,
             listingType: listingType,
             name: name

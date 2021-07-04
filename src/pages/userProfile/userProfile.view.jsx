@@ -1,29 +1,48 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { AtList, AtListItem, AtAvatar, AtButton } from "taro-ui";
-import ApplicationComponentView from "../../common/applicationComponent.view";
+import ApplicationComponentView, {
+  generateDynamicLabel,
+} from "../../common/applicationComponent.view";
 import Info from "../../common/text/info";
 import H3 from "../../common/text/h2";
 import FlexView from "../../common/flexView";
 import CardContent from "../../common/cardContent";
 
 export default class UserProfileView extends ApplicationComponentView {
+  getComponentLabelName() {
+    return "userProfileLabel";
+  }
+
+  getComponentStyleName() {
+    return "userProfileStyle";
+  }
+
   render() {
     return (
       <this.Wrapper>
-        <FlexView style={{ margin: 15 }}>
-          <UserSection
-            onClickRefreshUserProfileInfo={
-              this.props.onClickRefreshUserProfileInfo
-            }
-            {...this.props.userProfile}
-          />
-        </FlexView>
-        <FlexView style={{ margin: 15 }}>
-          <UserMenuList {...this.props} />
-        </FlexView>
+        <Container
+          appLabel={this.appLabel}
+          componentLabel={this.componentLabel}
+          {...this.props}
+        />
       </this.Wrapper>
     );
   }
+}
+export function Container(props) {
+  return (
+    <Fragment>
+      <FlexView style={{ margin: 15 }}>
+        <UserSection
+          onClickRefreshUserProfileInfo={props.onClickRefreshUserProfileInfo}
+          {...props.userProfile}
+        />
+      </FlexView>
+      <FlexView style={{ margin: 15 }}>
+        <UserMenuList {...props} />
+      </FlexView>
+    </Fragment>
+  );
 }
 
 export function UserSection({
@@ -61,13 +80,19 @@ export function UserSection({
   );
 }
 
-export function UserMenuList({ favorites, onClickMenuItemFavorite }) {
+export function UserMenuList({
+  componentLabel,
+  favorites,
+  onClickMenuItemFavorite,
+}) {
   return (
     <AtList>
       <AtListItem
         onClick={onClickMenuItemFavorite}
-        title="收藏"
-        extraText={`${favorites.length}個樓盤`}
+        title={componentLabel?.favorite?.value}
+        extraText={generateDynamicLabel(componentLabel?.favoriteCount?.value, [
+          favorites.length,
+        ])}
         arrow="right"
       />
     </AtList>

@@ -59,13 +59,11 @@ exports.default = FavoriteView;
 function FavoriteList(_ref) {
   var favorites = _ref.favorites,
       onClickItem = _ref.onClickItem;
-  console.log(favorites);
   var ListItems = favorites.map(function (favorite, index) {
     var address = favorite.address,
         cost = favorite.cost,
         imageUrls = favorite.imageUrls,
         name = favorite.name;
-    console.log();
     return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtListItem, {
       arrow: "right",
       title: name,

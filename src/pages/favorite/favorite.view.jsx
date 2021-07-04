@@ -16,10 +16,8 @@ export default class FavoriteView extends ApplicationComponentView {
 }
 
 export function FavoriteList({ favorites, onClickItem }) {
-  console.log(favorites);
   const ListItems = favorites.map((favorite, index) => {
     const { address, cost, imageUrls, name } = favorite;
-    console.log();
     return (
       <AtListItem
         arrow="right"

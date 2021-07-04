@@ -1,10 +1,13 @@
 "use strict";
 
+var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
+
 var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Container = Container;
 exports.UserSection = UserSection;
 exports.UserMenuList = UserMenuList;
 exports.displayShortTime = displayShortTime;
@@ -20,11 +23,11 @@ var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitco
 
 var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _taroUi = require("taro-ui");
 
-var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent.view"));
+var _applicationComponent = _interopRequireWildcard(require("../../common/applicationComponent.view"));
 
 var _info = _interopRequireDefault(require("../../common/text/info"));
 
@@ -47,22 +50,23 @@ var UserProfileView = /*#__PURE__*/function (_ApplicationComponent) {
   }
 
   (0, _createClass2.default)(UserProfileView, [{
+    key: "getComponentLabelName",
+    value: function getComponentLabelName() {
+      return "userProfileLabel";
+    }
+  }, {
+    key: "getComponentStyleName",
+    value: function getComponentStyleName() {
+      return "userProfileStyle";
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0, _jsxRuntime.jsxs)(this.Wrapper, {
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
-          style: {
-            margin: 15
-          },
-          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(UserSection, (0, _objectSpread2.default)({
-            onClickRefreshUserProfileInfo: this.props.onClickRefreshUserProfileInfo
-          }, this.props.userProfile))
-        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
-          style: {
-            margin: 15
-          },
-          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(UserMenuList, (0, _objectSpread2.default)({}, this.props))
-        })]
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.Wrapper, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Container, (0, _objectSpread2.default)({
+          appLabel: this.appLabel,
+          componentLabel: this.componentLabel
+        }, this.props))
       });
     }
   }]);
@@ -70,6 +74,24 @@ var UserProfileView = /*#__PURE__*/function (_ApplicationComponent) {
 }(_applicationComponent.default);
 
 exports.default = UserProfileView;
+
+function Container(props) {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+      style: {
+        margin: 15
+      },
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(UserSection, (0, _objectSpread2.default)({
+        onClickRefreshUserProfileInfo: props.onClickRefreshUserProfileInfo
+      }, props.userProfile))
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+      style: {
+        margin: 15
+      },
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(UserMenuList, (0, _objectSpread2.default)({}, props))
+    })]
+  });
+}
 
 function UserSection(_ref) {
   var createTime = _ref.createTime,
@@ -115,13 +137,16 @@ function UserSection(_ref) {
 }
 
 function UserMenuList(_ref2) {
-  var favorites = _ref2.favorites,
+  var _componentLabel$favor, _componentLabel$favor2;
+
+  var componentLabel = _ref2.componentLabel,
+      favorites = _ref2.favorites,
       onClickMenuItemFavorite = _ref2.onClickMenuItemFavorite;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtList, {
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtListItem, {
       onClick: onClickMenuItemFavorite,
-      title: "\u6536\u85CF",
-      extraText: "".concat(favorites.length, "\u500B\u6A13\u76E4"),
+      title: componentLabel === null || componentLabel === void 0 ? void 0 : (_componentLabel$favor = componentLabel.favorite) === null || _componentLabel$favor === void 0 ? void 0 : _componentLabel$favor.value,
+      extraText: (0, _applicationComponent.generateDynamicLabel)(componentLabel === null || componentLabel === void 0 ? void 0 : (_componentLabel$favor2 = componentLabel.favoriteCount) === null || _componentLabel$favor2 === void 0 ? void 0 : _componentLabel$favor2.value, [favorites.length]),
       arrow: "right"
     })
   });

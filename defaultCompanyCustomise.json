@@ -107,7 +107,19 @@
         "value": "預約睇樓"
       }
     },
-    "ladningPageLabel": {}
+    "ladningPageLabel": {},
+    "userProfileLabel": {
+      "favorite": {
+        "name": "收藏",
+        "type": "STATIC_LABEL",
+        "value": "收藏"
+      },
+      "favoriteCount": {
+        "name": "收藏數",
+        "type": "DYNAMIC_LABEL",
+        "value": "$1個樓盤"
+      }
+    }
   },
   "landingPageStyle": {
     "carouselStyle": [

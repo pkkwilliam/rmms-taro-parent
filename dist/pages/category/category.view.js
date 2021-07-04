@@ -70,7 +70,6 @@ var CategoryView = /*#__PURE__*/function (_ApplicationComponent) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.appLabel);
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(Container, (0, _objectSpread2.default)({
         appLabel: this.appLabel,
         categoryLabel: this.componentLabel
@@ -239,13 +238,13 @@ function sortSequence(objects) {
 }
 
 function TopSegment(props) {
-  var _appLabel$rent, _appLabel$buy2;
+  var _appLabel$buy2, _appLabel$rent;
 
   var appLabel = props.appLabel,
       currentSegmentTypeIndex = props.currentSegmentTypeIndex,
       onChangeSegmentType = props.onChangeSegmentType;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtSegmentedControl, {
-    values: [appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$rent = appLabel.rent) === null || _appLabel$rent === void 0 ? void 0 : _appLabel$rent.value, appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$buy2 = appLabel.buy) === null || _appLabel$buy2 === void 0 ? void 0 : _appLabel$buy2.value],
+    values: [appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$buy2 = appLabel.buy) === null || _appLabel$buy2 === void 0 ? void 0 : _appLabel$buy2.value, appLabel === null || appLabel === void 0 ? void 0 : (_appLabel$rent = appLabel.rent) === null || _appLabel$rent === void 0 ? void 0 : _appLabel$rent.value],
     onClick: onChangeSegmentType,
     current: currentSegmentTypeIndex
   });
