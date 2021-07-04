@@ -1,76 +1,71 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react = require("react");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _taroUi = require("taro-ui");
 
-var _applicationComponent = require("./applicationComponent.view");
+var _applicationComponent = _interopRequireDefault(require("./applicationComponent.view"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _h = _interopRequireDefault(require("./text/h2"));
 
-var _h = require("./text/h2");
+var _jsxRuntime = require("react/jsx-runtime");
 
-var _h2 = _interopRequireDefault(_h);
+var ApplicationButton = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(ApplicationButton, _ApplicationComponent);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ApplicationButton = function (_ApplicationComponent) {
-  _inherits(ApplicationButton, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(ApplicationButton);
 
   function ApplicationButton() {
-    _classCallCheck(this, ApplicationButton);
-
-    return _possibleConstructorReturn(this, (ApplicationButton.__proto__ || Object.getPrototypeOf(ApplicationButton)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, ApplicationButton);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(ApplicationButton, [{
+  (0, _createClass2.default)(ApplicationButton, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          style = _props.style;
-      var _appStyle = this.appStyle,
-          primary = _appStyle.primary,
-          secondary = _appStyle.secondary;
-
-      return _react2.default.createElement(
-        _taroUi.AtButton,
-        _extends({
-          circle: true,
-          customStyle: _extends({
-            alignItems: "center",
-            backgroundColor: primary,
-            borderColor: secondary,
-            justifyContent: "center",
-            width: "100%"
-          }, style)
-        }, this.props),
-        _react2.default.createElement(
-          _h2.default,
-          { style: { color: "white" } },
-          children
-        )
-      );
+      var _this$props = this.props,
+          children = _this$props.children,
+          style = _this$props.style;
+      var _this$appStyle = this.appStyle,
+          primary = _this$appStyle.primary,
+          secondary = _this$appStyle.secondary;
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtButton, (0, _objectSpread2.default)((0, _objectSpread2.default)({
+        circle: true,
+        customStyle: (0, _objectSpread2.default)({
+          alignItems: "center",
+          backgroundColor: primary,
+          borderColor: secondary,
+          justifyContent: "center",
+          width: "100%"
+        }, style)
+      }, this.props), {}, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_h.default, {
+          style: {
+            color: "white"
+          },
+          children: children
+        })
+      }));
     }
   }]);
-
   return ApplicationButton;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = ApplicationButton;

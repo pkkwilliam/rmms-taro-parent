@@ -1,22 +1,33 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
+
+var _regenerator = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/asyncToGenerator"));
+
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
 var _components = require("@tarojs/components");
 
-var _applicationComponent = require("../../common/applicationComponent");
-
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent"));
 
 var _taroUi = require("taro-ui");
 
-var _landingPage = require("../landingPage/landingPage");
-
-var _landingPage2 = _interopRequireDefault(_landingPage);
+var _landingPage = _interopRequireDefault(require("../landingPage/landingPage"));
 
 var _wxApiUtil = require("../../common/wxApiUtil");
 
@@ -24,30 +35,23 @@ require("taro-ui/dist/style/index.scss");
 
 require("./index.scss");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+var Index = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(Index, _ApplicationComponent);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Index = function (_ApplicationComponent) {
-  _inherits(Index, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(Index);
 
   function Index() {
-    _classCallCheck(this, Index);
-
-    return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, Index);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(Index, [{
+  (0, _createClass2.default)(Index, [{
     key: "componentWillMount",
     value: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+      var _componentWillMount = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -55,11 +59,11 @@ var Index = function (_ApplicationComponent) {
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
       function componentWillMount() {
-        return _ref.apply(this, arguments);
+        return _componentWillMount.apply(this, arguments);
       }
 
       return componentWillMount;
@@ -79,15 +83,13 @@ var Index = function (_ApplicationComponent) {
   }, {
     key: "render",
     value: function render() {
-      return React.createElement(
-        _components.View,
-        { className: "index" },
-        React.createElement(_landingPage2.default, this.props)
-      );
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.View, {
+        className: "index",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_landingPage.default, (0, _objectSpread2.default)({}, this.props))
+      });
     }
   }]);
-
   return Index;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = Index;

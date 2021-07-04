@@ -1,11 +1,12 @@
 "use strict";
 
+var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 exports.default = CategoryView;
 exports.CategoryNav = CategoryNav;
 exports.SearchBar = SearchBar;
@@ -15,9 +16,9 @@ exports.ListingTypeTag = ListingTypeTag;
 exports.sortSequence = sortSequence;
 exports.TopSegment = TopSegment;
 
-var _react = require("react");
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireWildcard(require("react"));
 
 var _components = require("@tarojs/components");
 
@@ -25,42 +26,33 @@ var _taroUi = require("taro-ui");
 
 require("./category.scss");
 
-var _h = require("../../common/text/h3");
+var _h = _interopRequireDefault(require("../../common/text/h3"));
 
-var _h2 = _interopRequireDefault(_h);
+var _info = _interopRequireDefault(require("../../common/text/info"));
 
-var _info = require("../../common/text/info");
+var _flexView = _interopRequireDefault(require("../../common/flexView"));
 
-var _info2 = _interopRequireDefault(_info);
-
-var _flexView = require("../../common/flexView");
-
-var _flexView2 = _interopRequireDefault(_flexView);
-
-var _applicationTag = require("../../common/applicationTag");
-
-var _applicationTag2 = _interopRequireDefault(_applicationTag);
+var _applicationTag = _interopRequireDefault(require("../../common/applicationTag"));
 
 var _applicationComponent = require("../../common/applicationComponent.view");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
 function CategoryView(props) {
-  return _react2.default.createElement(
-    _flexView2.default,
-    null,
-    _react2.default.createElement(SearchBar, props),
-    _react2.default.createElement(
-      _flexView2.default,
-      { style: { marginLeft: 5, marginRight: 5 } },
-      _react2.default.createElement(TopSegment, props)
-    ),
-    _react2.default.createElement(
-      _flexView2.default,
-      { style: { marginTop: 5 } },
-      _react2.default.createElement(CategoryNav, props)
-    )
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(SearchBar, (0, _objectSpread2.default)({}, props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+      style: {
+        marginLeft: 5,
+        marginRight: 5
+      },
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(TopSegment, (0, _objectSpread2.default)({}, props))
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+      style: {
+        marginTop: 5
+      },
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(CategoryNav, (0, _objectSpread2.default)({}, props))
+    })]
+  });
 }
 
 function CategoryNav(props) {
@@ -73,21 +65,21 @@ function CategoryNav(props) {
       return category1.sequence - category2.sequence;
     });
     return categories.map(function (category) {
-      return { title: category.name };
+      return {
+        title: category.name
+      };
     });
   };
-  return _react2.default.createElement(
-    _taroUi.AtTabs,
-    {
-      current: currentCategoryIndex,
-      height: "600px",
-      onClick: onClickCategory,
-      scroll: true,
-      tabDirection: "vertical",
-      tabList: prepareTabList(categories)
-    },
-    _react2.default.createElement(TabsPaneContainer, props)
-  );
+
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtTabs, {
+    current: currentCategoryIndex,
+    height: "600px",
+    onClick: onClickCategory,
+    scroll: true,
+    tabDirection: "vertical",
+    tabList: prepareTabList(categories),
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(TabsPaneContainer, (0, _objectSpread2.default)({}, props))
+  });
 }
 
 function SearchBar(_ref) {
@@ -95,8 +87,7 @@ function SearchBar(_ref) {
       onClickSearchBarClear = _ref.onClickSearchBarClear,
       onClickSearchBarSubmit = _ref.onClickSearchBarSubmit,
       searchBar = _ref.searchBar;
-
-  return _react2.default.createElement(_taroUi.AtSearchBar, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtSearchBar, {
     onActionClick: onClickSearchBarSubmit,
     onClear: onClickSearchBarClear,
     onChange: function onChange(event) {
@@ -110,18 +101,15 @@ function SearchBar(_ref) {
 function TabsPaneContainer(props) {
   var currentCategoryIndex = props.currentCategoryIndex,
       categoriesItems = props.categoriesItems;
-
   return categoriesItems.map(function (categoryItems, index) {
-    return _react2.default.createElement(
-      _taroUi.AtTabsPane,
-      {
-        current: currentCategoryIndex,
-        key: "TabsPaneContainer" + index,
-        tabDirection: "vertical",
-        index: index
-      },
-      _react2.default.createElement(ItemList, _extends({ items: categoryItems }, props))
-    );
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtTabsPane, {
+      current: currentCategoryIndex,
+      tabDirection: "vertical",
+      index: index,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemList, (0, _objectSpread2.default)({
+        items: categoryItems
+      }, props))
+    }, "TabsPaneContainer" + index);
   });
 }
 
@@ -129,7 +117,6 @@ function ItemList(props) {
   var items = props.items,
       label = props.label,
       onClickItem = props.onClickItem;
-
   var ItemCards = sortSequence(items).map(function (item, index) {
     var address = item.address,
         area = item.area,
@@ -141,68 +128,64 @@ function ItemList(props) {
         name = item.name,
         restroom = item.restroom,
         room = item.room;
-
-    return _react2.default.createElement(
-      _flexView2.default,
-      {
-        key: ItemList + index,
-        onClick: function onClick() {
-          return onClickItem(item);
-        },
-        style: { alignItem: "center", flexDirection: "row", marginBottom: 15 }
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+      onClick: function onClick() {
+        return onClickItem(item);
       },
-      _react2.default.createElement(_components.Image, {
+      style: {
+        alignItem: "center",
+        flexDirection: "row",
+        marginBottom: 15
+      },
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Image, {
         src: imageUrls[0],
-        style: { borderRadius: 5, height: 75, width: 75 }
-      }),
-      _react2.default.createElement(
-        _flexView2.default,
-        { style: { marginLeft: 15, maxWidth: 200 } },
-        _react2.default.createElement(
-          _flexView2.default,
-          {
-            style: {
-              flexDirection: "row",
-              alignItems: "center"
-            }
+        style: {
+          borderRadius: 5,
+          height: 75,
+          width: 75
+        }
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+        style: {
+          marginLeft: 15,
+          maxWidth: 200
+        },
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+          style: {
+            flexDirection: "row",
+            alignItems: "center"
           },
-          _react2.default.createElement(ListingTypeTag, _extends({ listingType: listingType }, props)),
-          _react2.default.createElement(
-            _h2.default,
-            { style: { marginLeft: 8 } },
-            name
-          )
-        ),
-        _react2.default.createElement(
-          _info2.default,
-          null,
-          "" + area + label.areaSuffix + " " + (0, _applicationComponent.generateVariableLabel)(label.layoutValue, [room, livingRoom])
-        ),
-        _react2.default.createElement(
-          _info2.default,
-          null,
-          address
-        )
-      )
-    );
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(ListingTypeTag, (0, _objectSpread2.default)({
+            listingType: listingType
+          }, props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_h.default, {
+            style: {
+              marginLeft: 8
+            },
+            children: name
+          })]
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_info.default, {
+          children: "".concat(area).concat(label.areaSuffix, " ").concat((0, _applicationComponent.generateVariableLabel)(label.layoutValue, [room, livingRoom]))
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_info.default, {
+          children: address
+        })]
+      })]
+    }, ItemList + index);
   });
-  return _react2.default.createElement(
-    _react.Fragment,
-    null,
-    ItemCards
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_react.Fragment, {
+    children: ItemCards
+  });
 }
 
 function ListingTypeTag(_ref2) {
   var _ref2$commonLabel = _ref2.commonLabel,
-      commonLabel = _ref2$commonLabel === undefined ? { buy: "入", rent: "出" } : _ref2$commonLabel,
+      commonLabel = _ref2$commonLabel === void 0 ? {
+    buy: "入",
+    rent: "出"
+  } : _ref2$commonLabel,
       listingType = _ref2.listingType;
-
-  return _react2.default.createElement(
-    _applicationTag2.default,
-    { color: listingType === "RENT" ? "blue" : "green" },
-    listingType === "RENT" ? commonLabel.rent : commonLabel.buy
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_applicationTag.default, {
+    color: listingType === "RENT" ? "blue" : "green",
+    children: listingType === "RENT" ? commonLabel.rent : commonLabel.buy
+  });
 }
 
 function sortSequence(objects) {
@@ -215,8 +198,7 @@ function TopSegment(props) {
   var commonLabel = props.commonLabel,
       currentSegmentTypeIndex = props.currentSegmentTypeIndex,
       onChangeSegmentType = props.onChangeSegmentType;
-
-  return _react2.default.createElement(_taroUi.AtSegmentedControl, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtSegmentedControl, {
     values: [commonLabel.rent, commonLabel.buy],
     onClick: onChangeSegmentType,
     current: currentSegmentTypeIndex

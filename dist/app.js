@@ -1,41 +1,41 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react = require("react");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-var _contextProvider = require("./appState/contextProvider");
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
-var _contextProvider2 = _interopRequireDefault(_contextProvider);
+var _react = _interopRequireDefault(require("react"));
+
+var _contextProvider = _interopRequireDefault(require("./appState/contextProvider"));
 
 require("./app.scss");
 
 require("taro-ui/dist/style/index.scss");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var App = /*#__PURE__*/function (_RmmsAppState) {
+  (0, _inherits2.default)(App, _RmmsAppState);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var App = function (_RmmsAppState) {
-  _inherits(App, _RmmsAppState);
+  var _super = (0, _createSuper2.default)(App);
 
   function App() {
-    _classCallCheck(this, App);
-
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, App);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(App, [{
+  (0, _createClass2.default)(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {}
   }, {
@@ -50,15 +50,13 @@ var App = function (_RmmsAppState) {
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        this.AppStateWrapper,
-        null,
-        this.props.children
-      );
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.AppStateWrapper, {
+        children: this.props.children
+      });
     }
   }]);
-
   return App;
-}(_contextProvider2.default);
+}(_contextProvider.default);
 
-exports.default = App;
+var _default = App;
+exports.default = _default;

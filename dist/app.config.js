@@ -3,7 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = {
+exports.default = void 0;
+var _default = {
   pages: ["pages/index/index", "pages/category/category", "pages/favorite/favorite", "pages/itemDetail/itemDetail", "pages/userProfile/userProfile"],
   window: {
     backgroundTextStyle: "light",
@@ -34,3 +35,4 @@ exports.default = {
     borderStyle: "white"
   }
 };
+exports.default = _default;

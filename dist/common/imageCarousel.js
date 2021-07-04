@@ -1,72 +1,72 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react = require("react");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _components = require("@tarojs/components");
 
-var _applicationComponent = require("./applicationComponent.view");
+var _applicationComponent = _interopRequireDefault(require("./applicationComponent.view"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var ImageCarousel = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(ImageCarousel, _ApplicationComponent);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ImageCarousel = function (_ApplicationComponent) {
-  _inherits(ImageCarousel, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(ImageCarousel);
 
   function ImageCarousel() {
-    _classCallCheck(this, ImageCarousel);
-
-    return _possibleConstructorReturn(this, (ImageCarousel.__proto__ || Object.getPrototypeOf(ImageCarousel)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, ImageCarousel);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(ImageCarousel, [{
+  (0, _createClass2.default)(ImageCarousel, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          imageUrls = _props.imageUrls,
-          style = _props.style;
-      var _appStyle = this.appStyle,
-          primary = _appStyle.primary,
-          secondary = _appStyle.secondary;
-
+      var _this$props = this.props,
+          imageUrls = _this$props.imageUrls,
+          style = _this$props.style;
+      var _this$appStyle = this.appStyle,
+          primary = _this$appStyle.primary,
+          secondary = _this$appStyle.secondary;
       var SwiperImageItems = imageUrls.map(function (imageUrl) {
-        return _react2.default.createElement(
-          _components.SwiperItem,
-          null,
-          _react2.default.createElement(_components.Image, { src: imageUrl, style: { width: "100%" } })
-        );
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.SwiperItem, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Image, {
+            src: imageUrl,
+            style: {
+              width: "100%"
+            }
+          })
+        });
       });
-      return _react2.default.createElement(
-        _components.Swiper,
-        {
-          indicatorColor: secondary,
-          indicatorActiveColor: primary,
-          circular: true,
-          indicatorDots: true,
-          style: _extends({ height: 245 }, style)
-        },
-        SwiperImageItems
-      );
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Swiper, {
+        indicatorColor: secondary,
+        indicatorActiveColor: primary,
+        circular: true,
+        indicatorDots: true,
+        style: (0, _objectSpread2.default)({
+          height: 245
+        }, style),
+        children: SwiperImageItems
+      });
     }
   }]);
-
   return ImageCarousel;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = ImageCarousel;

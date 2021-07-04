@@ -1,78 +1,73 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 exports.FavoriteList = FavoriteList;
+exports.default = void 0;
 
-var _react = require("react");
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react2 = _interopRequireDefault(_react);
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _taroUi = require("taro-ui");
 
-var _applicationComponent = require("../../common/applicationComponent.view");
+var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent.view"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _flexView = _interopRequireDefault(require("../../common/flexView"));
 
-var _flexView = require("../../common/flexView");
+var _jsxRuntime = require("react/jsx-runtime");
 
-var _flexView2 = _interopRequireDefault(_flexView);
+var FavoriteView = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(FavoriteView, _ApplicationComponent);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FavoriteView = function (_ApplicationComponent) {
-  _inherits(FavoriteView, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(FavoriteView);
 
   function FavoriteView() {
-    _classCallCheck(this, FavoriteView);
-
-    return _possibleConstructorReturn(this, (FavoriteView.__proto__ || Object.getPrototypeOf(FavoriteView)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, FavoriteView);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(FavoriteView, [{
+  (0, _createClass2.default)(FavoriteView, [{
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        this.Wrapper,
-        null,
-        _react2.default.createElement(
-          _flexView2.default,
-          { style: { marginTop: 15 } },
-          _react2.default.createElement(FavoriteList, this.props)
-        )
-      );
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.Wrapper, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+          style: {
+            marginTop: 15
+          },
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(FavoriteList, (0, _objectSpread2.default)({}, this.props))
+        })
+      });
     }
   }]);
-
   return FavoriteView;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = FavoriteView;
+
 function FavoriteList(_ref) {
   var favorites = _ref.favorites,
       onClickItem = _ref.onClickItem;
-
   console.log(favorites);
   var ListItems = favorites.map(function (favorite, index) {
     var address = favorite.address,
         cost = favorite.cost,
         imageUrls = favorite.imageUrls,
         name = favorite.name;
-
     console.log();
-    return _react2.default.createElement(_taroUi.AtListItem, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtListItem, {
       arrow: "right",
-      key: "favorite" + index,
       title: name,
       onClick: function onClick() {
         return onClickItem(favorite);
@@ -80,11 +75,9 @@ function FavoriteList(_ref) {
       hasBorder: false,
       note: address,
       thumb: imageUrls[0]
-    });
+    }, "favorite" + index);
   });
-  return _react2.default.createElement(
-    _taroUi.AtList,
-    null,
-    ListItems
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtList, {
+    children: ListItems
+  });
 }

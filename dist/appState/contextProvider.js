@@ -1,41 +1,50 @@
 "use strict";
 
+var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.RmmsContext = undefined;
+exports.default = exports.RmmsContext = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react = require("react");
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react2 = _interopRequireDefault(_react);
+var _assertThisInitialized2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/assertThisInitialized"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _react = _interopRequireWildcard(require("react"));
 
-var RmmsContext = exports.RmmsContext = _react2.default.createContext();
+var _jsxRuntime = require("react/jsx-runtime");
 
-var RmmsAppState = function (_Component) {
-  _inherits(RmmsAppState, _Component);
+var RmmsContext = /*#__PURE__*/_react.default.createContext();
+
+exports.RmmsContext = RmmsContext;
+
+var RmmsAppState = /*#__PURE__*/function (_Component) {
+  (0, _inherits2.default)(RmmsAppState, _Component);
+
+  var _super = (0, _createSuper2.default)(RmmsAppState);
 
   function RmmsAppState() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    (0, _classCallCheck2.default)(this, RmmsAppState);
 
-    _classCallCheck(this, RmmsAppState);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RmmsAppState.__proto__ || Object.getPrototypeOf(RmmsAppState)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
       category: {
         categories: [],
         dirty: true
@@ -51,8 +60,14 @@ var RmmsAppState = function (_Component) {
           bottomList: [],
           carousel: []
         },
-        mainMenuButtonRow: { buy: {}, rent: {} },
-        style: { primary: "", secondary: "" }
+        mainMenuButtonRow: {
+          buy: {},
+          rent: {}
+        },
+        style: {
+          primary: "",
+          secondary: ""
+        }
       },
       deviceInfo: {
         dirty: true
@@ -61,7 +76,10 @@ var RmmsAppState = function (_Component) {
         dirty: true,
         favorites: []
       },
-      item: { dirty: true, items: [] },
+      item: {
+        dirty: true,
+        items: []
+      },
       shortTermMemory: {
         currentCategoryId: 0,
         currentSegmentTypeIndex: 0
@@ -70,8 +88,9 @@ var RmmsAppState = function (_Component) {
         dirty: true,
         userProfile: {}
       }
-    }, _this.AppStateWrapper = function (_ref2) {
-      var children = _ref2.children;
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "AppStateWrapper", function (_ref) {
+      var children = _ref.children;
       var _this$state = _this.state,
           category = _this$state.category,
           company = _this$state.company,
@@ -81,104 +100,110 @@ var RmmsAppState = function (_Component) {
           item = _this$state.item,
           shortTermMemory = _this$state.shortTermMemory,
           userProfile = _this$state.userProfile;
-
-      return _react2.default.createElement(
-        RmmsContext.Provider,
-        {
-          value: {
-            category: _extends({}, category, {
-              setCategories: _this.setCategories
-            }),
-            company: _extends({}, company, {
-              setCompany: _this.setCompany
-            }),
-            companyCustomise: _extends({}, companyCustomise, {
-              setCompanyCustomise: _this.setCompanyCustomise
-            }),
-            deviceInfo: _extends({}, deviceInfo, {
-              setDeviceInfo: _this.setDeviceInfo
-            }),
-            favorite: _extends({}, favorite, {
-              setFavorites: _this.setFavorites
-            }),
-            item: _extends({}, item, {
-              setItems: _this.setItems
-            }),
-            shortTermMemory: _extends({}, shortTermMemory, {
-              setShortTermMemory: _this.setShortTermMemory
-            }),
-            userProfile: _extends({}, userProfile, {
-              setUserProfile: _this.setUserProfile
-            })
-          }
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(RmmsContext.Provider, {
+        value: {
+          category: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, category), {}, {
+            setCategories: _this.setCategories
+          }),
+          company: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, company), {}, {
+            setCompany: _this.setCompany
+          }),
+          companyCustomise: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, companyCustomise), {}, {
+            setCompanyCustomise: _this.setCompanyCustomise
+          }),
+          deviceInfo: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, deviceInfo), {}, {
+            setDeviceInfo: _this.setDeviceInfo
+          }),
+          favorite: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, favorite), {}, {
+            setFavorites: _this.setFavorites
+          }),
+          item: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, item), {}, {
+            setItems: _this.setItems
+          }),
+          shortTermMemory: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, shortTermMemory), {}, {
+            setShortTermMemory: _this.setShortTermMemory
+          }),
+          userProfile: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, userProfile), {}, {
+            setUserProfile: _this.setUserProfile
+          })
         },
-        children
-      );
-    }, _this.setCategories = function (categories) {
+        children: children
+      });
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setCategories", function (categories) {
       _this.setState(function (state) {
         return {
-          category: _extends({}, state.category, {
+          category: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, state.category), {}, {
             categories: categories,
             dirty: false
           })
         };
       });
-    }, _this.setCompany = function (company) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setCompany", function (company) {
       _this.setState(function (state) {
         return {
-          company: _extends({}, company, {
+          company: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, company), {}, {
             dirty: false
           })
         };
       });
-    }, _this.setCompanyCustomise = function (companyCustomise) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setCompanyCustomise", function (companyCustomise) {
       _this.setState(function (state) {
         return {
-          companyCustomise: _extends({}, companyCustomise, {
+          companyCustomise: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, companyCustomise), {}, {
             dirty: false
           })
         };
       });
-    }, _this.setDeviceInfo = function (deviceInfo) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setDeviceInfo", function (deviceInfo) {
       _this.setState({
         deviceInfo: {
           deviceInfo: deviceInfo,
           dirty: false
         }
       });
-    }, _this.setFavorites = function (favorites) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setFavorites", function (favorites) {
       _this.setState({
         favorite: {
           dirty: false,
           favorites: favorites
         }
       });
-    }, _this.setItems = function (items) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setItems", function (items) {
       _this.setState({
         item: {
           dirty: false,
           items: items
         }
       });
-    }, _this.setItems = function (items) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setItems", function (items) {
       _this.setState({
         item: {
           dirty: false,
           items: items
         }
       });
-    }, _this.setShortTermMemory = function (shortTermMemory) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setShortTermMemory", function (shortTermMemory) {
       _this.setState({
         shortTermMemory: shortTermMemory
       });
-    }, _this.setUserProfile = function (userProfile) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setUserProfile", function (userProfile) {
       _this.setState({
         userProfile: {
           dirty: false,
           userProfile: userProfile
         }
       });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+    return _this;
   }
 
   return RmmsAppState;

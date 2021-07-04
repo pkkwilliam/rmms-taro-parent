@@ -1,103 +1,114 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _toConsumableArray2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/toConsumableArray"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react = require("react");
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react2 = _interopRequireDefault(_react);
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _applicationComponent = require("../../common/applicationComponent");
+var _assertThisInitialized2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/assertThisInitialized"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-var _category = require("./category.view");
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
-var _category2 = _interopRequireDefault(_category);
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent"));
+
+var _category = _interopRequireDefault(require("./category.view"));
 
 var _applicationRoutes = require("../../routes/applicationRoutes");
 
 var _categorySegment = require("./categorySegment");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+var Category = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(Category, _ApplicationComponent);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Category = function (_ApplicationComponent) {
-  _inherits(Category, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(Category);
 
   function Category() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    (0, _classCallCheck2.default)(this, Category);
 
-    _classCallCheck(this, Category);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Category.__proto__ || Object.getPrototypeOf(Category)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
       searchBar: {
         text: undefined,
         useSearchFilter: false
       }
-    }, _this.onChangeSegmentType = function (segmentTypeIndex) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onChangeSegmentType", function (segmentTypeIndex) {
       _this.appState.shortTermMemory.setShortTermMemory({
         currentSegmentTypeIndex: segmentTypeIndex
       });
-    }, _this.onChangeSearchBarText = function (text) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onChangeSearchBarText", function (text) {
       _this.setState({
         searchBar: {
           text: text
         }
       });
-    }, _this.onClickCategory = function (categoryIndex) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickCategory", function (categoryIndex) {
       _this.setState({
         currentCategoryIndex: categoryIndex
       });
-    }, _this.onClickItem = function (item) {
-      _this.goTo(_applicationRoutes.ITEM_DETAIL, [{ key: "itemId", value: item.id }]);
-    }, _this.onClickSearchBarClear = function () {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickItem", function (item) {
+      _this.goTo(_applicationRoutes.ITEM_DETAIL, [{
+        key: "itemId",
+        value: item.id
+      }]);
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickSearchBarClear", function () {
       _this.setState({
         searchBar: {
           text: undefined,
           useSearchFilter: true
         }
       });
-    }, _this.onClickSearchBarSubmit = function () {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickSearchBarSubmit", function () {
       _this.setState(function (state) {
         return {
-          searchBar: _extends({}, state.searchBar, {
+          searchBar: (0, _objectSpread2.default)((0, _objectSpread2.default)({}, state.searchBar), {}, {
             useSearchFilter: true
           })
         };
       });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+    return _this;
   }
 
-  _createClass(Category, [{
+  (0, _createClass2.default)(Category, [{
     key: "render",
     value: function render() {
       var currentSegmentTypeIndex = this.appState.shortTermMemory.currentSegmentTypeIndex;
-      var _appState = this.appState,
-          category = _appState.category,
-          companyCustomise = _appState.companyCustomise,
-          item = _appState.item;
-
+      var _this$appState = this.appState,
+          category = _this$appState.category,
+          companyCustomise = _this$appState.companyCustomise,
+          item = _this$appState.item;
       var sortedItems = this.sortItems(item.items, currentSegmentTypeIndex);
-      return _react2.default.createElement(_category2.default, _extends({
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_category.default, (0, _objectSpread2.default)({
         categories: category.categories,
         categoriesItems: this.transfromItemsToNav(sortedItems),
         currentSegmentTypeIndex: currentSegmentTypeIndex,
@@ -114,15 +125,16 @@ var Category = function (_ApplicationComponent) {
   }, {
     key: "sortItems",
     value: function sortItems(items, currentSegmentTypeIndex) {
-      var _state$searchBar = this.state.searchBar,
-          text = _state$searchBar.text,
-          useSearchFilter = _state$searchBar.useSearchFilter;
+      var _this$state$searchBar = this.state.searchBar,
+          text = _this$state$searchBar.text,
+          useSearchFilter = _this$state$searchBar.useSearchFilter;
 
       if (text && useSearchFilter) {
         items = items.filter(function (item) {
           return item.name.includes(text);
         });
       }
+
       var segmentTypeValue = _categorySegment.SEGMENT_TYPES[currentSegmentTypeIndex].value;
       return items.filter(function (item) {
         return item.listingType === segmentTypeValue;
@@ -139,14 +151,14 @@ var Category = function (_ApplicationComponent) {
           if (!navItems[sequence]) {
             navItems[sequence] = [];
           }
-          navItems[sequence] = [].concat(_toConsumableArray(navItems[sequence]), [item]);
+
+          navItems[sequence] = [].concat((0, _toConsumableArray2.default)(navItems[sequence]), [item]);
         });
       });
       return navItems;
     }
   }]);
-
   return Category;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = Category;

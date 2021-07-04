@@ -1,78 +1,110 @@
 "use strict";
 
+var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 exports.getApplicationRoute = getApplicationRoute;
+exports.default = void 0;
 
-var _react = require("react");
+var _regenerator = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/regenerator"));
 
-var _react2 = _interopRequireDefault(_react);
+var _asyncToGenerator2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/asyncToGenerator"));
 
-var _taro = require("@tarojs/taro");
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _taro2 = _interopRequireDefault(_taro);
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _taro = _interopRequireWildcard(require("@tarojs/taro"));
 
 var _contextProvider = require("../appState/contextProvider");
 
-var _serviceExecutor = require("../service/serviceExecutor");
+var _serviceExecutor = _interopRequireDefault(require("../service/serviceExecutor"));
 
-var _serviceExecutor2 = _interopRequireDefault(_serviceExecutor);
+var _applicationContext = _interopRequireDefault(require("./applicationContext"));
 
-var _applicationContext = require("./applicationContext");
-
-var _applicationContext2 = _interopRequireDefault(_applicationContext);
-
-var _appStateService = require("../service/appStateService");
-
-var _appStateService2 = _interopRequireDefault(_appStateService);
+var _appStateService = _interopRequireDefault(require("../service/appStateService"));
 
 var _wxStorage = require("./wxStorage");
 
 var _wxApiUtil = require("./wxApiUtil");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var ApplicationComponent = /*#__PURE__*/function (_Component) {
+  (0, _inherits2.default)(ApplicationComponent, _Component);
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ApplicationComponent = function (_Component) {
-  _inherits(ApplicationComponent, _Component);
+  var _super = (0, _createSuper2.default)(ApplicationComponent);
 
   function ApplicationComponent() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    (0, _classCallCheck2.default)(this, ApplicationComponent);
 
-    _classCallCheck(this, ApplicationComponent);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ApplicationComponent.__proto__ || Object.getPrototypeOf(ApplicationComponent)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
       modal: {
         show: false
       },
       toast: {
         show: false
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+    return _this;
   }
 
-  _createClass(ApplicationComponent, [{
+  (0, _createClass2.default)(ApplicationComponent, [{
+    key: "applicationContext",
+    get: function get() {
+      if (!this._applicationContext) {
+        this._applicationContext = new _applicationContext.default();
+      }
+
+      return this._applicationContext;
+    }
+  }, {
+    key: "appStateService",
+    get: function get() {
+      if (!this._appStateService) {
+        this._appStateService = new _appStateService.default(this.appState, this.serviceExecutor);
+      }
+
+      return this._appStateService;
+    }
+  }, {
+    key: "appState",
+    get: function get() {
+      return this.context;
+    }
+  }, {
     key: "getCompanyId",
     value: function getCompanyId(option) {
       console.log("get company id from config file");
       return process.env.COMPANY_ID;
+    }
+  }, {
+    key: "serviceExecutor",
+    get: function get() {
+      if (!this._serviceExecutor) {
+        this._serviceExecutor = new _serviceExecutor.default(this.applicationContext.host, _wxStorage.getUserToken, _wxStorage.setUserToken);
+      }
+
+      return this._serviceExecutor;
     }
   }, {
     key: "getApplicationRoutePath",
@@ -89,38 +121,42 @@ var ApplicationComponent = function (_Component) {
     value: function goTo(route, params) {
       var generateRouteParams = function generateRouteParams() {
         var result = "";
+
         if (params) {
           result += "?";
           result += params.map(function (param) {
-            return param.key + "=" + param.value + "&";
+            return "".concat(param.key, "=").concat(param.value, "&");
           });
           result = result.substring(0, result.length - 1);
         }
+
         return result;
       };
-      _taro2.default.navigateTo({
+
+      _taro.default.navigateTo({
         url: this.getApplicationRoutePath(route) + generateRouteParams()
       });
     }
   }, {
     key: "goToTabBar",
     value: function goToTabBar(route) {
-      _taro2.default.switchTab({ url: this.getApplicationRoutePath(route) });
+      _taro.default.switchTab({
+        url: this.getApplicationRoutePath(route)
+      });
     }
   }, {
     key: "onLoad",
     value: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(options) {
+      var _onLoad = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(options) {
         var _this2 = this;
 
-        var companyId, _ref3, code;
+        var companyId, _yield$wxLogin, code;
 
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 companyId = this.getCompanyId(options);
-
                 this.appStateService.getCompany(companyId).then(function (result) {
                   (0, _wxApiUtil.wxSetNavigationBarTitle)(_this2.appState.company.name);
                 });
@@ -134,7 +170,6 @@ var ApplicationComponent = function (_Component) {
                       tabbarBackgroundColor = _content$style.tabbarBackgroundColor,
                       tabbarSelectedColor = _content$style.tabbarSelectedColor,
                       tabbarUnselectedColor = _content$style.tabbarUnselectedColor;
-
                   (0, _wxApiUtil.wxSetTabBarStyle)({
                     backgroundColor: tabbarBackgroundColor.value,
                     color: tabbarUnselectedColor.value,
@@ -142,15 +177,14 @@ var ApplicationComponent = function (_Component) {
                   });
                 });
                 this.appStateService.getCategories(companyId);
-                this.appStateService.getItems(companyId);
-                // user login
+                this.appStateService.getItems(companyId); // user login
+
                 _context.next = 7;
                 return (0, _wxApiUtil.wxLogin)();
 
               case 7:
-                _ref3 = _context.sent;
-                code = _ref3.code;
-
+                _yield$wxLogin = _context.sent;
+                code = _yield$wxLogin.code;
                 this.appStateService.login(companyId, code);
 
               case 10:
@@ -162,7 +196,7 @@ var ApplicationComponent = function (_Component) {
       }));
 
       function onLoad(_x) {
-        return _ref2.apply(this, arguments);
+        return _onLoad.apply(this, arguments);
       }
 
       return onLoad;
@@ -174,47 +208,22 @@ var ApplicationComponent = function (_Component) {
         // 来自页面内转发按钮
         console.log(res.target);
       }
+
       return {
         title: "",
         path: "/page/index/index"
       };
     }
-  }, {
-    key: "applicationContext",
-    get: function get() {
-      if (!this._applicationContext) {
-        this._applicationContext = new _applicationContext2.default();
-      }
-      return this._applicationContext;
-    }
-  }, {
-    key: "appStateService",
-    get: function get() {
-      if (!this._appStateService) {
-        this._appStateService = new _appStateService2.default(this.appState, this.serviceExecutor);
-      }
-      return this._appStateService;
-    }
-  }, {
-    key: "appState",
-    get: function get() {
-      return this.context;
-    }
-  }, {
-    key: "serviceExecutor",
-    get: function get() {
-      if (!this._serviceExecutor) {
-        this._serviceExecutor = new _serviceExecutor2.default(this.applicationContext.host, _wxStorage.getUserToken, _wxStorage.setUserToken);
-      }
-      return this._serviceExecutor;
-    }
   }]);
-
   return ApplicationComponent;
 }(_react.Component);
 
-ApplicationComponent.contextType = _contextProvider.RmmsContext;
 exports.default = ApplicationComponent;
+(0, _defineProperty2.default)(ApplicationComponent, "_applicationContext", void 0);
+(0, _defineProperty2.default)(ApplicationComponent, "_appStateService", void 0);
+(0, _defineProperty2.default)(ApplicationComponent, "_serviceExecutor", void 0);
+(0, _defineProperty2.default)(ApplicationComponent, "contextType", _contextProvider.RmmsContext);
+
 function getApplicationRoute(routeName) {
   return;
 }

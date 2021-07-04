@@ -1,73 +1,78 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react = require("react");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _assertThisInitialized2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/assertThisInitialized"));
 
-var _applicationComponent = require("../applicationComponent");
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _applicationComponent = _interopRequireDefault(require("../applicationComponent"));
 
 var _categorySegment = require("../../pages/category/categorySegment");
 
 var _applicationRoutes = require("../../routes/applicationRoutes");
 
-var _mainButtonRow = require("./mainButtonRow.view");
+var _mainButtonRow = _interopRequireDefault(require("./mainButtonRow.view"));
 
-var _mainButtonRow2 = _interopRequireDefault(_mainButtonRow);
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var MainButtonRow = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(MainButtonRow, _ApplicationComponent);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var MainButtonRow = function (_ApplicationComponent) {
-  _inherits(MainButtonRow, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(MainButtonRow);
 
   function MainButtonRow() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    (0, _classCallCheck2.default)(this, MainButtonRow);
 
-    _classCallCheck(this, MainButtonRow);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MainButtonRow.__proto__ || Object.getPrototypeOf(MainButtonRow)).call.apply(_ref, [this].concat(args))), _this), _this.onClickBuySegment = function () {
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickBuySegment", function () {
       _this.appState.shortTermMemory.setShortTermMemory({
         currentSegmentTypeIndex: _categorySegment.SELL_SEGMENT.index
       });
+
       _this.goToTabBar(_applicationRoutes.CATEGORY);
-    }, _this.onClickRentSegment = function () {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickRentSegment", function () {
       _this.appState.shortTermMemory.setShortTermMemory({
         // this is so wrong, not sure why we cant import value
         currentSegmentTypeIndex: _categorySegment.RENT_SEGMENT.index
       });
+
       _this.goToTabBar(_applicationRoutes.CATEGORY);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+    return _this;
   }
 
-  _createClass(MainButtonRow, [{
+  (0, _createClass2.default)(MainButtonRow, [{
     key: "render",
     value: function render() {
-      var _appState$companyCust = this.appState.companyCustomise,
-          mainMenuButtonRow = _appState$companyCust.mainMenuButtonRow,
-          style = _appState$companyCust.style;
-
-      return _react2.default.createElement(_mainButtonRow2.default, _extends({
+      var _this$appState$compan = this.appState.companyCustomise,
+          mainMenuButtonRow = _this$appState$compan.mainMenuButtonRow,
+          style = _this$appState$compan.style;
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_mainButtonRow.default, (0, _objectSpread2.default)({
         customStyle: style,
         onClickBuySegment: this.onClickBuySegment,
         onClickRentSegment: this.onClickRentSegment,
@@ -75,8 +80,7 @@ var MainButtonRow = function (_ApplicationComponent) {
       }, this.state));
     }
   }]);
-
   return MainButtonRow;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = MainButtonRow;

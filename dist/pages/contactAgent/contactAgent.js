@@ -1,65 +1,66 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react = require("react");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _assertThisInitialized2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/assertThisInitialized"));
 
-var _taro = require("@tarojs/taro");
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-var _taro2 = _interopRequireDefault(_taro);
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _taro = _interopRequireDefault(require("@tarojs/taro"));
 
 var _taroUi = require("taro-ui");
 
 var _components = require("@tarojs/components");
 
-var _applicationButton = require("../../common/applicationButton");
+var _applicationButton = _interopRequireDefault(require("../../common/applicationButton"));
 
-var _applicationButton2 = _interopRequireDefault(_applicationButton);
-
-var _applicationComponent = require("../../common/applicationComponent");
-
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent"));
 
 var _itemDetail = require("../itemDetail/itemDetail.view");
 
 var _service = require("../../service/service");
 
-var _applicationComponent3 = require("../../common/applicationComponent.view");
+var _applicationComponent2 = require("../../common/applicationComponent.view");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var ContactAgent = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(ContactAgent, _ApplicationComponent);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ContactAgent = function (_ApplicationComponent) {
-  _inherits(ContactAgent, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(ContactAgent);
 
   function ContactAgent() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    (0, _classCallCheck2.default)(this, ContactAgent);
 
-    _classCallCheck(this, ContactAgent);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ContactAgent.__proto__ || Object.getPrototypeOf(ContactAgent)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.state, {
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _this.state), {}, {
       clientName: "",
       phoneNumber: ""
-    }), _this.makeReservation = function () {
+    }));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "makeReservation", function () {
       var _this$state = _this.state,
           clientName = _this$state.clientName,
           phoneNumber = _this$state.phoneNumber;
@@ -73,103 +74,112 @@ var ContactAgent = function (_ApplicationComponent) {
       })).then(function () {
         return _this.onMakeReservationSuccess();
       });
-    }, _this.setClientName = function (clientName) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setClientName", function (clientName) {
       _this.setState({
         clientName: clientName
       });
-    }, _this.setPhoneNumber = function (phoneNumber) {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "setPhoneNumber", function (phoneNumber) {
       _this.setState({
         phoneNumber: phoneNumber
       });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+    return _this;
   }
 
-  _createClass(ContactAgent, [{
+  (0, _createClass2.default)(ContactAgent, [{
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var _appState$companyCust = this.appState.companyCustomise.label,
-          common = _appState$companyCust.common,
-          contactAgent = _appState$companyCust.contactAgent;
-      var _props = this.props,
-          id = _props.id,
-          listingType = _props.listingType,
-          name = _props.name,
-          showAgency = _props.showAgency,
-          toggleShowAgency = _props.toggleShowAgency;
-      var _state = this.state,
-          clientName = _state.clientName,
-          phoneNumber = _state.phoneNumber;
-
-      return _react2.default.createElement(
-        _taroUi.AtFloatLayout,
-        {
-          isOpened: showAgency,
-          title: contactAgent.header,
-          onClose: toggleShowAgency
-        },
-        _react2.default.createElement(
-          _components.View,
-          { style: { marginLeft: 10, marginRight: 10 } },
-          _react2.default.createElement(_itemDetail.ItemHeader, {
+      var _this$appState$compan = this.appState.companyCustomise.label,
+          common = _this$appState$compan.common,
+          contactAgent = _this$appState$compan.contactAgent;
+      var _this$props = this.props,
+          id = _this$props.id,
+          listingType = _this$props.listingType,
+          name = _this$props.name,
+          showAgency = _this$props.showAgency,
+          toggleShowAgency = _this$props.toggleShowAgency;
+      var _this$state2 = this.state,
+          clientName = _this$state2.clientName,
+          phoneNumber = _this$state2.phoneNumber;
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtFloatLayout, {
+        isOpened: showAgency,
+        title: contactAgent.header,
+        onClose: toggleShowAgency,
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_components.View, {
+          style: {
+            marginLeft: 10,
+            marginRight: 10
+          },
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_itemDetail.ItemHeader, {
             id: id,
             commonLabel: common,
             listingType: listingType,
             name: name
-          }),
-          _react2.default.createElement(_taroUi.AtInput, {
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtInput, {
             name: "input1",
-            customStyle: { marginLeft: 0, marginTop: 15 },
+            customStyle: {
+              marginLeft: 0,
+              marginTop: 15
+            },
             onChange: function onChange(value) {
               return _this2.setClientName(value);
             },
             placeholder: contactAgent.nameInputPlaceHolder,
             title: contactAgent.nameInputTitle,
             value: clientName
-          }),
-          _react2.default.createElement(_taroUi.AtInput, {
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtInput, {
             name: "input2",
-            customStyle: { marginLeft: 0, marginTop: 15 },
+            customStyle: {
+              marginLeft: 0,
+              marginTop: 15
+            },
             onChange: function onChange(value) {
               return _this2.setPhoneNumber(value);
             },
             placeholder: contactAgent.phoneInputPlaceHolder,
             title: contactAgent.phoneInputTitle,
             value: phoneNumber
-          }),
-          _react2.default.createElement(_taroUi.AtTextarea, {
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtTextarea, {
             count: false,
-            customStyle: { color: "#5F5F5F", marginTop: 15 },
-            disabled: true,
-            value: (0, _applicationComponent3.generateVariableLabel)(contactAgent.textAreaValue, [id, name, phoneNumber])
-          }),
-          _react2.default.createElement(
-            _applicationButton2.default,
-            {
-              onClick: this.makeReservation,
-              style: { marginBottom: 15, marginTop: 30 }
+            customStyle: {
+              color: "#5F5F5F",
+              marginTop: 15
             },
-            contactAgent.submitButton
-          )
-        )
-      );
+            disabled: true,
+            value: (0, _applicationComponent2.generateVariableLabel)(contactAgent.textAreaValue, [id, name, phoneNumber])
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_applicationButton.default, {
+            onClick: this.makeReservation,
+            style: {
+              marginBottom: 15,
+              marginTop: 30
+            },
+            children: contactAgent.submitButton
+          })]
+        })
+      });
     }
   }, {
     key: "onMakeReservationSuccess",
     value: function onMakeReservationSuccess() {
       var label = this.appState.companyCustomise.label.contactAgent;
-      _taro2.default.showToast({
+
+      _taro.default.showToast({
         title: label.messageSent,
         icon: "success",
         duration: 2000
       });
-      this.setState({ phoneNumber: "" });
+
+      this.setState({
+        phoneNumber: ""
+      });
       this.props.toggleShowAgency();
     }
   }]);
-
   return ContactAgent;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = ContactAgent;

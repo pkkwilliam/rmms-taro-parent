@@ -3,13 +3,24 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var CATEGORY = exports.CATEGORY = { name: "CATEGORY", path: "/pages/category/category" };
-var FAVORITE = exports.FAVORITE = { name: "FAVORITE", path: "/pages/favorite/favorite" };
-var ITEM_DETAIL = exports.ITEM_DETAIL = {
+exports.USER_PROFILE = exports.ITEM_DETAIL = exports.FAVORITE = exports.CATEGORY = void 0;
+var CATEGORY = {
+  name: "CATEGORY",
+  path: "/pages/category/category"
+};
+exports.CATEGORY = CATEGORY;
+var FAVORITE = {
+  name: "FAVORITE",
+  path: "/pages/favorite/favorite"
+};
+exports.FAVORITE = FAVORITE;
+var ITEM_DETAIL = {
   name: "ITEM_DETAIL",
   path: "/pages/itemDetail/itemDetail"
 };
-var USER_PROFILE = exports.USER_PROFILE = {
+exports.ITEM_DETAIL = ITEM_DETAIL;
+var USER_PROFILE = {
   name: "USER_PROFILE",
   path: "/pages/userProfile/userProfile"
 };
+exports.USER_PROFILE = USER_PROFILE;

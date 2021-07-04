@@ -1,62 +1,64 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 exports.isFavoriteItem = isFavoriteItem;
+exports.default = void 0;
 
-var _react = require("react");
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react2 = _interopRequireDefault(_react);
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _taro = require("@tarojs/taro");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _taro2 = _interopRequireDefault(_taro);
+var _assertThisInitialized2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/assertThisInitialized"));
 
-var _applicationComponent = require("../../common/applicationComponent");
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
-var _itemDetail = require("./itemDetail.view");
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
 
-var _itemDetail2 = _interopRequireDefault(_itemDetail);
+var _react = _interopRequireDefault(require("react"));
+
+var _taro = _interopRequireDefault(require("@tarojs/taro"));
+
+var _applicationComponent = _interopRequireDefault(require("../../common/applicationComponent"));
+
+var _itemDetail = _interopRequireDefault(require("./itemDetail.view"));
 
 var _service = require("../../service/service");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var ItemDetail = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(ItemDetail, _ApplicationComponent);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ItemDetail = function (_ApplicationComponent) {
-  _inherits(ItemDetail, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(ItemDetail);
 
   function ItemDetail() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
+    (0, _classCallCheck2.default)(this, ItemDetail);
 
-    _classCallCheck(this, ItemDetail);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ItemDetail.__proto__ || Object.getPrototypeOf(ItemDetail)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.state, {
-      itemDetail: { imageUrls: [] },
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _this.state), {}, {
+      itemDetail: {
+        imageUrls: []
+      },
       showAgency: false
-    }), _this.onClickFavorite = function () {
+    }));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "onClickFavorite", function () {
       var itemDetail = _this.state.itemDetail;
-
       var successMessage = "";
+
       if (isFavoriteItem(itemDetail, _this.appState.favorite.favorites)) {
         _this.serviceExecutor.execute((0, _service.DELETE_USER_FAVORITE)(itemDetail)).then(function (updateFavorites) {
           return _this.appState.favorite.setFavorites(updateFavorites);
@@ -65,29 +67,33 @@ var ItemDetail = function (_ApplicationComponent) {
         _this.serviceExecutor.execute((0, _service.ADD_USER_FAVORITE)(itemDetail)).then(function (updateFavorites) {
           return _this.appState.favorite.setFavorites(updateFavorites);
         });
+
         successMessage = "收藏成功";
       }
-      _taro2.default.showToast({
+
+      _taro.default.showToast({
         title: successMessage,
         icon: "success",
         duration: 2000
       });
-    }, _this.toggleShowAgency = function () {
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "toggleShowAgency", function () {
       _this.setState(function (state) {
         return {
           showAgency: !state.showAgency
         };
       });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+    return _this;
   }
 
-  _createClass(ItemDetail, [{
+  (0, _createClass2.default)(ItemDetail, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var companyId = this.appState.company.id;
 
-      var _getRouterParams = this.getRouterParams(),
-          itemId = _getRouterParams.itemId;
+      var _this$getRouterParams = this.getRouterParams(),
+          itemId = _this$getRouterParams.itemId;
 
       this.getLocalItemDetail(companyId, itemId);
       this.appStateService.getFavorites();
@@ -95,11 +101,10 @@ var ItemDetail = function (_ApplicationComponent) {
   }, {
     key: "render",
     value: function render() {
-      var _appState$companyCust = this.appState.companyCustomise.label,
-          common = _appState$companyCust.common,
-          itemDetail = _appState$companyCust.itemDetail;
-
-      return _react2.default.createElement(_itemDetail2.default, _extends({}, this.state, {
+      var _this$appState$compan = this.appState.companyCustomise.label,
+          common = _this$appState$compan.common,
+          itemDetail = _this$appState$compan.itemDetail;
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_itemDetail.default, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, this.state), {}, {
         commonLabel: common,
         isFavoriteItem: isFavoriteItem(this.state.itemDetail, this.appState.favorite.favorites),
         label: itemDetail,
@@ -116,6 +121,7 @@ var ItemDetail = function (_ApplicationComponent) {
         return items.map(function (item) {
           if (item.id == itemId) {
             _this2.setState();
+
             _this2.setState({
               isFavoriteItem: isFavoriteItem(item, _this2.appStateService.getFavorites()),
               itemDetail: item
@@ -136,16 +142,17 @@ var ItemDetail = function (_ApplicationComponent) {
       });
     }
   }]);
-
   return ItemDetail;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = ItemDetail;
+
 function isFavoriteItem(itemDetail, favorites) {
   for (var i = 0; i < favorites.length; i++) {
     if (favorites[i].id === itemDetail.id) {
       return true;
     }
   }
+
   return false;
 }

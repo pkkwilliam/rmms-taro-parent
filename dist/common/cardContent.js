@@ -1,38 +1,31 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 exports.default = CardContent;
 
-var _react = require("react");
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _card = require("./card");
+var _card = _interopRequireDefault(require("./card"));
 
-var _card2 = _interopRequireDefault(_card);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
 function CardContent(props) {
   var _props$backgroundColo = props.backgroundColor,
-      backgroundColor = _props$backgroundColo === undefined ? "#FDFFFE" : _props$backgroundColo,
+      backgroundColor = _props$backgroundColo === void 0 ? "#FDFFFE" : _props$backgroundColo,
       children = props.children,
       style = props.style;
-
-  return _react2.default.createElement(
-    _card2.default,
-    {
-      style: _extends({
-        backgroundColor: backgroundColor,
-        // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
-        zIndex: 10
-      }, style)
-    },
-    children
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_card.default, {
+    style: (0, _objectSpread2.default)({
+      backgroundColor: backgroundColor,
+      // marginTop: -25, comment out this since we are not able to to control the dot height of taro ui carousel
+      zIndex: 10
+    }, style),
+    children: children
+  });
 }

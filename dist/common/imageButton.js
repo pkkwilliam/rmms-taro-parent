@@ -1,56 +1,51 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react = require("react");
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
 
-var _react2 = _interopRequireDefault(_react);
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
 
-var _applicationComponent = require("./applicationComponent.view");
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _react = _interopRequireDefault(require("react"));
+
+var _applicationComponent = _interopRequireDefault(require("./applicationComponent.view"));
 
 var _components = require("@tarojs/components");
 
 var _taroUi = require("taro-ui");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var ImageButton = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(ImageButton, _ApplicationComponent);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ImageButton = function (_ApplicationComponent) {
-  _inherits(ImageButton, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(ImageButton);
 
   function ImageButton() {
-    _classCallCheck(this, ImageButton);
-
-    return _possibleConstructorReturn(this, (ImageButton.__proto__ || Object.getPrototypeOf(ImageButton)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, ImageButton);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(ImageButton, [{
+  (0, _createClass2.default)(ImageButton, [{
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        _taroUi.AtButton,
-        null,
-        _react2.default.createElement(
-          _components.View,
-          null,
-          _react2.default.createElement(_components.Image, null)
-        )
-      );
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtButton, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.View, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Image, {})
+        })
+      });
     }
   }]);
-
   return ImageButton;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = ImageButton;

@@ -1,212 +1,192 @@
 "use strict";
 
+var _interopRequireWildcard = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 exports.BottomListing = BottomListing;
 exports.ButtonRow = ButtonRow;
 exports.CategoryListing = CategoryListing;
 exports.ItemListing = ItemListing;
 exports.OneRowBanners = OneRowBanners;
+exports.default = void 0;
 
-var _react = require("react");
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
 
-var _react2 = _interopRequireDefault(_react);
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createSuper"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _components = require("@tarojs/components");
 
-var _applicationComponent = require("../../common/applicationComponent.view");
+var _applicationComponent = _interopRequireWildcard(require("../../common/applicationComponent.view"));
 
-var _applicationComponent2 = _interopRequireDefault(_applicationComponent);
+var _imageCarousel = _interopRequireDefault(require("../../common/imageCarousel"));
 
-var _imageCarousel = require("../../common/imageCarousel");
+var _circularButton = _interopRequireDefault(require("../../common/circularButton"));
 
-var _imageCarousel2 = _interopRequireDefault(_imageCarousel);
+var _info = _interopRequireDefault(require("../../common/text/info"));
 
-var _circularButton = require("../../common/circularButton");
+var _h = _interopRequireDefault(require("../../common/text/h2"));
 
-var _circularButton2 = _interopRequireDefault(_circularButton);
+var _flexView = _interopRequireDefault(require("../../common/flexView"));
 
-var _info = require("../../common/text/info");
+var _mainButtonRow = _interopRequireDefault(require("../../common/mainButtonRow/mainButtonRow"));
 
-var _info2 = _interopRequireDefault(_info);
+var _jsxRuntime = require("react/jsx-runtime");
 
-var _h = require("../../common/text/h2");
+var LandingPageView = /*#__PURE__*/function (_ApplicationComponent) {
+  (0, _inherits2.default)(LandingPageView, _ApplicationComponent);
 
-var _h2 = _interopRequireDefault(_h);
-
-var _flexView = require("../../common/flexView");
-
-var _flexView2 = _interopRequireDefault(_flexView);
-
-var _mainButtonRow = require("../../common/mainButtonRow/mainButtonRow");
-
-var _mainButtonRow2 = _interopRequireDefault(_mainButtonRow);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var LandingPageView = function (_ApplicationComponent) {
-  _inherits(LandingPageView, _ApplicationComponent);
+  var _super = (0, _createSuper2.default)(LandingPageView);
 
   function LandingPageView() {
-    _classCallCheck(this, LandingPageView);
-
-    return _possibleConstructorReturn(this, (LandingPageView.__proto__ || Object.getPrototypeOf(LandingPageView)).apply(this, arguments));
+    (0, _classCallCheck2.default)(this, LandingPageView);
+    return _super.apply(this, arguments);
   }
 
-  _createClass(LandingPageView, [{
+  (0, _createClass2.default)(LandingPageView, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          categories = _props.categories,
-          customStyle = _props.customStyle,
-          items = _props.items,
-          landingPage = _props.landingPage,
-          onClickItem = _props.onClickItem;
+      var _this$props = this.props,
+          categories = _this$props.categories,
+          customStyle = _this$props.customStyle,
+          items = _this$props.items,
+          landingPage = _this$props.landingPage,
+          onClickItem = _this$props.onClickItem;
       var bottomList = landingPage.bottomList;
-
-      return _react2.default.createElement(
-        this.Wrapper,
-        {
-          style: {
-            backgroundColor: (0, _applicationComponent.getObjectValue)(customStyle, "", "backgroundColor")
-          }
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(this.Wrapper, {
+        style: {
+          backgroundColor: (0, _applicationComponent.getObjectValue)(customStyle, "", "backgroundColor")
         },
-        _react2.default.createElement(
-          _flexView2.default,
-          null,
-          _react2.default.createElement(_imageCarousel2.default, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_imageCarousel.default, {
             imageUrls: landingPage.carousel.map(function (image) {
               return image.url;
             })
-          }),
-          _react2.default.createElement(
-            _flexView2.default,
-            { style: { paddingLeft: 15, paddingRight: 15 } },
-            _react2.default.createElement(_mainButtonRow2.default, null),
-            _react2.default.createElement(BottomListing, {
+          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+            style: {
+              paddingLeft: 15,
+              paddingRight: 15
+            },
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_mainButtonRow.default, {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(BottomListing, {
               bottomList: bottomList,
               categories: categories,
               items: items,
               onClickItem: onClickItem
-            })
-          )
-        )
-      );
+            })]
+          })]
+        })
+      });
     }
   }]);
-
   return LandingPageView;
-}(_applicationComponent2.default);
+}(_applicationComponent.default);
 
 exports.default = LandingPageView;
+
 function BottomListing(_ref) {
   var bottomList = _ref.bottomList,
       categories = _ref.categories,
       items = _ref.items,
       onClickItem = _ref.onClickItem;
-
   return bottomList.map(function (listItem) {
     if (listItem.type === "category") {
-      return _react2.default.createElement(CategoryListing, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(CategoryListing, {
         categories: categories,
         categoryId: listItem.id,
         items: items,
         onClickItem: onClickItem
       });
     } else if (listItem.type === "item") {
-      return _react2.default.createElement(ItemListing, { itemId: listItem.id });
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemListing, {
+        itemId: listItem.id
+      });
     }
   });
 }
-
 /**
  * @deprecated
  *
  * @param {*} props
  * @returns
  */
+
+
 function ButtonRow(props) {
   var mainMenuButtons = props.mainMenuButtons,
       onClickMenuButton = props.onClickMenuButton;
-
   var buttons = mainMenuButtons.map(function (button, index) {
-    return _react2.default.createElement(
-      _flexView2.default,
-      {
-        key: "landing_page_button_row" + index,
-        style: {
-          alignItems: "center",
-          justifyContent: "center",
-          paddingBottom: 10,
-          paddingTop: 10,
-          marginTop: 10
-        }
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+      style: {
+        alignItems: "center",
+        justifyContent: "center",
+        paddingBottom: 10,
+        paddingTop: 10,
+        marginTop: 10
       },
-      _react2.default.createElement(_circularButton2.default, {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_circularButton.default, {
         color: button.color,
         onClick: function onClick() {
           return onClickMenuButton(150);
         },
         url: button.url
-      }),
-      _react2.default.createElement(
-        _info2.default,
-        { style: { color: "#5F5F5F", marginTop: 6 } },
-        button.name
-      )
-    );
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_info.default, {
+        style: {
+          color: "#5F5F5F",
+          marginTop: 6
+        },
+        children: button.name
+      })]
+    }, "landing_page_button_row" + index);
   });
-  return _react2.default.createElement(
-    _components.View,
-    { className: "at-row at-row__justify--around" },
-    buttons
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.View, {
+    className: "at-row at-row__justify--around",
+    children: buttons
+  });
 }
 
 function CategoryListing(_ref2) {
   var categories = _ref2.categories,
       categoryId = _ref2.categoryId,
       _ref2$imageHeight = _ref2.imageHeight,
-      imageHeight = _ref2$imageHeight === undefined ? 180 : _ref2$imageHeight,
+      imageHeight = _ref2$imageHeight === void 0 ? 180 : _ref2$imageHeight,
       _ref2$imageWidth = _ref2.imageWidth,
-      imageWidth = _ref2$imageWidth === undefined ? 250 : _ref2$imageWidth,
+      imageWidth = _ref2$imageWidth === void 0 ? 250 : _ref2$imageWidth,
       items = _ref2.items,
       onClickItem = _ref2.onClickItem;
-
   var displayCategory = categories.find(function (category) {
     return category.id === categoryId;
   });
   var itemsCard = items.filter(function (item) {
-    for (var index = 0; index < item.categories.length; index++) {
+    for (var index = 0; index < ((_item$categories = item.categories) === null || _item$categories === void 0 ? void 0 : _item$categories.length); index++) {
+      var _item$categories;
+
       var currentCategoryId = item.categories[index].id;
+
       if (currentCategoryId === categoryId) {
         return true;
       }
     }
+
     return false;
   }).map(function (item, index) {
     var name = item.name;
-
-    return _react2.default.createElement(
-      _flexView2.default,
-      {
-        key: "CategoryListing" + index,
-        onClick: function onClick() {
-          return onClickItem(item);
-        },
-        style: { marginRight: 25 }
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+      onClick: function onClick() {
+        return onClickItem(item);
       },
-      _react2.default.createElement(_components.Image, {
+      style: {
+        marginRight: 25
+      },
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Image, {
         mode: "aspectFill",
         src: item.imageUrls[0],
         style: {
@@ -214,52 +194,52 @@ function CategoryListing(_ref2) {
           height: imageHeight,
           width: imageWidth
         }
-      }),
-      _react2.default.createElement(
-        _info2.default,
-        null,
-        name ? name : ""
-      )
-    );
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_info.default, {
+        children: name ? name : ""
+      })]
+    }, "CategoryListing" + index);
   });
   var name = "";
+
   if (displayCategory) {
     name = displayCategory.name;
   }
-  return _react2.default.createElement(
-    _flexView2.default,
-    { style: { marginTop: 15 } },
-    _react2.default.createElement(
-      _h2.default,
-      null,
-      name ? name : "分類"
-    ),
-    _react2.default.createElement(
-      _components.ScrollView,
-      { scrollX: true, scrollWithAnimation: true },
-      _react2.default.createElement(
-        _flexView2.default,
-        { style: { display: "flex", flexDirection: "row" } },
-        itemsCard
-      )
-    )
-  );
+
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
+    style: {
+      marginTop: 15
+    },
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_h.default, {
+      children: name ? name : "分類"
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.ScrollView, {
+      scrollX: true,
+      scrollWithAnimation: true,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
+        style: {
+          display: "flex",
+          flexDirection: "row"
+        },
+        children: itemsCard
+      })
+    })]
+  });
 }
 
 function ItemListing(_ref3) {
   var itemId = _ref3.itemId;
-
   return null;
 }
 
 function OneRowBanners(_ref4) {
   var banners = _ref4.banners;
-
   return banners.map(function (banner, index) {
-    return _react2.default.createElement(_components.Image, {
-      key: OneRowBanners + index,
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Image, {
       src: banner.url,
-      style: { borderRadius: 15, maxHeight: 100, width: "100%" }
-    });
+      style: {
+        borderRadius: 15,
+        maxHeight: 100,
+        width: "100%"
+      }
+    }, OneRowBanners + index);
   });
 }

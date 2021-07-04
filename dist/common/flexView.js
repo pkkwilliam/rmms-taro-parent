@@ -1,35 +1,30 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 exports.default = FlexView;
 
-var _react = require("react");
+var _objectSpread2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/objectSpread2"));
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
 var _components = require("@tarojs/components");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _jsxRuntime = require("react/jsx-runtime");
 
 function FlexView(props) {
   var children = props.children,
       onClick = props.onClick,
       style = props.style;
-
-  return _react2.default.createElement(
-    _components.View,
-    {
-      style: _extends({
-        display: "flex",
-        flexDirection: "column"
-      }, style),
-      onClick: onClick
-    },
-    children
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.View, {
+    style: (0, _objectSpread2.default)({
+      display: "flex",
+      flexDirection: "column"
+    }, style),
+    onClick: onClick,
+    children: children
+  });
 }

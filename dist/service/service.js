@@ -19,35 +19,33 @@ var PUBLIC_COMPANY_CUSTOMISE_SERVICE = "/public/v1/company_customise";
 var PUBLIC_COMPANY_SERVICE = "/public/v1/company";
 var PUBLIC_ITEM_SERVICE = "/public/v1/item";
 var PUBLIC_REAL_ESTATE_RESERVATION = "/public/v1/real_estate_reservation";
-
 var USER_FAVORITE = "/user/v1/favorite";
-var USER_PROFILE = "/api/v1/user_profile";
+var USER_PROFILE = "/api/v1/user_profile"; // Category
 
-// Category
 function GET_COMPANY_CATEGORIES(companyId) {
   return {
-    url: PUBLIC_CATEGORY_SERVICE + "/categories?companyId=" + companyId,
+    url: "".concat(PUBLIC_CATEGORY_SERVICE, "/categories?companyId=").concat(companyId),
     method: "GET"
   };
-}
+} // Company
 
-// Company
+
 function GET_COMPANY(companyId) {
   return {
-    url: PUBLIC_COMPANY_SERVICE + "?companyId=" + companyId,
+    url: "".concat(PUBLIC_COMPANY_SERVICE, "?companyId=").concat(companyId),
     method: "GET"
   };
-}
+} // Company Customise
 
-// Company Customise
+
 function GET_COMPANY_CUSTOMISE(companyId) {
   return {
-    url: PUBLIC_COMPANY_CUSTOMISE_SERVICE + "?companyId=" + companyId,
+    url: "".concat(PUBLIC_COMPANY_CUSTOMISE_SERVICE, "?companyId=").concat(companyId),
     method: "GET"
   };
-}
+} // Favorite
 
-// Favorite
+
 function GET_USER_FAVORITE_ALL() {
   return {
     url: USER_FAVORITE + "/all",
@@ -69,50 +67,51 @@ function DELETE_USER_FAVORITE(realEstate) {
     url: USER_FAVORITE,
     method: "DELETE"
   };
-}
+} // Item
 
-// Item
+
 function GET_ITEM(companyId, itemId) {
   return {
-    url: PUBLIC_ITEM_SERVICE + "?companyId=" + companyId + "&itemId=" + itemId,
+    url: "".concat(PUBLIC_ITEM_SERVICE, "?companyId=").concat(companyId, "&itemId=").concat(itemId),
     method: "GET"
   };
 }
 
 function GET_ITEMS(companyId) {
   return {
-    url: PUBLIC_ITEM_SERVICE + "/items?companyId=" + companyId,
+    url: "".concat(PUBLIC_ITEM_SERVICE, "/items?companyId=").concat(companyId),
     method: "GET"
   };
-}
+} // Login
 
-// Login
 /**
  *
  * @param {long} companyId
  * @param {string} code
  */
+
+
 function LOGIN_ACCORDING_TO_COMPANY(companyId, code) {
   return {
-    url: "/login/wechat/login_with_company?code=" + code + "&companyId=" + companyId,
+    url: "/login/wechat/login_with_company?code=".concat(code, "&companyId=").concat(companyId),
     method: "POST"
   };
-}
+} // Reservation
 
-// Reservation
+
 function MAKE_RESERVATION(reservationRequest) {
   return {
     body: reservationRequest,
-    url: "" + PUBLIC_REAL_ESTATE_RESERVATION,
+    url: "".concat(PUBLIC_REAL_ESTATE_RESERVATION),
     method: "POST"
   };
-}
+} // User Profile
 
-// User Profile
+
 function UPDATE_USER_PROFILE_INFO(requestProfile) {
   return {
     body: requestProfile,
-    url: USER_PROFILE + "/update_user_profile_info",
+    url: "".concat(USER_PROFILE, "/update_user_profile_info"),
     method: "PUT"
   };
 }

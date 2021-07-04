@@ -1,33 +1,38 @@
 "use strict";
 
+var _interopRequireDefault = require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/createClass"));
+
+var _defineProperty2 = _interopRequireDefault(require("/Users/pkkwilliam/Desktop/bitcode/reusable-merchant-management/rmms-taro-parent/node_modules/babel-preset-taro/node_modules/@babel/runtime/helpers/esm/defineProperty"));
 
 var _service = require("./service");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var AppStateService = function () {
+var AppStateService = /*#__PURE__*/function () {
   function AppStateService(appState, serviceExecutor) {
-    _classCallCheck(this, AppStateService);
-
+    (0, _classCallCheck2.default)(this, AppStateService);
+    (0, _defineProperty2.default)(this, "appState", void 0);
+    (0, _defineProperty2.default)(this, "serviceExecutor", void 0);
     this.appState = appState;
     this.serviceExecutor = serviceExecutor;
   }
 
-  _createClass(AppStateService, [{
+  (0, _createClass2.default)(AppStateService, [{
     key: "getCategories",
     value: function getCategories(companyId) {
       var _this = this;
 
-      var _appState$category = this.appState.category,
-          categories = _appState$category.categories,
-          dirty = _appState$category.dirty,
-          setCategories = _appState$category.setCategories;
-
+      var _this$appState$catego = this.appState.category,
+          categories = _this$appState$catego.categories,
+          dirty = _this$appState$catego.dirty,
+          setCategories = _this$appState$catego.setCategories;
       return new Promise(function (resolve, reject) {
         if (dirty) {
           _this.serviceExecutor.execute((0, _service.GET_COMPANY_CATEGORIES)(companyId)).then(function (categoriesResponse) {
@@ -44,11 +49,10 @@ var AppStateService = function () {
     value: function getCompany(companyId) {
       var _this2 = this;
 
-      var _appState$company = this.appState.company,
-          companyInfo = _appState$company.companyInfo,
-          dirty = _appState$company.dirty,
-          setCompany = _appState$company.setCompany;
-
+      var _this$appState$compan = this.appState.company,
+          companyInfo = _this$appState$compan.companyInfo,
+          dirty = _this$appState$compan.dirty,
+          setCompany = _this$appState$compan.setCompany;
       return new Promise(function (resolve, reject) {
         if (dirty) {
           _this2.serviceExecutor.execute((0, _service.GET_COMPANY)(companyId)).then(function (companyInfo) {
@@ -65,10 +69,9 @@ var AppStateService = function () {
     value: function getCompanyCustomise(companyId) {
       var _this3 = this;
 
-      var _appState$companyCust = this.appState.companyCustomise,
-          dirty = _appState$companyCust.dirty,
-          setCompanyCustomise = _appState$companyCust.setCompanyCustomise;
-
+      var _this$appState$compan2 = this.appState.companyCustomise,
+          dirty = _this$appState$compan2.dirty,
+          setCompanyCustomise = _this$appState$compan2.setCompanyCustomise;
       return new Promise(function (resolve, reject) {
         if (dirty) {
           _this3.serviceExecutor.execute((0, _service.GET_COMPANY_CUSTOMISE)(companyId)).then(function (result) {
@@ -86,11 +89,10 @@ var AppStateService = function () {
     value: function getFavorites() {
       var _this4 = this;
 
-      var _appState$favorite = this.appState.favorite,
-          dirty = _appState$favorite.dirty,
-          favorites = _appState$favorite.favorites,
-          setFavorites = _appState$favorite.setFavorites;
-
+      var _this$appState$favori = this.appState.favorite,
+          dirty = _this$appState$favori.dirty,
+          favorites = _this$appState$favori.favorites,
+          setFavorites = _this$appState$favori.setFavorites;
       return new Promise(function (resolve, reject) {
         if (dirty) {
           _this4.serviceExecutor.execute((0, _service.GET_USER_FAVORITE_ALL)()).then(function (favoritesResponse) {
@@ -107,11 +109,10 @@ var AppStateService = function () {
     value: function getItems(companyId) {
       var _this5 = this;
 
-      var _appState$item = this.appState.item,
-          dirty = _appState$item.dirty,
-          items = _appState$item.items,
-          setItems = _appState$item.setItems;
-
+      var _this$appState$item = this.appState.item,
+          dirty = _this$appState$item.dirty,
+          items = _this$appState$item.items,
+          setItems = _this$appState$item.setItems;
       return new Promise(function (resolve, reject) {
         if (dirty) {
           _this5.serviceExecutor.execute((0, _service.GET_ITEMS)(companyId)).then(function (items) {
@@ -128,23 +129,23 @@ var AppStateService = function () {
     value: function login(companyId, code) {
       var _this6 = this;
 
-      var _appState$userProfile = this.appState.userProfile,
-          dirty = _appState$userProfile.dirty,
-          userProfile = _appState$userProfile.userProfile,
-          setUserProfile = _appState$userProfile.setUserProfile;
-
+      var _this$appState$userPr = this.appState.userProfile,
+          dirty = _this$appState$userPr.dirty,
+          userProfile = _this$appState$userPr.userProfile,
+          setUserProfile = _this$appState$userPr.setUserProfile;
       return new Promise(function (resolve, reject) {
         if (dirty) {
           _this6.serviceExecutor.execute((0, _service.LOGIN_ACCORDING_TO_COMPANY)(companyId, code)).then(function (userProfileResponse) {
             return setUserProfile(userProfileResponse);
           });
+
           return resolve(userProfile);
         }
+
         return resolve(userProfile);
       });
     }
   }]);
-
   return AppStateService;
 }();
 
