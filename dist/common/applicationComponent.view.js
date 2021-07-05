@@ -174,8 +174,6 @@ function ErrorModal(props) {
 }
 
 function generateDynamicLabel(label, values) {
-  console.log(label, values.length);
-
   for (var index = 0; index < values.length; index++) {
     label = label.replace("$".concat(index + 1), values[index]);
   }

@@ -22,6 +22,7 @@ export default class ApplicationTag extends ApplicationComponentView {
     return (
       <AtTag
         customStyle={{
+          minWidth: "max-content",
           padding: 0,
           width: "max-content",
           ...COLORS[color],

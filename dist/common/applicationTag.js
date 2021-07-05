@@ -99,6 +99,7 @@ var ApplicationTag = /*#__PURE__*/function (_ApplicationComponent) {
           style = _this$props.style;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_taroUi.AtTag, (0, _objectSpread2.default)((0, _objectSpread2.default)({
         customStyle: (0, _objectSpread2.default)((0, _objectSpread2.default)({
+          minWidth: "max-content",
           padding: 0,
           width: "max-content"
         }, COLORS[color]), style),

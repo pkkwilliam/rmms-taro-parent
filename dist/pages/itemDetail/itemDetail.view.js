@@ -107,6 +107,7 @@ function Container(props) {
       },
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Content, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_contactAgent.default, (0, _objectSpread2.default)((0, _objectSpread2.default)({}, props.itemDetail), props)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_flexView.default, {
         style: {
+          flex: 1,
           marginTop: 15
         },
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(MakeReservation, (0, _objectSpread2.default)({
@@ -301,14 +302,10 @@ function ItemHeader(props) {
       name = props.name;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
     style: {
-      alignItems: "center",
       flexDirection: "row",
       justifyContent: "space-between"
     },
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_h.default, {
-      style: {
-        marginTop: 5
-      },
       children: name
     }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
       style: {

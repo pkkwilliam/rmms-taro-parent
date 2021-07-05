@@ -97,7 +97,6 @@ function ErrorModal(props) {
 }
 
 export function generateDynamicLabel(label, values) {
-  console.log(label, values.length);
   for (let index = 0; index < values.length; index++) {
     label = label.replace(`$${index + 1}`, values[index]);
   }

@@ -129,7 +129,6 @@ export function ItemList(props) {
           <FlexView
             style={{
               flexDirection: "row",
-              alignItems: "center",
             }}
           >
             <ListingTypeTag listingType={listingType} {...props} />

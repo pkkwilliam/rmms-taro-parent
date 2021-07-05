@@ -47,7 +47,7 @@ export function Container(props) {
       <FlexView style={{ height: "100%", paddingLeft: 15, paddingRight: 15 }}>
         <Content {...props.itemDetail} {...props} />
         <ContactAgent {...props.itemDetail} {...props} />
-        <FlexView style={{ marginTop: 15 }}>
+        <FlexView style={{ flex: 1, marginTop: 15 }}>
           <MakeReservation onClickSubmit={props.toggleShowAgency} {...props} />
         </FlexView>
       </FlexView>
@@ -201,12 +201,11 @@ export function ItemHeader(props) {
   return (
     <FlexView
       style={{
-        alignItems: "center",
         flexDirection: "row",
         justifyContent: "space-between",
       }}
     >
-      <H1 style={{ marginTop: 5 }}>{name}</H1>
+      <H1>{name}</H1>
       <FlexView
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >

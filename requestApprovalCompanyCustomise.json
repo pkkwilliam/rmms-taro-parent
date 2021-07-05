@@ -1,42 +1,134 @@
 {
   "label": {
-    "category": {
-      "areaSuffix": "匹",
-      "layoutValue": "$1長$2寬"
+    "name": "文本標籤",
+    "categoryLabel": {
+      "name": "類別",
+      "areaSuffix": {
+        "name": "呎吋後綴",
+        "type": "STATIC_LABEL",
+        "value": "匹"
+      },
+      "layoutValue": {
+        "name": "佈局值",
+        "type": "DYNAMIC_LABEL",
+        "value": "$1長$2寬"
+      }
     },
-    "common": {
-      "buy": "布料",
-      "rent": "布匹"
+    "commonLabel": {
+      "name": "公共",
+      "buy": {
+        "name": "買賣",
+        "type": "STATIC_LABEL",
+        "value": "布料"
+      },
+      "rent": {
+        "name": "出租",
+        "type": "STATIC_LABEL",
+        "value": "布材"
+      }
     },
-    "contactAgent": {
-      "header": "發送信息",
-      "messageSent": "通知已發送",
-      "nameInputPlaceHolder": "請輸入你的姓名",
-      "nameInputTitle": "姓名",
-      "phoneInputPlaceHolder": "請輸入你的電話號碼",
-      "phoneInputTitle": "電話號碼",
-      "submitButton": "通知材料銷售",
-      "textAreaValue": "你好，我想了解更多關於$1:$2，我的電話:$3"
+    "contactAgentLabel": {
+      "name": "聯繫代理",
+      "header": {
+        "name": "標題",
+        "type": "STATIC_LABEL",
+        "value": "詢價"
+      },
+      "messageSent": {
+        "name": "標題",
+        "type": "STATIC_LABEL",
+        "value": "通知已發送"
+      },
+      "nameInputPlaceHolder": {
+        "name": "名稱輸入佔位符",
+        "type": "STATIC_LABEL",
+        "value": "請輸入你的姓名"
+      },
+      "nameInputTitle": {
+        "name": "名稱輸入標題",
+        "type": "STATIC_LABEL",
+        "value": "姓名"
+      },
+      "phoneInputPlaceHolder": {
+        "name": "電話輸入佔位符",
+        "type": "STATIC_LABEL",
+        "value": "請輸入你的電話號碼"
+      },
+      "phoneInputTitle": {
+        "name": "電話輸入標題",
+        "type": "STATIC_LABEL",
+        "value": "電話號碼"
+      },
+      "submitButton": {
+        "name": "提交按鈕",
+        "type": "STATIC_LABEL",
+        "value": "發送消息"
+      },
+      "textAreaValue": {
+        "name": "文本區域值",
+        "type": "DYNAMIC_LABEL",
+        "value": "你好，我想了解更多關於$1:$2，我的電話:$3"
+      }
     },
-    "itemDetail": {
-      "areaHeader": "呎吋",
-      "areaSuffix": "匹",
-      "detailHeader": "物料信息",
-      "layoutHeader": "長寬",
-      "layoutValue": "$1長$2寬",
-      "price": "價格",
-      "submitButton": "發送信息"
+    "itemDetailLabel": {
+      "areaHeader": {
+        "name": "區域標題",
+        "type": "STATIC_LABEL",
+        "value": "呎吋"
+      },
+      "areaSuffix": {
+        "name": "呎吋後綴",
+        "type": "STATIC_LABEL",
+        "value": "匹"
+      },
+      "detailHeader": {
+        "name": "細節標題",
+        "type": "STATIC_LABEL",
+        "value": "詳細"
+      },
+      "layoutHeader": {
+        "name": "佈局標題",
+        "type": "STATIC_LABEL",
+        "value": "尺吋"
+      },
+      "layoutValue": {
+        "name": "佈局值",
+        "type": "DYNAMIC_LABEL",
+        "value": "$1長$2寛"
+      },
+      "price": {
+        "name": "價格",
+        "type": "STATIC_LABEL",
+        "value": "價格"
+      },
+      "submitButton": {
+        "name": "提交按鈕",
+        "type": "STATIC_LABEL",
+        "value": "了解更多"
+      }
     },
-    "ladningPage": {}
+    "ladningPageLabel": {},
+    "userProfileLabel": {
+      "favorite": {
+        "name": "收藏",
+        "type": "STATIC_LABEL",
+        "value": "收藏"
+      },
+      "favoriteCount": {
+        "name": "收藏數",
+        "type": "DYNAMIC_LABEL",
+        "value": "$1個材料"
+      }
+    }
   },
-  "landingPage": {
-    "carousel": [
+  "landingPageStyle": {
+    "carouselStyle": [
       {
         "id": 7,
         "name": "台山區",
         "type": "category",
         "url": [
-          "http://static1.squarespace.com/static/5877e86f9de4bb8bce72105c/t/58d8b092e4fcb5ad94cd2a66/1490595993468/?format=1500w"
+          "https://user-assets.sxlcdn.com/images/811393/FpEJdAmExZnI3l2G4eJ_uewRGsKy.jpeg"
         ]
       },
       {
@@ -44,7 +136,7 @@
         "name": "台山區",
         "type": "category",
         "url": [
-          "http://static1.squarespace.com/static/5877e86f9de4bb8bce72105c/t/58d8b092e4fcb5ad94cd2a66/1490595993468/?format=1500w"
+          "https://user-assets.sxlcdn.com/images/811393/Fu2lH99pSUjgdfl7NC3hJ9xP-qyt.jpeg"
         ]
       },
       {
@@ -52,12 +144,12 @@
         "name": "黑沙環",
         "type": "category",
         "url": [
-          "http://static1.squarespace.com/static/5877e86f9de4bb8bce72105c/t/58d8b092e4fcb5ad94cd2a66/1490595993468/?format=1500w"
+          "https://user-assets.sxlcdn.com/images/811393/Ft4iMoeqnUECy75WUwEeCqK0mRy5.jpeg"
         ]
       }
     ],
-    "banners": [],
-    "bottomList": [
+    "bannerStyle": [],
+    "bottomListStyle": [
       {
         "id": 6,
         "name": "青洲區",
@@ -67,51 +159,78 @@
         "id": 3,
         "type": "category"
       }
-    ],
-    "mainMenuButtons": [
-      {
-        "id": 8,
-        "name": "布料",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "種類",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/Fh-huaj4ecccroAWqjWU_fYb688X.png"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "最新",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/Fo4sQ9b3AIV9NTjMl4VQ95ADfBsu.png"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "熱門",
-        "type": "category",
-        "url": [
-          "https://user-assets.sxlcdn.com/images/811393/FuS4qY8F3Pn2PJaDQjr2OGgfnuw9.png"
-        ]
-      }
     ]
   },
-  "style": {
-    "appBackgroundColor": "#F6F6F6",
-    "imageCarousel": {
-      "indicatorDots:": true
+  "mainMenuButtonRowStyle": {
+    "buy": {
+      "label": "布料",
+      "type": "IMAGE_BUTTON",
+      "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
     },
-    "primary": "#446DF6",
-    "primaryGradient": "linear-gradient(90deg, rgba(252,150,3,1) 0%, rgba(252,91,1,1) 100%)",
-    "secondary": "#7F9BFA",
-    "shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-    "shadowLight": "0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.0)"
+    "rent": {
+      "label": "布材",
+      "type": "IMAGE_BUTTON",
+      "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
+    }
+  },
+  "style": {
+    "name": "自定風格",
+    "backgroundColor": {
+      "name": "全局背景顏色",
+      "type": "COLOR",
+      "value": "#fafafa"
+    },
+    "cardContent": {
+      "backgroundColor": {
+        "name": "卡片背景顏色",
+        "type": "COLOR",
+        "value": "#ffffff"
+      }
+    },
+    "imageCarousel": {
+      "indicatorDots:": true,
+      "name": "旋轉圖片",
+      "type": "BOOLEAN"
+    },
+    "primary": {
+      "value": "#446DF6",
+      "name": "主色調",
+      "type": "COLOR"
+    },
+    "primaryGradient": {
+      "value": "linear-gradient(90deg, rgba(252,150,3,1) 0%, rgba(252,91,1,1) 100%)",
+      "name": "主梯度色調",
+      "type": "COLOR"
+    },
+    "secondary": {
+      "value": "#7F9BFA",
+      "name": "副色調",
+      "type": "COLOR"
+    },
+    "shadow": {
+      "value": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+      "name": "影",
+      "type": "COLOR"
+    },
+    "shadowLight": {
+      "value": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+      "name": "淺影",
+      "type": "COLOR"
+    },
+    "tabbarBackgroundColor": {
+      "name": "全局TabBar背景顏色",
+      "type": "COLOR",
+      "value": "#f9f8f6"
+    },
+    "tabbarSelectedColor": {
+      "name": "TabBar選中顏色",
+      "type": "COLOR",
+      "value": "#3d3c3a"
+    },
+    "tabbarUnselectedColor": {
+      "name": "TabBar未選中顏色",
+      "type": "COLOR",
+      "value": "#b7b7b7"
+    }
   }
 }

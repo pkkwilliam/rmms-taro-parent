@@ -196,8 +196,7 @@ function ItemList(props) {
         },
         children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)(_flexView.default, {
           style: {
-            flexDirection: "row",
-            alignItems: "center"
+            flexDirection: "row"
           },
           children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(ListingTypeTag, (0, _objectSpread2.default)({
             listingType: listingType
