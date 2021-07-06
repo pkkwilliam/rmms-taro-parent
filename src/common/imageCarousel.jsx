@@ -15,8 +15,8 @@ export default class ImageCarousel extends ApplicationComponentView {
     });
     return (
       <Swiper
-        indicatorColor={secondary}
-        indicatorActiveColor={primary}
+        indicatorColor={secondary?.value}
+        indicatorActiveColor={primary?.value}
         circular
         indicatorDots
         style={{ height: 245, ...style }}

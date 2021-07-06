@@ -69,9 +69,10 @@ export default class ItemDetail extends ApplicationComponent {
     if (isFavoriteItem(itemDetail, this.appState.favorite.favorites)) {
       this.serviceExecutor
         .execute(DELETE_USER_FAVORITE(itemDetail))
-        .then((updateFavorites) =>
-          this.appState.favorite.setFavorites(updateFavorites)
-        );
+        .then((updateFavorites) => {
+          this.appState.favorite.setFavorites(updateFavorites);
+          successMessage = "删除成功";
+        });
     } else {
       this.serviceExecutor
         .execute(ADD_USER_FAVORITE(itemDetail))

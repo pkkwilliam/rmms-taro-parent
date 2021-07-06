@@ -165,12 +165,12 @@
     "buy": {
       "label": "買賣",
       "type": "IMAGE_BUTTON",
-      "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
+      "imageUrl": "https://qiniu.bitcode.mo/default_sell_v3.png"
     },
     "rent": {
       "label": "出租",
       "type": "IMAGE_BUTTON",
-      "imageUrl": "https://user-assets.sxlcdn.com/images/811393/Fj4Z68mwvIA5pcsWnp-cLeZ4h0J9.png"
+      "imageUrl": "https://qiniu.bitcode.mo/default_rent_v3.png"
     }
   },
   "style": {

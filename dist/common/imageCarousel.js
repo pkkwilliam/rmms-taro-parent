@@ -55,8 +55,8 @@ var ImageCarousel = /*#__PURE__*/function (_ApplicationComponent) {
         });
       });
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_components.Swiper, {
-        indicatorColor: secondary,
-        indicatorActiveColor: primary,
+        indicatorColor: secondary === null || secondary === void 0 ? void 0 : secondary.value,
+        indicatorActiveColor: primary === null || primary === void 0 ? void 0 : primary.value,
         circular: true,
         indicatorDots: true,
         style: (0, _objectSpread2.default)({

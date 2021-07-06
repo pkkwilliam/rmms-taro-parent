@@ -61,7 +61,9 @@ var ItemDetail = /*#__PURE__*/function (_ApplicationComponent) {
 
       if (isFavoriteItem(itemDetail, _this.appState.favorite.favorites)) {
         _this.serviceExecutor.execute((0, _service.DELETE_USER_FAVORITE)(itemDetail)).then(function (updateFavorites) {
-          return _this.appState.favorite.setFavorites(updateFavorites);
+          _this.appState.favorite.setFavorites(updateFavorites);
+
+          successMessage = "删除成功";
         });
       } else {
         _this.serviceExecutor.execute((0, _service.ADD_USER_FAVORITE)(itemDetail)).then(function (updateFavorites) {
